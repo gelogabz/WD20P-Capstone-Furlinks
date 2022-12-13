@@ -1,6 +1,6 @@
 @extends('components.navbar')
 
-@section('search')
+@section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid" style="width:92%;text-align:left">
     <form style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
