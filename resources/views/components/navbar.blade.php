@@ -67,11 +67,7 @@
   @include ('components/modal')
   {{-- </div> --}}
 
-  @yield ('welcome')
-  @yield ('about')
-  @yield ('how')
-  @yield ('search')
-  @yield ('dogdeets')
+  @yield ('content')
 
   @include('components/footer')
 </body>
