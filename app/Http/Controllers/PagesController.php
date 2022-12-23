@@ -30,4 +30,9 @@ class PagesController extends Controller
         return view('pages/dogdeets');
     }
 
+    public function postdog(){
+        return view('pages/postdog');
+    }
+
+
 }
