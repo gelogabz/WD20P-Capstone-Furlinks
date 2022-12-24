@@ -14,7 +14,7 @@
           <span style="padding:5px"></span>
           <button class="btn-outline-primary2" type="button" style="float:center;margin-top:10px"><i class="fa-regular fa-share-from-square" style="font-size:medium;padding-right: 10px;"></i>Share</button>
           <span style="padding:5px"></span>
-          <button class="btn-primary3" id="myBtn4" type="button" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>ADOPT</button>
+          <input class="btn-primary3" id="myBtn4" type="submit" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>ADOPT</inp>
         </div>
       </div>
 
