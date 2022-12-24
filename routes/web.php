@@ -19,8 +19,9 @@ Route::get('/search', 'App\Http\Controllers\PagesController@search');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
 Route::get('/dogdeets', 'App\Http\Controllers\PagesController@dogdeets');
+Route::get('/editdog', 'App\Http\Controllers\PagesController@editdog');
 
-Route::resource('contacts','App\Http\Controllers\ContactsController');
+Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 
 // Route::get('/', function () {
 //     return view('welcome');
