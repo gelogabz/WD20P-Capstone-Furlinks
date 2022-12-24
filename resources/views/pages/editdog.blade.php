@@ -16,9 +16,7 @@
 
       <!--Dog profile information -->
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-        <h5>Female, 3 mo. old<br>
-          <h6><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style=color:#5d5d5d;"> Aspin - Spitz - Shih Tzu</span></h6>
-          <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i><span style="font-size: small;color: #5d5d5d">Posted 10d ago</span><br></h4>
+      
         <table style="width:100%;color:#581542;margin-top:10px">
           <colgroup>
             <col span="1" style="width:40%">
