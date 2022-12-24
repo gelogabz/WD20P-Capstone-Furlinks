@@ -3,7 +3,7 @@
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
-<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px; padding-bottom: 15px;margin-bottom: 20px">
+<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px; padding-bottom: 25px;margin-bottom: 20px">
     <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
 
       <!--Dog profile pic and social media actions -->  
