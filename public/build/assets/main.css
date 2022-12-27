@@ -1,13 +1,15 @@
-
+    .navbar{
+        background-color: #f8f6f3 !important;
+    }
     a { 
         text-decoration: none; 
-        color:#811D60}
+        color:#413F42; }
     a:link { 
         text-decoration: none; 
-        color:#811D60; }
+        color:#413F42; }
     a:visited { 
         text-decoration: none; 
-        color:#811D60; }
+        color:#413F42; }
     a:hover { 
         text-decoration: none;
         color:#4d0f39;
@@ -51,17 +53,17 @@
     .btn-primary:active,
     .btn-primary:visited {
         border-radius: 10px;
-        background-color: #811D60;
+        background-color: #799FC8;
         color:#FFF;
-        border-color: #811D60;
+        border-color: #5082B7;
         height: 30px;
         padding-top:5px;
         font-size: 13px;
         font-weight: 500 !important;
     }
     .btn-primary:hover {
-      background-color: #532644;
-      border-color: #811D60;
+      background-color: #5082B7;
+      border-color: #5082B7;
       height: 30px;
       padding-top:5px;
       font-size: 13px !important;
@@ -142,20 +144,20 @@
     .btn-outline-primary:active,
     .btn-outline-primary:visited {
         border-radius: 10px;
-        background-color: #FFF;
-        color:#811D60;
-        border-color: #811D60;
+        background-color: #799FC8;
+        color:#fff;
+        border-color: #5082B7;
         height: 30px;
         padding-top:5px;
         font-size: small !important;
     }
     .btn-outline-primary:hover {
-      background-color: #eae5e8;
-      color:#811D60;
-      border-color: #811D60; 
+      background-color: #5082B7 ;
+      color:#FFF;
+      border-color: #5082B7 ; 
       height: 30px;
       padding-top:5px;
-        font-size: small !important;
+      font-size: small !important;
       transition: all 1s ease;
       -webkit-transition: all 1s ease;
       -moz-transition: all 1s ease;
@@ -546,7 +548,7 @@ select.list-dt:focus {
 
 .site-footer
 {
-  background-color:#811D60;
+  background-color:#b78550;
  
   font-size:14px;
   color:#faebf5;

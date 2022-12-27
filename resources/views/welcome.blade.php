@@ -5,57 +5,63 @@
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
     <h1 class="font-effect-outline" style="color:#FFF">Find you fur-fect match
     </h1>
-    <form>
+    <form>  
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
-          <div class="form-row justify-content-left"  style="width: 90%; background-color: #FFF;font-size:small">
-          <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-            <span style="padding-left:10%;padding-right:4%;"> Gender: </span>
-              <select id="Gender" style="border:none;background-color:#FFF;margin-left: 10px;">
-                <option selected>Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Any</option>
-              </select>
-            </div>
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                <span style="padding-left:10%;padding-right:0%;"> Age Bracket: </span>
-                  <select id="age" style="border:none;background-color: #FFF">
-                    <option selected>Select</option>
-                    <option>Puppy 3-6 mos</option>
-                    <option>Puppy 6-12 mos</option>
-                    <option>Young 1-2 yrs</option>
-                    <option>Adult 2 yrs & up</option>
-                    <option>Any</option>
-                  </select>
-            </div>
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                <span style="padding-left:10%;padding-right:1%"> Size: </span>
-                  <select id="breed" style="border:none;background-color: #FFF" >
-                    <option selected>Select</option>
-                    <option>Small breed</option>
-                    <option>Medium-sized</option>
-                    <option>Large breed</option>
-                    <option>Any</option>
-                  </select>
-            </div>
+          <div class="d-flex form-row justify-content-left rounded-2"  style="width: 90%; background-color: #FFF;font-size:small">
+          
             <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-              <span style="padding-left:10%;padding-right:10%"> Color: </span>
-                <select id="breed" style="border:none;background-color: #FFF" >
+              <label style="padding-left:10%; padding-right:4%;"> Gender: </label>
+                <select class="form-select form-select-sm" id="Gender" style="border:none;background-color:#FFF;margin-left: 10px;">
                   <option selected>Select</option>
-                  <option>White</option>
-                  <option>Black</option>
-                  <option>Brown</option>
-                  <option>Mixed</option>
+                  <option>Male</option>
+                  <option>Female</option>
                   <option>Any</option>
                 </select>
-          </div>
-            <div class="form-group col-sm-1" style="margin:0">
-              <a href=/search type="button" class="btn btn-primary" style="border-radius:0;letter-spacing: 1px;height:34px;padding-top:7px;color:#FFF"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
             </div>
-        </div>  
+            
+            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
+                  <label style="padding-left:10%;padding-right:0%;"> Age Bracket: </label>
+                    <select class="form-select" id="age" style="border:none;background-color: #FFF">
+                      <option selected>Select</option>
+                      <option>Puppy 3-6 mos</option>
+                      <option>Puppy 6-12 mos</option>
+                      <option>Young 1-2 yrs</option>
+                      <option>Adult 2 yrs & up</option>
+                      <option>Any</option>
+                    </select>
+            </div>
+
+            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
+                  <label style="padding-left:10%;padding-right:1%"> Size: </label>
+                    <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
+                      <option selected>Select</option>
+                      <option>Small breed</option>
+                      <option>Medium-sized</option>
+                      <option>Large breed</option>
+                      <option>Any</option>
+                    </select>
+            </div>
+
+            <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
+                <label style="padding-left:10%;padding-right:10%"> Color: </label>
+                  <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
+                    <option selected>Select</option>
+                    <option>White</option>
+                    <option>Black</option>
+                    <option>Brown</option>
+                    <option>Mixed</option>
+                    <option>Any</option>
+                  </select>
+            </div>
+              
+            <div class="form-group col-sm-1" style="margin:0">
+                <a href=/search typ e="button" class="btn btn-primary" style="border-radius:0; letter-spacing:1px; height:34px; padding-top:7px; color:#FFF">
+                  <i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
+            </div>
+          </div>  
         </div>
     </form>
-</div>
+  </div>
 </div>
 
 <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;margin-bottom:1%">

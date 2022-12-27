@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12" style="font-color:#fff">
         <p class="copyright-text" style="font-color:#fff">Copyright &copy; 2022 All Rights Reserved by 
-          <a href="aboutus.html" style="color:#fff">Furlinks</a>.
+          <a href="aboutus.html" style="color:#fff">Furlinks.</a>
         </p>
       </div>
 
