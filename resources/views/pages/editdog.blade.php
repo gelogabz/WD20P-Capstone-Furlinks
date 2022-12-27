@@ -14,71 +14,23 @@
       </div>
       <!--Dog profile information -->
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-        <h5>Edit Dog Details<br>  
-        <table style="width:100%;color:#581542;margin-top:10px">
-          <colgroup>
-            <col span="1" style="width:40%">
-            <col span="1" style="width:60%">
-          </colgroup>
-          <tr style="border-bottom:0.3pt solid #e1e1e1;">
-            <td colspan="2" style="padding-left:0px;font-size:15px"><i>About the dog</i></th>    
-          </tr>         
-          <tr>
-            <th>Foster Name:</th>
-            <td>Mika</td>
-          </tr>
-          <tr>
-            <th>Location:</th>
-            <td>Pandi, Bulacan</td>
-          </tr>
-          <tr>
-            <th>Date born/rescued:</th>
-            <td>21 May 2022</td>
-          </tr>
-          <tr>
-            <th>Breed of Sire:</th>
-            <td>Labrador - GSD</td>
-          </tr>
-          <tr>
-            <th>Breed of Dam:</th>
-            <td>Aspin</td>
-          </tr>
-          <tr>
-            <th>Rescued Dog:</th>
-            <td>No</td>
-          </tr>
-          <tr style="border-bottom:0.3pt solid #e1e1e1;">
-            <td colspan="2" style="padding-top:20px;padding-left:0px;font-size:15px"><i>Medical History</th>          
-          </tr>  
-          <tr>
-            <th>Vaccinated?</th>
-            <td>Yes</td>
-          </tr>
-          <tr>
-            <th>Anti-rabies?</th>
-            <td>Yes</td>
-          </tr>
-          <tr>
-            <th>Neutered/Spayed?</th>
-            <td>No</td>
-          </tr>
-          <tr>
-            <th>Medical issue/s:</th>
-            <td>None</td>
-          </tr>
-          <tr>
-            <th>Behavior:</th>
-            <td>Playful</td>
-          </tr>
-          <tr>
-            <th>Reason for posting:  </th>
-            <td>Dam and sire (rescued dogs) are still unneutered</td>
-          </tr>
-          <tr>
-            <th>Adoption Fee:  </th>
-            <td>₱2,000 - vaccination and food costs</td>
-          </tr>  
-        </table>
+        <h3>Edit Dog Details<br>  
+          <div class="row pt-3">
+            <div class="col-lg-12">
+              <h5>Breed:<h5>
+              <input type="text" style="width:100%">
+              <p style="font-size:12px;">Follow the format [breed 1]- [breed 2]- [breed 3]</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <h5>Gender<h5>
+                <h5 class="ms-5">Male<input type="radio" class="ms-5"></h5>
+                <h5 class="ms-5">Female<input type="radio" class="ms-4"></h5>
+                <br>
+                
+            </div>
+          </div>
       </div>
     </div>
 </div>
