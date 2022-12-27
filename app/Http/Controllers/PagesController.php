@@ -40,4 +40,8 @@ class PagesController extends Controller
     {
         return view('pages/editdog');
     }
+    public function ownprofile()
+    {
+        return view('pages/ownprofile');
+    }
 }
