@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\EditDogs;
+use App\Models\Dogprofile;
 
-class EditDogsController extends Controller
+class DogsprofileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class EditDogsController extends Controller
      */
     public function index()
     {
-        return EditDogs::all();
+        return Dogprofile::all();
     }
 
     /**
