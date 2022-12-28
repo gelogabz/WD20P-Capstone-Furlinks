@@ -61,6 +61,18 @@
             </div>
         </div>
       </div>
+        <!--Dog profile information -->
+        <div class="col-lg-9 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Dogs Posted</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Dogs Rehomed</a>
+                </li>
+            </ul>
+        </div>
+  
     </div>
 </div>
 

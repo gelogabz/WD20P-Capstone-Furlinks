@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\EditDogs;
 
 class EditDogsController extends Controller
 {
@@ -13,7 +14,7 @@ class EditDogsController extends Controller
      */
     public function index()
     {
-        //
+        return EditDogs::all();
     }
 
     /**
