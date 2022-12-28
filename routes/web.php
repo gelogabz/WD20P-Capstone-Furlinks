@@ -23,7 +23,7 @@ Route::get('/editdog', 'App\Http\Controllers\PagesController@editdog');
 Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
-Route::resource('dogsprofile', 'App\Http\Controllers\DogsprofileController');
+Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 
 
 // Route::get('/', function () {

@@ -1,6 +1,6 @@
 @extends ('components.navbar')
-
 @section('content')
+
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
@@ -66,14 +66,25 @@
             <ul class="nav nav-tabs">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="#">Dogs Posted</a>
+                  @foreach($dogprofiles as $dogsitem)
+                  <div class="card" style="width: 18rem;">
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}}</h5>
+                      <h5 class="card-title">{{$dogsitem->breed_of_sire}} - {{$dogsitem->breed_of_dam}}</h5>
+                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                    @endforeach
+                  </div>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Dogs Rehomed</a>
                 </li>
             </ul>
         </div>
-        
     </div>
 </div>
+
+
 
 @endsection
