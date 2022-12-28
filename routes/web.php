@@ -23,7 +23,9 @@ Route::get('/editdog', 'App\Http\Controllers\PagesController@editdog');
 Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
-Route::resource('Editdogs', 'App\Http\Controllers\EditDogsController');
+Route::resource('dogsprofile', 'App\Http\Controllers\DogsprofileController');
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
