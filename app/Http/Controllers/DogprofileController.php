@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Dogprofile;
 
 class DogprofileController extends Controller
 {
@@ -13,7 +14,8 @@ class DogprofileController extends Controller
      */
     public function index()
     {
-        //
+        $dogprofiles = Dogprofile::all();
+        return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
     }
 
     /**
