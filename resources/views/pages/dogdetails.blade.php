@@ -1,6 +1,6 @@
 @extends ('components.navbar')
-
 @section('content')
+
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
@@ -16,9 +16,10 @@
       </div>
 
       <!--Dog profile information -->
+    
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-        <h5>Female, 3 mo. old<br>
-          <h6><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style=color:#5d5d5d;"> Aspin - Spitz - Shih Tzu</span></h6>
+        <h5 class="text-primary"> {{$dogprofiles->gender}},  {{$dogprofiles->age}}yrs old<br>
+          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary"> {{$dogprofiles->breed_of_sire}} - {{$dogprofiles->breed_of_dam}} </span></h6>
           <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i><span style="font-size: small;color: #5d5d5d">Posted 10d ago</span><br></h4>
         <table style="width:100%;color:#581542;margin-top:10px">
           <colgroup>
@@ -38,15 +39,15 @@
           </tr>
           <tr>
             <th>Date born/rescued:</th>
-            <td>21 May 2022</td>
+            <td class="text-primary">{{$dogprofiles->date_born}} / {{$dogprofiles->date_rescued}}</td>
           </tr>
           <tr>
             <th>Breed of Sire:</th>
-            <td>Labrador - GSD</td>
+            <td class="text-primary">{{$dogprofiles->breed_of_sire}}</td>
           </tr>
           <tr>
             <th>Breed of Dam:</th>
-            <td>Aspin</td>
+            <td class="text-primary">{{$dogprofiles->breed_of_dam}}</td>
           </tr>
           <tr>
             <th>Rescued Dog:</th>
@@ -57,7 +58,7 @@
           </tr>  
           <tr>
             <th>Vaccinated?</th>
-            <td>Yes</td>
+            <td class="text-primary">{{$dogprofiles->vaccinated}}</td>
           </tr>
           <tr>
             <th>Anti-rabies?</th>
@@ -83,7 +84,11 @@
             <th>Adoption Fee:  </th>
             <td>₱2,000 - vaccination and food costs</td>
           </tr>  
+        
         </table>
+        <div>
+       
+        </div>
       </div>
     </div>
 </div>
