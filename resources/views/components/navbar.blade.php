@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <title>Furlinks</title>
     <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
     <link rel="stylesheet" href="{{ URL::asset('build/assets/main.css')}}" />
@@ -30,16 +34,52 @@
       </ul>
     </div>
     <div>
-      <span style="padding:5px"></span>
-      <a class="btn btn-primary my-2 my-sm-0" id="myBtn" role="button" data-bs-toggle="modal" data-bs-target="#myModal" href="/login">Log In</a>
+      {{-- <span style="padding:5px"></span>
+      <a class="btn btn-primary my-2 my-sm-0" id="myBtn" role="button" href="/login">Log In</a>
       <span style="padding:5px"></span>
       <a class="btn btn btn-outline-primary my-2 my-sm-0 login-btn" id="myBtn3" type="button" href="/register">Sign Up</a>
+      --}}<ul>
+      @guest
+          @if (Route::has('login'))
+              <li class="nav-item btn btn-primary my-2 my-sm-0" id="myBtn" role="button">
+                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              </li>
+          @endif
+
+          @if (Route::has('register'))
+              <li class="nav-item btn btn btn-outline-primary my-2 my-sm-0 login-btn" id="myBtn3" type="button">
+                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              </li>
+          @endif
+        </ul>
+      @else
+      <ul class='list-unstyled'>
+          <li class="nav-item dropdown">
+               <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                <span>Welcome<span> {{ Auth::user()->name }}
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                      {{ __('Logout') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                      @csrf
+                  </form>
+              </div>
+          </li>
+        </ul>
+        @endguest
+                      
     </div>  
   </nav>
 
   <!-- INCLUDE MODAL FORM-->
 
-  <script>
+  {{-- <script>
     $(document).ready(function(){
       $("#myBtn").click(function(){
         $("#myModal").modal();
@@ -62,9 +102,9 @@
         $("#signupmodal").modal();
       });
     });
-  </script>
+  </script> --}}
   {{-- <div class="container justify-content-center"> --}}
-  @include ('components/modal')
+  {{-- @include ('components/modal') --}}
   {{-- </div> --}}
 
   @yield ('content')
