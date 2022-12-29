@@ -14,7 +14,13 @@ class DogprofileController extends Controller
      */
     public function index()
     {
-        $dogprofiles = Dogprofile::all();
+        // $dogprofiles = Dogprofile::all();
+        // orderBy ascending and descending
+
+        // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
+
+        // Pagination
+        $dogprofiles = Dogprofile::orderBy('gender', 'asc')->simplePaginate(8);
         return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
     }
 

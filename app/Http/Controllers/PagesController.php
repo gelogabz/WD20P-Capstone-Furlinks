@@ -44,4 +44,8 @@ class PagesController extends Controller
     {
         return view('pages/ownprofile');
     }
+    public function dogdetails()
+    {
+        return view('pages/dogdetails');
+    }
 }
