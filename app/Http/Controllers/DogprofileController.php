@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Contacts;
+use App\Models\Dogprofile;
 
-class ContactsController extends Controller
+class DogprofileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,14 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        return Contacts::all();
+        // $dogprofiles = Dogprofile::all();
+        // orderBy ascending and descending
+
+        // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
+
+        // Pagination
+        $dogprofiles = Dogprofile::orderBy('id', 'asc')->simplePaginate(8);
+        return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
     }
 
     /**
@@ -46,7 +53,8 @@ class ContactsController extends Controller
      */
     public function show($id)
     {
-        //
+        $singledogContact = Dogprofile::find($id);
+        return view('pages.dogdetails')->with('dogprofiles', $singledogContact);
     }
 
     /**
