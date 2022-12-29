@@ -87,13 +87,13 @@
                           <div class="card-body">
                            <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
                            <h5 class="card-title">{{$dogsitem->breed_of_sire}} - {{$dogsitem->breed_of_dam}}</h5>
-                          <a href="/dogdetails" class="btn btn-primary">Show Details</a>
+                          <a href="/pages/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
                           </div>
                       </div>
                    </div>
                    @endforeach
                    
-                    <div class="text-center">
+                    <div class="text-center mt-5">
                     {{$dogprofiles->links()}}
                     </div>
                  

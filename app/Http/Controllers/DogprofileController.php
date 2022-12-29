@@ -20,7 +20,7 @@ class DogprofileController extends Controller
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
 
         // Pagination
-        $dogprofiles = Dogprofile::orderBy('gender', 'asc')->simplePaginate(8);
+        $dogprofiles = Dogprofile::orderBy('id', 'asc')->simplePaginate(8);
         return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
     }
 
@@ -53,7 +53,8 @@ class DogprofileController extends Controller
      */
     public function show($id)
     {
-        //
+        $singledogContact = Dogprofile::find($id);
+        return view('pages.dogdetails')->with('dogprofiles', $singledogContact);
     }
 
     /**
