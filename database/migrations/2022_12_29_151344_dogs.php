@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('dogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('name');
             $table->string('age');
             $table->unsignedBigInteger('breed_id1');
             $table->foreign('breed_id1')->references('id')->on('breed')->onDelete('cascade');
@@ -25,6 +24,14 @@ return new class extends Migration
             $table->string('pic');
             $table->string('size');
             $table->string('color');
+            $table->string('name')->nullable($value = true);
+            $table->string('location');
+            $table->boolean('neutered');
+            $table->date('birthdate')->nullable($value = true);
+            $table->boolean('rescued');
+            $table->date('rescuedate')->nullable($value = true);
+            $table->smallInteger('fee');
+            $table->string('feenotes');
         });
     }
 
