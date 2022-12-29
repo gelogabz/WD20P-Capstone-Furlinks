@@ -65,7 +65,8 @@
                          <option>South Luzon</option>
                          <option>Cebu</option>
                          <option>Davao</option>
-                     </select> </label>
+                     </select> 
+                    </label>
                      </div>
                    </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">
@@ -83,7 +84,7 @@
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
    <div class="row">
      <!--dog1 fem0-->
-     <div class="col-lg-3 col-md-6" style="margin-bottom:25px">
+      <div class="col-lg-3 col-md-6" style="margin-bottom:25px">
        <div class="row" style="padding-bottom:5px">
        <div class="col col-auto" style="margin-right:px">
        <img class="profimg" src="{{asset('build/images/profilepic/chef.jpg') }}">

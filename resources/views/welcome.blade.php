@@ -5,63 +5,98 @@
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
     <h1 class="font-effect-outline" style="color:#FFF">Find you fur-fect match
     </h1>
-    <form>
+    <form>  
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
-          <div class="form-row justify-content-left"  style="width: 90%; background-color: #FFF;font-size:small">
-          <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-            <span style="padding-left:10%;padding-right:4%;"> Gender: </span>
-              <select id="Gender" style="border:none;background-color:#FFF;margin-left: 10px;">
-                <option selected>Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Any</option>
-              </select>
-            </div>
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                <span style="padding-left:10%;padding-right:0%;"> Age Bracket: </span>
-                  <select id="age" style="border:none;background-color: #FFF">
-                    <option selected>Select</option>
-                    <option>Puppy 3-6 mos</option>
-                    <option>Puppy 6-12 mos</option>
-                    <option>Young 1-2 yrs</option>
-                    <option>Adult 2 yrs & up</option>
-                    <option>Any</option>
-                  </select>
-            </div>
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                <span style="padding-left:10%;padding-right:1%"> Size: </span>
-                  <select id="breed" style="border:none;background-color: #FFF" >
-                    <option selected>Select</option>
-                    <option>Small breed</option>
-                    <option>Medium-sized</option>
-                    <option>Large breed</option>
-                    <option>Any</option>
-                  </select>
-            </div>
+          <div class="d-flex form-row justify-content-left rounded-2"  style="width: 90%; background-color: #FFF;font-size:small">
+          
             <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-              <span style="padding-left:10%;padding-right:10%"> Color: </span>
-                <select id="breed" style="border:none;background-color: #FFF" >
+              <label style="padding-left:10%; padding-right:4%;"> Gender: </label>
+                <select class="form-select form-select-sm" id="Gender" style="border:none;background-color:#FFF;margin-left: 10px;">
                   <option selected>Select</option>
-                  <option>White</option>
-                  <option>Black</option>
-                  <option>Brown</option>
-                  <option>Mixed</option>
+                  <option>Male</option>
+                  <option>Female</option>
                   <option>Any</option>
                 </select>
-          </div>
-            <div class="form-group col-sm-1" style="margin:0">
-              <a href=/search type="button" class="btn btn-primary" style="border-radius:0;letter-spacing: 1px;height:34px;padding-top:7px;color:#FFF"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
             </div>
-        </div>  
+            
+            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
+                  <label style="padding-left:10%;padding-right:0%;"> Age Bracket: </label>
+                    <select class="form-select" id="age" style="border:none;background-color: #FFF">
+                      <option selected>Select</option>
+                      <option>Puppy 3-6 mos</option>
+                      <option>Puppy 6-12 mos</option>
+                      <option>Young 1-2 yrs</option>
+                      <option>Adult 2 yrs & up</option>
+                      <option>Any</option>
+                    </select>
+            </div>
+
+            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
+                  <label style="padding-left:10%;padding-right:1%"> Size: </label>
+                    <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
+                      <option selected>Select</option>
+                      <option>Small breed</option>
+                      <option>Medium-sized</option>
+                      <option>Large breed</option>
+                      <option>Any</option>
+                    </select>
+            </div>
+
+            <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
+                <label style="padding-left:10%;padding-right:10%"> Color: </label>
+                  <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
+                    <option selected>Select</option>
+                    <option>White</option>
+                    <option>Black</option>
+                    <option>Brown</option>
+                    <option>Mixed</option>
+                    <option>Any</option>
+                  </select>
+            </div>
+              
+            <div class="form-group col-sm-1" style="margin:0">
+                <a href=/search typ e="button" class="btn btn-primary" style="border-radius:0; letter-spacing:1px; height:34px; padding-top:7px; color:#FFF">
+                  <i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
+            </div>
+          </div>  
         </div>
     </form>
-</div>
+  </div>
 </div>
 
 <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;margin-bottom:1%">
-  <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>
+  <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>  
+  @foreach($dogs as $dog)
+
+      <div class="card d-inline-flex m-2">
+          <div class="card" style="width:18rem;">
+              <div class="card-body">
+                  <h3 class="card-title">{{$dog->name}}</h3>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$dog->age}}</h6>
+                  <h6 class="card-subtitle mb-2 fst-italic">{{$dog->breed_id1}}</h6>
+                  <h6 class="card-subtitle mb-2">{{$dog->breed_id2}}</h6>
+              </div>
+          </div>
+      </div>
+
+  @endforeach
+  <div class="row">
+  {{--<div class="col-lg-3 col-md-6">
+    <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
+    <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
+    </p>
+    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
+    <p style="padding-left:5%;font-size: small">Posted 2m ago</p>
+  </div>--}}
+</div>
+
+
+
+
 <div class="row">
-  <div class="col-lg-3 col-md-6">
+
+  {{-- <div class="col-lg-3 col-md-6">
     <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
     <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
     <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
@@ -93,7 +128,7 @@
     <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
     <p style="padding-left:5%;font-size: small">Posted 1d ago</p>
   </div>
-  </div>
+  </div> --}}
 </div>
 
 <div class="container-fluid" style="background-color:#FFE38B;text-align: center;vertical-align: middle;">
@@ -185,7 +220,7 @@
                     <button class="btn btn-primary" type="submit" class="signupbtn" style="width:100%">Continue</button>
                   <p style="text-align:center;padding-top:5px">or</p>
                   <a class="btn btn-primary4 btn-md btn-block" style="background-color: #3b5998;text-align: left;padding-left: 60px;" href="#!" role="button">
-                  <i class="fab fa-facebook-f me-2"></i><text style="font-size:14px;padding-left:10px;;">Continue with Facebook</a>
+                  <i class="fab fa-facebook-f me-2"></i><text style="font-size:14px;padding-left:10px;">Continue with Facebook</a> 
                   <a class="btn btn-primary4 btn-md btn-block" style="background-color: #dd4b39;text-align: left;padding-left: 60px;;" href="#!" role="button">
                   <i class="fab fa-google me-2"></i><text style="font-size:14px;padding-left:10px;"> Continue with Google</a>
                   <br>
