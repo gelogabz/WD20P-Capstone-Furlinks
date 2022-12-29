@@ -6,27 +6,33 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function welcome(){
+    public function welcome()
+    {
         return view('/welcome');
-    }  
+    }
 
-    public function navbar(){
+    public function navbar()
+    {
         return view('component/navbar');
     }
 
-    public function search(){
+    public function search()
+    {
         return view('pages/search');
     }
 
-    public function how(){
+    public function how()
+    {
         return view('pages/howitworks');
     }
 
-    public function about(){
+    public function about()
+    {
         return view('pages/about');
     }
 
-    public function dogdeets(){
+    public function dogdeets()
+    {
         return view('pages/dogdeets');
     }
 
