@@ -24,6 +24,15 @@ return new class extends Migration
             $table->string('breed_of_sire');
             $table->string('breed_of_dam');
             $table->string('vaccinated');
+            $table->string('pic');
+            $table->string('size');
+            $table->string('color');
+            $table->string('name')->nullable($value = true);
+            $table->string('location');
+            $table->boolean('neutered');
+            $table->boolean('rescued');
+            $table->smallInteger('fee');
+            $table->string('feenotes');
         });
     }
 
