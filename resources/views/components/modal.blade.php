@@ -5,7 +5,7 @@
             <div class="container d-flex justify-content-center" style="margin-top:10px">
                 <div class="form form-control" style="border:none">
                 <form class="rounder p-30 p-sm-2 pb-0" id="loginform" target="_blank" action="" method="POST">
-                    <img src="{{asset('build/images/fllogo.png') }}" width="35px" style="display: block; margin:auto"></img>
+                    <img src="{{asset('build/images/fllogo.png') }}" width="35px" style="display: block; margin:auto"/>
                     <h5 style="text-align:center;margin:2%">Welcome to Furlinks</h5>
                     <br>
                         <div class="mb-3">
@@ -47,7 +47,7 @@
             <div class="container d-flex justify-content-center" style="margin-top:10px">
                 <div class="form form-control" style="border:none">
                     <form class="rounder p-30 p-sm-2 pb-0" id="loginform" target="_blank" action="" method="POST">
-                    <img src="{{asset('build/images/fllogo.png') }}" width="35px" style="display: block; margin:auto"></img>
+                    <img src="{{asset('build/images/fllogo.png') }}" width="35px" style="display: block; margin:auto"/>
                     <h5 style="text-align:center;margin:2%">Welcome to Furlinks</h5>
                     <br>
                         <div class="mb-3">

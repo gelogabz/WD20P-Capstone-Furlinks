@@ -65,9 +65,38 @@
 </div>
 
 <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;margin-bottom:1%">
-  <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>
+  <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>  
+  @foreach($dogs as $dog)
+
+      <div class="card d-inline-flex m-2">
+          <div class="card" style="width:18rem;">
+              <div class="card-body">
+                  <h3 class="card-title">{{$dog->name}}</h3>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$dog->age}}</h6>
+                  <h6 class="card-subtitle mb-2 fst-italic">{{$dog->breed_id1}}</h6>
+                  <h6 class="card-subtitle mb-2">{{$dog->breed_id2}}</h6>
+              </div>
+          </div>
+      </div>
+
+  @endforeach
+  <div class="row">
+  {{--<div class="col-lg-3 col-md-6">
+    <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
+    <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
+    </p>
+    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
+    <p style="padding-left:5%;font-size: small">Posted 2m ago</p>
+  </div>--}}
+</div>
+
+
+
+
 <div class="row">
-  <div class="col-lg-3 col-md-6">
+
+  {{-- <div class="col-lg-3 col-md-6">
     <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
     <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
     <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
@@ -99,7 +128,7 @@
     <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
     <p style="padding-left:5%;font-size: small">Posted 1d ago</p>
   </div>
-  </div>
+  </div> --}}
 </div>
 
 <div class="container-fluid" style="background-color:#FFE38B;text-align: center;vertical-align: middle;">
@@ -191,7 +220,7 @@
                     <button class="btn btn-primary" type="submit" class="signupbtn" style="width:100%">Continue</button>
                   <p style="text-align:center;padding-top:5px">or</p>
                   <a class="btn btn-primary4 btn-md btn-block" style="background-color: #3b5998;text-align: left;padding-left: 60px;" href="#!" role="button">
-                  <i class="fab fa-facebook-f me-2"></i><text style="font-size:14px;padding-left:10px;;">Continue with Facebook</a>
+                  <i class="fab fa-facebook-f me-2"></i><text style="font-size:14px;padding-left:10px;">Continue with Facebook</a> 
                   <a class="btn btn-primary4 btn-md btn-block" style="background-color: #dd4b39;text-align: left;padding-left: 60px;;" href="#!" role="button">
                   <i class="fab fa-google me-2"></i><text style="font-size:14px;padding-left:10px;"> Continue with Google</a>
                   <br>
