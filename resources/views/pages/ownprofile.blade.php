@@ -1,12 +1,15 @@
 @extends ('components.navbar')
 @section('content')
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
     <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
       <!--Foster profile information -->
-      <div class="col-lg-3 col-sm-6" style="padding-top:10px;padding-right:20px;padding-left: 20px;">
+      <div class="col-lg-3 col-md-6 col-sm-12 mx-auto" style="padding-top:10px;padding-right:20px;padding-left: 20px;">
         <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
             <div class="row" style="padding-bottom:5px">
                 <div class="col col-auto" style="margin-right:px">
@@ -62,25 +65,44 @@
         </div>
       </div>
         <!--Dog profile information -->
-        <div class="col-lg-9 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+        <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
             <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Dogs Posted</a>
-                  @foreach($dogprofiles as $dogsitem)
-                  <div class="card" style="width: 18rem;">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}}</h5>
-                      <h5 class="card-title">{{$dogsitem->breed_of_sire}} - {{$dogsitem->breed_of_dam}}</h5>
-                      <a href="#" class="btn btn-primary">Go somewhere</a>
+                <li class="active"><a data-toggle="tab" href="#dogposted">Dog Posted</a></li>
+                <li><a data-toggle="tab" href="#dogrehomed">Dog Re-Homed</a></li>
+              </ul>
+              <div class="tab-content justify-content-center">
+                <div id="dogposted" class="tab-pane fade in active ">
+                    <div class="card d-inline-flex m-4 border border-1">
+                        <img src="..." class="card-img-top" alt="picture">
+                        <div class="card pb-5" style="width: 25rem;">
+                            <div class="card-body text-center pt-3 ">
+                                <a href="/editdog" class="btn btn-primary mt-5">POST DOG</a>
+                            </div>
+                        </div>
+                     </div>
+                    @foreach($dogprofiles as $dogsitem)
+                    <div class="card d-inline-flex m-4 border">
+                      <div class="card" style="width: 25rem;">
+                       <img src="..." class="card-img-top" alt="picture">
+                          <div class="card-body">
+                           <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
+                           <h5 class="card-title">{{$dogsitem->breed_of_sire}} - {{$dogsitem->breed_of_dam}}</h5>
+                          <a href="/dogdetails" class="btn btn-primary">Show Details</a>
+                          </div>
+                      </div>
+                   </div>
+                   @endforeach
+                   
+                    <div class="text-center">
+                    {{$dogprofiles->links()}}
                     </div>
-                    @endforeach
-                  </div>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Dogs Rehomed</a>
-                </li>
-            </ul>
+                 
+                </div>
+                <div id="dogrehomed" class="tab-pane fade">
+                  <h3>Menu 1</h3>
+                  <p>Some content in menu 1.</p>
+                </div>
+              </div>
         </div>
     </div>
 </div>
