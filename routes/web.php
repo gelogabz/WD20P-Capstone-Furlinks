@@ -25,6 +25,7 @@ Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
+Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
 
 
 // Route::get('/', function () {
