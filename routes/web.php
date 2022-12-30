@@ -24,7 +24,7 @@ Route::get('/dogdeets', 'App\Http\Controllers\PagesController@dogdeets');
 // Route::get('/dogs', 'App\Http\Controllers\PagesController@welcome');
 
 Route::resource('/','App\Http\Controllers\DogsController');
-=======
+
 Route::get('/editdog', 'App\Http\Controllers\PagesController@editdog');
 Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 
