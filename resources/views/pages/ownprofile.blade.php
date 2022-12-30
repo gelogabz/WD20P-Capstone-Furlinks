@@ -78,8 +78,6 @@
                         </div>
                      </div>
                     @foreach($dogs as $dogsitem)
-
-         
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
                        <img src="..." class="card-img-top" alt="picture">
