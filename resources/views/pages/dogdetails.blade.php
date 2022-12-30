@@ -11,7 +11,7 @@
         <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
-          <button class="btn-primary3" id="myBtn4" type="button" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</button>
+       <a href="/pages/{{$dogs->id}}/editdog" class="btn btn-primary">EDIT</a>
         </div>
       </div>
 

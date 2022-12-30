@@ -67,7 +67,8 @@ class DogprofileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $UpdatedogContact = Dogs::find($id);
+        return view('pages.editdog')->with('dogs', $UpdatedogContact);
     }
 
     /**

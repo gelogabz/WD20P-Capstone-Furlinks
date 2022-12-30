@@ -15,21 +15,14 @@
       <!--Dog profile information -->
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <h3>Edit Dog Details<br>  
-          <div class="row pt-3">
-            <div class="col-lg-12">
-              <h5>Breed:<h5>
-              <input type="text" style="width:100%">
-              <p style="font-size:12px;">Follow the format [breed 1]- [breed 2]- [breed 3]</p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <h5>Gender<h5>
-                <h5 class="ms-5">Male<input type="radio" class="ms-5"></h5>
-                <h5 class="ms-5">Female<input type="radio" class="ms-4"></h5>
-                <br>
-                
-            </div>
+          <div class="container">
+          {{-- <form>
+            <label>Gender</label>
+            <input type="text" name="age" value="{{$dogs->gender}}">
+            <label>Age:</label>
+            <input type="text" name="age" value="{{$dogs->age}}">
+            <input type="submit" name="subit" value="Edit info">
+          </form> --}}
           </div>
       </div>
     </div>
