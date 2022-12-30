@@ -15,15 +15,14 @@ class DogprofileController extends Controller
      */
     public function index()
     {
-        $dogs = Dogs::all();
-        return view('pages.ownprofile')->with('dogs', $dogs);
+        // $dogs = Dogs::all();
+
         // orderBy ascending and descending
 
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
-
         // Pagination
-        // $dogprofiles = Dogs::orderBy('id', 'asc')->simplePaginate(8);
-
+        $dogs = Dogs::orderBy('id', 'asc')->simplePaginate(8);
+        return view('pages.ownprofile')->with('dogs', $dogs);
     }
 
     /**
@@ -67,8 +66,8 @@ class DogprofileController extends Controller
      */
     public function edit($id)
     {
-        $UpdatedogContact = Dogs::find($id);
-        return view('pages.editdog')->with('dogs', $UpdatedogContact);
+        $updateContact = Dogs::find($id);
+        return view('pages.editdog')->with('dogs', $updateContact);
     }
 
     /**

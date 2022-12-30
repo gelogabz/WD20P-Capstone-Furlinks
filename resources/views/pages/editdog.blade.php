@@ -14,15 +14,16 @@
       </div>
       <!--Dog profile information -->
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-        <h3>Edit Dog Details<br>  
+        <h3>Edit Dog Details</h3><br>  
           <div class="container">
-          {{-- <form>
+          <form>
+            <input type="hidden" class="form-control" value="{{$dogs->id}}" >
+            <label>Name</label>
+            <input type="text"  class="form-control" value="{{$dogs->name}}" >
             <label>Gender</label>
-            <input type="text" name="age" value="{{$dogs->gender}}">
-            <label>Age:</label>
-            <input type="text" name="age" value="{{$dogs->age}}">
-            <input type="submit" name="subit" value="Edit info">
-          </form> --}}
+            <input type="text"  class="form-control" value="{{$dogs->gender}}"><br>
+            <input type="submit" name="submit" value="Edit info">
+          </form>
           </div>
       </div>
     </div>
