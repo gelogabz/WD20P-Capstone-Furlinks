@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Dogprofile;
+
+use App\Models\Dogs;
 
 class DogprofileController extends Controller
 {
@@ -14,14 +15,15 @@ class DogprofileController extends Controller
      */
     public function index()
     {
-        // $dogprofiles = Dogprofile::all();
+        $dogs = Dogs::all();
+        return view('pages.ownprofile')->with('dogs', $dogs);
         // orderBy ascending and descending
 
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
 
         // Pagination
-        $dogprofiles = Dogprofile::orderBy('id', 'asc')->simplePaginate(8);
-        return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
+        // $dogprofiles = Dogs::orderBy('id', 'asc')->simplePaginate(8);
+
     }
 
     /**
@@ -53,8 +55,8 @@ class DogprofileController extends Controller
      */
     public function show($id)
     {
-        $singledogContact = Dogprofile::find($id);
-        return view('pages.dogdetails')->with('dogprofiles', $singledogContact);
+        $singledogContact = Dogs::find($id);
+        return view('pages.dogdetails')->with('dogs', $singledogContact);
     }
 
     /**
