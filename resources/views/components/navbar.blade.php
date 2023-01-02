@@ -12,6 +12,14 @@
     <link rel="icon" href="logo_web.ico" />
     <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
     <link rel="stylesheet" href="{{ URL::asset('build/assets/main.css')}}" />
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@300;400&family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <!--fonts-->
+    <!--iconsfromgetbootstrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     <script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -39,17 +47,17 @@
       <a class="btn btn-primary my-2 my-sm-0" id="myBtn" role="button" href="/login">Log In</a>
       <span style="padding:5px"></span>
       <a class="btn btn btn-outline-primary my-2 my-sm-0 login-btn" id="myBtn3" type="button" href="/register">Sign Up</a>
-      --}}<ul>
+      --}}<ul class="d-flex">
       @guest
           @if (Route::has('login'))
-              <li class="nav-item btn btn-primary my-2 my-sm-0" id="myBtn" role="button">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <li class="btn btn-success my-2 my-sm-0 login_button me-2" id="myBtn" role="button">
+                <i class="bi bi-box-arrow-in-right" style="font-size:14px;"> </i><a class="login-btn" style="color:#e8eaed;" href="{{ route('login') }}">Login</a>
               </li>
           @endif
 
           @if (Route::has('register'))
-              <li class="nav-item btn btn btn-outline-primary my-2 my-sm-0 login-btn" id="myBtn3" type="button">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+              <li class="btn btn-success my-2 my-sm-0 register_button" id="myBtn3" type="button">
+                <i class="bi bi-person-add" style="font-size:14px; color:#6d93bc;"></i> <a class="register-btn" href="{{ route('register') }}">Register</a>
               </li>
           @endif
         </ul>
@@ -61,11 +69,18 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/">
+                      My Profile
+                  </a>
+                  <a class="dropdown-item" href="/">
+                    My Application
+                </a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                       {{ __('Logout') }}
                   </a>
+                  
 
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                       @csrf

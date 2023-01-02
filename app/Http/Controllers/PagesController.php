@@ -15,12 +15,10 @@ class PagesController extends Controller
     {
         return view('component/navbar');
     }
-
     public function search()
     {
         return view('pages/search');
     }
-
     public function how()
     {
         return view('pages/howitworks');
