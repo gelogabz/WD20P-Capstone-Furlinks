@@ -1,23 +1,45 @@
     .navbar{
-        background-color: #f8f6f3 !important;
+        background-color: #f0e8dc !important;
     }
-    a { 
-        text-decoration: none; 
-        color:#413F42; }
-    a:link { 
-        text-decoration: none; 
-        color:#413F42; }
-    a:visited { 
-        text-decoration: none; 
-        color:#413F42; }
-    a:hover { 
+      .nav-link{
+        color:#180A0A;
+        transition: font-size 0.1s;
+        font-family: 'Lato', sans-serif;
+      }
+      .nav-link:hover{
+        font-size: 15px;
+        font-weight: bold;
+      }
+      
+      .login-btn{
+        color:#F9F9F9;
         text-decoration: none;
-        color:#4d0f39;
-        font-weight: 700; }
-    a:active { 
+        font-family: 'Lato', sans-serif;
+      }
+      .register-btn{
+        color:#799FC8 !important;
         text-decoration: none;
-        font-weight: 500; 
-        color:#811D60;}
+        font-family: 'Lato', sans-serif;
+      }
+      .login_button{
+        border-radius: 12px;
+        background-color: #799FC8 ;
+        border-color:#5082B7 !important ;
+      }
+      .register_button{
+        border-radius: 12px;
+        background-color: #f8ecec  ;
+        border-color:#5082B7 !important ;
+      }
+      .login_button:hover{
+        background-color:#6388af !important ;
+        
+      }
+      .register_button:hover{
+        background-color:#f3efeb !important ;
+        
+      }
+
     h1 {
         font-family:  'Nunito', sans-serif;
         font-weight: 600;
@@ -33,6 +55,7 @@
         font-weight: bolder;
         font-size: 45px;
         } 
+        
     p   {
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
@@ -49,30 +72,8 @@
         font-weight: 400;
         font-size: 14px;
     }
-    .btn-primary,
-    .btn-primary:active,
-    .btn-primary:visited {
-        border-radius: 10px;
-        background-color: #799FC8;
-        color:#FFF;
-        border-color: #5082B7;
-        height: 30px;
-        padding-top:5px;
-        font-size: 13px;
-        font-weight: 500 !important;
-    }
-    .btn-primary:hover {
-      background-color: #5082B7;
-      border-color: #5082B7;
-      height: 30px;
-      padding-top:5px;
-      font-size: 13px !important;
-      transition: all 1s ease;
-      -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-    }
+    
+
     .btn-primary2,
     .btn-primary2:active,
     .btn-primary2:visited {
@@ -140,30 +141,7 @@
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
   }
-    .btn-outline-primary,
-    .btn-outline-primary:active,
-    .btn-outline-primary:visited {
-        border-radius: 10px;
-        background-color: #799FC8;
-        color:#fff;
-        border-color: #5082B7;
-        height: 30px;
-        padding-top:5px;
-        font-size: small !important;
-    }
-    .btn-outline-primary:hover {
-      background-color: #5082B7 ;
-      color:#FFF;
-      border-color: #5082B7 ; 
-      height: 30px;
-      padding-top:5px;
-      font-size: small !important;
-      transition: all 1s ease;
-      -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-    }
+    
   .btn-outline-primary2,
   .btn-outline-primary2:active,
   .btn-outline-primary2:visited {
@@ -187,25 +165,8 @@
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
-=======
+  }
 
-a { 
-  text-decoration: none; 
-  color:#811D60}
-a:link { 
-  text-decoration: none; 
-  color:#811D60; }
-a:visited { 
-  text-decoration: none; 
-  color:#811D60; }
-a:hover { 
-  text-decoration: none;
-  color:#4d0f39;
-  font-weight: 700; }
-a:active { 
-  text-decoration: none;
-  font-weight: 500; 
-  color:#811D60;}
 h1 {
   font-family:  'Nunito', sans-serif;
   font-weight: 600;
@@ -237,30 +198,7 @@ body {
   font-weight: 400;
   font-size: 14px;
 }
-.btn-primary,
-.btn-primary:active,
-.btn-primary:visited {
-  border-radius: 10px;
-  background-color: #811D60;
-  color:#FFF;
-  border-color: #811D60;
-  height: 30px;
-  padding-top:5px;
-  font-size: 13px;
-  font-weight: 500 !important;
-}
-.btn-primary:hover {
-  background-color: #532644;
-  border-color: #811D60;
-  height: 30px;
-  padding-top:5px;
-  font-size: 13px !important;
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-}
+
 .btn-primary2,
 .btn-primary2:active,
 .btn-primary2:visited {
@@ -328,30 +266,7 @@ body {
   -o-transition: all 1s ease;
   -ms-transition: all 1s ease;
 }
-.btn-outline-primary,
-.btn-outline-primary:active,
-.btn-outline-primary:visited {
-    border-radius: 10px;
-    background-color: #FFF;
-    color:#811D60;
-    border-color: #811D60;
-    height: 30px;
-    padding-top:5px;
-    font-size: small !important;
-}
-.btn-outline-primary:hover {
-  background-color: #eae5e8;
-  color:#811D60;
-  border-color: #811D60; 
-  height: 30px;
-  padding-top:5px;
-    font-size: small !important;
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -ms-transition: all 1s ease;
-}
+
 .btn-outline-primary2,
 .btn-outline-primary2:active,
 .btn-outline-primary2:visited {
@@ -956,3 +871,31 @@ select.list-dt:focus {
     border: 0;
     transition: all .2s ease;
     }
+
+  /* FOOTER START */
+  .linesafooter{
+    border-style:solid;
+    border-width: 1px;
+    border-color: #c6c7c3;
+  }
+  .click_footer{
+    color: #34aeeb !important;
+    transition: font-size .2s ease;
+  }
+  .click_footer:hover{
+    font-size: 15px;
+      color: #34aeeb !important;
+  }
+  .footer_links{
+    color:#799FC8;
+    transition: font-size .2s ease;
+  }
+  .footer_links:hover{
+      font-size: 19px;
+      color: #34aeeb !important;
+  }
+  .privacy_footer:hover{
+      color: #34aeeb !important;
+  }
+  
+  /* FOOTER END */

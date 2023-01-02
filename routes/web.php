@@ -23,6 +23,7 @@ Route::get('/editdog', 'App\Http\Controllers\PagesController@editdog');
 Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
+
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
@@ -33,4 +34,4 @@ Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
 // });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('pages/profiletabs');
