@@ -9,6 +9,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <title>Furlinks</title>
+    <link rel="icon" href="logo_web.ico" />
     <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
     <link rel="stylesheet" href="{{ URL::asset('build/assets/main.css')}}" />
     <!--fonts-->

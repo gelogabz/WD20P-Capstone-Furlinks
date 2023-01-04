@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Dogprofile;
+
+use App\Models\Dogs;
 
 class DogprofileController extends Controller
 {
@@ -14,14 +15,14 @@ class DogprofileController extends Controller
      */
     public function index()
     {
-        // $dogprofiles = Dogprofile::all();
+        // $dogs = Dogs::all();
+
         // orderBy ascending and descending
 
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
-
         // Pagination
-        $dogprofiles = Dogprofile::orderBy('gender', 'asc')->simplePaginate(8);
-        return view('pages.ownprofile')->with('dogprofiles', $dogprofiles);
+        $dogs = Dogs::orderBy('id', 'asc')->simplePaginate(8);
+        return view('pages.ownprofile')->with('dogs', $dogs);
     }
 
     /**
@@ -31,7 +32,7 @@ class DogprofileController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.createprofile');
     }
 
     /**
@@ -42,7 +43,9 @@ class DogprofileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Dogs::create($input);
+        return redirect('pages.ownprofile');
     }
 
     /**
@@ -53,7 +56,8 @@ class DogprofileController extends Controller
      */
     public function show($id)
     {
-        //
+        $singledogContact = Dogs::find($id);
+        return view('pages.dogdetails')->with('dogs', $singledogContact);
     }
 
     /**
@@ -64,7 +68,8 @@ class DogprofileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $updateContact = Dogs::find($id);
+        return view('pages.editdog')->with('dogs', $updateContact);
     }
 
     /**
@@ -76,7 +81,10 @@ class DogprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateContact = Dogs::find($id);
+        $input = $request->all();
+        $updateContact->update($input);
+        return redirect('ownprofile');
     }
 
     /**

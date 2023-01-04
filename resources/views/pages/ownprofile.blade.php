@@ -17,12 +17,9 @@
                 </div>
                 <div class="col">
                     <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="profile.html"> @chefarnold </a></div>
-                    <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;">5.0  
-                    <span style="padding-left:2px" class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>(20 reviews)
+                    <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;"> 
+                       
+                   <span>5.0 <span class="fa fa-star checked"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span></span></span>(20 reviews)
                     </div>
                 </div>
             </div>
@@ -76,25 +73,26 @@
                         <img src="..." class="card-img-top" alt="picture">
                         <div class="card pb-5" style="width: 25rem;">
                             <div class="card-body text-center pt-3 ">
-                                <a href="/editdog" class="btn btn-primary mt-5">POST DOG</a>
+                                <a href="/pages/create" class="btn btn-primary mt-5">POST DOG</a>
                             </div>
                         </div>
                      </div>
-                    @foreach($dogprofiles as $dogsitem)
+                    @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
                        <img src="..." class="card-img-top" alt="picture">
                           <div class="card-body">
                            <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
-                           <h5 class="card-title">{{$dogsitem->breed_of_sire}} - {{$dogsitem->breed_of_dam}}</h5>
-                          <a href="/dogdetails" class="btn btn-primary">Show Details</a>
+                           <h5 class="card-title">{{$dogsitem->breed_id1}},{{$dogsitem->breed_id2}}</h5>
+                          <a href="/pages/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
                           </div>
                       </div>
                    </div>
                    @endforeach
+                   {{-- @endforeach --}}
                    
-                    <div class="text-center">
-                    {{$dogprofiles->links()}}
+                    <div class="text-center mt-5">
+                    {{-- {{$dogprofiles->links()}} --}}
                     </div>
                  
                 </div>

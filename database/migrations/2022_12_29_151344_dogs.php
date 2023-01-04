@@ -13,24 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('dogprofiles', function (Blueprint $table) {
+        Schema::create('dogs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('breed_id');
-            $table->string('gender');
             $table->string('age');
-            $table->date('date_born');
-            $table->date('date_rescued');
-            $table->string('breed_of_sire');
-            $table->string('breed_of_dam');
-            $table->string('vaccinated');
+            $table->unsignedBigInteger('breed_id1');
+            $table->foreign('breed_id1')->references('id')->on('breed')->onDelete('cascade');
+            $table->unsignedBigInteger('breed_id2');
+            $table->foreign('breed_id2')->references('id')->on('breed')->onDelete('cascade');
             $table->string('pic');
             $table->string('size');
             $table->string('color');
             $table->string('name')->nullable($value = true);
             $table->string('location');
             $table->boolean('neutered');
+            $table->date('birthdate')->nullable($value = true);
             $table->boolean('rescued');
+            $table->date('rescuedate')->nullable($value = true);
             $table->smallInteger('fee');
             $table->string('feenotes');
         });
@@ -43,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dogprofiles');
+        //
     }
 };
