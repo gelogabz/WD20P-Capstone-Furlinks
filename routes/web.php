@@ -36,6 +36,7 @@ Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
 
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

@@ -46,9 +46,8 @@ class PagesController extends Controller
     {
         return view('pages/dogdetails');
     }
-    public function postdog(){
+    public function postdog()
+    {
         return view('pages/postdog');
     }
-
-
 }

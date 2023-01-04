@@ -11,8 +11,11 @@
         <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
-       <a href="/pages/{{$dogs->id}}/edit" class="btn btn-primary">EDIT</a>
-        </div>
+       <a href="/pages/{{$dogs->id}}/edit" class="btn btn-primary3" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
+       
+       <br>
+       <a href="#" class="btn btn-primary3" style="float:center;margin-top:10px">View Applications</a>
+      </div>
       </div>
 
       <!--Dog profile information -->

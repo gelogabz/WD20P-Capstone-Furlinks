@@ -32,7 +32,7 @@ class DogprofileController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.createprofile');
     }
 
     /**
@@ -43,7 +43,9 @@ class DogprofileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Dogs::create($input);
+        return redirect('pages.ownprofile');
     }
 
     /**
@@ -79,7 +81,10 @@ class DogprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateContact = Dogs::find($id);
+        $input = $request->all();
+        $updateContact->update($input);
+        return redirect('ownprofile');
     }
 
     /**
