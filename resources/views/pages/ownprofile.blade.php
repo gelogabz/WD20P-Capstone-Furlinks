@@ -73,7 +73,7 @@
                         <img src="..." class="card-img-top" alt="picture">
                         <div class="card pb-5" style="width: 25rem;">
                             <div class="card-body text-center pt-3 ">
-                                <a href="/editdog" class="btn btn-primary mt-5">POST DOG</a>
+                                <a href="/pages/create" class="btn btn-primary mt-5">POST DOG</a>
                             </div>
                         </div>
                      </div>
@@ -82,7 +82,7 @@
                       <div class="card" style="width: 25rem;">
                        <img src="..." class="card-img-top" alt="picture">
                           <div class="card-body">
-                           <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}}yrs old.</h5>
+                           <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
                            <h5 class="card-title">{{$dogsitem->breed_id1}},{{$dogsitem->breed_id2}}</h5>
                           <a href="/pages/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
                           </div>

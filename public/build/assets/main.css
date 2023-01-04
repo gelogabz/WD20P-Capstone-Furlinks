@@ -49,30 +49,8 @@
         font-weight: 400;
         font-size: 14px;
     }
-    .btn-primary,
-    .btn-primary:active,
-    .btn-primary:visited {
-        border-radius: 10px;
-        background-color: #799FC8;
-        color:#FFF;
-        border-color: #5082B7;
-        height: 30px;
-        padding-top:5px;
-        font-size: 13px;
-        font-weight: 500 !important;
-    }
-    .btn-primary:hover {
-      background-color: #5082B7;
-      border-color: #5082B7;
-      height: 30px;
-      padding-top:5px;
-      font-size: 13px !important;
-      transition: all 1s ease;
-      -webkit-transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -o-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-    }
+
+    
     .btn-primary2,
     .btn-primary2:active,
     .btn-primary2:visited {

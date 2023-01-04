@@ -18,27 +18,34 @@
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <h3>Edit Dog Details</h3><br>  
           <div class="container">
-          <form action="/pages/{{$dogs->id}}" method="post">
+          <form action="/pages/" method="post">
             {!! csrf_field() !!}
             {{-- PATCH- specific part PUT - whole resource --}}
-            @method('PATCH')
-            <input type="hidden" name="id" alclass="form-control " value="{{$dogs->id}}" >
+            <input type="text" name="id" class="form-control">
+            <input type="text" name="breed_id2" class="form-control">
+            <input type="text" name="pic" class="form-control">
+            <input type="text" name="size" class="form-control">
+            <input type="text" name="color" class="form-control">
+            <input type="text" name="name" class="form-control">
+            <input type="text" name="location" class="form-control">
+            <input type="text" name="rescued" class="form-control">
+            <input type="text" name="fee" class="form-control">
+            <input type="text" name="feenotes" class="form-control">
             <label class="h5 mb-2">Breed</label>
-            <input type="text" name="breed" class="form-control" value="{{$dogs->breed_id1}}" >
+            <input type="text" name="breed_id1" class="form-control">
             <label class="mb-2">Follow the format [breed-1] - [breed-2] - [breed-3]</label>
             <h5 class="mb-2">Gender</h5>
-            <select class="form-select mb-2" style="width:100px;" name="gender" value="{{$dogs->gender}}">
-              {{-- <option>{{$dogs->gender}}</option> --}}
-              <option value="{{$dogs->gender}}">{{$dogs->gender}}</option>
+            <select class="form-select mb-2" style="width:100px;" name="gender">
+              <option>Choose</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
             <label class="h5">Age</label>
-            <input type="number" class="form-control mb-2" name="age" style="width:60px;"value="{{$dogs->age}}" >
+            <input type="number" class="form-control mb-2" name="age" style="width:60px;" >
             <label class="h5">Birthdate</label>
-            <input type="date" class="form-control mb-2" name="birthdate" style="width:120px;" value="{{$dogs->birthdate}}" >
+            <input type="date" class="form-control mb-2" name="birthdate" style="width:120px;"  >
             <label class="h5">Date Rescued</label>
-            <input type="date" class="form-control" name="dogrescued" style="width:120px;" value="{{$dogs->rescuedate}}" >
+            <input type="date" class="form-control" name="dogrescued" style="width:120px;">
             <label class="mt-2 text-danger">Leave blank if dog was rescued</label>
             <br>
             <label class="h5">Breed of Sire</label>
@@ -47,12 +54,13 @@
             <input type="text" class="form-control mb-2" >
             <br>
             <h5 class="mb-2">Vaccinated?</h5>
-            <select class="form-select mb-2" style="width:100px;" name="neutered" value="{{$dogs->neutered}}">
-              {{-- <option>{{$dogs->neutered}}</option> --}}
+            <select class="form-select mb-2" style="width:100px;" name="neutered">
+              <option>Choose oWptions</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>
-             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value="EDIT ">EDIT</button>
+            <input type="submit" name="submit" class="btn btn-primary" value="Yes">
+         
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -61,18 +69,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    Are you sure you want to edit?
+                    Add to post?
                   </div>
                   <div class="modal-footer">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Yes">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" value="EDIT ">POST</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
                   </div>
                 </div>
               </div>
             </div>
           </form>
-          {{-- Modal --}}
-          
           </div>
       </div>
     </div>
