@@ -33,16 +33,6 @@ class DogsController extends Controller
         ->join('breed as breed2', 'breed2.id', '=','dogs.breed_id2' )
         ->take(4)->get();
 
-   
-        
-        // $dogs = Dogs::all();
-        // $dogs = Dogs::orderBy('name', 'ASC')->get();
-        // $dogs = Dogs::orderBy('name', 'ASC')->simplePaginate(3);
-        // $dogs = Dogs::orderBy('name', 'DESC')->simplePaginate(3);  
-
-        // return view('welcome', [
-        //     trim($dogs)=>DB::table('dogs')->take(4)
-        // ])->with('dogs', $dogs);
         return view('welcome')->with('dogs', $dogs);
         
     }
