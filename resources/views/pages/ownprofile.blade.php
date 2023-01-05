@@ -69,11 +69,17 @@
               </ul>
               <div class="tab-content justify-content-center">
                 <div id="dogposted" class="tab-pane fade in active ">
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
+
                     <div class="card d-inline-flex m-4 border border-1">
                         <img src="..." class="card-img-top" alt="picture">
                         <div class="card pb-5" style="width: 25rem;">
                             <div class="card-body text-center pt-3 ">
-                                <a href="/pages/create" class="btn btn-primary mt-5">POST DOG</a>
+                                <a href="/dogprofile/create" class="btn btn-primary mt-5">POST DOG</a>
                             </div>
                         </div>
                      </div>
@@ -83,7 +89,7 @@
                        <img src="..." class="card-img-top" alt="picture">
                           <div class="card-body">
                             <h3 class="card-title">{{$dogsitem->name}}</h3>
-                            <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}} yr/s and {{$dogsitem->age_month}} month/s</h6>
+                            <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
                            {{-- <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
                            <h5 class="card-title">{{$dogsitem->breed_id1}},{{$dogsitem->breed_id2}}</h5> --}}
