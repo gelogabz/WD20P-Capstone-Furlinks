@@ -111,8 +111,8 @@ class DogprofileController extends Controller
         $dog->status_id = 1;
         $dog->save();
         // Dogs::create($input);
-        return redirect('pages.ownprofile')
-        ->with('success','Product created successfully.');
+        return redirect('/ownprofile')
+        ->with('success','Dog posted successfully.');
     }
 
     public function show($id)
