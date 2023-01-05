@@ -7,6 +7,8 @@ use App\Models\Dogs;
 use App\Models\Breed;
 use DB;
 
+
+
 class DogsController extends Controller
 {
     /**
@@ -24,6 +26,8 @@ class DogsController extends Controller
             'dogs.age_yr',
             'dogs.age_month',
             'dogs.pic',
+            'dogs.created_at',
+            'dogs.updated_at',
             'dogs.breed_id1',
             'breed1.name as breed1_name',
             'dogs.breed_id2',
