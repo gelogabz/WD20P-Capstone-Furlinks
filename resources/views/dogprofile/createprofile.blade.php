@@ -5,15 +5,34 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
+{{--  dropbox CDN  --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/min/dropzone.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.0/dropzone.js"></script>
+
+
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
     <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
       <h3>Post a dog for adoption</h3><br>
+      <form action="{{ route('dogprofile.store') }}" method="POST" enctype="multipart/form-data">
+        {!! csrf_field() !!}
+        
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
-
-        <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
-        <div style="text-align: center;">
-          <button class="btn-primary border rounded-1 px-3 pb-2" type="submit" >Remove Uploaded Image</i></button>
+        <div class="form-group mb-2" style="padding-top:3px;padding-bottom:3px">
+          <label for="pic" style="color:white; align-text:center">Upload your picture:</label> 
+          <div class="image-title-wrap justify-content-center"></div>
+          <div class="image-upload-wrap justify-content-center" style="height:250px;width:250px">
+              <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="pic" name="pic" required/>
+              <div class="drag-text" style="padding-top:30%">
+              <i class="fa-solid fa-photo-film" style="font-size:50px;color:#581441"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
+              </div>
+          </div>
+          <div class="file-upload-content">
+              <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
+                  <div class="container justify-content-center">
+                      <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
+              </div>
+          </div>
         </div>
       </div>
 
@@ -32,8 +51,7 @@
           @endif
         
         <div class="container">
-          <form action="{{ route('dogprofile.store') }}" method="POST" enctype="multipart/form-data">
-            {!! csrf_field() !!}
+
             {{-- PATCH- specific part PUT - whole resource --}}
             <div class="mb-2 row">
               <label for="gender" class="col-sm-4 col-form-label">Gender</label>
@@ -217,5 +235,45 @@
       </div>
     </div>
 </div>
+
+<!--SCRIPT for drag and drop of images -->
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+
+            reader.onload = function(e) {
+            document.getElementById("imgdisplay").className = "file-upload-image";
+            $('.image-upload-wrap').hide();
+            $('.file-upload-image').attr('src', e.target.result);
+            $('.file-upload-content').show();
+            $('.image-title-wrap').html(input.files[0].name);
+            document.getElementById("rembutton").className = "remove-image";
+            sessionStorage.setItem("img", reader.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+            saveImage();
+        } else {
+            removeUpload();
+        }
+        }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+        document.getElementById("pic").value = "";
+        $('.image-title-wrap').html("");
+        
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+</script>
 
 @endsection
