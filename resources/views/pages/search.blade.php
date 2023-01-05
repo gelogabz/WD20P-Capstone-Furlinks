@@ -1,9 +1,10 @@
-@extends('components.navbar')
+@extends('components.navbar')d
 
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid" style="width:92%;text-align:left">
-    <form style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+    <form action="/search" method="POST" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+      {{ csrf_field() }}
        <div class="row justify-content-left" >
            <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
              <div class="form-check form-check-inline" style="vertical-align: middle;">
@@ -82,7 +83,23 @@
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
      <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
-   <div class="row">
+      <div class="row">
+        {{-- @foreach($search as $dog)
+
+          <div class="card d-inline-flex m-2">
+              <div class="card" style="width:18rem;">
+                  <img src="{{ URL::asset($dog->pic) }}" class="card-img-top" alt="dog">
+                  <div class="card-body">
+                      <h3 class="card-title">{{$dog->name}}</h3>
+                      <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
+                      <h6 class="card-subtitle mb-2 text-muted">{{$dog->breed1_name}} , {{$dog->breed2_name}}</h6>
+                  </div>
+              </div>
+          </div>
+
+        @endforeach --}}
+      </div>
+   {{-- <div class="row">
      <!--dog1 fem0-->
       <div class="col-lg-3 col-md-6" style="margin-bottom:25px">
        <div class="row" style="padding-bottom:5px">
@@ -313,7 +330,7 @@
      </p>
      <p style="font-size: small; margin-bottom: 0px; margin-top:0px"><i>Aspin - Labrador - GSD</i></p>
    </div>
-   </div>
+   </div> --}}
    </div>
    </div>
 @endsection

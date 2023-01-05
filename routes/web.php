@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the " web" middleware group. Now create something great!
 |
 */
+=======
+use App\Http\Controllers\DogsController;
+
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
@@ -43,12 +47,11 @@ Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 
 Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
 
+Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 
+//Search.Blade
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');

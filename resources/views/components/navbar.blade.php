@@ -10,8 +10,9 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <title>Furlinks</title>
     <link rel="icon" href="logo_web.ico" />
-    <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
     <link rel="stylesheet" href="{{ URL::asset('build/assets/main.css')}}" />
+    <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
+    
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,8 +20,9 @@
     <!--fonts-->
     <!--iconsfromgetbootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script>
+    
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="padding-left: 5%; padding-right: 5%;padding-bottom:5px">
