@@ -3,26 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
+use DB;
 
 class DogprofileController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $idtofind = Auth::id();
+        $dogs = DB::table('dogs')
+        ->select(
+            'dogs.id',
+            'dogs.name',
+            'dogs.gender',
+            'dogs.age_yr',
+            'dogs.age_month',
+            'dogs.pic',
+            'dogs.breed_id1',
+            'breed1.name as breed1_name',
+            'dogs.breed_id2',
+            'breed2.name as breed2_name',
+        )
+        ->join('breed as breed1', 'breed1.id' , '=', 'dogs.breed_id1')
+        ->join('breed as breed2', 'breed2.id', '=','dogs.breed_id2' )
+        ->where('user_id', '=', $idtofind)
+        ->simplePaginate(8);
+        return view('pages.ownprofile')->with('dogs', $dogs);
+        
         // $dogs = Dogs::all();
-
         // orderBy ascending and descending
-
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
         // Pagination
-        $dogs = Dogs::orderBy('id', 'asc')->simplePaginate(8);
-        return view('pages.ownprofile')->with('dogs', $dogs);
+        // $dogs = Dogs::orderBy('id', 'asc')
     }
 
     /**
@@ -32,7 +46,7 @@ class DogprofileController extends Controller
      */
     public function create()
     {
-        return view('pages.createprofile');
+        return view('dogprofile.createprofile');
     }
 
     /**
@@ -57,7 +71,7 @@ class DogprofileController extends Controller
     public function show($id)
     {
         $singledogContact = Dogs::find($id);
-        return view('pages.dogdetails')->with('dogs', $singledogContact);
+        return view('dogprofile.dogdetails')->with('dogs', $singledogContact);
     }
 
     /**
@@ -69,7 +83,7 @@ class DogprofileController extends Controller
     public function edit($id)
     {
         $updateContact = Dogs::find($id);
-        return view('pages.editdog')->with('dogs', $updateContact);
+        return view('dogprofile.editdog')->with('dogs', $updateContact);
     }
 
     /**
