@@ -71,23 +71,16 @@ class DogprofileController extends Controller
     {
         $this->validate($request, array(
             'gender' => 'required',
-            // 'breed_id1' =>'required',
-            // 'pic' =>'required',
-            // 'size' =>'required',
-            // 'color' =>'required',
-            // 'location' =>'required',
-            // 'neutered' =>'required',
-            // 'rescued' =>'required',
-            // 'fee' =>'required',
-            // 'feenotes' =>'required',
+            'breed_id1' =>'required',
+            'pic' =>'required',
+            'size' =>'required',
+            'color' =>'required',
+            'location' =>'required',
+            'neutered' =>'required',
+            'rescued' =>'required',
+            'fee' =>'required',
+            'feenotes' =>'required',
         ));
-        // $input = $request->all();
-
-        if ($file= $request->file('image')) {
-            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
-            $file->move(public_path('Image'), $filename);
-            $input['pic'] = "$filename";
-            };
 
         $dog = new Dogs;
         $dog->name = $request->name;
@@ -96,7 +89,14 @@ class DogprofileController extends Controller
         $dog->age_month = $request->age_month;
         $dog->breed_id1 = $request->breed_id1;
         $dog->breed_id2 = $request->breed_id2;
-        $dog->pic = $request->pic;
+
+        if ($file= $request->file('pic')) {
+            $filename = date('YmdHis'). $file->getClientOriginalname();
+            $file->move(public_path('Image'), $filename);
+            $input['pic'] = "$filename";
+            };
+        
+        $dog->pic = $input['pic'];
         $dog->size = $request->size;
         $dog->color = $request->color;
         $dog->location = $request->location;
@@ -110,7 +110,7 @@ class DogprofileController extends Controller
         $dog->user_id = Auth::user()->id;
         $dog->status_id = 1;
         $dog->save();
-        // Dogs::create($input);
+
         return redirect('/ownprofile')
         ->with('success','Dog posted successfully.');
     }
