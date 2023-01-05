@@ -20,7 +20,9 @@ class DogsController extends Controller
         $dogs = DB::table('dogs')
         ->select(
             'dogs.name',
-            'dogs.age',
+            'dogs.gender',
+            'dogs.age_yr',
+            'dogs.age_month',
             'dogs.pic',
             'dogs.breed_id1',
             'breed1.name as breed1_name',
@@ -29,9 +31,9 @@ class DogsController extends Controller
         )
         ->join('breed as breed1', 'breed1.id' , '=', 'dogs.breed_id1')
         ->join('breed as breed2', 'breed2.id', '=','dogs.breed_id2' )
-        ->get();
+        ->take(4)->get();
 
-        $dogs = DB::table('dogs')->take(4)->get();
+   
         
         // $dogs = Dogs::all();
         // $dogs = Dogs::orderBy('name', 'ASC')->get();
