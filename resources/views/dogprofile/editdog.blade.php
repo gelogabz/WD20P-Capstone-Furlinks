@@ -9,7 +9,7 @@
     <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
-        <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
+        <img src="{{'image/'.$dogsitem->pic }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
           <button class="btn-primary border rounded-1 px-3 pb-2" type="submit" >Remove Uploaded Image</i></button>
         </div>
