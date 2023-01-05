@@ -70,7 +70,7 @@
 
       <div class="card d-inline-flex m-2">
           <div class="card" style="width:18rem;">
-              <img src="{{ URL::asset($dog->pic) }}" class="card-img-top" alt="dog">
+              <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
               <div class="card-body">
                   <h3 class="card-title">{{$dog->name}}</h3>
                   <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
