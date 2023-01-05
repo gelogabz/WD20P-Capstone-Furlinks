@@ -49,9 +49,8 @@
               </ul>
           </div>
           @endif
-        
+      =
         <div class="container">
-
             {{-- PATCH- specific part PUT - whole resource --}}
             <div class="mb-2 row">
               <label for="gender" class="col-sm-4 col-form-label">Gender</label>
