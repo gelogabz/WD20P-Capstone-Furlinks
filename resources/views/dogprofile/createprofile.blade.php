@@ -80,7 +80,7 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "furlinks_v1";
+            $dbname = "furlinks_db";
             ?>
             <div class="mb-2 row">
               <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
