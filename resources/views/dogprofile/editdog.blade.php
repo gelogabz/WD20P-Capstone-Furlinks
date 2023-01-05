@@ -28,7 +28,7 @@
             <label class="mb-2">Follow the format [breed-1] - [breed-2] - [breed-3]</label>
             <h5 class="mb-2">Gender</h5>
             <select class="form-select mb-2" style="width:100px;" name="gender" value="{{$dogs->gender}}">
-              {{-- <option>{{$dogs->gender}}</option> --}}
+
               <option value="{{$dogs->gender}}">{{$dogs->gender}}</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
@@ -48,7 +48,6 @@
             <br>
             <h5 class="mb-2">Vaccinated?</h5>
             <select class="form-select mb-2" style="width:100px;" name="neutered" value="{{$dogs->neutered}}">
-              {{-- <option>{{$dogs->neutered}}</option> --}}
               <option value="Yes">Yes</option>
               <option value="No">No</option>
             </select>

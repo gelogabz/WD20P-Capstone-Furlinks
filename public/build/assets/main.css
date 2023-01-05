@@ -773,126 +773,31 @@ select.list-dt:focus {
 {
   margin-top:15px
 }
-    
-/* styles for drag and drop image */
-/* Clearfix */
-.cf:after, .cf:before {
-    content: "";
-    display: table;
-}
-.cf:after {
-    clear: both;
-}
-.file-upload-input {
-    position: absolute;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    outline: none;
-    opacity: 0;
-    cursor: pointer;
-    }
-
-.image-upload-wrap {
-    margin-top: 0px;
-    border: 4px dashed #581441;
-    position: relative;
-    text-align: center;
-    display:block;
-    margin: auto;
-    }
-
-.image-dropping,
-.image-upload-wrap:hover {
-    background-color: #21012a;
-    border: 4px dashed #811D60;
-    }
-
-.image-title-wrap {
-    padding: 15px 15px 15px 15px;
-    color: pink;
-    text-align: center;
-    }
-
-.drag-text {
-    text-align: center;
-    }
-
-.drag-text h3 {
-    font-weight: 100;
-    color: #581441;
-    padding: 60px 0;
-    }
-
-.file-upload-image {
-    max-height: 250px;
-    max-width: 250px;
-    margin: 0px;
-    text-align: center;
-    display:block;
-    margin: auto;
-    color:white;
-    }
-
-.remove-image {
-    height: 40px;
-    width: 170px;
-    border:solid;
-    border-color: blueviolet;
-    border-radius: 20px;
-    background-color: black;
-    color: rgb(251, 4, 251);
-    font-size: 16px;
-    font-weight: 400;
-    margin:5px;
-    vertical-align: middle;
-    }
-
-.remove-btn,
-.file-upload-none{
-    display: none;
-}
-
-.remove-image:hover {
-    background-color: rgb(71, 6, 87) !important;
-    color:#fff !important;
-    transition: all .5s ease;
-    -webkit-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    -ms-transition: all .5s ease;
-    }
-
-.remove-image:active {
-    border: 0;
-    transition: all .2s ease;
-    }
-
-  /* FOOTER START */
-  .linesafooter{
-    border-style:solid;
-    border-width: 1px;
-    border-color: #c6c7c3;
-  }
-  .click_footer{
-    color: #34aeeb !important;
-    transition: font-size .2s ease;
-  }
-  .click_footer:hover{
-    font-size: 15px;
-      color: #34aeeb !important;
-  }
-  .footer_links{
-    color:#799FC8;
-    transition: font-size .2s ease;
-  }
-  .footer_links:hover{
-      font-size: 19px;
-      color: #34aeeb !important;
-  }
-  .privacy_footer:hover{
-      color: #34aeeb !important;
-  }
   
-  /* FOOTER END */
+/* FOOTER START */
+.linesafooter{
+  border-style:solid;
+  border-width: 1px;
+  border-color: #c6c7c3;
+}
+.click_footer{
+  color: #34aeeb !important;
+  transition: font-size .2s ease;
+}
+.click_footer:hover{
+  font-size: 15px;
+    color: #34aeeb !important;
+}
+.footer_links{
+  color:#799FC8;
+  transition: font-size .2s ease;
+}
+.footer_links:hover{
+    font-size: 19px;
+    color: #34aeeb !important;
+}
+.privacy_footer:hover{
+    color: #34aeeb !important;
+}
+
+/* FOOTER END */

@@ -22,7 +22,7 @@
     
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <h5 class="text-primary"> {{$dogs->gender}},  {{$dogs->age_yr}} yrs old<br>
-          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary m-2">{{$dogs->breed_id1}} - {{$dogs->breed_id2}}  </span></h6>
+          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
           <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i><span style="font-size: small;color: #5d5d5d">Posted 10d ago</span><br></h4>
         <table style="width:100%;color:#581542;margin-top:10px">
           <colgroup>
@@ -34,27 +34,31 @@
           </tr>         
           <tr>
             <th>Foster Name:</th>
-            <td class="text-primary">{{$dogs->name}}</td>
+            <td>{{$dogs->name}}</td>
           </tr>
           <tr>
             <th>Location:</th>
-            <td class="text-primary">{{$dogs->location}}</td>
+            <td>{{$dogs->location}}</td>
           </tr>
           <tr>
-            <th>Date born/rescued:</th>
-            <td class="text-primary">{{$dogs->birthdate}} / {{$dogs->rescuedate}}</td>
+            <th>Birthdate:</th>
+            <td>{{$dogs->birthdate}}</td>
           </tr>
           <tr>
-            <th>Breed of Sire:</th>
-            <td class="text-primary">{{$dogs->breed_id1}}</td>
+            <th>Primary Breed:</th>
+            <td>{{$dogs->breed1_name}}</td>
           </tr>
           <tr>
-            <th>Breed of Dam:</th>
-            <td class="text-primary">{{$dogs->breed_id2}}</td>
+            <th>Primary Breed:</th>
+            <td>{{$dogs->breed2_name}}</td>
           </tr>
           <tr>
             <th>Rescued Dog:</th>
             <td class="text-primary">{{$dogs->rescued}}</td>
+          </tr>
+          <tr>
+            <th>Date Rescued:</th>
+            <td>{{$dogs->rescuedate}}</td>
           </tr>
           <tr style="border-bottom:0.3pt solid #e1e1e1;">
             <td colspan="2" style="padding-top:20px;padding-left:0px;font-size:15px"><i>Medical History</th>          

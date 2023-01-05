@@ -14,36 +14,36 @@ class DogprofileController extends Controller
     {
         $idtofind = Auth::id();
         $dogs = DB::table('dogs')
-        ->select(
-            'dogs.id',
-            'dogs.name',
-            'dogs.gender',
-            'dogs.age_yr',
-            'dogs.age_month',
-            'dogs.breed_id1',
-            'breed1.name as breed1_name',
-            'dogs.breed_id2',
-            'breed2.name as breed2_name',
-            'dogs.pic',
-            'dogs.size',
-            'dogs.color',
-            'dogs.location',
-            'dogs.neutered',
-            'dogs.birthdate',
-            'dogs.rescued',
-            'dogs.rescuedate',
-            'dogs.fee',
-            'dogs.feenotes',
-            'dogs.status_id',
-            'status.name as status_name',
-        )
-        ->join('breed as breed1', 'breed1.id' , '=', 'dogs.breed_id1')
-        ->join('breed as breed2', 'breed2.id', '=','dogs.breed_id2' )
-        ->join('status', 'status.id', '=', 'dogs.status_id')
-        ->where('user_id', '=', $idtofind)
-        ->simplePaginate(8);
+            ->select(
+                'dogs.id',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.pic',
+                'dogs.size',
+                'dogs.color',
+                'dogs.location',
+                'dogs.neutered',
+                'dogs.birthdate',
+                'dogs.rescued',
+                'dogs.rescuedate',
+                'dogs.fee',
+                'dogs.feenotes',
+                'dogs.status_id',
+                'status.name as status_name',
+            )
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->where('user_id', '=', $idtofind)
+            ->simplePaginate(8);
         return view('pages.ownprofile')->with('dogs', $dogs);
-        
+
         // $dogs = Dogs::all();
         // orderBy ascending and descending
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
@@ -71,15 +71,15 @@ class DogprofileController extends Controller
     {
         $this->validate($request, array(
             'gender' => 'required',
-            'breed_id1' =>'required',
-            'pic' =>'required',
-            'size' =>'required',
-            'color' =>'required',
-            'location' =>'required',
-            'neutered' =>'required',
-            'rescued' =>'required',
-            'fee' =>'required',
-            'feenotes' =>'required',
+            'breed_id1' => 'required',
+            'pic' => 'required',
+            'size' => 'required',
+            'color' => 'required',
+            'location' => 'required',
+            'neutered' => 'required',
+            'rescued' => 'required',
+            'fee' => 'required',
+            'feenotes' => 'required',
         ));
 
         $dog = new Dogs;
@@ -90,12 +90,12 @@ class DogprofileController extends Controller
         $dog->breed_id1 = $request->breed_id1;
         $dog->breed_id2 = $request->breed_id2;
 
-        if ($file= $request->file('pic')) {
-            $filename = date('YmdHis'). $file->getClientOriginalname();
+        if ($file = $request->file('pic')) {
+            $filename = date('YmdHis') . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
-            };
-        
+        };
+
         $dog->pic = $input['pic'];
         $dog->size = $request->size;
         $dog->color = $request->color;
@@ -112,13 +112,41 @@ class DogprofileController extends Controller
         $dog->save();
 
         return redirect('/ownprofile')
-        ->with('success','Dog posted successfully.');
+            ->with('success', 'Dog posted successfully.');
     }
 
     public function show($id)
     {
-        $singledogContact = Dogs::find($id);
-        return view('dogprofile.dogdetails')->with('dogs', $singledogContact);
+        $singleDog = DB::table('dogs')
+            ->select(
+                'dogs.id',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.pic',
+                'dogs.size',
+                'dogs.color',
+                'dogs.location',
+                'dogs.neutered',
+                'dogs.birthdate',
+                'dogs.rescued',
+                'dogs.rescuedate',
+                'dogs.fee',
+                'dogs.feenotes',
+                'dogs.status_id',
+                'status.name as status_name',
+            )
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->where('dogs.id', $id)
+            ->first();
+        return view('dogprofile.dogdetails')->with('dogs', $singleDog);
     }
 
     /**
