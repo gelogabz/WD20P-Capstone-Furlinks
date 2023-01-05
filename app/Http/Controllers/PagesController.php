@@ -13,7 +13,7 @@ class PagesController extends Controller
 
     public function navbar()
     {
-        return view('component/navbar');
+        return view('components/navbar');
     }
     public function search()
     {
@@ -50,4 +50,12 @@ class PagesController extends Controller
     {
         return view('pages/postdog');
     }
+    public function myprofile()
+    {
+        return view('pages/myprofile');
+    }
+    public function personalinfo(){
+        return view('pages/personalinfo');
+    }
+
 }

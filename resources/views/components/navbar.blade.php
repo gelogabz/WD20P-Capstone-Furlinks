@@ -69,7 +69,7 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/">
+                <a class="dropdown-item" href="/myprofile">
                       My Profile
                   </a>
                   <a class="dropdown-item" href="/">
@@ -92,37 +92,6 @@
                       
     </div>  
   </nav>
-
-  <!-- INCLUDE MODAL FORM-->
-
-  {{-- <script>
-    $(document).ready(function(){
-      $("#myBtn").click(function(){
-        $("#myModal").modal();
-      });
-    });
-    $(document).ready(function(){
-      $("#myBtn2").click(function(){
-        $("#myModal").modal('hide');
-        $("#signupmodal").modal();
-      });
-    });
-    $(document).ready(function(){
-      $("#myBtn1").click(function(){
-        $("#signupmodal").modal('hide');
-        $("#myModal").modal();
-      });
-    });
-    $(document).ready(function(){
-      $("#myBtn3").click(function(){
-        $("#signupmodal").modal();
-      });
-    });
-  </script> --}}
-  {{-- <div class="container justify-content-center"> --}}
-  {{-- @include ('components/modal') --}}
-  {{-- </div> --}}
-
   @yield ('content')
 <br><br><br><br><br><br><br><br>
   @include('components/footer')
