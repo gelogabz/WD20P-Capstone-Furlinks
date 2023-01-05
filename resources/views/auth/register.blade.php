@@ -11,7 +11,6 @@
                 <div class="card-body"style=" background-color: #f8f6f3;"> 
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
@@ -64,7 +63,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-primary form-control" href="/">
                                     {{ __('Register') }}
                                 </button>
                             </div>

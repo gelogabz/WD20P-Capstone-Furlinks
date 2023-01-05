@@ -13,14 +13,12 @@ class PagesController extends Controller
 
     public function navbar()
     {
-        return view('component/navbar');
+        return view('components/navbar');
     }
-
     public function search()
     {
         return view('pages/search');
     }
-
     public function how()
     {
         return view('pages/howitworks');
@@ -48,9 +46,16 @@ class PagesController extends Controller
     {
         return view('pages/dogdetails');
     }
-    public function postdog(){
+    public function postdog()
+    {
         return view('pages/postdog');
     }
-
+    public function myprofile()
+    {
+        return view('pages/myprofile');
+    }
+    public function personalinfo(){
+        return view('pages/personalinfo');
+    }
 
 }
