@@ -71,19 +71,16 @@ class DogprofileController extends Controller
     {
         $this->validate($request, array(
             'gender' => 'required',
-            // 'breed_id1' =>'required',
-            // 'pic' =>'required',
-            // 'size' =>'required',
-            // 'color' =>'required',
-            // 'location' =>'required',
-            // 'neutered' =>'required',
-            // 'rescued' =>'required',
-            // 'fee' =>'required',
-            // 'feenotes' =>'required',
+            'breed_id1' =>'required',
+            'pic' =>'required',
+            'size' =>'required',
+            'color' =>'required',
+            'location' =>'required',
+            'neutered' =>'required',
+            'rescued' =>'required',
+            'fee' =>'required',
+            'feenotes' =>'required',
         ));
-        // $input = $request->all();
-
-
 
         $dog = new Dogs;
         $dog->name = $request->name;
@@ -100,14 +97,6 @@ class DogprofileController extends Controller
             };
         
         $dog->pic = $input['pic'];
-
-        // if ($pic = $request->file('pic')) {
-        //     $destinationPath = 'image/';
-        //     $profileImage = date('YmdHis') . "." . $pic->getClientOriginalExtension();
-        //     $pic->move($destinationPath, $profileImage);
-        //     $input['pic'] = "$profileImage";
-        // }
-            
         $dog->size = $request->size;
         $dog->color = $request->color;
         $dog->location = $request->location;
@@ -122,7 +111,6 @@ class DogprofileController extends Controller
         $dog->status_id = 1;
         $dog->save();
 
-        // Dogs::create($input);
         return redirect('/ownprofile')
         ->with('success','Dog posted successfully.');
     }
