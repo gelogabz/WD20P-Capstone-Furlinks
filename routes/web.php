@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Route;
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the " web" middleware group. Now create something great!
 |
 */
 
@@ -29,8 +29,12 @@ Route::resource('/', 'App\Http\Controllers\DogsController');
 Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 
 Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
+
+
 Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
 Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
+Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
+Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
 
 
 
