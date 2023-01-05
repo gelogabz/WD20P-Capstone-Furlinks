@@ -19,8 +19,8 @@
             </label>
         </div>
         <div class="col-4 form-check d-flex justify-content-center">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault21" checked>
-            <label class="form-check-label" for="flexRadioDefault21">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+            <label class="form-check-label" for="flexRadioDefault3">
             &nbsp;Non-Binary
             </label>
         </div>
@@ -44,16 +44,23 @@
             <div class='row justfiy-content-center'>
                 <label class='mt-4 mb-2'>Home:</label>
                 <div class="col-3 form-check d-flex justify-content-center ">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault11">
                     <label class="form-check-label" for="flexRadioDefault11">
-                    &nbsp;Home
+                    &nbsp;House
                     </label>
                 </div>
                 
                 <div class="col-3 form-check d-flex justify-content-center ">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault111">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
                     <label class="form-check-label" for="flexRadioDefault111">
                     &nbsp;Condo
+                    </label>
+                </div>
+
+                <div class="col-3 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;Apartment
                     </label>
                 </div>
             </div>
@@ -75,14 +82,14 @@
             <div class='row justfiy-content-center'>
                 <label class='mt-2 mb-2'>Type:</label>
                 <div class="col-3 form-check d-flex justify-content-center ">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault11">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault111">
                     <label class="form-check-label" for="flexRadioDefault11">
                     &nbsp;Own
                     </label>
                 </div>
                 
                 <div class="col-3 form-check d-flex justify-content-center ">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault111">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault1112">
                     <label class="form-check-label" for="flexRadioDefault111">
                     &nbsp;Rented
                     </label>
