@@ -14,7 +14,8 @@
       <h3>Post a dog for adoption</h3><br>
       <form action="{{ route('dogprofile.store') }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
-        
+      
+      <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
         <div class="form-group mb-2" style="padding-top:3px;padding-bottom:3px">
@@ -79,7 +80,7 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "furlinks_v1";
+            $dbname = "furlinks_db";
             ?>
             <div class="mb-2 row">
               <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
@@ -274,5 +275,6 @@
             $('.image-upload-wrap').removeClass('image-dropping');
         });
 </script>
+</div>
 
 @endsection

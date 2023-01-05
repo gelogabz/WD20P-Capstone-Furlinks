@@ -86,14 +86,14 @@
                     @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
-                       <img src="..." class="card-img-top" alt="picture">
+                       <img src="{{'image/'.$dogsitem->pic }}"class="card-img-top" alt="picture">
                           <div class="card-body">
                             <h3 class="card-title">{{$dogsitem->name}}</h3>
                             <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
                            {{-- <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
                            <h5 class="card-title">{{$dogsitem->breed_id1}},{{$dogsitem->breed_id2}}</h5> --}}
-                          <a href="/pages/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
+                          <a href="/dogprofile/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
                           </div>
                       </div>
                    </div>
