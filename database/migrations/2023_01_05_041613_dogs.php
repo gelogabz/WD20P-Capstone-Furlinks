@@ -15,8 +15,14 @@ return new class extends Migration
     {
         Schema::create('dogs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->unsignedBigInteger('status_id');
+            $table->foreign('status_id')->references('id')->on('status')->onDelete('cascade');
             $table->timestamps();
-            $table->string('age');
+            $table->string('gender');
+            $table->smallInteger('age_month');
+            $table->smallInteger('age_yr');
             $table->unsignedBigInteger('breed_id1');
             $table->foreign('breed_id1')->references('id')->on('breed')->onDelete('cascade');
             $table->unsignedBigInteger('breed_id2');
