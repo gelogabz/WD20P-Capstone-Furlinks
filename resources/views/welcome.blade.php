@@ -70,11 +70,12 @@
 
       <div class="card d-inline-flex m-2">
           <div class="card" style="width:18rem;">
+              <img src="{{ URL::asset($dog->pic) }}" class="card-img-top" alt="dog">
               <div class="card-body">
                   <h3 class="card-title">{{$dog->name}}</h3>
                   <h6 class="card-subtitle mb-2 text-muted">{{$dog->age}}</h6>
-                  <h6 class="card-subtitle mb-2 fst-italic">{{$dog->breed_id1}}</h6>
-                  <h6 class="card-subtitle mb-2">{{$dog->breed_id2}}</h6>
+                  <h6 class="card-subtitle mb-2">{{$dog->breed1_name}}</h6>
+                  <h6 class="card-subtitle mb-2">{{$dog->breed2_name}}</h6>
               </div>
           </div>
       </div>
