@@ -11,7 +11,7 @@
         <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
-       <a href="/pages/{{$dogs->id}}/edit" class="btn btn-primary3" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
+       <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary3" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
        
        <br>
        <a href="#" class="btn btn-primary3" style="float:center;margin-top:10px">View Applications</a>
@@ -34,27 +34,31 @@
           </tr>         
           <tr>
             <th>Foster Name:</th>
-            <td class="text-primary">{{$dogs->name}}</td>
+            <td>{{$dogs->name}}</td>
           </tr>
           <tr>
             <th>Location:</th>
-            <td class="text-primary">{{$dogs->location}}</td>
+            <td>{{$dogs->location}}</td>
           </tr>
           <tr>
-            <th>Date born/rescued:</th>
-            <td class="text-primary">{{$dogs->birthdate}} / {{$dogs->rescuedate}}</td>
+            <th>Birthdate:</th>
+            <td>{{$dogs->birthdate}}</td>
           </tr>
           <tr>
-            <th>Breed of Sire:</th>
-            <td class="text-primary">{{$dogs->breed_id1}}</td>
+            <th>Primary Breed:</th>
+            <td>{{$dogs->breed_id1}}</td>
           </tr>
           <tr>
-            <th>Breed of Dam:</th>
-            <td class="text-primary">{{$dogs->breed_id2}}</td>
+            <th>Primary Breed:</th>
+            <td>{{$dogs->breed_id2}}</td>
           </tr>
           <tr>
             <th>Rescued Dog:</th>
             <td class="text-primary">{{$dogs->rescued}}</td>
+          </tr>
+          <tr>
+            <th>Date Rescued:</th>
+            <td>{{$dogs->rescuedate}}</td>
           </tr>
           <tr style="border-bottom:0.3pt solid #e1e1e1;">
             <td colspan="2" style="padding-top:20px;padding-left:0px;font-size:15px"><i>Medical History</th>          
