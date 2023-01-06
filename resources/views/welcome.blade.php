@@ -9,11 +9,11 @@
     <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>
     <form>  
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
-          <div class="d-flex form-row justify-content-left rounded-2"  style="width: 90%; background-color: #FFF;font-size:small">
+          <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
           
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
-                <select class="form-select form-select-sm mb-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                <select class="form-select form-select-sm mb-2 ms-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option selected>Select</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -21,7 +21,7 @@
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:15%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
+              <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
                 <select class="form-select form-select-sm mb-2" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option selected>Select</option>
                       <option>Small breed</option>
@@ -31,7 +31,7 @@
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:10%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
+              <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
                 <select class="form-select form-select-sm mb-2" id="dogscolor" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option selected>Select</option>
                     <option>White</option>
@@ -42,9 +42,9 @@
                 </select>
             </div>
               
-            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="margin:0%; padding:0%;">
-                <a href=/search typ e="button" class="btn btn-primary rounded-2" style="border-radius:0; letter-spacing:1px; height:100px; padding-top:7px; color:#FFF; background-color:#5082B7;">
-                  <i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
+            <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
+                <a href=/search typ e="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
+                  <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i>SEARCH</a>
             </div>
 
           </div>  
@@ -54,49 +54,53 @@
 </div>
 
 <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;margin-bottom:1%">
-  <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>  
+  <h5 style="margin-top:1%; font-family: 'Poppins';">Recently posted dogs for adoption</h5>  
 
   <div class="row">
     @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-6">
         <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
-        <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
-        <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-        <p style="padding-left:5%;font-size: small">Posted {{$dog->updated_at}}</p>
+        <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
+        <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+        <p style="padding-left:5%;font-size: small; font-family: 'Lato';">Posted {{$dog->updated_at}}</p>
       </div>
     @endforeach
   </div>
 
-<div class="container-fluid" style="background-color:#FFE38B;text-align: center;vertical-align: middle;">
-  <a href="#Search"><p style="padding-top:1%;margin:0px"> How it works <br>
+<div class="container-fluid" style="background-color:#C8A279; text-align: center;v ertical-align: middle; opacity:90%">
+  <a href="#Search" style="color: #F4F4F4"><p style="padding-top:1%;margin:0px"> How it works <br>
   <img src="{{asset('build/images/down.png') }}" style="height:10px;"/></p></a>
 </div>
 
-<div class="container-fluid" id="Search" style="background-color:#FFE38B; margin:0px; height:100vh;">
+<div class="container-fluid" id="Search" style="background-color:#C8A279; margin:0px; height:100vh; opacity:90%">
   <div class="row">
       <div class="col-lg-6">
         <div class="center">
         <img src="{{asset('build/images/Search1.png') }}" style=" display: block; margin-top:10%;margin-bottom:10%; width:80%">
       </div>
       </div>
-      <div class="col-lg-6" style="text-align:center;margin:auto;color:#9A2373">
+      <div class="col-lg-6" style="text-align:center;margin:auto;color:#F4F4F4">
         <h1 class="header">Search for a dog</h1>
           <p class="par" style="margin-top:2%; margin-bottom:5%">What type of dog would you like to adopt?<br> Think of what would match your<br> personality - like “small breed or toy<br>  
             dog” - and see what you find.
             </p>
-          <button class="btn btn-primary2 my-2 my-sm-0">EXPLORE</button>
+          <button class="btn btn-primary2 my-sm-0">
+            <p class="pt-2">EXPLORE</p>
+          </button>
       </div> 
   </div>
 </div>
 
-<div class="container-fluid" style="background-color:#D6DFF2; margin:0px; height:100vh;">
+<div class="container-fluid" style="background-color:#799FC8; margin:0px; height:100vh;">
   <div class="row">
-      <div class="col-lg-6" style="text-align:center;margin:auto;color:#172f67;padding-top:5%">
+      <div class="col-lg-6" style="text-align:center; margin:auto; color:#2963a1; padding-top:5%">
           <h1 class="header">Apply for adoption</h1>
           <p class="par" style="margin-top:2%;  margin-bottom:5%">Fill up and submit the adoption form. If you <br>are qualified, the dog rescuer/foster <br>parent will conduct an interview<br> 
             to finalize the adoption.
             </p>
-          <button class="btn btn-primary2 my-2 my-sm-0">EXPLORE</button>
+          <button class="btn btn-primary2-1 my-sm-0">
+            <p class="py-2">EXPLORE</p>
+          </button>
       </div>
       <div class="col-lg-6">
         <div class="center">
@@ -106,16 +110,18 @@
 </div> 
 </div>
 
-<div class="container-fluid" style="background-color:#FDE7EF; height:100vh;">
+<div class="container-fluid" style="background-color:#799FC8; height:100vh;">
   <div class="row">
     <div class="col-lg-6 d-flex">
       <img src="{{asset('build/images/Search3.jpg') }}" style="width:100%">
     </div>
-    <div class="col-lg-6" style="text-align:center;margin:auto;color:#9A2373">
+    <div class="col-lg-6" style="text-align:center; margin:auto; color:#5082B7">
           <h1 class="header" style="margin-top:2%">Share and invite</h1>
           <p class="par" style="margin-top:2%; margin-bottom:5%">Support the community by sharing <br> your experience and providing feedback <br> on rescuers and fosters. Encourage <br> family and friends to “adopt, not shop”.
             </p>
-          <button class="btn btn-primary2 my-2 my-sm-0">EXPLORE</button>
+          <button class="btn btn-primary2 my-sm-0">
+            <p class=" pt-2">EXPLORE</p>
+          </button>
       </div>
     </div>
 </div> 
