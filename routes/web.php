@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProfilepicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 | contains the " web" middleware group. Now create something great!
 |
 */
-=======
-use App\Http\Controllers\DogsController;
+
+
 
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
@@ -34,11 +34,18 @@ Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 
 Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
-
+// This is Profiletabs - User
 Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
 Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
 Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+
+Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
+Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
+Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
+
+
+
 
 
 
