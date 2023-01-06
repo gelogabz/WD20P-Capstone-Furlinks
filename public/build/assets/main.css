@@ -100,13 +100,36 @@
     .btn-primary2-2:visited {
         border-radius: 10px;
         background-color: #F4F4F4 !important;
-        color:#b78550 !important;
-        border-color: #b78550 !important;
+        color:#2963A1 !important;
+        border-color: #2963A1 !important;
         height: 50px !important;
         width:130px;
     }
     .btn-primary2-2:hover {
-      background-color: #b78550!important;
+      background-color: #2963A1!important;
+      color: #F4F4F4!important;
+      border-color: #F4F4F4!important; 
+      height: 30px;
+      padding-top:2px !important;
+      transition: all 1s ease;
+      -webkit-transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+    }
+
+    .btn-primary2-3,
+    .btn-primary2-3:active,
+    .btn-primary2-3:visited {
+        border-radius: 10px;
+        background-color: #F4F4F4 !important;
+        color:#413F42 !important;
+        border-color: #413F42 !important;
+        height: 50px !important;
+        width:130px;
+    }
+    .btn-primary2-3:hover {
+      background-color: #413F42!important;
       color: #F4F4F4!important;
       border-color: #F4F4F4!important; 
       height: 30px;
