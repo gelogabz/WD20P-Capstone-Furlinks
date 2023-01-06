@@ -3,62 +3,47 @@
 {{-- own css --}}
 <link rel="stylesheet" href="{{asset('build/assets/main.css')}}">
 {{-- own css --}}
-<hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
+<hr style="margin:0px 0px 5px 0px; padding:0px 0px 0px 0px; border-color:#ececec">
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
-    <h1 class="font-effect-outline" style="color:#FFF">Find you fur-fect match
-    </h1>
+    <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>
     <form>  
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
           <div class="d-flex form-row justify-content-left rounded-2"  style="width: 90%; background-color: #FFF;font-size:small">
           
-            <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-              <label style="padding-left:10%; padding-right:4%;"> Gender: </label>
-                <select class="form-select form-select-sm" id="Gender" style="border:none;background-color:#FFF;margin-left: 10px;">
+            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+              <label style="padding-left:10%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
+                <select class="form-select form-select-sm mb-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option selected>Select</option>
                   <option>Male</option>
                   <option>Female</option>
                   <option>Any</option>
                 </select>
             </div>
-            
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                  <label style="padding-left:10%;padding-right:0%;"> Age Bracket: </label>
-                    <select class="form-select" id="age" style="border:none;background-color: #FFF">
-                      <option selected>Select</option>
-                      <option>Puppy 3-6 mos</option>
-                      <option>Puppy 6-12 mos</option>
-                      <option>Young 1-2 yrs</option>
-                      <option>Adult 2 yrs & up</option>
-                      <option>Any</option>
-                    </select>
-            </div>
-
-            <div class="form-group col-sm-3" style="vertical-align:middle;margin:auto;padding: 3px;">
-                  <label style="padding-left:10%;padding-right:1%"> Size: </label>
-                    <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
-                      <option selected>Select</option>
+            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+              <label style="padding-left:15%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
+                <select class="form-select form-select-sm mb-2" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                  <option selected>Select</option>
                       <option>Small breed</option>
                       <option>Medium-sized</option>
                       <option>Large breed</option>
                       <option>Any</option>
-                    </select>
+                </select>
             </div>
-
-            <div class="form-group col-sm-2" style="vertical-align:middle;margin:auto;padding: 3px;">
-                <label style="padding-left:10%;padding-right:10%"> Color: </label>
-                  <select class="form-select form-select-sm" id="breed" style="border:none;background-color: #FFF" >
-                    <option selected>Select</option>
+            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+              <label style="padding-left:10%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
+                <select class="form-select form-select-sm mb-2" id="dogscolor" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                  <option selected>Select</option>
                     <option>White</option>
                     <option>Black</option>
                     <option>Brown</option>
                     <option>Mixed</option>
                     <option>Any</option>
-                  </select>
+                </select>
             </div>
               
-            <div class="form-group col-sm-1" style="margin:0">
-                <a href=/search typ e="button" class="btn btn-primary" style="border-radius:0; letter-spacing:1px; height:34px; padding-top:7px; color:#FFF">
+            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="margin:0%; padding:0%;">
+                <a href=/search typ e="button" class="btn btn-primary" style="border-radius:0; letter-spacing:1px; height:100px; padding-top:7px; color:#FFF; background-color:#5082B7;">
                   <i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
             </div>
           </div>  
