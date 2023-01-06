@@ -12,7 +12,7 @@
           <div class="d-flex form-row justify-content-left rounded-2"  style="width: 90%; background-color: #FFF;font-size:small">
           
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:10%; padding-right:4%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
+              <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
                 <select class="form-select form-select-sm mb-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option selected>Select</option>
                   <option>Male</option>
@@ -43,9 +43,10 @@
             </div>
               
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="margin:0%; padding:0%;">
-                <a href=/search typ e="button" class="btn btn-primary" style="border-radius:0; letter-spacing:1px; height:100px; padding-top:7px; color:#FFF; background-color:#5082B7;">
+                <a href=/search typ e="button" class="btn btn-primary rounded-2" style="border-radius:0; letter-spacing:1px; height:100px; padding-top:7px; color:#FFF; background-color:#5082B7;">
                   <i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
             </div>
+
           </div>  
         </div>
     </form>
