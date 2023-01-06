@@ -35,23 +35,5 @@ class DogsController extends Controller
 
         return view('welcome')->with('dogs', $dogs);
     }
-    // public function search(){
-    //     $search = DB::table('dogs')
-    //     ->select(
-    //         'dogs.name',
-    //         'dogs.gender',
-    //         'dogs.age_yr',
-    //         'dogs.age_month',
-    //         'dogs.pic',
-    //         'dogs.breed_id1',
-    //         'breed1.name as breed1_name',
-    //         'dogs.breed_id2',
-    //         'breed2.name as breed2_name',
-    //     )
-    //     ->join('breed as breed1', 'breed1.id' , '=', 'dogs.breed_id1')
-    //     ->join('breed as breed2', 'breed2.id', '=','dogs.breed_id2' )
-    //     ->pagination(4)->get();
-
-    //     return view('/search')->with('dogs', $search);
-    // }
+    
 }
