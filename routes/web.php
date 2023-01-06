@@ -17,6 +17,9 @@ use App\Http\Controllers\ProfilepicController;
 
 
 
+use App\Http\Controllers\DogsController;
+
+
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
 Route::get('/search', 'App\Http\Controllers\PagesController@search');
