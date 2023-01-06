@@ -8,7 +8,8 @@
 
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
-        <img src="{{asset('build/images/searchres/fem8.jpg') }}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
+        
+        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
        <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary3" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
@@ -22,7 +23,7 @@
     
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <h5 class="text-primary"> {{$dogs->gender}},  {{$dogs->age_yr}} yrs old<br>
-          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary m-2">{{$dogs->breed_id1}} - {{$dogs->breed_id2}}  </span></h6>
+          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
           <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i><span style="font-size: small;color: #5d5d5d">Posted 10d ago</span><br></h4>
         <table style="width:100%;color:#581542;margin-top:10px">
           <colgroup>
@@ -46,11 +47,11 @@
           </tr>
           <tr>
             <th>Primary Breed:</th>
-            <td>{{$dogs->breed_id1}}</td>
+            <td>{{$dogs->breed1_name}}</td>
           </tr>
           <tr>
             <th>Primary Breed:</th>
-            <td>{{$dogs->breed_id2}}</td>
+            <td>{{$dogs->breed2_name}}</td>
           </tr>
           <tr>
             <th>Rescued Dog:</th>
@@ -64,32 +65,24 @@
             <td colspan="2" style="padding-top:20px;padding-left:0px;font-size:15px"><i>Medical History</th>          
           </tr>  
           <tr>
-            <th>Vaccinated?</th>
-            <td>No</td>
+            <th>Size</th>
+            <td>{{$dogs->size}}</td>
           </tr>
           <tr>
-            <th>Anti-rabies?</th>
-            <td>Yes</td>
+            <th>Color</th>
+            <td>{{$dogs->color}}</td>
           </tr>
           <tr>
             <th>Neutered/Spayed?</th>
-            <td class="text-primary">{{$dogs->neutered}}</td>
+            <td>{{$dogs->neutered}}</td>
           </tr>
           <tr>
-            <th>Medical issue/s:</th>
-            <td>None</td>
-          </tr>
-          <tr>
-            <th>Behavior:</th>
-            <td>Playful</td>
-          </tr>
-          <tr>
-            <th>Reason for posting: </th>
-            <td>Dam and sire (rescued dogs) are still unneutered</td>
+            <th>Reason for Fee </th>
+            <td>{{$dogs->fee}}</td>
           </tr>
           <tr>
             <th>Adoption Fee: </th>
-            <td class="text-primary">{{$dogs->fee}} - {{$dogs->feenotes}}</td>
+            <td>{{$dogs->feenotes}}</td>
           </tr>  
         
         </table>
