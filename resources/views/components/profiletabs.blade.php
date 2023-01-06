@@ -12,16 +12,18 @@
                   <a class="nav-link" href="/personalinfo">Personal Info</a>
                 </li>
                 <li class="nav-item my-4">
-                  <a class="nav-link" href="#">Dog History</a>
+                  <a class="nav-link" href="/doghistory">Dog History</a>
                 </li>
                 <li class="nav-item my-4">
-                  <a class="nav-link" href="#">Account Settings</a>
+                  <a class="nav-link" href="/accountsetting">Account Settings</a>
                 </li>
               </ul>
         </div>
         <div class='col-lg-10'>
           @yield('myprofile')
           @yield('personalinfo')
+          @yield('doghistory')
+          @yield('accountsetting')
         </div>
     </div>
 

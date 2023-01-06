@@ -57,5 +57,11 @@ class PagesController extends Controller
     public function personalinfo(){
         return view('pages/personalinfo');
     }
+    public function doghistory(){
+        return view('pages/doghistory');
+    }
+    public function accountsetting(){
+        return view('pages/accountsetting');
+    }
 
 }
