@@ -7,6 +7,8 @@ use App\Models\Dogs;
 use App\Models\Breed;
 use DB;
 
+
+
 class DogsController extends Controller
 {
     /**
@@ -32,7 +34,6 @@ class DogsController extends Controller
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->take(4)->get();
-
         return view('welcome')->with('dogs', $dogs);
     }
     

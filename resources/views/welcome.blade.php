@@ -1,5 +1,8 @@
 @extends('components.navbar')
 @section('content')
+{{-- own css --}}
+<link rel="stylesheet" href="{{asset('build/assets/main.css')}}">
+{{-- own css --}}
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
@@ -66,72 +69,17 @@
 
 <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;margin-bottom:1%">
   <h5 style="margin-top:1%">Recently posted dogs for adoption</h5>  
-  @foreach($dogs as $dog)
 
-      <div class="card d-inline-flex m-2">
-          <div class="card" style="width:18rem;">
-
-              <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
-
-              <div class="card-body">
-                  <h3 class="card-title">{{$dog->name}}</h3>
-                  <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
-                  <h6 class="card-subtitle mb-2 text-muted">{{$dog->breed1_name}} , {{$dog->breed2_name}}</h6>
-              </div>
-          </div>
-      </div>
-
-  @endforeach
   <div class="row">
-  {{--<div class="col-lg-3 col-md-6">
-    <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
-    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
-    <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
-    </p>
-    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
-    <p style="padding-left:5%;font-size: small">Posted 2m ago</p>
-  </div>--}}
-</div>
-
-
-
-
-<div class="row">
-
-  {{-- <div class="col-lg-3 col-md-6">
-    <img src="{{asset('build/images/dog1.jpg') }}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
-    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 2 mo. old
-    <span style="float:right; padding-right: 7%;font-size: small">16 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
-    </p>
-    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
-    <p style="padding-left:5%;font-size: small">Posted 2m ago</p>
+    @foreach($dogs as $dog)
+      <div class="col-lg-3 col-md-6">
+        <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+        <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
+        <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+        <p style="padding-left:5%;font-size: small">Posted {{$dog->updated_at}}</p>
+      </div>
+    @endforeach
   </div>
-  <div class="col-lg-3 col-md-6">
-    <img src="{{asset('build/images/dog2.jpg') }}" class = "img-responsive" width = "100%" style="padding:5%; padding-bottom:2%" />
-    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Male, 7+ yo
-    <span style="float:right; padding-right: 7%;font-size: small">8 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
-    </p>
-    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>German Shepherd</i></p>
-    <p style="padding-left:5%;font-size: small">Posted 1h ago</p>
-  </div>
-  <div class="col-lg-3 col-md-6">
-    <img src="{{asset('build/images/dog3.jpg') }}" class = "img-responsive" width = "100%" style="padding:5%; padding-bottom:2%" />
-    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Male, 3+ yo
-    <span style="float:right; padding-right: 7%;font-size: small"><i class="fa-regular fa-heart" style="font-size:large"></i></span>
-    </p>
-    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Chow chow</i></p>
-    <p style="padding-left:5%;font-size: small">Posted 5h ago</p>
-  </div>
-  <div class="col-lg-3 col-md-6">
-    <img src="{{asset('build/images/dog4.jpg') }}" class = "img-responsive" width ="100%" style="padding:5%; padding-bottom:2%" />
-    <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">Female, 3 mo. old
-    <span style="float:right; padding-right: 7%;font-size: small">33 <i class="fa-regular fa-heart" style="font-size:large"></i></span>
-    </p>
-    <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>Aspin</i></p>
-    <p style="padding-left:5%;font-size: small">Posted 1d ago</p>
-  </div>
-  </div> --}}
-</div>
 
 <div class="container-fluid" style="background-color:#FFE38B;text-align: center;vertical-align: middle;">
   <a href="#Search"><p style="padding-top:1%;margin:0px"> How it works <br>

@@ -1,4 +1,4 @@
-@extends('components.navbar')
+@extends('components.navbar')d
 
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
