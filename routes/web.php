@@ -38,7 +38,7 @@ Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
 // This is Profiletabs - User
-Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
+// Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
 Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
 Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
@@ -64,4 +64,7 @@ Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
+
