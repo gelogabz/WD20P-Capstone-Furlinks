@@ -110,12 +110,12 @@
               <i class="fa-solid fa-photo-film" style="font-size:50px;color:#581441"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
               </div>
           </div>
-          {{-- <div class="file-upload-content">
+          <div class="file-upload-content">
               <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
                   <div class="container justify-content-center">
                       <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
               </div>
-          </div> --}}
+          </div>
         </div>
       </div>
 

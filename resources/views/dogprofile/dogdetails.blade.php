@@ -9,7 +9,7 @@
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
         
-        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
+        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:100%; display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
        <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary" style="float:center; margin-top:10px; background-color:#581542;"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
@@ -22,8 +22,8 @@
       <!--Dog profile information -->
     
       <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-        <h5 class="text-primary"> {{$dogs->gender}},  {{$dogs->age_yr}} yrs old<br>
-          <h6 ><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="text-primary m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
+        <h5 style="color:#811D60;"> {{$dogs->gender}},  {{$dogs->age_yr}} yrs old<br>
+          <h6 style="color:#811D60;"><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
           <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i><span style="font-size: small;color: #5d5d5d">Posted 10d ago</span><br></h4>
         <table style="width:100%;color:#581542;margin-top:10px">
           <colgroup>
