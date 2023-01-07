@@ -9,7 +9,7 @@ use App\Models\Dogs;
 use DB;
 
 class DogprofileController extends Controller
-{    
+{
     public function index()
     {
         $idtofind = Auth::id();
@@ -42,7 +42,7 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('user_id', '=', $idtofind)
-            ->simplePaginate(8);
+            ->simplePaginate(4);
         return view('pages.ownprofile')->with('dogs', $dogs);
 
         // $dogs = Dogs::all();
@@ -236,7 +236,7 @@ class DogprofileController extends Controller
             $filename = date('YmdHis') . "." . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
-        }else{
+        } else {
             unset($input['pic']);
         };
         $dogs->pic = $input['pic'];

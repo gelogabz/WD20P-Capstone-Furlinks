@@ -43,9 +43,9 @@ Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo')
 Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
 
-Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
-Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
-Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
+Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
+
+
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
@@ -56,6 +56,7 @@ Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
+Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 
 //Search.Blade
 

@@ -63,6 +63,9 @@ class PagesController extends Controller
     public function accountsetting(){
         return view('pages/accountsetting');
     }
+    public function showprofile(){
+        return view('pages/showprofile');
+    }
     
 
 }
