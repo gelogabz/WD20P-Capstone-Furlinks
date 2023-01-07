@@ -42,13 +42,12 @@ class ApplicationsController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $applications =  Applications::where('dog_id',$id)->get();
-        foreach ($applications as $application) {
-            $application->appstatus = $request->input('appstatus');;
-            $application->save();
-            }
-        return redirect('applications.index');
+        $applications =  Applications::find($id);
+        $applications->appstatus = $request->get('appstatus');
+        $applications->save();
+        return redirect()->back()
+        ->with('success', 'Application status successfully updated.');
     }
 }

@@ -108,6 +108,9 @@
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
   <div class="row" style="width:100%;margin-top:20px">
+    <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
+      <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dog Profile</a>
+
     <h3>Edit dog details</h3><br>
       <form action="{{route('dogprofile.update', $dogs->id)}}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
