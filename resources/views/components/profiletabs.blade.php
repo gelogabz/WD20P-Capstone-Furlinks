@@ -24,6 +24,7 @@
           @yield('personalinfo')
           @yield('doghistory')
           @yield('accountsetting')
+          
         </div>
     </div>
 
