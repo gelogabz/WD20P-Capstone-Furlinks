@@ -67,8 +67,8 @@ class PagesController extends Controller
         return view('userprofile/editprofile');
     }
 
-    public function index(){
-        return view('applications/index');
+    public function applications(){
+        return view('dogprofile/apptable');
     }
     
     public function home(){

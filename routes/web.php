@@ -66,8 +66,8 @@ Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 
 
 Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
-Route::resource('/applications', 'App\Http\Controllers\ApplyController');
-Route::get('/applications', 'App\Http\Controllers\ApplyController@applications');
+Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
+Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 
 
 //Search.Blade
