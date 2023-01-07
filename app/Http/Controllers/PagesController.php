@@ -52,7 +52,7 @@ class PagesController extends Controller
     }
     public function myprofile()
     {
-        return view('pages/myprofile');
+        return view('userprofile/myprofile');
     }
     public function personalinfo(){
         return view('pages/personalinfo');
@@ -62,6 +62,13 @@ class PagesController extends Controller
     }
     public function accountsetting(){
         return view('pages/accountsetting');
+    }
+    public function showprofile(){
+        return view('pages/showprofile');
+    }
+
+    public function index(){
+        return view('applications/index');
     }
     
 

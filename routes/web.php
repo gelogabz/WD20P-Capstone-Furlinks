@@ -38,19 +38,12 @@ Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
 Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
 // This is Profiletabs - User
-Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
+// Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
 Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
 Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
 
-Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
-Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
-Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
-
-
-
-
-
+Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
@@ -58,10 +51,18 @@ Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
 
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
+Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
+
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
+Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
+Route::resource('/applications', 'App\Http\Controllers\ApplyController');
+Route::get('/applications', 'App\Http\Controllers\ApplyController@applications');
 
 //Search.Blade
 
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
+

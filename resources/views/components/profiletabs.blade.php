@@ -6,7 +6,7 @@
         <div class="col-lg-2">
             <ul class="nav">
                 <li class="nav-item my-4">
-                  <a class="nav-link active" aria-current="page" href="/myprofile">My Profile</a>
+                  <a class="nav-link active" aria-current="page" href="/home">My Profile</a>
                 </li>
                 <li class="nav-item my-4">
                   <a class="nav-link" href="/personalinfo">Personal Info</a>
@@ -24,6 +24,7 @@
           @yield('personalinfo')
           @yield('doghistory')
           @yield('accountsetting')
+          
         </div>
     </div>
 
