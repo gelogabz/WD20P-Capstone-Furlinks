@@ -134,213 +134,252 @@
         </div>
       </div>
 
-      <!--Dog profile information -->
-      <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+      <div class="col-md-9" style="padding-left:2%;padding-right:2%">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
-          @if ($errors->any())
-          <div class="alert alert-danger">
-              <strong>Whoops!</strong> There were some problems with your input.<br><br>
-              <ul>
-                  @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                  @endforeach
-              </ul>
+ <!--DOG BASIC INFO  -->  
+            <div class="row">
+              <table style="width:100%;margin-top:10px">
+                <tr style="border-bottom:0.3pt solid #e1e1e1;">
+                  <th colspan="4" style="padding-left:0px;font-size:16px"><i>Basic Information</i></th>    
+                </tr>   
+              </table>
+
+              <div class="col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;">
+                <div class="mb-2 mt-2 row">
+                    <label for="gender" class="col-sm-4 col-form-label">Gender</label>
+                    <div class="col-sm-8">
+                      <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
+                        <option value="Male" {{($dogs->gender=="Male")? "selected" : "" }}>Male</option>
+                        <option value="Female" {{($dogs->gender=="Female")? "selected" : "" }}>Female</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="mb-2 row">
+                  <label for="age" class="col-sm-4 col-form-label">Age</label>
+                  <div class="col-sm-4">
+                      <input type="number" name="age_yr" class="form-control form-control-sm" value="{{$dogs->age_yr}}">
+                      <span class="form-label-inline" style="font-size:.8rem; font-style:italic">Year/s</span>
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="number" name="age_month" class="form-control form-control-sm" value="{{$dogs->age_month}}">
+                    <label for="age_month" class="col-form-label col-form-label-sm" style="font-size:.8rem; font-style:italic">Month/s</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-1 col-sm-1"></div>
+              
+              <div class="col-md-5 col-sm-12" style="padding-left:20px;padding-top:15px;">
+                <?php    
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "furlinks_db";
+                ?>
+                <div class="mb-2 row">
+                  <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
+                  <div class="col-sm-8">
+                    <select class="form-select form-select-sm" name="breed_id1" aria-label=".form-select-sm example" required>
+                      <option value="{{$dogs->breed_id1}}"selected>{{$dogs->breed1_name}}</option>
+                      <?php
+                      $conn = mysqli_connect($servername, $username, $password, $dbname);
+                      $breed = "SELECT * FROM `breed`";
+                      $resulta = mysqli_query($conn, $breed);
+                          if (mysqli_num_rows($resulta)>0){
+                              while ($row = mysqli_fetch_assoc($resulta)){
+                                  echo "<option value=".$row["id"].">".$row["name"]. "</option>";
+                          }
+                          }else {
+                              echo "no breed found";
+                          }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-2 row">
+                  <label for="breed_id2" class="col-sm-4 col-form-label">Secondary Breed</label>
+                  <div class="col-sm-8">
+                    <select class="form-select form-select-sm" name="breed_id2" aria-label=".form-select-sm example" required>
+                      <option value="{{$dogs->breed_id2}}" selected>{{$dogs->breed2_name}}</option>
+                      <?php
+                      $conn = mysqli_connect($servername, $username, $password, $dbname);
+                      $breed = "SELECT * FROM `breed`";
+                      $resulta = mysqli_query($conn, $breed);
+                          if (mysqli_num_rows($resulta)>0){
+                              while ($row = mysqli_fetch_assoc($resulta)){
+                                  echo "<option value=".$row["id"].">"    .$row["name"]. "</option>";
+                          }
+                          }else {
+                              echo "no breed found";
+                          }
+                      ?>
+                    </select>
+                  </div>
+                </div>
+              
+              </div>
+            
+            </div>
+
+            <!--DOG ADDITIONAL INFO  --> 
+            <div class="row">
+              <table style="width:100%;"">
+                <tr style="border-bottom:0.3pt solid #e1e1e1;">
+                  <th colspan="4" style="padding-left:0px;font-size:16px"><i>Dog History</i></th>    
+                </tr>   
+              </table>
+    
+              <div class="col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;">
+                <div class="mb-2 row">
+                  <label for="name" class="col-sm-4 col-form-label">Name
+                    <span id="nameHelp" class="text-muted" style="font-size:.8rem; font-style:italic">
+                      (Optional)
+                    </span></label>
+                  <div class="col-sm-8">
+                    <input type="text" name="name" class="form-control form-control-sm" value="{{$dogs->name}}">
+                  </div>
+                </div>
+
+                <div class="mb-2 row">
+                  <label for="location" class="col-sm-4 col-form-label">Location
+                    <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
+                      (City, Region)
+                    </span></label>
+                  <div class="col-sm-8">
+                    <input type="text" name="location" class="form-control form-control-sm" value="{{$dogs->location}}">
+                  </div>
+                </div>
+
+                <div class="mb-2 row">
+                  <label for="rescued" class="col-sm-4 col-form-label">Rescued?</label>
+                  <div class="col-sm-8">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="rescued" id="inlineRadio1" value="1" {{($dogs->rescued=="1")? "checked" : "" }}>
+                      <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="rescued" id="inlineRadio2" value="0" {{($dogs->rescued=="0")? "checked" : "" }}>
+                      <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-2 row">
+                  <label for="rescuedate" class="col-sm-4 col-form-label">Date Rescued</label>
+                  <div class="col-sm-8">
+                    <input type="date" name="rescuedate" class="form-control form-control-sm" value="{{$dogs->rescuedate}}">
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-md-1 col-sm-1"></div>
+              
+              <div class="col-md-5 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+                <div class="mb-2 row">
+                  <label for="size" class="col-sm-4 col-form-label">Size</label>
+                  <div class="col-sm-8">
+                    <select class="form-select form-select-sm" name="size" aria-label=".form-select-sm example" required>
+                      <option value="Small" {{($dogs->size=="Small")? "selected" : "" }}>Small (2 to 20 lbs)</option>
+                      <option value="Medium" {{($dogs->size=="Medium")? "selected" : "" }}>Medium (21 to 57 lbs)</option>
+                      <option value="Large" {{($dogs->size=="Large")? "selected" : "" }}>Large (over 57 lbs) breed</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-2 row">
+                  <label for="color" class="col-sm-4 col-form-label">Color</label>
+                  <div class="col-sm-8">
+                    <select class="form-select form-select-sm" name="color" aria-label=".form-select-sm example" required>
+                      <option value="Black" {{($dogs->color=="Black")? "selected" : "" }}>Black</option>
+                      <option value="Brown" {{($dogs->color=="Brown")? "selected" : "" }}>Brown</option>
+                      <option value="White" {{($dogs->color=="White")? "selected" : "" }}>White</option>
+                      <option value="Gray" {{($dogs->color=="Gray")? "selected" : "" }}>Gray</option>
+                      <option value="Mixed" {{($dogs->color=="Mixed")? "selected" : "" }}>Mixed</option>
+                      <option value="Dotted" {{($dogs->color=="Dotted")? "selected" : "" }}>Dotted</option>
+                      <option value="Brindled" {{($dogs->color=="Brindled")? "selected" : "" }}>Brindled</option>
+                    </select>
+                  </div>
+                </div>
+              
+                <div class="mb-2 row">
+                  <label for="neutered" class="col-sm-4 col-form-label">Neutered/Spayed?</label>
+                  <div class="col-sm-8">
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input custom-control" type="radio" name="neutered" id="inlineRadio1" value="1" {{($dogs->neutered=="1")? "checked" : "" }}>
+                      <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="form-check-input" type="radio" name="neutered" id="inlineRadio2" value="0" {{($dogs->neutered=="0")? "checked" : "" }}>
+                      <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="mb-2 row">
+                  <label for="birthdate" class="col-sm-4 col-form-label">Birthdate</label>
+                  <div class="col-sm-8">
+                    <input type="date" name="birthdate" class="form-control form-control-sm" value="{{$dogs->birthdate}}">
+                  </div>
+                </div>
+
+              </div>
+            
+            </div>
+
+            <!--ADOPTION INFO  -->            
+            <div class="row">
+              <table style="width:100%;"">
+                <tr style="border-bottom:0.3pt solid #e1e1e1;">
+                  <th colspan="4" style="padding-left:0px;font-size:16px"><i>Adoption Fees</i></th>    
+                </tr>   
+              </table>
+
+              <div class="col-md-4 col-sm-12" style="padding-left:20px;padding-top:15px;">
+                <div class="mb-2 row">
+                  <label for="fee" class="col-sm-4 col-form-label">Amount</label>
+                  <div class="col-sm-8">
+                    <input type="amount" name="fee" class="form-control form-control-sm" value="{{$dogs->fee}}">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-1 col-sm-1"></div>
+              
+              <div class="col-lg-7 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+                <div class="mb-2 row">
+                  <label for="feenotes" class="col-sm-4 col-form-label">Reason for Fees</label>
+                  <div class="col-sm-8">
+                    <input type="textarea" name="feenotes" class="form-control form-control-sm" value="{{$dogs->feenotes}}">
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+
+            <div class="row justify-content-center" >
+              <input type="submit" name="submit" class="button btn-primary2" value="Update">
+            </div>
           </div>
-          @endif
-        <div class="container">
-            {{-- PATCH- specific part PUT - whole resource --}}
-            <div class="mb-2 row">
-              <label for="gender" class="col-sm-4 col-form-label">Gender</label>
-              <div class="col-sm-8">
-                <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
-                  <option selected>{{$dogs->gender}}</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="age" class="col-sm-4 col-form-label">Age</label>
-              <div class="col-sm-4">
-                <input type="number" name="age_yr" value="{{$dogs->age_yr}}"class="form-control form-control-sm">
-                <label for="age_yr" class="col-form-label col-form-label-sm" style="font-size:.8rem; font-style:italic">Year/s</label>
-              </div>
-              <div class="col-sm-4">
-                <input type="number" name="age_month" value="{{$dogs->age_month}}" class="form-control form-control-sm">
-                <label for="age_month" class="col-form-label col-form-label-sm" style="font-size:.8rem; font-style:italic">Month/s</label>
-              </div>
-            </div>
-
-            <?php    
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "furlinks_db";
-            ?>
-            <div class="mb-2 row">
-              <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
-              <div class="col-sm-8">
-                <select class="form-select form-select-sm" name="breed_id1" aria-label=".form-select-sm example" required>
-                  <option value="{{$dogs->breed_id1}}"selected>{{$dogs->breed1_name}}</option>
-                  <option value="1">Shih-tzu</option>
-                  <option value="2">Labrador</option>
-                  <option value="3">Chihuahua</option>
-                  <option value="4">Dashound</option>
-                  <option value="5">German Shepherd</option>
-                  <option value="6">Rottweiler</option>
-                  <option value="7">Dalmatian</option>
-                  <option value="8">Jack Russel Terrier</option>
-                  <option value="9">Yorki</option>
-                  <option value="10">Corgi</option>
-                  <option value="11">Poodle</option>
-                  <option value="12">Beagle</option>
-                  <option value="13">Japanese Spitz</option>
-                  <option value="14">Retriever</option>
-                  <option value="15">Boxer</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="breed_id2" class="col-sm-4 col-form-label">Secondary Breed</label>
-              <div class="col-sm-8">
-                <select class="form-select form-select-sm" name="breed_id2" aria-label=".form-select-sm example" required>
-                  <option value="{{$dogs->breed_id2}}"selected>{{$dogs->breed2_name}}</option>
-                  <option value="1">Shih-tzu</option>
-                  <option value="2">Labrador</option>
-                  <option value="3">Chihuahua</option>
-                  <option value="4">Dashound</option>
-                  <option value="5">German Shepherd</option>
-                  <option value="6">Rottweiler</option>
-                  <option value="7">Dalmatian</option>
-                  <option value="8">Jack Russel Terrier</option>
-                  <option value="9">Yorki</option>
-                  <option value="10">Corgi</option>
-                  <option value="11">Poodle</option>
-                  <option value="12">Beagle</option>
-                  <option value="13">Japanese Spitz</option>
-                  <option value="14">Retriever</option>
-                  <option value="15">Boxer</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="name" class="col-sm-4 col-form-label">Name
-                <span id="nameHelp" class="text-muted" style="font-size:.8rem; font-style:italic">
-                  (Optional)
-                </span></label>
-              <div class="col-sm-8">
-                <input type="text" name="name"  value="{{$dogs->name}}"  class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="location" class="col-sm-4 col-form-label">Location
-                <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
-                  (City, Province)
-                </span></label>
-              <div class="col-sm-8">
-                <input type="text" name="location"  value="{{$dogs->location}}"  class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="rescued" class="col-sm-4 col-form-label">Rescued?</label>
-              <div class="col-sm-8">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="rescued" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="rescued" id="inlineRadio2" value="0">
-                  <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="rescuedate" class="col-sm-4 col-form-label">Date Rescued</label>
-              <div class="col-sm-8">
-                <input type="date" name="rescuedate" value="{{$dogs->rescuedate}}" class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="birthdate" class="col-sm-4 col-form-label">Birthdate</label>
-              <div class="col-sm-8">
-                <input type="date" name="birthdate" value="{{$dogs->birthdate}}"class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="neutered" class="col-sm-4 col-form-label">Neutered/Spayed?</label>
-              <div class="col-sm-8">
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="neutered" id="inlineRadio1" value="1">
-                  <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="neutered" id="inlineRadio2" value="0">
-                  <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="size" class="col-sm-4 col-form-label">Size</label>
-              <div class="col-sm-8">
-                <select class="form-select form-select-sm" name="size" aria-label=".form-select-sm example" required>
-                  <option selected>{{$dogs->size}}</option>
-                  <option value="Small">Small (2 to 20 lbs)</option>
-                  <option value="Medium">Medium (21 to 57 lbs)</option>
-                  <option value="Large">Large (over 57 lbs) breed</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="color" class="col-sm-4 col-form-label">Color</label>
-              <div class="col-sm-8">
-                <select class="form-select form-select-sm" name="color" aria-label=".form-select-sm example" required>
-                  <option selected>{{$dogs->color}}</option>
-                  <option value="Black">Black</option>
-                  <option value="Brown">Brown</option>
-                  <option value="White">White</option>
-                  <option value="Gray">Gray</option>
-                  <option value="Mixed">Mixed</option>
-                  <option value="Dotted">Dotted</option>
-                  <option value="Brindled">Brindled</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="fee" class="col-sm-4 col-form-label">Adoption Fees</label>
-              <div class="col-sm-8">
-                <input type="amount" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"name="fee" value="{{$dogs->fee}}"class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <div class="mb-2 row">
-              <label for="feenotes" class="col-sm-4 col-form-label">Reason for Fees</label>
-              <div class="col-sm-8">
-                <input type="text" name="feenotes" value="{{$dogs->feenotes}}"class="form-control form-control-sm">
-              </div>
-            </div>
-
-            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-          </form>
-          </div>
-      </div>
+        </div>
+      </form>
     </div>
 </div>
 
 <!--SCRIPT for drag and drop of images -->
-
 <script>
-     function readURL(input) {
+    function readURL(input) {
         if (input.files && input.files[0]) {
             let reader = new FileReader();
             reader.onload = function(e) {
@@ -375,7 +414,6 @@
             $('.image-upload-wrap').removeClass('image-dropping');
         });
 </script>
-</div>
 
 @endsection
 

@@ -200,54 +200,47 @@ class DogprofileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dogs $dogs)
+    public function update(Request $request, $id)
     {
-        // $updateContact = Dogs::find($id);
-        // $input = $request->all();
-        // $updateContact->update($input);
-        // return redirect('ownprofile');
-        // $this->validate($request, array(
-        //     'gender' => 'required',
-        //     'breed_id1' => 'required',
-        //     // 'pic' => 'required',
-        //     'size' => 'required',
-        //     'color' => 'required',
-        //     'location' => 'required',
-        //     'neutered' => 'required',
-        //     'rescued' => 'required',
-        //     'fee' => 'required',
-        //     'feenotes' => 'required',
-        // ));
+        $this->validate($request, array(
+            'gender' => 'required',
+            'breed_id1' => 'required',
+            'pic' => 'required',
+            'size' => 'required',
+            'color' => 'required',
+            'location' => 'required',
+            'neutered' => 'required',
+            'rescued' => 'required',
+            'fee' => 'required',
+            'feenotes' => 'required',
+        ));
 
-        // $dogs = Dogs::find($id);
-        // $dogs->gender = $request->get('gender');
-        // $dogs->age_yr = $request->get('age_yr');
-        // $dogs->age_month = $request->get('age_month');
-        // $dogs->breed_id1 = $request->get('breed_id1');
-        // $dogs->breed_id2 = $request->get('breed_id2');
-        $input = $request->all();
-
+        $dogs = Dogs::find($id);
+        
+        $dogs->gender = $request->input('gender');
+        $dogs->age_yr = $request->input('age_yr');
+        $dogs->age_month = $request->input('age_month');
+        $dogs->breed_id1 = $request->input('breed_id1');
+        $dogs->breed_id2 = $request->input('breed_id2');       
+        $dogs->name = $request->input('name');
+        $dogs->location = $request->input('location');
+        $dogs->rescued = $request->input('rescued');
+        $dogs->rescuedate = $request->input('rescuedate');
+        $dogs->birthdate = $request->input('birthdate');
+        $dogs->neutered = $request->input('neutered');
+        $dogs->size = $request->input('size');
+        $dogs->color = $request->input('color');
+        $dogs->fee = $request->input('fee');
+        $dogs->feenotes = $request->input('feenotes');
         if ($file = $request->file('pic')) {
             $filename = date('YmdHis') . "." . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
         }else{
             unset($input['pic']);
-        }
-          
-        // $dogs->name = $request->get('name');
-        // $dogs->location = $request->get('location');
-        // $dogs->rescued = $request->get('rescued');
-        // $dogs->rescuedate = $request->get('rescuedate');
-        // $dogs->birthdate = $request->get('birthdate');
-        // $dogs->neutered = $request->get('neutered');
-        // $dogs->size = $request->get('size');
-        // $dogs->color = $request->get('color');
-        // $dogs->fee = $request->get('fee');
-        // $dogs->feenotes = $request->get('feenotes');
-        // $dogs->update($dogs);
-
-        $dogs->update($input);
+        };
+        $dogs->pic = $input['pic'];
+        $dogs->save();
 
         return redirect('/ownprofile')
             ->with('success', 'Dog profile successfully updated.');
