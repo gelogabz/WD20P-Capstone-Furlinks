@@ -9,7 +9,7 @@ use App\Models\Dogs;
 use DB;
 
 class DogprofileController extends Controller
-{    
+{
     public function index()
     {
         $idtofind = Auth::id();
@@ -42,7 +42,7 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('user_id', '=', $idtofind)
-            ->simplePaginate(8);
+            ->simplePaginate(4);
         return view('pages.ownprofile')->with('dogs', $dogs);
 
         // $dogs = Dogs::all();
@@ -231,9 +231,10 @@ class DogprofileController extends Controller
             $filename = date('YmdHis') . "." . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
-        }else{
+        } else {
             unset($input['pic']);
         }
+<<<<<<< Updated upstream
           
         // $dogs->name = $request->get('name');
         // $dogs->location = $request->get('location');
@@ -248,6 +249,19 @@ class DogprofileController extends Controller
         // $dogs->update($dogs);
 
         $dogs->update($input);
+=======
+
+        $dogs->name = $request->get('name');
+        $dogs->location = $request->get('location');
+        $dogs->rescued = $request->get('rescued');
+        $dogs->rescuedate = $request->get('rescuedate');
+        $dogs->birthdate = $request->get('birthdate');
+        $dogs->neutered = $request->get('neutered');
+        $dogs->size = $request->get('size');
+        $dogs->color = $request->get('color');
+        $dogs->fee = $request->get('fee');
+        $dogs->feenotes = $request->get('feenotes');
+>>>>>>> Stashed changes
 
         return redirect('/ownprofile')
             ->with('success', 'Dog profile successfully updated.');
