@@ -47,11 +47,6 @@ Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 
 
 
-
-
-
-
-
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 
