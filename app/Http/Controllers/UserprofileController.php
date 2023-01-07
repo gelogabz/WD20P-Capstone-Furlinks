@@ -13,24 +13,26 @@ class UserprofileController extends Controller
 
     public function index()
     {
-        $idtofind = Auth::id();
-        $userprofile = DB::table('userprofile')
-            ->select(
-                'userprofile.id',
-                'userprofile.profilepic',
-                'userprofile.firstname',
-                'userprofile.lastname',
-                'userprofile.location',
-                'userprofile.about',
-            )
-            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
-            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
-            ->join('status', 'status.id', '=', 'dogs.status_id')
-            ->where('user_id', '=', $idtofind)
-            ->simplePaginate(8);
-        return view('pages.ownprofile')->with('userprofile', $userprofile);
+        // $idtofind = Auth::id();
+        // $userprofile = DB::table('userprofiles')
+        //     ->select(
+        //         'userprofiles.id',
+        //         'userprofiles.profilepic',
+        //         'userprofiles.firstname',
+        //         'userprofiles.lastname',
+        //         'userprofiles.location',
+        //         'userprofiles.about',
+        //     )
+        //     // ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+        //     // ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+        //     // ->join('status', 'status.id', '=', 'dogs.status_id')
+        //     ->where('user_id', '=', $idtofind);
 
-        // $dogs = Dogs::all();
+        // return view('pages.showprofile')->with('userprofiles', $userprofile);
+
+        // $userprofile = Userprofile::all();
+        // return view('pages.')->with('userprofiles', $userprofile);
+
         // orderBy ascending and descending
         // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
         // Pagination
@@ -67,7 +69,27 @@ class UserprofileController extends Controller
        
         $userprofile->save();
 
-        return redirect('/myprofile')
+        return redirect('/showprofile')
             ->with('success', 'Dog posted successfully.');
     }
+    public function show($id)
+    {
+        $idtofind = Auth::id();
+        $userprofile = DB::table('userprofiles')
+            ->select(
+                'userprofiles.id',
+                'userprofiles.profilepic',
+                'userprofiles.firstname',
+                'userprofiles.lastname',
+                'userprofiles.location',
+                'userprofiles.about',
+            )
+            // ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            // ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            // ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->where('user_id', '=', $idtofind);
+
+        return view('pages.showprofile')->with('userprofiles', $userprofile);
+    }
+    
 }
