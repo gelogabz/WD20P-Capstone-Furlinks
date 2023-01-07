@@ -10,9 +10,10 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <title>Furlinks</title>
     <link rel="icon" href="logo_web.ico" />
-    <link rel="stylesheet" href="{{ URL::asset('build/assets/main.css')}}" />
-    <link rel="stylesheet" href="{{URL::asset('build/assets/app.css')}}" />
-    
+    <link rel="stylesheet" href="{{asset('build/assets/app.css')}}"/>
+    <link rel="stylesheet" href="{{asset('build/assets/main.css')}}" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <!--fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
