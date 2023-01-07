@@ -7,15 +7,17 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
 use DB;
+use Carbon\Carbon;
 
 class DogprofileController extends Controller
-{
+{    
     public function index()
     {
         $idtofind = Auth::id();
         $dogs = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -120,6 +122,7 @@ class DogprofileController extends Controller
         $singleDog = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',

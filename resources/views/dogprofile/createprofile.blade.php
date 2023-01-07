@@ -12,7 +12,6 @@
       opacity: 0;
       cursor: pointer;
       }
-
   .image-upload-wrap {
       margin-top: 0px;
       border: 4px dashed #5082B7 !important ;
@@ -21,27 +20,22 @@
       display:block;
       margin: auto;
       }
-
   .image-dropping,
   .image-upload-wrap:hover {
       background-color:#cfe5fd !important ;
       }
-
   .image-title-wrap {
       padding: 15px 15px 15px 15px;
       text-align: center;
       }
-
   .drag-text {
       text-align: center;
       }
-
   .drag-text h3 {
       font-weight: 100;
       color: #5082B7 !important ;
       padding: 60px 0;
       }
-
   .file-upload-image {
       max-height: 300px;
       max-width: 300px;
@@ -63,12 +57,10 @@
       margin:5px;
       vertical-align: middle;
       }
-
   .remove-btn,
   .file-upload-none{
       display: none;
   }
-
   .remove-image:hover {
       background-color:#6388af !important ;
       transition: all .5s ease;
@@ -77,7 +69,6 @@
       -o-transition: all .5s ease;
       -ms-transition: all .5s ease;
       }
-
   .remove-image:active {
       border: 0;
       transition: all .2s ease;
@@ -106,7 +97,6 @@
     -ms-transition: all 1s ease;
   }
 </style>
-
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
