@@ -25,7 +25,7 @@
       border: 4px dashed #5082B7 !important ;
       position: relative;
       text-align: center;
-      display:block;
+      display:none;
       margin: auto;
       }
   .image-dropping,
@@ -45,8 +45,8 @@
       padding: 60px 0;
       }
   .file-upload-image {
-      max-height: 350px;
-      max-width: 350px;
+      max-height: 300px;
+      max-width: 300px;
       margin: 0px;
       text-align: center;
       display:block;
@@ -67,7 +67,7 @@
       }
   .remove-btn,
   .file-upload-none{
-      display: none;
+      display: show;
   }
   .remove-image:hover {
       background-color:#6388af !important ;
@@ -77,38 +77,60 @@
       -o-transition: all .5s ease;
       -ms-transition: all .5s ease;
       }
-
   .remove-image:active {
       border: 0;
       transition: all .2s ease;
       }
-
+  .btn-primary2,
+  .btn-primary2:active,
+  .btn-primary2:visited {
+    width:150px;
+    border-radius: 10px;
+    background-color: #29468a;
+    color:#FFF;
+    border-color: #29468a;
+    height: 30px;
+    padding-top:2px !important;
+  }
+  .btn-primary2:hover {
+    width:150px;
+    background-color: #0d1e47;
+    border-color: #29468a; 
+    height: 30px;
+    padding-top:2px !important;
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+  }
 </style>
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-    <div class="row" style="width:100%; margin-top:10px; margin-bottom: 20px;">
-      <h3>Edit Dog Details</h3><br>
+  <div class="row" style="width:100%;margin-top:20px">
+    <h3>Edit dog details</h3><br>
       <form action="{{ route('dogprofile.update', $dogs->id) }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
       @method('PATCH')
-      <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
-      <!--Dog profile pic and social media actions -->  
-      <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
-        <div class="form-group mb-2" style="padding-top:3px;padding-bottom:3px">
-          <label for="pic" style="color:white; align-text:center">Upload your picture:</label> 
-          <div class="image-title-wrap justify-content-center"></div>
-          <div class="image-upload-wrap justify-content-center" style="height:250px;width:250px">
-              <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="pic" name="pic" required/>
-              <div class="drag-text" style="padding-top:30%">
-              <i class="fa-solid fa-photo-film" style="font-size:50px;color:#581441"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
-              </div>
-          </div>
-          <div class="file-upload-content">
-              <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
-                  <div class="container justify-content-center">
-                      <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
-              </div>
-          </div>
+      <div class="row" style="width:100%">
+        <!--DOG PROFILE PIC -->  
+        <div class="col-lg-3 col-sm-6" style="margin-bottom:10px">
+          <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
+            <div class="image-upload-wrap justify-content-center" style="height:300px;width:300px">
+                <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="pic" name="pic" required/>
+                <div class="drag-text" style="padding-top:30%">
+                <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
+                </div>
+            </div>
+
+            <div class="file-upload-content">
+                <img class="file-upload-image" id="imgdisplay" src="{{asset('image/'.$dogs->pic)}}" alt="your image" />
+                <div class="container justify-content-center">
+                  <div class="image-title-wrap justify-content-center"></div>
+                  <center>
+                      <button id="rembutton" type="button" onclick="removeUpload()" class="remove-image" style="text-align:center;width:250px">Remove selected image</button>
+                    </div>
+            </div>
         </div>
       </div>
 
