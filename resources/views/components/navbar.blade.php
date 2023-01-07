@@ -59,7 +59,7 @@
           @endif
 
           @if (Route::has('register'))
-              <li class="btn btn-success my-2 my-sm-0 register_button" id="myBtn3" type="button">
+              <li class="btn my-2 my-sm-0 register_button" style="background-color: #F4F4F4; border-color:#5082B7; border-radius:12px;" id="myBtn3" type="button">
                 <i class="bi bi-person-add" style="font-size:14px; color:#6d93bc;"></i> <a class="register-btn" href="{{ route('register') }}">Register</a>
               </li>
           @endif
@@ -95,7 +95,6 @@
     </div>  
   </nav>
   @yield ('content')
-<br><br>
   @include('components/footer')
 </body>
 </html>
