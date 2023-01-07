@@ -259,7 +259,8 @@ body {
   background-color: #0d1e47;
   border-color: #29468a; 
   height: 30px;
-  padding-top:2px !important;
+  padding-top:2px; 
+  color:#FFF !important;
   transition: all 1s ease;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
