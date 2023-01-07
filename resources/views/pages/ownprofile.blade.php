@@ -52,7 +52,6 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
-
                     <div class="card d-inline-flex m-4 border border-light">
                         <div class="card" style="width: 25rem; height: 15rem;">
                             <div class="card-body text-center pt-3 ">
