@@ -42,7 +42,7 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('user_id', '=', $idtofind)
-            ->simplePaginate(4);
+            ->simplePaginate(8);
         return view('pages.ownprofile')->with('dogs', $dogs);
 
         // $dogs = Dogs::all();

@@ -1,5 +1,6 @@
 @extends ('components.navbar')
 @section('content')
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -33,7 +34,7 @@
                 @foreach($dogs as $dogsitem)
                 <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px;margin-right: 0px;margin-left: 0px;">
                     <div class="containerimg" style="width:100%">
-                        <img src="{{'image/' . $dogsitem->pic}}" alt="Avatar" class="image" style="width:100%; height:15rem;">
+                        <img src="{{'image/' . $dogsitem->pic}}" alt="Avatar" class="image" style="width:100%;">
                         <div class="middle">
                         <div class="text"><a href="/dogprofile/{{$dogsitem->id}}">View</a></div>
                         </div>
@@ -66,7 +67,7 @@
                  @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
-                       <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" style="height: 15rem;" alt="picture">
+                       <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" alt="picture">
                           <div class="card-body">
                             <h3 class="card-title">{{$dogsitem->name}}</h3>
                             <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
