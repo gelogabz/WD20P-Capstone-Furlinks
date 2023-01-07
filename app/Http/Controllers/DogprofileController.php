@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
 use DB;
-use Carbon\Carbon;
 
 class DogprofileController extends Controller
 {
@@ -162,7 +161,7 @@ class DogprofileController extends Controller
     {
         // $updateContact = Dogs::find($id);
         // return view('dogprofile.editdog')->with('dogs', $updateContact);
-        $updateContact = DB::table('dogs')
+        $editDog = DB::table('dogs')
             ->select(
                 'dogs.id',
                 'dogs.name',
@@ -191,7 +190,7 @@ class DogprofileController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.editdog')->with('dogs', $updateContact);
+        return view('dogprofile.editdog')->with('dogs', $editDog);
     }
 
     /**
@@ -221,12 +220,19 @@ class DogprofileController extends Controller
         ));
 
         $dogs = Dogs::find($id);
-        // $dogs1->pic = $request->get('pic');
         $dogs->gender = $request->get('gender');
         $dogs->age_yr = $request->get('age_yr');
         $dogs->age_month = $request->get('age_month');
         $dogs->breed_id1 = $request->get('breed_id1');
         $dogs->breed_id2 = $request->get('breed_id2');
+        if ($file = $request->file('pic')) {
+            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
+            $file->move(public_path('Image'), $filename);
+            $input['pic'] = "$filename";
+        }else{
+            unset($input['pic']);
+        }
+          
         $dogs->name = $request->get('name');
         $dogs->location = $request->get('location');
         $dogs->rescued = $request->get('rescued');
@@ -238,9 +244,9 @@ class DogprofileController extends Controller
         $dogs->fee = $request->get('fee');
         $dogs->feenotes = $request->get('feenotes');
 
-        $dogs->save();
+        $dogs->update($dogs);
         return redirect('/ownprofile')
-            ->with('success', 'Profile successfully updated.');
+            ->with('success', 'Dog profile successfully updated.');
     }
 
     /**
