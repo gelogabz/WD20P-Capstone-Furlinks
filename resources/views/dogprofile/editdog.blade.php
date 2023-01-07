@@ -1,13 +1,14 @@
 @extends ('components.navbar')
 @section('content')
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script> --}}
+
 <style>
   .file-upload-input {
       position: absolute;
@@ -19,7 +20,6 @@
       opacity: 0;
       cursor: pointer;
       }
-
   .image-upload-wrap {
       margin-top: 0px;
       border: 4px dashed #5082B7 !important ;
@@ -28,27 +28,22 @@
       display:block;
       margin: auto;
       }
-
   .image-dropping,
   .image-upload-wrap:hover {
       background-color:#cfe5fd !important ;
       }
-
   .image-title-wrap {
       padding: 15px 15px 15px 15px;
       text-align: center;
       }
-
   .drag-text {
       text-align: center;
       }
-
   .drag-text h3 {
       font-weight: 100;
       color: #5082B7 !important ;
       padding: 60px 0;
       }
-
   .file-upload-image {
       max-height: 350px;
       max-width: 350px;
@@ -70,12 +65,10 @@
       margin:5px;
       vertical-align: middle;
       }
-
   .remove-btn,
   .file-upload-none{
       display: none;
   }
-
   .remove-image:hover {
       background-color:#6388af !important ;
       transition: all .5s ease;
