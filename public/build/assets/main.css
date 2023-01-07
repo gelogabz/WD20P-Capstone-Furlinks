@@ -17,27 +17,37 @@
       }
       .register-btn{
         color:#799FC8 !important;
+        /* background-color: #F4F4F4 !important; */
         text-decoration: none;
         font-family: 'Lato', sans-serif;
+        padding-top: 3% !important;
+        padding-bottom: 2% !important;
       }
       .login_button{
         border-radius: 12px;
         background-color: #799FC8 ;
         border-color:#5082B7 !important ;
+        padding-top: 3% !important;
+        padding-bottom: 2% !important;
       }
-      .register_button{
-        border-radius: 12px;
-        background-color: #f8ecec  ;
+      .register_button:hover{
+        /* border-radius: 12px; */
+        font-size: 13pt;
+        background-color: #F4F4F4 !important;
         border-color:#5082B7 !important ;
+        padding-top: 3% !important;
+        padding-bottom: 2% !important;
       }
       .login_button:hover{
         background-color:#6388af !important ;
-        
+        font-size: 13pt;
+        padding-top: 3% !important;
+        padding-bottom: 2% !important;
       }
-      .register_button:hover{
+      /* .register_button:hover{
         background-color:#f3efeb !important ;
         
-      }
+      } */
 
     h1 {
         font-family:  'Nunito', sans-serif;
