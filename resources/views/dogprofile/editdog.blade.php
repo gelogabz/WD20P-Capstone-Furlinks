@@ -93,9 +93,9 @@
 </style>
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-    <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
+    <div class="row" style="width:100%; margin-top:10px; margin-bottom: 20px;">
       <h3>Edit Dog Details</h3><br>
-      <form action="/pages/{{$dogs->id}}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('dogprofile.update', $dogs->id) }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
       @method('PATCH')
       <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
@@ -111,7 +111,7 @@
               </div>
           </div>
           <div class="file-upload-content">
-              <img class="file-upload-none" id="imgdisplay" src="{{$dogs->pic}}" alt="your image" />
+              <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
                   <div class="container justify-content-center">
                       <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
               </div>
@@ -132,7 +132,6 @@
               </ul>
           </div>
           @endif
-      =
         <div class="container">
             {{-- PATCH- specific part PUT - whole resource --}}
             <div class="mb-2 row">
@@ -168,40 +167,46 @@
               <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
               <div class="col-sm-8">
                 <select class="form-select form-select-sm" name="breed_id1" aria-label=".form-select-sm example" required>
-                  <option selected></option>
-                  <?php
-                  $conn = mysqli_connect($servername, $username, $password, $dbname);
-                  $breed = "SELECT * FROM `breed`";
-                  $resulta = mysqli_query($conn, $breed);
-                      if (mysqli_num_rows($resulta)>0){
-                          while ($row = mysqli_fetch_assoc($resulta)){
-                              echo "<option value=".$row["id"].">".$row["name"]. "</option>";
-                      }
-                      }else {
-                          echo "no breed found";
-                      }
-                  ?>
+                  <option value="{{$dogs->breed_id1}}"selected>{{$dogs->breed1_name}}</option>
+                  <option value="1">Shih-tzu</option>
+                  <option value="2">Labrador</option>
+                  <option value="3">Chihuahua</option>
+                  <option value="4">Dashound</option>
+                  <option value="5">German Shepherd</option>
+                  <option value="6">Rottweiler</option>
+                  <option value="7">Dalmatian</option>
+                  <option value="8">Jack Russel Terrier</option>
+                  <option value="9">Yorki</option>
+                  <option value="10">Corgi</option>
+                  <option value="11">Poodle</option>
+                  <option value="12">Beagle</option>
+                  <option value="13">Japanese Spitz</option>
+                  <option value="14">Retriever</option>
+                  <option value="15">Boxer</option>
                 </select>
               </div>
             </div>
 
             <div class="mb-2 row">
-              <label for="breed_id2" class="col-sm-4 col-form-label">Primary Breed</label>
+              <label for="breed_id2" class="col-sm-4 col-form-label">Secondary Breed</label>
               <div class="col-sm-8">
                 <select class="form-select form-select-sm" name="breed_id2" aria-label=".form-select-sm example" required>
-                  <option selected></option>
-                  <?php
-                  $conn = mysqli_connect($servername, $username, $password, $dbname);
-                  $breed = "SELECT * FROM `breed`";
-                  $resulta = mysqli_query($conn, $breed);
-                      if (mysqli_num_rows($resulta)>0){
-                          while ($row = mysqli_fetch_assoc($resulta)){
-                              echo "<option value=".$row["id"].">"    .$row["name"]. "</option>";
-                      }
-                      }else {
-                          echo "no breed found";
-                      }
-                  ?>
+                  <option value="{{$dogs->breed_id2}}"selected>{{$dogs->breed2_name}}</option>
+                  <option value="1">Shih-tzu</option>
+                  <option value="2">Labrador</option>
+                  <option value="3">Chihuahua</option>
+                  <option value="4">Dashound</option>
+                  <option value="5">German Shepherd</option>
+                  <option value="6">Rottweiler</option>
+                  <option value="7">Dalmatian</option>
+                  <option value="8">Jack Russel Terrier</option>
+                  <option value="9">Yorki</option>
+                  <option value="10">Corgi</option>
+                  <option value="11">Poodle</option>
+                  <option value="12">Beagle</option>
+                  <option value="13">Japanese Spitz</option>
+                  <option value="14">Retriever</option>
+                  <option value="15">Boxer</option>
                 </select>
               </div>
             </div>
@@ -299,7 +304,7 @@
             <div class="mb-2 row">
               <label for="fee" class="col-sm-4 col-form-label">Adoption Fees</label>
               <div class="col-sm-8">
-                <input type="amount" name="fee" value="{{$dogs->fee}}"class="form-control form-control-sm">
+                <input type="amount" maxlength="5" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"name="fee" value="{{$dogs->fee}}"class="form-control form-control-sm">
               </div>
             </div>
 
@@ -309,7 +314,6 @@
                 <input type="text" name="feenotes" value="{{$dogs->feenotes}}"class="form-control form-control-sm">
               </div>
             </div>
-
 
             <input type="submit" name="submit" class="btn btn-primary" value="Submit">
           </form>
