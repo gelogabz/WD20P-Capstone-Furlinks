@@ -47,11 +47,6 @@ Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.a
 Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
 Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
 
-
-
-
-
-
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 
