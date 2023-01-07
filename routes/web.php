@@ -43,7 +43,15 @@ Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo')
 Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
 
+
+Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
+
+
+
+
+
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
+
 
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
@@ -54,9 +62,13 @@ Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
+
+
+
 Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
+
 
 //Search.Blade
 
@@ -64,5 +76,5 @@ Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applica
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
+Route::resource('/createprofile', 'App\Http\Controllers\UserprofileController');
 

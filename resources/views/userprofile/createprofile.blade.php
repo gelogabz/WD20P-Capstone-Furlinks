@@ -1,43 +1,7 @@
 @extends('components.profiletabs')
 
-@section('myprofile')
-{{-- <div class='container'>
-    <H1>Public Profile</H1>
-    <p>People visiting your profile will see the following info:</p>
+@section('createprofile')
 
-      <div class='row'>
-        <div class="col-md-6 col-sm-12">
-          <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-              <label class="text-muted" for="floatingInput">First Name</label>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-sm-12">
-          <div class="form-floating  mb-3">
-              <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-              <label class="text-muted" for="floatingPassword">Last Name</label>
-          </div>
-        </div>
-
-        <div>
-          <div class="form-floating my-2">
-            <textarea id="mess" class="form-control" placeholder="Leave a comment here" style="height: 100px"></textarea>
-            <label class="text-muted" for="floatingTextarea2">About</label>
-          </div>
-        </div>
-        <div class='mt-5 d-flex justify-content-end'>
-          <a class='btn btn-primary' href="">Save Changes</a>
-        </div>
-      </div>
-  
-</div> 
-@endsection --}}
-{{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-<script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script> --}}
 <style>
   .file-upload-input {
       position: absolute;
@@ -127,8 +91,10 @@
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
     <div class="row" style="width:100%;margin-top:20px">
       <H1>Public Profile</H1><br>
-      <p>People visiting your profile will see the following info:</p>
-      <form action="{{ route('userprofile.store') }}" method="POST" enctype="multipart/form-data">
+      <p class='mb-0'>People visiting your profile will see the following info:</p>
+      <p>Note : Please fill up the form below</p>
+      
+      <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
       
       <div class="row" style="width:100%">
@@ -203,8 +169,8 @@
                 <input type="text" name="about" class="form-control form-control-sm">
               </div>
             </div>
-
-            <input type="submit" name="submit"  class="btn btn-primary" value="Submit">
+            
+            <input type="submit" name="submit" class="btn btn-primary" value="Submit">
           </form>
           </div>
       </div>
