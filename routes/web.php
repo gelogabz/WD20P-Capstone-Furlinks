@@ -45,8 +45,6 @@ Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetti
 
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 
-
-
 Route::resource('contacts', 'App\Http\Controllers\ContactsController');
 Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
 
@@ -57,6 +55,8 @@ Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 
 Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
+Route::resource('/applications', 'App\Http\Controllers\ApplyController');
+Route::get('/applications', 'App\Http\Controllers\ApplyController@applications');
 
 //Search.Blade
 

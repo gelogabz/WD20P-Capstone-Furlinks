@@ -66,6 +66,10 @@ class PagesController extends Controller
     public function showprofile(){
         return view('pages/showprofile');
     }
+
+    public function index(){
+        return view('applications/index');
+    }
     
 
 }
