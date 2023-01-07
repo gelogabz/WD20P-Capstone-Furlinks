@@ -147,7 +147,7 @@
               </table>
 
               <div class="col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;">
-                <div class="mb-2 mt-2 row">
+                <div class="mb-2 row">
                     <label for="gender" class="col-sm-4 col-form-label">Gender</label>
                     <div class="col-sm-8">
                       <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
