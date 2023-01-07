@@ -274,11 +274,8 @@
                     <input type="date" name="rescuedate" class="form-control form-control-sm">
                   </div>
                 </div>
-
               </div>
-
               <div class="col-md-1 col-sm-1"></div>
-              
               <div class="col-md-5 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
                 <div class="mb-2 row">
                   <label for="size" class="col-sm-4 col-form-label">Size</label>

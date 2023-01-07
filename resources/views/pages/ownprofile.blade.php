@@ -16,7 +16,7 @@
                     <img style="width:55px; border-radius:50%; padding: 2px" src="{{asset('build/images/profilepic/chef.jpg') }}">
                 </div>
                 <div class="col">
-                    <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="profile.html"> @chefarnold  </a></div>
+                    <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="profile.html"> {{ Auth::user()->name }} </a></div>
                     <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;"> 
                        
                    <span>5.0 <span class="fa fa-star checked"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span></span></span>(20 reviews)
@@ -24,17 +24,19 @@
                 </div>
             </div>
             <p style="font-size:13px;line-height:1.6; padding-top:15px">I am a chef who loves to take care of dogs and cats. During my free time, I go around our town to feed stray dogs. Some of my dogs are retired K9 and some are stray dogs that we rescued and took home.</p>
-            <p style="font-size:15px;color:#581542"><i>More dogs posted by @chefarnold</i></p> 
+            <p style="font-size:15px;color:#581542"><i>More dogs posted by {{ Auth::user()->name }}</i></p> 
             <div class="row" style="margin-bottom:15px">
+                @foreach($dogs as $dogsitem)
                 <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px;margin-right: 0px;margin-left: 0px;">
                     <div class="containerimg" style="width:100%">
-                        <img src="{{asset('build/images/searchres/fem0.jpg') }}" alt="Avatar" class="image" style="width:100%">
+                        <img src="{{'image/' . $dogsitem->pic}}" alt="Avatar" class="image" style="width:100%; height:15rem;">
                         <div class="middle">
-                        <div class="text"><a href='dogdetail.html'>View</a></div>
+                        <div class="text"><a href="/dogprofile/{{$dogsitem->id}}">View</a></div>
                         </div>
                     </div>
                 </div>
-                <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px;margin-right: 0px;margin-left: 0px;">
+                @endforeach;
+                {{-- <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px;margin-right: 0px;margin-left: 0px;">
                     <div class="containerimg" style="width:100%">
                         <img src="{{asset('build/images/dog4.jpg') }}" alt="Avatar" class="image" style="width:100%">
                         <div class="middle">
@@ -57,7 +59,7 @@
                         <div class="text"><a href='dogdetail.html'>View</a></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
       </div>
@@ -74,20 +76,17 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
-
                     <div class="card d-inline-flex m-4 border border-light">
-                        <div class="card" style="width: 25rem; height: 30rem;">
+                        <div class="card" style="width: 25rem; height: 20rem;">
                             <div class="card-body text-center pt-3 ">
                                 <a href="/dogprofile/create" class="btn btn-primary mt-5">POST DOG</a>
                             </div>
                         </div>
                      </div>
-                    @foreach($dogs as $dogsitem)
+                 @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
-
                        <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" style="height: 15rem;" alt="picture">
-
                           <div class="card-body">
                             <h3 class="card-title">{{$dogsitem->name}}</h3>
                             <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>

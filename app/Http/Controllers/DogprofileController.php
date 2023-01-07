@@ -10,7 +10,7 @@ use DB;
 use Carbon\Carbon;
 
 class DogprofileController extends Controller
-{    
+{
     public function index()
     {
         $idtofind = Auth::id();
