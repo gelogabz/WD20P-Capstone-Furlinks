@@ -120,7 +120,7 @@
       </div>  
 
       <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-          @include('applications/index')
+          {{-- @include('applications/index') --}}
       </div>
   </div>
 </div>
