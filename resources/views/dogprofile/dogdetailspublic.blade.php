@@ -36,9 +36,9 @@
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-top:20px">       
         <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
-        <div style="text-align: center;"> 
-           <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary2" style="float:center; margin-top:10px;">
-           <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
+        <div style="text-align: center;">
+          <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary2" style="float:center; margin-top:10px;">
+          <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
         <h6 style="color:#811D60;"><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
         <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i>
         <span style="font-size: small;color: #5d5d5d">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
-        
+          
         <table style="width:100%;margin-top:10px">
           <colgroup>
             <col span="1" style="width:50%">
@@ -117,10 +117,10 @@
           </tr>  
         
         </table>
-      </div>  
+      </div>
 
       <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-          @include('applications/index')
+        {{-- FOSTER PROFILE PANEL HERE --}}
       </div>
   </div>
 </div>

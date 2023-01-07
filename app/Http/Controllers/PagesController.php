@@ -66,6 +66,10 @@ class PagesController extends Controller
     public function editprofile(){
         return view('userprofile/editprofile');
     }
+
+    public function index(){
+        return view('applications/index');
+    }
     
     public function home(){
         return view('/home');

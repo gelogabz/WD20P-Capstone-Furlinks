@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
+use App\Models\Apply;
 use DB;
 
 class DogprofileController extends Controller
@@ -16,6 +17,7 @@ class DogprofileController extends Controller
         $dogs = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -120,6 +122,7 @@ class DogprofileController extends Controller
         $singleDog = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -159,7 +162,7 @@ class DogprofileController extends Controller
     {
         // $updateContact = Dogs::find($id);
         // return view('dogprofile.editdog')->with('dogs', $updateContact);
-        $updateContact = DB::table('dogs')
+        $editDog = DB::table('dogs')
             ->select(
                 'dogs.id',
                 'dogs.name',
@@ -188,7 +191,7 @@ class DogprofileController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.editdog')->with('dogs', $updateContact);
+        return view('dogprofile.editdog')->with('dogs', $editDog);
     }
 
     /**
@@ -200,14 +203,10 @@ class DogprofileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $updateContact = Dogs::find($id);
-        // $input = $request->all();
-        // $updateContact->update($input);
-        // return redirect('ownprofile');
         $this->validate($request, array(
             'gender' => 'required',
             'breed_id1' => 'required',
-            // 'pic' => 'required',
+            'pic' => 'required',
             'size' => 'required',
             'color' => 'required',
             'location' => 'required',
@@ -218,26 +217,34 @@ class DogprofileController extends Controller
         ));
 
         $dogs = Dogs::find($id);
-        // $dogs1->pic = $request->get('pic');
-        $dogs->gender = $request->get('gender');
-        $dogs->age_yr = $request->get('age_yr');
-        $dogs->age_month = $request->get('age_month');
-        $dogs->breed_id1 = $request->get('breed_id1');
-        $dogs->breed_id2 = $request->get('breed_id2');
-        $dogs->name = $request->get('name');
-        $dogs->location = $request->get('location');
-        $dogs->rescued = $request->get('rescued');
-        $dogs->rescuedate = $request->get('rescuedate');
-        $dogs->birthdate = $request->get('birthdate');
-        $dogs->neutered = $request->get('neutered');
-        $dogs->size = $request->get('size');
-        $dogs->color = $request->get('color');
-        $dogs->fee = $request->get('fee');
-        $dogs->feenotes = $request->get('feenotes');
-
+        
+        $dogs->gender = $request->input('gender');
+        $dogs->age_yr = $request->input('age_yr');
+        $dogs->age_month = $request->input('age_month');
+        $dogs->breed_id1 = $request->input('breed_id1');
+        $dogs->breed_id2 = $request->input('breed_id2');       
+        $dogs->name = $request->input('name');
+        $dogs->location = $request->input('location');
+        $dogs->rescued = $request->input('rescued');
+        $dogs->rescuedate = $request->input('rescuedate');
+        $dogs->birthdate = $request->input('birthdate');
+        $dogs->neutered = $request->input('neutered');
+        $dogs->size = $request->input('size');
+        $dogs->color = $request->input('color');
+        $dogs->fee = $request->input('fee');
+        $dogs->feenotes = $request->input('feenotes');
+        if ($file = $request->file('pic')) {
+            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
+            $file->move(public_path('Image'), $filename);
+            $input['pic'] = "$filename";
+        } else {
+            unset($input['pic']);
+        };
+        $dogs->pic = $input['pic'];
         $dogs->save();
+
         return redirect('/ownprofile')
-            ->with('success', 'Profile successfully updated.');
+            ->with('success', 'Dog profile successfully updated.');
     }
 
     /**
@@ -250,4 +257,22 @@ class DogprofileController extends Controller
     {
         //
     }
+
+    public function display_app($id)
+    {
+        $applicants = DB::table('applications')
+            ->select(
+                'applications.user_id',
+                'users.name as username',
+                'applications.dog_id',
+                'applications.appstatus',
+                'applications.created_at',
+                'appstatus.name as appstatus_name'
+                )
+            ->join('users', 'user.id', '=', 'applications.user_id')
+            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
+            ->where('dog_id',  '=', $id);
+        return view('dogprofile.dogdetails')->with('applications', $applicants);
+    }
+
 }
