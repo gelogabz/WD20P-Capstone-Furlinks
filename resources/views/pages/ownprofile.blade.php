@@ -16,7 +16,7 @@
                     <img style="width:55px; border-radius:50%; padding: 2px" src="{{asset('build/images/profilepic/chef.jpg') }}">
                 </div>
                 <div class="col">
-                    <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="profile.html"> @chefarnold </a></div>
+                    <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="profile.html"> @chefarnold  </a></div>
                     <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;"> 
                        
                    <span>5.0 <span class="fa fa-star checked"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span></span></span>(20 reviews)
@@ -68,16 +68,15 @@
                 <li><a data-toggle="tab" href="#dogrehomed">Dog Re-Homed</a></li>
               </ul>
               <div class="tab-content justify-content-center">
-                <div id="dogposted" class="tab-pane fade in active ">
+                <div id="dogposted" class="tab-pane fade in active">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                     @endif
 
-                    <div class="card d-inline-flex m-4 border border-1">
-                        <img src="..." class="card-img-top" alt="picture">
-                        <div class="card pb-5" style="width: 25rem;">
+                    <div class="card d-inline-flex m-4 border border-light">
+                        <div class="card" style="width: 25rem; height: 30rem;">
                             <div class="card-body text-center pt-3 ">
                                 <a href="/dogprofile/create" class="btn btn-primary mt-5">POST DOG</a>
                             </div>
@@ -87,12 +86,13 @@
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">
 
-                       <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" alt="picture">
+                       <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" style="height: 15rem;" alt="picture">
 
                           <div class="card-body">
                             <h3 class="card-title">{{$dogsitem->name}}</h3>
                             <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted"> {{$dogsitem->status_name}}</h6>
                            {{-- <h5 class="card-title">{{$dogsitem->gender}}, {{$dogsitem->age}} yrs old.</h5>
                            <h5 class="card-title">{{$dogsitem->breed_id1}},{{$dogsitem->breed_id2}}</h5> --}}
                           <a href="/dogprofile/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>

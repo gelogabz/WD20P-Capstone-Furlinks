@@ -12,10 +12,10 @@
         <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:100%;display:block;border-radius: 20px;margin-bottom:10px;margin-top:10px">
         <div style="text-align: center;">
       
-       <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary3" style="float:center;margin-top:10px"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
+       <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary" style="float:center; margin-top:10px; background-color:#581542;"><i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
        
        <br>
-       <a href="#" class="btn btn-primary3" style="float:center;margin-top:10px">View Applications</a>
+       <a href="#" class="btn btn-primary" style="float:center;margin-top:10px; background-color:#581542;">View Applications</a>
       </div>
       </div>
 

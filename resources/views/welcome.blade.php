@@ -76,7 +76,7 @@
         <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
         <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
         <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-        <p style="padding-left:5%;font-size: small">Posted {{$dog->updated_at}}</p>
+        <p style="padding-left:5%;font-size: small">Posted</p>
       </div>
     @endforeach
   </div>
@@ -183,6 +183,7 @@
           </div>  
    </div>
   </div>
+</div>
 </div>
 @endsection
 
