@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
-use App\Models\Apply;
 use DB;
 
 class DogprofileController extends Controller
@@ -256,23 +255,6 @@ class DogprofileController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function display_app($id)
-    {
-        $applicants = DB::table('applications')
-            ->select(
-                'applications.user_id',
-                'users.name as username',
-                'applications.dog_id',
-                'applications.appstatus',
-                'applications.created_at',
-                'appstatus.name as appstatus_name'
-                )
-            ->join('users', 'user.id', '=', 'applications.user_id')
-            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
-            ->where('dog_id',  '=', $id);
-        return view('dogprofile.dogdetails')->with('applications', $applicants);
     }
 
 }

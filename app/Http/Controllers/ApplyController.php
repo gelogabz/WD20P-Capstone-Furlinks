@@ -11,10 +11,11 @@ use DB;
 
 class ApplyController extends Controller
 {
-    public function index($id)
+    public function show($id)
     {
-        $applications = DB::table('applications')
+        $applicant = DB::table('applications')
             ->select(
+                'applications.id',
                 'applications.user_id',
                 'users.name as username',
                 'applications.dog_id',
@@ -24,7 +25,7 @@ class ApplyController extends Controller
                 )
             ->join('users', 'user.id', '=', 'applications.user_id')
             ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
-            ->where('dog_id', $id);
-        return view('applications.index')->with('applications', $applications);
+            ->where('dog_id',  '=', $id);
+        return view('dogprofile.apptable')->with('applications', $applicant);
     }
 }

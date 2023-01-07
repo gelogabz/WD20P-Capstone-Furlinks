@@ -46,10 +46,18 @@
       </div>
         <!--Dog profile information -->
         <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#dogposted">Dog Posted</a></li>
-                <li><a data-toggle="tab" href="#dogrehomed">Dog Re-Homed</a></li>
-              </ul>
+            <div class="container-fluid" style="width:100%;margin-top:0px;padding-top:0px">
+                <div class="d-flex mt-3">
+                    <ul class="nav nav-tabs flex-grow-1 flex-nowrap">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" data-toggle="tab" href="#dogposted">Dog Posted</a></li>
+                        <li><a data-toggle="tab" href="#dogrehomed">Dog Re-Homed</a></li>
+                    </ul>
+                        <span class="ml-auto text-nowrap border border-top-0 border-left-0 border-right-0 border-bottom-0" style="padding: bottom 5px;">
+                            <a class="btn btn-primary2" href="/dogprofile/create" type="button" style="float:center;vertical-align: bottom;text-align: center;padding-top:5px">
+                                <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right:10px;padding-top:4px"></i>POST DOG</a>
+                </div>
+            </div>
+
               <div class="tab-content justify-content-center">
                 <div id="dogposted" class="tab-pane fade in active">
                     @if ($message = Session::get('success'))
@@ -57,13 +65,6 @@
                         <p>{{ $message }}</p>
                     </div>
                     @endif
-                    <div class="card d-inline-flex m-4 border border-light">
-                        <div class="card" style="width: 25rem; height: 15rem;">
-                            <div class="card-body text-center pt-3 ">
-                                <a href="/dogprofile/create" class="btn btn-primary mt-5">POST DOG</a>
-                            </div>
-                        </div>
-                     </div>
                  @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex m-4 border">
                       <div class="card" style="width: 25rem;">

@@ -35,10 +35,10 @@
     
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-top:20px">       
-        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
+        <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
         <div style="text-align: center;">
           <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary2" style="float:center; margin-top:10px;">
-          <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>EDIT</a>
+          <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>ADOPT</a>
         </div>
       </div>
 
