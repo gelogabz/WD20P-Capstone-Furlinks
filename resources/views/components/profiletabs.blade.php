@@ -20,10 +20,11 @@
               </ul>
         </div>
         <div class='col-lg-10'>
-          @yield('myprofile')
+          @yield('createprofile')
           @yield('personalinfo')
           @yield('doghistory')
           @yield('accountsetting')
+          @yield('editprofile')
           
         </div>
     </div>
