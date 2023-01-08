@@ -20,7 +20,11 @@
                     background-color:#8eb3d9 !important;
                     margin: 2px 2px 2px 2px;
                     border-radius: 10px;
+<<<<<<< Updated upstream
                     
+=======
+                    padding: 17px 17px 17px 17px; 
+>>>>>>> Stashed changes
                 }
             
               .file-upload-input {
