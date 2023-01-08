@@ -37,14 +37,14 @@
       <div class="col-lg-4 col-sm-6" style="margin-top:20px">       
         <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
         <div style="text-align: center;">
-          <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary2" style="float:center; margin-top:10px;">
+          <a href="/applications/create/{{$dogs->id}}" class="btn btn-primary2" style="float:center; margin-top:10px;">
           <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>ADOPT</a>
         </div>
       </div>
 
       <!--Dog profile information -->
     
-      <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+      <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <h5 style="color:#811D60;"> {{$dogs->gender}},  {{$dogs->age_yr}}y and {{$dogs->age_month}}m old<br>
         <h6 style="color:#811D60;"><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
         <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i>
@@ -119,26 +119,29 @@
         </table>
       </div>
 
-      <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+      <div class="col-lg-3 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         {{-- FOSTER PROFILE PANEL HERE --}}
         <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
           <div class="row" style="padding-bottom:5px">
             <div class="col col-auto" style="margin-right:px">
-              <img style="width:55px; border-radius:50%; padding: 2px" src="#">
+              <img style="width:55px; border-radius:50%; padding: 2px" src="{{asset('Image/'. $dogs->profile_pic)}}">
             </div>
             <div class="col">
-              <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="#"><span>@</span>{{ Auth::user()->name }}</a></div>
+              <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium">
+                <a href="#"><span>@</span>{{$dogs->users_name }}</a>
+                <p style="font-size:13px;line-height:1.6;">{{$dogs->city}}, {{$dogs->province}}</p>
+              </div>
             </div>
           </div>
-          <p style="font-size:13px;line-height:1.6; padding-top:15px">I am a chef who loves to take care of dogs and cats. During my free time, I go around our town to feed stray dogs. Some of my dogs are retired K9 and some are stray dogs that we rescued and took home.</p>
-          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{ Auth::user()->name }}</i></p>
+          <p style="font-size:13px;line-height:1.6; padding-top:10px;padding-bottom:10px">{{$dogs->about }}</p>
+          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name}}</i></p>
           <div class="row" style="margin-bottom:15px">
-            @foreach($singleDog as $dog)
+            @foreach($otherdogs as $otherdog)
             <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px; margin-right: 0px; margin-left: 0px;">
               <div class="containerimg" style="width:100%">
-                <img src="{{'Image/' . $dog->pic}}" alt="Avatar" class="image" style="width:100%">
+                <img src="{{asset('Image/'.$otherdog->pic)}}" alt="Avatar" class="image" style="width:100%">
                 <div class="middle">
-                  <div class="text"><a href='"pages/{{$dog->id}}'>View</a></div>
+                  <div class="text"><a href='{{$otherdog->id}}'>View</a></div>
                 </div>
               </div>
             </div>
