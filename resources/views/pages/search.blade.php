@@ -10,7 +10,7 @@
              <div class="form-check form-check-inline" style="vertical-align: middle;">
              <label  for="gender" style="padding-right:10px;">Gender: 
                <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
-               <option selected><i>Select</i></option>
+               <option value="" selected><i>Select</i></option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
               </select>
@@ -19,29 +19,33 @@
          </div>
              <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;">
                <div class="form-check form-check-inline" style="vertical-align: middle;">
-               <label for="size" style="padding-right:10px;">Size: 
+               <label for="size" style="padding-right:10px;">Size: </label>
                  <select id="size" style="border:none; background-color: rgb(241, 240, 240);">
                    <option selected><i>Select</i></option>
-                   <option>Small breed</option>
-                   <option>Medium-sized</option>
-                   <option>Large breed</option>
-                 </select></label>
+                   <option value="Small">Small breed</option>
+                   <option value="Medium">Medium-sized</option>
+                   <option value="Large">Large breed</option>
+                 </select>
                  </div>
                </div>
                <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;;">
                  <div class="form-check form-check-inline" style="vertical-align: middle;">
-                 <label for="dogtype" style="padding-right:10px;"> Color:
-                     <select id="dogtype" style="border:none;background-color: rgb(241, 240, 240)" >
-                       <option selected><i>Select</i></option>
-                       <option>White</option>
-                       <option>Black</option>
-                       <option>Brown</option>
-                       <option>Mixed</option>
-                   </select> </label>
+                 <label for="color" style="padding-right:10px;"> Color:</label>
+                     <select id="color" style="border:none;background-color: rgb(241, 240, 240)" >
+                      <option selected>Tap to select</option>
+                      <option value="Black">Black</option>
+                      <option value="Brown">Brown</option>
+                      <option value="White">White</option>
+                      <option value="Gray">Gray</option>
+                      <option value="Mixed">Mixed</option>
+                      <option value="Dotted">Dotted</option>
+                      <option value="Brindled">Brindled</option>
+                    </select>
                    </div>
                  </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">
-           <button href="/search" type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
+           <input type="submit" class="btn btn-primary" value="SEARCH">
+           </form>
          </div>
      </div>  
    </form>
@@ -51,23 +55,22 @@
    </div>
    
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
-     <h5 style="color:#51133c;font-size:18px">{{ $dogs->count() }} Search results</h6>
+     <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
         @foreach($dogs as $dog)
-        
-          <div class="card d-inline-flex m-2">
-              <div class="card" style="width:18rem;">
-                  <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
-                  <div class="card-body">
-                      <h3 class="card-title">{{$dog->name}}</h3>
-                      <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
-                      <h6 class="card-subtitle mb-2 text-muted">{{$dog->breed1_name}} , {{$dog->breed2_name}}</h6>
-                  </div>
-              </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="containerimg" style="width:100%">
+            <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+            <div class="middle">
+              <div class="text"><a href="pages/{{$dog->id}}">View More</a></div>
+            </div>
           </div>
-
-        @endforeach
+          <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
+          <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+          <p style="padding-left:5%;font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
+        </div>
+      @endforeach
       </div>
    {{-- <div class="row">
      <!--dog1 fem0-->
