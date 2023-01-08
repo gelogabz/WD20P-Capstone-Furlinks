@@ -223,7 +223,7 @@
                 </div>
                 <div class='row'>
                     <div class='col-sm-4 mt-4'>
-                        <label class='col-sm-4 col-form-label'>City</label>
+                        <label for="city" class='col-sm-4 col-form-label'>City</label>
                         <input type="text" name="city" class="form-control">
                     </div>
                     <div class='col-sm-4 mt-4'>
@@ -231,8 +231,8 @@
                       <input type="text" name="province" class="form-control">
                   </div>
                   <div class='col-sm-4 mt-4'>
-                    <label for="province" class='col-sm-4 col-form-label'>Province</label>
-                    <input type="text" name="province" class="form-control">
+                    <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
+                    <input type="text" name="mobile_no" class="form-control">
                 </div>
         
                   <div class='col-6 mt-4'>
