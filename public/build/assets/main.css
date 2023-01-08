@@ -298,31 +298,31 @@ select {
 }
 
 .middle {
-  transition: .5s ease;
-  opacity: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  text-align: center;
+  transition: .5s ease !important;
+  opacity: 0 !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  -ms-transform: translate(-50%, -50%) !important;
+  text-align: center !important;
   
 }
 
 .containerimg:hover .image {
-  transition: .5s ease-in-out;
-  filter: brightness(50%);
+  transition: .5s ease-in-out !important;
+  filter: brightness(50%) !important;
 }
 
 .containerimg:hover .middle {
-  opacity: .85;
+  opacity: .85  !important;
 }
 
 .text {
-  background-color: #fee1f4;
-  color: #811D60;
-  padding: 10px 20px;
-  border-radius: 10px;
+  background-color: #fee1f4 !important;
+  color: #811D60 !important;
+  padding: 10px 20px !important;
+  border-radius: 10px !important;
 }
 .checked {
   color: rgb(255, 208, 1);}
