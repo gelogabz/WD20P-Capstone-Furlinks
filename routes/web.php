@@ -38,7 +38,6 @@ Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 
 //Search.Blade
 
-
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
