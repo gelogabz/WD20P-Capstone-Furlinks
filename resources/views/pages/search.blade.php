@@ -1,73 +1,22 @@
 @extends('components.navbar')
+
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
-<div class="container-fluid" style="width:92%; text-align:left;">
-    <form action="/search" method="POST" role="search" style="width:100%; background-color: rgb(241, 240, 240); margin-top:3x; padding-left:30px; border-radius:5px;">
+<div class="container-fluid" style="width:92%;text-align:left">
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
       {{ csrf_field() }}
-      <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
-        <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
-          <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-            <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
-              <select class="form-select form-select-sm mb-2 ms-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                <option selected>Select</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Any</option>
-              </select>
-          </div>
-          <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-            <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
-              <select class="form-select form-select-sm mb-2" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                <option selected>Select</option>
-                    <option>Small breed</option>
-                    <option>Medium-sized</option>
-                    <option>Large breed</option>
-                    <option>Any</option>
-              </select>
-          </div>
-          <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-            <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
-              <select class="form-select form-select-sm mb-2" id="dogscolor" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                <option selected>Select</option>
-                  <option>White</option>
-                  <option>Black</option>
-                  <option>Brown</option>
-                  <option>Mixed</option>
-                  <option>Any</option>
-              </select>
-          </div>
-          <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
-              <a href=/search typ e="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
-                <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i>SEARCH</a>
-          </div>
-        </div>  
-      </div>
-       {{-- <div class="row justify-content-left" >
+       <div class="row justify-content-left" >
            <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
              <div class="form-check form-check-inline" style="vertical-align: middle;">
              <label  for="gender" style="padding-right:10px;">Gender: 
-               <select id="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
+               <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
                <option selected><i>Select</i></option>
-               <option>Male</option>
-               <option>Female</option>
-               <option>Any</option>
-             </select>
-           </label>
+               <option value="Male">Male</option>
+               <option value="Female">Female</option>
+              </select>
+            </label>
            </div>
          </div>
-         <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
-           <div class="form-check form-check-inline" style="vertical-align: middle;">
-             <label for="age" style="padding-right:10px;">Age: 
-               <select id="age" style="border:none; background-color: rgb(241, 240, 240);">
-                 <option selected><i>Select</i></option>
-                 <option>Puppy 3-6 mos</option>
-                 <option>Puppy 6-12 mos</option>
-                 <option>Young 1-2 yrs</option>
-                 <option>Adult 2 yrs & up</option>
-                 <option>Any</option>
-               </select></label>
-               </div>
-             </div>
              <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;">
                <div class="form-check form-check-inline" style="vertical-align: middle;">
                <label for="size" style="padding-right:10px;">Size: 
@@ -76,7 +25,6 @@
                    <option>Small breed</option>
                    <option>Medium-sized</option>
                    <option>Large breed</option>
-                   <option>Any</option>
                  </select></label>
                  </div>
                </div>
@@ -89,28 +37,13 @@
                        <option>Black</option>
                        <option>Brown</option>
                        <option>Mixed</option>
-                       <option>Any</option>
                    </select> </label>
                    </div>
                  </div>
-                 <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;;">
-                   <div class="form-check form-check-inline" style="vertical-align: middle;">
-                   <label for="loc" style="padding-right:10px;"> Location:
-                       <select id="loc" style="border:none;background-color: rgb(241, 240, 240)" >
-                         <option selected><i>Select</i></option>
-                         <option>Metro Manila</option>
-                         <option>North Luzon</option>
-                         <option>South Luzon</option>
-                         <option>Cebu</option>
-                         <option>Davao</option>
-                     </select> 
-                    </label>
-                     </div>
-                   </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">
            <button href="/search" type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
          </div>
-     </div>   --}}
+     </div>  
    </form>
    </div>
    </div>
@@ -121,11 +54,11 @@
      <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
-        {{-- @foreach($search as $dog)
+        @foreach($dogs as $dog)
 
           <div class="card d-inline-flex m-2">
               <div class="card" style="width:18rem;">
-                  <img src="{{ URL::asset($dog->pic) }}" class="card-img-top" alt="dog">
+                  <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
                   <div class="card-body">
                       <h3 class="card-title">{{$dog->name}}</h3>
                       <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
@@ -134,7 +67,7 @@
               </div>
           </div>
 
-        @endforeach --}}
+        @endforeach
       </div>
    {{-- <div class="row">
      <!--dog1 fem0-->
