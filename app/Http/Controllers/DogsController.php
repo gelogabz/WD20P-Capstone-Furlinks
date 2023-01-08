@@ -7,8 +7,6 @@ use App\Models\Dogs;
 use App\Models\Breed;
 use DB;
 
-
-
 class DogsController extends Controller
 {
     /**
@@ -40,9 +38,6 @@ class DogsController extends Controller
         return view('welcome')->with('dogs', $dogs);
     }
     
-    /**
-     * Show the form for creating a new resource.
-     **/
     public function show($id)
     {
         $singleDog = DB::table('dogs')
@@ -69,15 +64,34 @@ class DogsController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.id as users_id',
+                'users.name as users_name',
+                'userprofiles.profile_pic as profile_pic',
+                'userprofiles.about as about',
+                'userprofiles.city as city',
+                'userprofiles.province as province'
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
             
-            return view('pages/dogdetailspublic')->with('dogs', $singleDog);
+            $userid = Dogs::where('dogs.id', '=', $id)
+                ->select('dogs.user_id')
+                ->first()->user_id;
+
+            $dogsposted = DB::table('dogs')
+                ->select(
+                    'dogs.id',
+                    'dogs.pic',
+                )
+                ->join('users', 'users.id', '=', 'dogs.user_id')
+                ->where('dogs.user_id', "=", $userid)
+                ->get();
+
+            return view('pages/dogdetailspublic')->with('dogs', $singleDog)->with('otherdogs', $dogsposted);
     }
-    
-    
 }
