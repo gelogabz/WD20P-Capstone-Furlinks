@@ -13,22 +13,7 @@ class UserprofileController extends Controller
 
     public function index()
     {
-        // $idtofind = Auth::id();
-        // $userprofile = DB::table('userprofiles')
-        //     ->select(
-        //         'userprofiles.id',
-        //         'userprofiles.profilepic',
-        //         'userprofiles.firstname',
-        //         'userprofiles.lastname',
-        //         'userprofiles.location',
-        //         'userprofiles.about',
-        //     )
-        //     // ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
-        //     // ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
-        //     // ->join('status', 'status.id', '=', 'dogs.status_id')
-        //     ->where('user_id', '=', $idtofind);
-
-        // return view('pages.showprofile')->with('userprofiles', $userprofile);
+        
 
         // $userprofile = Userprofile::all();
         // return view('pages.')->with('userprofiles', $userprofile);
@@ -40,7 +25,7 @@ class UserprofileController extends Controller
     }
     
     public function create(){
-        return view ('userprofile.myprofile');
+        return view ('userprofile.createprofile');
     }
 
     public function store(Request $request){
@@ -60,7 +45,6 @@ class UserprofileController extends Controller
         };
 
         $userprofile->profile_pic = $userprofile['profile_pic'];
-        
         $userprofile->location = $request->location;
         $userprofile->about = $request->about;
         
@@ -68,28 +52,27 @@ class UserprofileController extends Controller
         $userprofile->user_id = Auth::user()->id;
        
         $userprofile->save();
-
-        return redirect('/showprofile')
-            ->with('success', 'Dog posted successfully.');
+        return redirect('/editprofile');
+       
     }
     public function show($id)
     {
         $idtofind = Auth::id();
-        $userprofile = DB::table('userprofiles')
+        $userdata = DB::table('userprofile')
             ->select(
-                'userprofiles.id',
-                'userprofiles.profilepic',
-                'userprofiles.firstname',
-                'userprofiles.lastname',
-                'userprofiles.location',
-                'userprofiles.about',
+                'userprofile.id',
+                'userprofile.user_id',
+                'userprofile.profile_pic',
+                'userprofile.firstname',
+                'userprofile.lastname',
+                'userprofile.location',
+                'userprofile.about',
             )
-            // ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
-            // ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
-            // ->join('status', 'status.id', '=', 'dogs.status_id')
+        //     // ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+        //     // ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+        //     // ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('user_id', '=', $idtofind);
 
-        return view('pages.showprofile')->with('userprofiles', $userprofile);
-    }
-    
+        return view('userprofile.editprofile')->with('userprofile', $userdata);
+}
 }
