@@ -44,7 +44,6 @@
                     <option>Any</option>
                 </select>
             </div>
-              
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
                 <a href=/search typ e="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
                   <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i>SEARCH</a>
@@ -55,32 +54,25 @@
     </form>
   </div>
 </div>
-
 <div class="container-fluid" style="padding-left:5%; padding-right:5%; margin-bottom:1%;">
   <h5 style="margin-top:1%; font-family: 'Poppins';">Recently posted dogs for adoption</h5>  
-
   <div class="row">
     @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-6">
         <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
-
         <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
         <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
         <p style="padding-left:5%;font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
-
       </div>
     @endforeach
   </div>
-
 </div>
 
 <div class="container-fluid px-0">
-
   <div class="container-fluid" style="background-color:#C8A279; text-align: center; vertical-align: middle; opacity:90%">
     <a href="#Search" style="color: #F4F4F4"><p style="padding-top:1%; margin:0px; font-family: 'Lato'; font-size:12pt"> How it works <br>
     <img src="{{asset('build/images/down.png') }}" style="height:10px;"/></p></a>
   </div>
-
   <div class="container-fluid" id="Search" style="background-color:#C8A279; height:95vh; opacity:90%">
     <div class="row">
         <div class="col-lg-6">
@@ -99,7 +91,6 @@
         </div> 
     </div>
   </div>
-
   <div class="container-fluid" style="background-color:#799FC8; margin:0px; height:85vh; opacity:90%">
     <div class="row">
         <div class="col-lg-6" style="text-align:center; margin:auto; color:#2963a1; padding-top:5%">
@@ -134,9 +125,7 @@
         </div>
       </div>
   </div> 
-
   <div id="signup"></div>
-
   <div class="container-fluid" style="height:115vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
     <div class="row">
         <div class="col col-lg-6 d-none d-lg-block">
