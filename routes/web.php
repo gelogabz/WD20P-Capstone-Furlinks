@@ -37,6 +37,17 @@ Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 
 
+
+Route::resource('contacts', 'App\Http\Controllers\ContactsController');
+Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
+
+Route::get('/postdog', 'App\Http\Controllers\PagesController@postdog');
+
+Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
+Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
+
+Route::resource('/pages', 'App\Http\Controllers\DogsController');
+
 Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 
 
