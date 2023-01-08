@@ -64,4 +64,9 @@ class PagesController extends Controller
     {
         return view('/home');
     }
+
+    public function showprofile()
+    {
+        return view('userprofile/showprofile');
+    }
 }
