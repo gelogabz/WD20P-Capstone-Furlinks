@@ -69,15 +69,64 @@ class DogsController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.id as users_id',
+                'users.name as users_name',
+                'userprofiles.profile_pic as profile_pic',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
             
             return view('pages/dogdetailspublic')->with('dogs', $singleDog);
     }
     
+    public function dogsposted($id)
+    {
+        $userid = DB::table('dogs')
+            ->select('dogs.user_id')
+            ->where('dogs.id', $id)
+            ->get();
+            return with('dogs', $userid);
+
+        $dogsposted = DB::table('dogs')
+            ->select(
+                'dogs.id',
+                'dogs.created_at',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.pic',
+                'dogs.size',
+                'dogs.color',
+                'dogs.location',
+                'dogs.neutered',
+                'dogs.birthdate',
+                'dogs.rescued',
+                'dogs.rescuedate',
+                'dogs.fee',
+                'dogs.feenotes',
+                'dogs.status_id',
+                'status.name as status_name',
+                'users.id as users_id',
+                'users.name as users_name',
+            )
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->where('dogs.user_id', $userid)
+            ->get();
+            
+            return view('pages/dogdetailspublic')->with('dogs', $dogsposted);
+    }
     
 }
