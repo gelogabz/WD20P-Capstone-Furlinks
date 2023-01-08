@@ -184,7 +184,6 @@ class DogprofileController extends Controller
                 'dogs.id',
                 'dogs.name',
                 'dogs.gender',
-                'dogs.age_yr',
                 'dogs.age_month',
                 'dogs.breed_id1',
                 'breed1.name as breed1_name',
@@ -227,12 +226,12 @@ class DogprofileController extends Controller
         ));
 
         $dogs = Dogs::find($id);
-        
+
         $dogs->gender = $request->input('gender');
         $dogs->age_yr = $request->input('age_yr');
         $dogs->age_month = $request->input('age_month');
         $dogs->breed_id1 = $request->input('breed_id1');
-        $dogs->breed_id2 = $request->input('breed_id2');       
+        $dogs->breed_id2 = $request->input('breed_id2');
         $dogs->name = $request->input('name');
         $dogs->location = $request->input('location');
         $dogs->rescued = $request->input('rescued');
@@ -267,5 +266,4 @@ class DogprofileController extends Controller
     {
         //
     }
-
 }
