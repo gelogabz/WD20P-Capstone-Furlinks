@@ -134,7 +134,7 @@
             </div>
           </div>
           <p style="font-size:13px;line-height:1.6; padding-top:10px;padding-bottom:10px">{{$dogs->about }}</p>
-          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name }}</i></p>
+          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name}}</i></p>
           <div class="row" style="margin-bottom:15px">
             @foreach($otherdogs as $otherdog)
             <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px; margin-right: 0px; margin-left: 0px;">
