@@ -28,9 +28,7 @@ Route::put('applications/index', [ApplicationsController::class, 'update']);
 
 // This is Profiletabs - User
 // Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
-Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
-Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
-Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+
 Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 

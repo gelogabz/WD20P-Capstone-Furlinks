@@ -16,8 +16,6 @@ class Userprofile2Controller extends Controller
      */
     public function index()
     {
-        $userdata = Userprofile::all();
-        return view('pages.showprofile')->with('userprofiles', $userdata);
     }
 
     /**
