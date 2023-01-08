@@ -28,7 +28,7 @@ class UserprofileController extends Controller
     {
         $this->validate($request, array());
 
-        $userprofile = new Userprofile;
+        $userprofile = new Userprofiles;
         $userprofile->user_id = Auth::user()->id;
 
         if ($file = $request->file('profile_pic')) {

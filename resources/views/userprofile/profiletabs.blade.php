@@ -10,7 +10,6 @@
       </div>
        <div class="tab-content" id="v-pills-tabContent">
               {{-- My Profile --}}
-         
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
             {{-- Style --}}
             <style>
@@ -160,7 +159,7 @@
                             <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
                             </span></label>
                           <div class="col-sm-8">
-                            <textarea class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="about" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </div>
                       </div>
@@ -213,95 +212,68 @@
               <H1>Personal Information</H1>
               <p>Edit your basic personal info to improve recommendations. This information is private and won't show up in your public profile.</p>
               <div class='row'>
-                  <div class='col-6 mt-4'>
+                  <div class='col-md-6 col-sm-12 mt-4'>
                       <label class='col-sm-4 col-form-label'>Address: 1</label>
                       <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
                   </div>
-                  <div class='col-6 mt-4'>
-                    <label class='col-sm-4 col-form-label'>Address: 2</label>
+                  <div class='col-md-6 col-sm-12  mt-4'>
+                    <label for="city" class='col-sm-4 col-form-label'>Address: 2</label>
                     <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
                 </div>
                 <div class='row'>
-                    <div class='col-sm-4 mt-4'>
+                    <div class='col-md-4 col-sm-12  mt-4'>
                         <label for="city" class='col-sm-4 col-form-label'>City</label>
                         <input type="text" name="city" class="form-control">
                     </div>
-                    <div class='col-sm-4 mt-4'>
+                    <div class='col-md-4 col-sm-12  mt-4'>
                       <label for="province" class='col-sm-4 col-form-label'>Province</label>
                       <input type="text" name="province" class="form-control">
                   </div>
-                  <div class='col-sm-4 mt-4'>
+                  <div class='col-md-4 col-sm-12  mt-4'>
                     <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
                     <input type="text" name="mobile_no" class="form-control">
                 </div>
-        
-                  <div class='col-6 mt-4'>
-                      <label class='mb-2'>Barangay</label>
-                      <input type="text" class="form-control" placeholder="Barangay" aria-label="Barangay">
+                <div class="col-md-4 col-sm-12 mt-4">
+                    <label for="gender" class='col-sm-4 col-form-label'>Gender</label>
+                    <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
+                      <option selected>Tap to select</option>
+                      <option value="Male">Male</option>
+                      <option value="Mediu">Female</option>
+                    </select>
+                </div>
+                <div class="col-md-4 col-sm-12 mt-4">
+                    <label for="hometype" class='col-sm-4 col-form-label'>Type of Home</label>
+                    <select class="form-select form-select-sm" name="hometype" aria-label=".form-select-sm example" required>
+                      <option selected>Tap to select</option>
+                      <option value="House">House</option>
+                      <option value="Apartment">Apartment</option>
+                      <option value="Condominium">Condominium</option>
+                    </select>
                   </div>
-          
-                  <div class='col-6 mt-4'>
-                      <label class='mb-2'>City</label>
-                      <input type="text" class="form-control" placeholder="City" aria-label="City">
-                  </div>
-          
-                  <div class='col-6 mt-2'>
-                      <div class='row justfiy-content-center'>
-                          <label class='mt-4 mb-2'>Home:</label>
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault11">
-                              <label class="form-check-label" for="flexRadioDefault11">
-                              &nbsp;House
-                              </label>
-                          </div>
-                          
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                              <label class="form-check-label" for="flexRadioDefault111">
-                              &nbsp;Condo
-                              </label>
-                          </div>
-          
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                              <label class="form-check-label" for="flexRadioDefault111">
-                              &nbsp;Apartment
-                              </label>
-                          </div>
+                  <div class="mt-4 row">
+                    <label for="allowed" class="col-sm-4 col-form-label">Are pets allowed in your home?</label>
+                    <div class="col-sm-8">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="allowed" id="inlineRadio1" value="1">
+                        <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
                       </div>
-                  </div>
-          
-                  <div class='col-6 mt-2 d-flex justify-content-center align-items-center'>
-                      <div class='row justfiy-content-center'>
-                          <label class='mt-4 mb-2'>If rented, are you allowed to have dogs?</label>
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="checkbox" id="gridCheck">
-                              <label class="form-check-label" for="gridCheck">
-                                  &nbsp; Yes
-                              </label>
-                          </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="allowed" id="inlineRadio2" value="0">
+                        <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
                       </div>
+                    </div>
                   </div>
-          
-                  <div class='col-6'>
-                      <div class='row justfiy-content-center'>
-                          <label class='mt-2 mb-2'>Type:</label>
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault111">
-                              <label class="form-check-label" for="flexRadioDefault11">
-                              &nbsp;Own
-                              </label>
-                          </div>
-                          
-                          <div class="col-3 form-check d-flex justify-content-center ">
-                              <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault1112">
-                              <label class="form-check-label" for="flexRadioDefault111">
-                              &nbsp;Rented
-                              </label>
-                          </div>
-                      </div>
+                  <div class="col-md-4 col-sm-12 mt-4">
+                    <label for="funds" class='col-sm-4 col-form-label'>Source of Funds</label>
+                    <select class="form-select form-select-sm" name="funds" aria-label=".form-select-sm example" required>
+                      <option selected>Tap to select</option>
+                      <option value="Employee">Employment</option>
+                      <option value="Business">Business</option>
+                      <option value="Freelance">Freelance</option>
+                      <option value="Family Income">Family Income</option>
+                      <option value="Others">Others</option>
+                    </select>
                   </div>
-                  
               </div>
           </div>
           </div>
@@ -483,7 +455,6 @@
         </div>
          </div>
       </div>
-  </div>
   </div>
 </div>
 @endsection
