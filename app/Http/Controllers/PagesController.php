@@ -29,11 +29,6 @@ class PagesController extends Controller
         return view('pages/about');
     }
 
-    public function dogdeets()
-    {
-        return view('pages/dogdeets');
-    }
-
     public function editdog()
     {
         return view('pages/editdog');
