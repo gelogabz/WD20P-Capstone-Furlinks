@@ -64,7 +64,7 @@
         <td style="vertical-align:middle">{{$application->username}}</td>
         <td style="vertical-align:middle">{{$application->firstname}}</td>
         <td style="vertical-align:middle">{{$application->lastname}}</td>
-        <td style="vertical-align:middle">{{$application->location}}</td>
+        {{-- <td style="vertical-align:middle">{{$application->location}}</td> --}}
         <td style="vertical-align:middle">{{$application->mobile_no}}</td>
         <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
         <td>

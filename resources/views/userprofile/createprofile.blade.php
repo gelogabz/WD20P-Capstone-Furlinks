@@ -88,14 +88,39 @@
 
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
-<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-    <div class="row" style="width:100%;margin-top:20px">
-      <H1>Public Profile</H1><br>
-      <p class='mb-0'>People visiting your profile will see the following info:</p>
-      <p>Note : Please fill up the form below</p>
-      
-      <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
-        {!! csrf_field() !!}
+
+@extends('components.navbar')
+
+@section('content')
+<div class='container p-5'>
+    <div class="row">
+        <div class="col-lg-2">
+            <ul class="nav">
+                <li class="nav-item my-4">
+                  <a class="nav-link active" aria-current="page" href="/home">My Profile</a>
+                </li>
+                <li class="nav-item my-4">
+                  <a class="nav-link" href="/personalinfo">Personal Info</a>
+                </li>
+                <li class="nav-item my-4">
+                  <a class="nav-link" href="/doghistory">Dog History</a>
+                </li>
+                <li class="nav-item my-4">
+                  <a class="nav-link" href="/accountsetting">Account Settings</a>
+                </li>
+              </ul>
+        </div>
+
+
+        <div class="tab-content justify-content-center" id="personalinfo">
+          <div class="tab-pane fade show active" id="dogposted" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                <div class="row" style="width:100%;margin-top:20px">
+        <H1>Public Profile</H1><br>
+        <p class='mb-0'>People visiting your profile will see the following info:</p>
+        <p>Note : Please fill up the form below</p>
+        
+        <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
+          {!! csrf_field() !!}
       
       <div class="row" style="width:100%">
       <!--Dog profile pic and social media actions -->  
