@@ -20,7 +20,6 @@
                   <option selected>Select</option>
                   <option>Male</option>
                   <option>Female</option>
-                  <option>Any</option>
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
@@ -30,7 +29,6 @@
                       <option>Small breed</option>
                       <option>Medium-sized</option>
                       <option>Large breed</option>
-                      <option>Any</option>
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
@@ -41,7 +39,6 @@
                     <option>Black</option>
                     <option>Brown</option>
                     <option>Mixed</option>
-                    <option>Any</option>
                 </select>
             </div>
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
