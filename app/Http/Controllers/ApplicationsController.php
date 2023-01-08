@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Applications;
 
 use App\Models\Dogs;
@@ -49,15 +50,19 @@ class ApplicationsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
+            'dog_id' => 'required',
         ));
 
         $apply = new Applications;
-        $apply->dog_id = $id;
+        $apply->dog_id = $request->dog_id;
         $apply->user_id = Auth::user()->id;
+        $apply->appstatus = 1;
         $apply->save();
 
-        return redirect()->back()
-            ->with('success', 'Application successfully submitted.');
+        $dogid = $apply->dog_id;
+
+        return redirect()->route('pages', [$dogid])
+        ->with('success', 'Application successfully submitted.');
     }
     public function show($id)
     {
@@ -77,19 +82,19 @@ class ApplicationsController extends Controller
                 'applications.created_at',
                 'applications.appstatus',
                 'appstatus.name as appstatus_name',
-
             )
             ->join('users', 'users.id', '=', 'applications.user_id')
             ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
             ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
             ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
-
-            // $applications = Applications::orderBy('id', 'desc')->simplePaginate(4)
             ->where('dog_id', $id)
             ->get();
-
-        // return view('applications.index', compact('apply'));
-        return view('applications.index')->with('applications', $apply);
+        
+        $dogs = DB::table('dogs')
+            ->select('dogs.pic')
+            ->where('dogs.id', $id)
+            ->first();
+        return view('applications.index')->with('applications', $apply)->with('dogs', $dogs);
     }
 
     public function update(Request $request, $id)
