@@ -1,15 +1,13 @@
 @extends('components.navbar')
 @section('content')
 <body style="background-color:#f5efea ">
-    
 
-<div class="container">
+<div class="container" style="margin-top:60px;margin-bottom:60px">
     <div class="row justify-content-center">
-       
         <div class="col-md-8">
-            <br><br><br>
             <div class="card">
-                <div class="card-header" style="background-color:#c8a279;">{{ __('Login') }}</div>
+                <div class="card-header" style="background-color:#c8a279;">{{ __('Login') }}
+                </div>
 
                 <div class="card-body" style=" background-color: #f8f6f3;">
                     <form method="POST" action="{{ route('login') }}">
@@ -57,7 +55,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary" href="/profiletabs">
+                                <button type="submit" class="btn btn-primary" href="/welcome">
                                     {{ __('Login') }}
                                 </button>
 

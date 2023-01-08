@@ -29,11 +29,6 @@ class PagesController extends Controller
         return view('pages/about');
     }
 
-    public function dogdeets()
-    {
-        return view('pages/dogdeets');
-    }
-
     public function editdog()
     {
         return view('pages/editdog');
@@ -52,17 +47,21 @@ class PagesController extends Controller
     }
     public function myprofile()
     {
-        return view('pages/myprofile');
+        return view('userprofile/createprofile');
     }
-    public function personalinfo(){
-        return view('pages/personalinfo');
-    }
-    public function doghistory(){
-        return view('pages/doghistory');
-    }
-    public function accountsetting(){
-        return view('pages/accountsetting');
-    }
-    
 
+    public function editprofile()
+    {
+        return view('userprofile/editprofile');
+    }
+
+    public function applications()
+    {
+        return view('dogprofile/apptable');
+    }
+
+    public function home()
+    {
+        return view('/home');
+    }
 }

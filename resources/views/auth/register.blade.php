@@ -1,12 +1,14 @@
 @extends('components.navbar')
 
 @section('content')
-<div class="container">
+<body style="background-color:#f5efea ">
+<div class="container" style="margin-top:60px;margin-bottom:60px">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <br><br><br>
+         
             <div class="card">
-                <div class="card-header" style="background-color:#c8a279;">{{ __('Register') }}</div>
+                <div class="card-header" style="background-color:#c8a279;">{{ __('Register') }}
+                </div>
 
                 <div class="card-body"style=" background-color: #f8f6f3;"> 
                     <form method="POST" action="{{ route('register') }}">
@@ -63,7 +65,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary form-control" href="/profiletabs">
+                                <button type="submit" class="btn btn-primary form-control" href="/userprofile/create">
                                     {{ __('Register') }}
                                 </button>
                             </div>

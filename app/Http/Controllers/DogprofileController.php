@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 use App\Models\Dogs;
+use App\Models\Users;
+use App\Models\UserProfiles;
 use DB;
 
 class DogprofileController extends Controller
@@ -16,6 +19,8 @@ class DogprofileController extends Controller
         $dogs = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.user_id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -36,11 +41,18 @@ class DogprofileController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.name as users_name',
+                'userprofiles.profile_pic as profile_pic',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.about as about',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
-            ->where('user_id', '=', $idtofind)
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->where('dogs.user_id', '=', $idtofind)
             ->simplePaginate(8);
         return view('pages.ownprofile')->with('dogs', $dogs);
 
@@ -120,6 +132,7 @@ class DogprofileController extends Controller
         $singleDog = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -140,10 +153,17 @@ class DogprofileController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.name as username',
+                'userprofiles.profile_pic as profile_pic',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.about as about',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
         return view('dogprofile.dogdetails')->with('dogs', $singleDog);
@@ -159,12 +179,11 @@ class DogprofileController extends Controller
     {
         // $updateContact = Dogs::find($id);
         // return view('dogprofile.editdog')->with('dogs', $updateContact);
-        $updateContact = DB::table('dogs')
+        $editDog = DB::table('dogs')
             ->select(
                 'dogs.id',
                 'dogs.name',
                 'dogs.gender',
-                'dogs.age_yr',
                 'dogs.age_month',
                 'dogs.breed_id1',
                 'breed1.name as breed1_name',
@@ -188,22 +207,53 @@ class DogprofileController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.editdog')->with('dogs', $updateContact);
+        return view('dogprofile.editdog')->with('dogs', $editDog);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        $updateContact = Dogs::find($id);
-        $input = $request->all();
-        $updateContact->update($input);
-        return redirect('ownprofile');
+        $this->validate($request, array(
+            'gender' => 'required',
+            'breed_id1' => 'required',
+            'pic' => 'required',
+            'size' => 'required',
+            'color' => 'required',
+            'location' => 'required',
+            'neutered' => 'required',
+            'rescued' => 'required',
+            'fee' => 'required',
+            'feenotes' => 'required',
+        ));
+
+        $dogs = Dogs::find($id);
+
+        $dogs->gender = $request->input('gender');
+        $dogs->age_yr = $request->input('age_yr');
+        $dogs->age_month = $request->input('age_month');
+        $dogs->breed_id1 = $request->input('breed_id1');
+        $dogs->breed_id2 = $request->input('breed_id2');
+        $dogs->name = $request->input('name');
+        $dogs->location = $request->input('location');
+        $dogs->rescued = $request->input('rescued');
+        $dogs->rescuedate = $request->input('rescuedate');
+        $dogs->birthdate = $request->input('birthdate');
+        $dogs->neutered = $request->input('neutered');
+        $dogs->size = $request->input('size');
+        $dogs->color = $request->input('color');
+        $dogs->fee = $request->input('fee');
+        $dogs->feenotes = $request->input('feenotes');
+        if ($file = $request->file('pic')) {
+            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
+            $file->move(public_path('Image'), $filename);
+            $input['pic'] = "$filename";
+        } else {
+            unset($input['pic']);
+        };
+        $dogs->pic = $input['pic'];
+        $dogs->save();
+
+        return redirect('/ownprofile')
+            ->with('success', 'Dog profile successfully updated.');
     }
 
     /**
