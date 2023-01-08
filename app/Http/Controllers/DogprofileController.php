@@ -193,13 +193,6 @@ class DogprofileController extends Controller
         return view('dogprofile.editdog')->with('dogs', $editDog);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $this->validate($request, array(
