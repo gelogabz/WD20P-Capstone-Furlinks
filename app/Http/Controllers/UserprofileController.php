@@ -68,7 +68,7 @@ class UserprofileController extends Controller
        
     }
 
-    $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
+    // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
 
     public function show($userid)
     {
