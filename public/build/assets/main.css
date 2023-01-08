@@ -3,7 +3,7 @@
     }
       .nav-link{
         color:#180A0A;
-        transition: font-size 0.1s;
+        transition: font-size 0.2s;
         font-family: 'Lato', sans-serif;
       }
       .nav-link:hover{
@@ -22,6 +22,7 @@
         font-family: 'Lato', sans-serif;
         padding-top: 3% !important;
         padding-bottom: 2% !important;
+        transition:all 0.2s;
       }
       .login_button{
         border-radius: 12px;
@@ -29,6 +30,7 @@
         border-color:#5082B7 !important ;
         padding-top: 3% !important;
         padding-bottom: 2% !important;
+        transition:all 0.2s;
       }
       .register_button:hover{
         /* border-radius: 12px; */
@@ -37,6 +39,7 @@
         border-color:#5082B7 !important ;
         padding-top: 3% !important;
         padding-bottom: 2% !important;
+        
       }
       .login_button:hover{
         background-color:#6388af !important ;
@@ -44,6 +47,29 @@
         padding-top: 3% !important;
         padding-bottom: 2% !important;
       }
+      .submit-btn{
+        background-color: #799FC8;
+        border:none;
+        width: 200px;
+        border-radius: 12px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        color:white;
+        font-size: 15px;
+        transition: all 0.3s;
+      }
+      .submit-btn:hover{
+        background-color: #5082B7;
+        width: 300px;
+        color:white;
+        font-size: 19px;
+
+      }
+      .tab-content{
+        background-color:#ede3d4 ;
+        border-radius: 10px;
+      }
+
       /* .register_button:hover{
         background-color:#f3efeb !important ;
         

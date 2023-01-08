@@ -1,19 +1,28 @@
 @extends('components.navbar')
 
 @section('content')
-<div class='container-fluid p-5'>
+<div class='container p-5'>
   <div class="d-flex align-items-start">
-      <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-              <button class="nav-link active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</button>
-              <button class="nav-link" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</button>
-              <button class="nav-link" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</button>
+      <div class="nav flex-column me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
+              <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
+              <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
       </div>
-       <div class="tab-content" id="v-pills-tabContent">
+       <div class="tab-content p-2" id="v-pills-tabContent">
               {{-- My Profile --}}
-         
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
+            <div class='container'>
             {{-- Style --}}
             <style>
+                .tab2,
+                .tab3,
+                .tab1{
+                    background-color:#8eb3d9 !important;
+                    margin: 2px 2px 2px 2px;
+                    border-radius: 10px;
+                    
+                }
+            
               .file-upload-input {
                   position: absolute;
                   margin: 0;
@@ -97,9 +106,8 @@
             
             </style>
                <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
-            <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
-            <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-                <div class="row" style="width:100%;margin-top:20px">
+        
+                <div class="row">
                   <H1>Public Profile</H1><br>
                   <p class='mb-0'>People visiting your profile will see the following info:</p>
                   <p>Note : Please fill up the form below</p>
@@ -143,14 +151,14 @@
                         {{-- FIRSTNAME --}}
                         <div class="mb-2 row">
                           <label for="firstname" class="col-sm-4 col-form-label">First Name</label>
-                          <div class="col-sm-8">
+                          <div class="col-lg-8">
                             <input type="text" name="firstname" class="form-control form-control-sm">
                           </div>
                         </div>
                         {{-- LASTNAME --}}
                         <div class="mb-2 row">
                           <label for="lastname" class="col-sm-4 col-form-label">Last Name</label>
-                          <div class="col-sm-8">
+                          <div class="col-lg-8">
                             <input type="text" name="lastname" class="form-control form-control-sm">
                           </div>
                         </div>
@@ -221,10 +229,11 @@
                     <label class='col-sm-4 col-form-label'>Address: 2</label>
                     <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
                 </div>
+
                 <div class='row'>
                     <div class='col-sm-4 mt-4'>
                         <label for="city" class='col-sm-4 col-form-label'>City</label>
-                        <input type="text" name="city" class="form-control">
+                        <input type="text" name="city" class="form-control" placeholder="City">
                     </div>
                     <div class='col-sm-4 mt-4'>
                       <label for="province" class='col-sm-4 col-form-label'>Province</label>
@@ -232,7 +241,7 @@
                   </div>
                   <div class='col-sm-4 mt-4'>
                     <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
-                    <input type="text" name="mobile_no" class="form-control">
+                    <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
                 </div>
         
                   <div class='col-6 mt-4'>
@@ -301,7 +310,6 @@
                           </div>
                       </div>
                   </div>
-                  
               </div>
           </div>
           </div>
@@ -477,13 +485,15 @@
                
                 </div>
                 <br><br><br>
-                <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                <div class='text-center'>
+                <input type="submit" name="submit" class="submit-btn" value="Submit">
+                </div>
                     </form>
             </div>
         </div>
          </div>
       </div>
   </div>
-  </div>
+</div>
 </div>
 @endsection
