@@ -127,16 +127,16 @@
               <img style="width:55px; border-radius:50%; padding: 2px" src="#">
             </div>
             <div class="col">
-              <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="#"><span>@</span>{{ Auth::user()->name }}</a></div>
+              <div class="row" style="padding-top: 5px;padding-bottom: 5px;font-size:medium"><a href="#"><span>@</span>{{ $dogs->users_name }}</a></div>
             </div>
           </div>
           <p style="font-size:13px;line-height:1.6; padding-top:15px">I am a chef who loves to take care of dogs and cats. During my free time, I go around our town to feed stray dogs. Some of my dogs are retired K9 and some are stray dogs that we rescued and took home.</p>
-          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{ Auth::user()->name }}</i></p>
+          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name }}</i></p>
           <div class="row" style="margin-bottom:15px">
-            @foreach($singleDog as $dog)
+            @foreach($dogsposted as $dog)
             <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px; margin-right: 0px; margin-left: 0px;">
               <div class="containerimg" style="width:100%">
-                <img src="{{'Image/' . $dog->pic}}" alt="Avatar" class="image" style="width:100%">
+                <img src="{{'Image/'.$dog->pic}}" alt="Avatar" class="image" style="width:100%">
                 <div class="middle">
                   <div class="text"><a href='"pages/{{$dog->id}}'>View</a></div>
                 </div>
