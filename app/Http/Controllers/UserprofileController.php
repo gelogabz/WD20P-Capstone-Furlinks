@@ -14,7 +14,7 @@ class UserprofileController extends Controller
     public function index()
     {
         $idtofind = Auth::id();
-        $userprofiles = Userprofiles::all()
+        $userprofiles = Userprofile::all()
             ->where('user_id', $idtofind);
         return view('userprofiles.showprofile')->with('userprofiles', $userprofiles);
     }
@@ -34,7 +34,7 @@ class UserprofileController extends Controller
         $this->validate($request, array(
         ));1
 
-        $userprofile = new Userprofiles;
+        $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
 
         if ($file = $request->file('profile_pic')) {
@@ -80,7 +80,7 @@ class UserprofileController extends Controller
     public function show($userid)
     {
         $idtofind = Auth::id();
-        $userdata = DB::table('userprofiles')
+        $userdata = Userprofile::table('userprofiles')
             ->select(
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
@@ -153,7 +153,11 @@ class UserprofileController extends Controller
     {
         $this->validate($request, array(
 
+<<<<<<< Updated upstream
         ));
+=======
+        $userprofiles = Userprofile::find($userid);
+>>>>>>> Stashed changes
 
         $userprofiles = Userprofiles::find($userid);
         
