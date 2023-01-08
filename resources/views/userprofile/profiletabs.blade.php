@@ -156,10 +156,9 @@
                         <div class="mb-2 row">
                           <label for="about" class="col-sm-4 col-form-label">About
                             <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
-                              (City, Province)
                             </span></label>
                           <div class="col-sm-8">
-                            <input type="text" name="about" class="form-control form-control-sm">
+                            <textarea class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </div>
                       </div>
