@@ -21,6 +21,7 @@ class DogsController extends Controller
 
         $dogs = DB::table('dogs')
             ->select(
+                'dogs.id',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
