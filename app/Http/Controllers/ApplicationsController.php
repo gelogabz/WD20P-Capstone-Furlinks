@@ -20,7 +20,7 @@ class ApplicationsController extends Controller
             'userprofiles.firstname as firstname',
             'userprofiles.lastname as lastname',
             'userprofiles.profile_pic as profile_pic',
-            'userprofiles.location as location',
+            // 'userprofiles.location as location',
             'userprofiles.mobile_no as mobile_no',
             'applications.dog_id',
             'dogs.pic as dog_pic',
