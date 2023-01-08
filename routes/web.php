@@ -25,6 +25,7 @@ Route::resource('/pages', 'App\Http\Controllers\DogsController');
 // For DOG ADOPTION APPLICATIONS
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
+Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 Route::put('applications/index', [ApplicationsController::class, 'update']);
 
 // This is Profiletabs - User
