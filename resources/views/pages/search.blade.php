@@ -52,20 +52,16 @@
    </div>
    
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
-     <h5 style="color:#51133c;font-size:18px">{{ $dogs->count() }} Search results</h6>
+     <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
         @foreach($dogs as $dog)
-        
-          <div class="card d-inline-flex m-2">
-              <div class="card" style="width:18rem;">
-                  <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
-                  <div class="card-body">
-                      <h3 class="card-title">{{$dog->name}}</h3>
-                      <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
-                      <h6 class="card-subtitle mb-2 text-muted">{{$dog->breed1_name}} , {{$dog->breed2_name}}</h6>
-                  </div>
-              </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="containerimg" style="width:100%">
+            <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+            <div class="middle">
+              <div class="text"><a href="pages/{{$dog->id}}">View More</a></div>
+            </div>
           </div>
           <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
           <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
