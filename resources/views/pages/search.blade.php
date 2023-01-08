@@ -51,11 +51,11 @@
    </div>
    
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
-     <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
+     <h5 style="color:#51133c;font-size:18px">{{ $dogs->count() }} Search results</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
         @foreach($dogs as $dog)
-
+        
           <div class="card d-inline-flex m-2">
               <div class="card" style="width:18rem;">
                   <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">

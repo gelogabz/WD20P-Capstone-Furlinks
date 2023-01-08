@@ -42,7 +42,7 @@
                 </select>
             </div>
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
-                <a href=/search typ e="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
+                <a href="/search" type="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
                   <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i>SEARCH</a>
             </div>
 
