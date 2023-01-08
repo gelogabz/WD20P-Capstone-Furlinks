@@ -19,7 +19,7 @@
             <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
                 <div class="row" style="padding-bottom:5px">
                     <div class="col col-auto" style="margin-right:px">
-                        <img style="width:55px; border-radius:50%; padding: 2px" src="{{'Image/'. $dogs->profile_pic}}">
+                        {{-- <img style="width:55px; border-radius:50%; padding: 2px" src="{{'Image/'. $dogs->profile_pic}}"> --}}
                     </div>
                     <div class="col">
                         <div class="row" style="padding-top:5px; padding-bottom: 5px; font-size:medium;"><a href="profile.html" style="text-decoration:none;">
