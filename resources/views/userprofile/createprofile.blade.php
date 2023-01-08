@@ -1,6 +1,6 @@
-@extends('components.profiletabs')
+@extends('userprofile.profiletabs')
 
-@section('createprofile')
+@section('home')
 
 <style>
   .file-upload-input {
