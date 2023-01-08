@@ -33,6 +33,7 @@ Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
 Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
+
 Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 
 Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
