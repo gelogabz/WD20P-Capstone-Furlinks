@@ -10,7 +10,7 @@
       </div>
        <div class="tab-content" id="v-pills-tabContent">
               {{-- My Profile --}}
-              
+         
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
             {{-- Style --}}
             <style>
@@ -102,7 +102,9 @@
                   <H1>Public Profile</H1><br>
                   <p class='mb-0'>People visiting your profile will see the following info:</p>
                   <p>Note : Please fill up the form below</p>
-                  
+                            
+        <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
+            {!! csrf_field() !!}
                   <div class="row" style="width:100%">
                   <!--Dog profile pic and social media actions -->  
                   <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
