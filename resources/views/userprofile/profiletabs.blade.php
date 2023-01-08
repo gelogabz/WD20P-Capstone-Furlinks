@@ -10,7 +10,7 @@
       </div>
        <div class="tab-content" id="v-pills-tabContent">
               {{-- My Profile --}}
-              
+         
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
             {{-- Style --}}
             <style>
@@ -96,6 +96,7 @@
                   }
             
             </style>
+               <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
             <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
             <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
                 <div class="row" style="width:100%;margin-top:20px">
@@ -107,7 +108,6 @@
                   <!--Dog profile pic and social media actions -->  
                   <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
                     <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
-                 
                       <div class="image-upload-wrap justify-content-center" style="height:160px;width:150px">
                           <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
                           <div class="drag-text" style="padding-top:30%">
@@ -137,6 +137,8 @@
                       </div>
                       @endif
                     <div class="container">
+                     
+                            {!! csrf_field() !!}
                         {{-- PATCH- specific part PUT - whole resource --}}
                         {{-- FIRSTNAME --}}
                         <div class="mb-2 row">
@@ -162,6 +164,7 @@
                           </div>
                         </div>
                       </div>
+                      
                   </div>
                 </div>
             </div>
@@ -206,35 +209,32 @@
           </div>
           {{-- Personal Info --}}
           <div class="tab-pane fade" id="personalinfo" role="tabpanel" aria-labelledby="v-pills-personalinfo-tab" tabindex="0">
-            <div class='container-fluid'>
+            <div class='container'>
               <H1>Personal Information</H1>
               <p>Edit your basic personal info to improve recommendations. This information is private and won't show up in your public profile.</p>
               <div class='row'>
-                  <label>Gender:</label>
-                  <div class="col-4 form-check d-flex justify-content-center ">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                      <label class="form-check-label" for="flexRadioDefault1">
-                      &nbsp;Male
-                      </label>
+                  <div class='col-6 mt-4'>
+                      <label class='col-sm-4 col-form-label'>Address: 1</label>
+                      <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
                   </div>
-                  <div class="col-4 form-check d-flex justify-content-center ">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                      <label class="form-check-label" for="flexRadioDefault2">
-                      &nbsp;Female
-                      </label>
+                  <div class='col-6 mt-4'>
+                    <label class='col-sm-4 col-form-label'>Address: 2</label>
+                    <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
+                </div>
+                <div class='row'>
+                    <div class='col-sm-4 mt-4'>
+                        <label class='col-sm-4 col-form-label'>City</label>
+                        <input type="text" name="city" class="form-control">
+                    </div>
+                    <div class='col-sm-4 mt-4'>
+                      <label for="province" class='col-sm-4 col-form-label'>Province</label>
+                      <input type="text" name="province" class="form-control">
                   </div>
-                  <div class="col-4 form-check d-flex justify-content-center">
-                      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                      <label class="form-check-label" for="flexRadioDefault3">
-                      &nbsp;Non-Binary
-                      </label>
-                  </div>
-                  
-                  <div class='col-12 mt-4'>
-                      <label class='mb-2'>Address:</label>
-                      <input type="text" class="form-control" placeholder="Address" aria-label="Address">
-                  </div>
-          
+                  <div class='col-sm-4 mt-4'>
+                    <label for="province" class='col-sm-4 col-form-label'>Province</label>
+                    <input type="text" name="province" class="form-control">
+                </div>
+        
                   <div class='col-6 mt-4'>
                       <label class='mb-2'>Barangay</label>
                       <input type="text" class="form-control" placeholder="Barangay" aria-label="Barangay">
@@ -305,10 +305,11 @@
               </div>
           </div>
           </div>
+          </div>
           {{-- DogHistory --}}
          <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">
           <div class='container'>
-    
+
             <H1 class='mb-5'>Dog History</H1>
             
             <div class='row'>
@@ -477,11 +478,12 @@
                 </div>
                 <br><br><br>
                 <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-              </form>
+                    </form>
             </div>
         </div>
          </div>
       </div>
+  </div>
   </div>
 </div>
 @endsection

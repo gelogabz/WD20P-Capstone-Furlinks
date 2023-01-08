@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Dogs;
+use App\Models\Users;
+use App\Models\UserProfiles;
 use DB;
 
 class DogprofileController extends Controller
@@ -16,6 +18,7 @@ class DogprofileController extends Controller
         $dogs = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.user_id',
                 'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
@@ -37,11 +40,18 @@ class DogprofileController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.name as users_name',
+                'userprofiles.profile_pic as profile_pic',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.about as about',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
-            ->where('user_id', '=', $idtofind)
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->where('dogs.user_id', '=', $idtofind)
             ->simplePaginate(8);
         return view('pages.ownprofile')->with('dogs', $dogs);
 
@@ -142,10 +152,17 @@ class DogprofileController extends Controller
                 'dogs.feenotes',
                 'dogs.status_id',
                 'status.name as status_name',
+                'users.name as username',
+                'userprofiles.profile_pic as profile_pic',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.about as about',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
         return view('dogprofile.dogdetails')->with('dogs', $singleDog);
