@@ -40,45 +40,34 @@ class DogprofileController extends Controller
                 'dogs.fee',
                 'dogs.feenotes',
                 'dogs.status_id',
-                'status.name as status_name',
-                'users.name as users_name',
-                'userprofiles.profile_pic as profile_pic',
-                'userprofiles.city as city',
-                'userprofiles.province as province',
-                'userprofiles.about as about',
-            )
+                'status.name as status_name')
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
-            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
-            ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.user_id', '=', $idtofind)
             ->simplePaginate(8);
-        return view('pages.ownprofile')->with('dogs', $dogs);
 
-        // $dogs = Dogs::all();
-        // orderBy ascending and descending
-        // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
-        // Pagination
-        // $dogs = Dogs::orderBy('id', 'asc')
+        $user = DB::table('userprofiles')
+            ->select(
+                'userprofiles.profile_pic',
+                'userprofiles.firstname',
+                'userprofiles.lastname',
+                'userprofiles.about',
+                'userprofiles.city',
+                'userprofiles.province',
+                'users.name as user_name')
+            ->join('users', 'users.id', '=', 'userprofiles.user_id')
+            ->where('userprofiles.user_id', '=', $idtofind)
+            ->first();
+
+        return view('pages.ownprofile')->with('dogs', $dogs)->with('user', $user);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('dogprofile.createprofile');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, array(
@@ -169,16 +158,9 @@ class DogprofileController extends Controller
         return view('dogprofile.dogdetails')->with('dogs', $singleDog);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        // $updateContact = Dogs::find($id);
-        // return view('dogprofile.editdog')->with('dogs', $updateContact);
         $editDog = DB::table('dogs')
             ->select(
                 'dogs.id',
@@ -256,12 +238,6 @@ class DogprofileController extends Controller
             ->with('success', 'Dog profile successfully updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
