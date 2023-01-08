@@ -13,41 +13,39 @@
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-    <div class="row" style="width:100%; margin-top:0px; margin-bottom: 20px;">
+    <div class="row" style="width:100%;  margin-bottom: 20px;">
         <!--Foster profile information -->
-        <div class="col-lg-3 col-md-6 col-sm-12 mx-auto" style="padding-top:10px;padding-right:20px;padding-left: 20px;">
+        <div class="col-lg-3 col-md-6 col-sm-12 mx-auto" style="padding-top:10px;margin-top:30px;">
             <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
                 <div class="row" style="padding-bottom:5px">
-                    <div class="col col-auto" style="margin-right:px">
-                        <img style="width:55px; border-radius:50%; padding: 2px" src="{{'Image/'. $user->profile_pic}}">
+                    <img style="width: 150px; border-radius:50%; display:block;margin:auto" src="{{'Image/'. $user->profile_pic}}">
+                    <h4 style="text-align:center">{{ $user->firstname }}{{' '.$user->lastname }}</h4>
+
+                    <div class="row" style="padding-top:5px; padding-bottom: 5px; font-size:medium;"><a href="profile.html" style="text-decoration:none;">
+                        <span>@</span>{{ $user->user_name }}</a>
                     </div>
-                    <div class="col">
-                        <div class="row" style="padding-top:5px; padding-bottom: 5px; font-size:medium;"><a href="profile.html" style="text-decoration:none;">
-                            <span>@</span>{{ $user->user_name }}</a></div>
-                        <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;"> 
-                    <span>5.0 <span class="fa fa-star checked"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span></span></span>(20 reviews)
-                        </div>
+
+                    <div class="row" style="font-size: small;color:gray;vertical-align: bottom; padding-bottom: 15px;padding-right: 2px;"> 
+                        <span>5.0 <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span> 
+                        <span class="fa fa-star checked"></span><span style="padding-left:10px;font-size:small;color:gray;vertical-align: bottom;padding-right: 2px;">(20 reviews)</span></span>
                     </div>
-                </div>
-                <p style="font-size:13px;line-height:1.6; padding-top:15px">{{ $user->about }}</p>
-                <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{ Auth::user()->name }}</i></p>
-                <div class="row" style="margin-bottom:15px">
-                    @foreach($dogs as $dogsitem)
-                    <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px;margin-right: 0px;margin-left: 0px;">
-                        <div class="containerimg" style="width:100%">
-                            <img src="{{'image/' . $dogsitem->pic}}" alt="Avatar" class="image" style="width:100%;">
-                            <div class="middle">
-                            <div class="text"><a href="/dogprofile/{{$dogsitem->id}}">View</a></div>
-                            </div>
-                        </div>
+                    <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;padding-bottom: 10px;"> 
+                        <p> {{ $user->city }}{{", ". $user->province }}</p>
                     </div>
-                    @endforeach
+                    <p style="font-size:13px;line-height:1.6; padding-top:10px">{{ $user->about }}</p>
+                    <div>
+                        <h6 style="color:#491036;margin-top:20px;padding-left:5px"><i class="fa-solid fa-dog" style="color:#811D60;font-size:22px;padding-right:20px"></i><strong>55</strong> Dogs Posted</h6>
+                        <h6 style="color:#491036;margin-top:20px"><i class="fa-solid fa-people-roof" style="color:#811D60;font-size:24px;padding-right:20px"></i><strong>41</strong> Dogs Re-Homed</h6>
+                    </div>
                 </div>
             </div>
         </div>
         <!--Dog profile information -->
-        <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-            <div class="container-fluid" style="width:100%;margin-top:0px;padding-top:0px">
+        <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;margin-bottom: 20px;margin-top:30px;">
+            <div class="container-fluid" style="width:100%">
                 <div class="d-flex mt-3">
                     <ul class="nav nav-tabs flex-grow-1 flex-nowrap" id="myTab" role="tablist">
                         <li class="nav-item" role="presentation">

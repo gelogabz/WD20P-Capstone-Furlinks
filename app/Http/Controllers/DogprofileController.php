@@ -50,6 +50,8 @@ class DogprofileController extends Controller
         $user = DB::table('userprofiles')
             ->select(
                 'userprofiles.profile_pic',
+                'userprofiles.firstname',
+                'userprofiles.lastname',
                 'userprofiles.about',
                 'userprofiles.city',
                 'userprofiles.province',
@@ -59,30 +61,13 @@ class DogprofileController extends Controller
             ->first();
 
         return view('pages.ownprofile')->with('dogs', $dogs)->with('user', $user);
-
-        // $dogs = Dogs::all();
-        // orderBy ascending and descending
-        // $dogprofiles = Dogprofile::orderBy('gender', 'asc')->get();
-        // Pagination
-        // $dogs = Dogs::orderBy('id', 'asc')
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('dogprofile.createprofile');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $this->validate($request, array(
@@ -173,16 +158,9 @@ class DogprofileController extends Controller
         return view('dogprofile.dogdetails')->with('dogs', $singleDog);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        // $updateContact = Dogs::find($id);
-        // return view('dogprofile.editdog')->with('dogs', $updateContact);
         $editDog = DB::table('dogs')
             ->select(
                 'dogs.id',
@@ -260,12 +238,6 @@ class DogprofileController extends Controller
             ->with('success', 'Dog profile successfully updated.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
