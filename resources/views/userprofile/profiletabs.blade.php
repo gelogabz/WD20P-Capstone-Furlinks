@@ -1,91 +1,6 @@
 @extends('components.navbar')
 
 @section('content')
-{{-- Styles --}}
-<style>
-  .file-upload-input {
-      position: absolute;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      outline: none;
-      opacity: 0;
-      cursor: pointer;
-      }
-
-  .image-upload-wrap {
-      margin-top: 0px;
-      border: 4px dashed #5082B7 !important ;
-      position: relative;
-      text-align: center;
-      display:block;
-      margin: auto;
-      }
-
-  .image-dropping,
-  .image-upload-wrap:hover {
-      background-color:#cfe5fd !important ;
-      }
-
-  .image-title-wrap {
-      padding: 15px 15px 15px 15px;
-      text-align: center;
-      }
-
-  .drag-text {
-      text-align: center;
-      }
-
-  .drag-text h3 {
-      font-weight: 100;
-      color: #5082B7 !important ;
-      padding: 60px 0;
-      }
-
-  .file-upload-image {
-      max-height: 150px;
-      max-width: 150px;
-      margin: 0px;
-      text-align: center;
-      display:block;
-      margin: auto;
-      border: 4px #5082B7 !important ;
-      }
-  .remove-image {
-      height: 40px;
-      width: 150px;
-      border-radius: 12px;
-      background-color: #799FC8 ;
-      border-color:#5082B7 !important ;
-      color:#F9F9F9;
-      text-decoration: none;
-      font-family: 'Lato', sans-serif;
-      margin:5px;
-      vertical-align: middle;
-      }
-
-  .remove-btn,
-  .file-upload-none{
-      display: none;
-  }
-
-  .remove-image:hover {
-      background-color:#6388af !important ;
-      transition: all .5s ease;
-      -webkit-transition: all .5s ease;
-      -moz-transition: all .5s ease;
-      -o-transition: all .5s ease;
-      -ms-transition: all .5s ease;
-      }
-
-  .remove-image:active {
-      border: 0;
-      transition: all .2s ease;
-      }
-
-</style>
-
 <div class='container-fluid p-5'>
   <div class="d-flex align-items-start">
       <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -95,16 +10,99 @@
       </div>
        <div class="tab-content" id="v-pills-tabContent">
               {{-- My Profile --}}
+              
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
+            {{-- Style --}}
+            <style>
+              .file-upload-input {
+                  position: absolute;
+                  margin: 0;
+                  padding: 0;
+                  width: 100%;
+                  height: 100%;
+                  outline: none;
+                  opacity: 0;
+                  cursor: pointer;
+                  }
             
+              .image-upload-wrap {
+                  margin-top: 0px;
+                  border: 4px dashed #5082B7 !important ;
+                  position: relative;
+                  text-align: center;
+                  display:block;
+                  margin: auto;
+                  }
+            
+              .image-dropping,
+              .image-upload-wrap:hover {
+                  background-color:#cfe5fd !important ;
+                  }
+            
+              .image-title-wrap {
+                  padding: 15px 15px 15px 15px;
+                  text-align: center;
+                  }
+            
+              .drag-text {
+                  text-align: center;
+                  }
+            
+              .drag-text h3 {
+                  font-weight: 100;
+                  color: #5082B7 !important ;
+                  padding: 60px 0;
+                  }
+            
+              .file-upload-image {
+                  max-height: 150px;
+                  max-width: 150px;
+                  margin: 0px;
+                  text-align: center;
+                  display:block;
+                  margin: auto;
+                  border: 4px #5082B7 !important ;
+                  }
+              .remove-image {
+                  height: 40px;
+                  width: 150px;
+                  border-radius: 12px;
+                  background-color: #799FC8 ;
+                  border-color:#5082B7 !important ;
+                  color:#F9F9F9;
+                  text-decoration: none;
+                  font-family: 'Lato', sans-serif;
+                  margin:5px;
+                  vertical-align: middle;
+                  }
+            
+              .remove-btn,
+              .file-upload-none{
+                  display: none;
+              }
+            
+              .remove-image:hover {
+                  background-color:#6388af !important ;
+                  transition: all .5s ease;
+                  -webkit-transition: all .5s ease;
+                  -moz-transition: all .5s ease;
+                  -o-transition: all .5s ease;
+                  -ms-transition: all .5s ease;
+                  }
+            
+              .remove-image:active {
+                  border: 0;
+                  transition: all .2s ease;
+                  }
+            
+            </style>
             <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
             <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
                 <div class="row" style="width:100%;margin-top:20px">
                   <H1>Public Profile</H1><br>
                   <p class='mb-0'>People visiting your profile will see the following info:</p>
                   <p>Note : Please fill up the form below</p>
-                  <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
-                    {!! csrf_field() !!}
+                  
                   <div class="row" style="width:100%">
                   <!--Dog profile pic and social media actions -->  
                   <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
@@ -164,17 +162,52 @@
                             <input type="text" name="about" class="form-control form-control-sm">
                           </div>
                         </div>
-                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
-                      </form>
                       </div>
                   </div>
                 </div>
             </div>
+            <!--SCRIPT for drag and drop of images -->
+            <script>
+                function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        let reader = new FileReader();
+                        reader.onload = function(e) {
+                        document.getElementById("imgdisplay").className = "file-upload-image";
+                        $('.image-upload-wrap').hide();
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
+                        $('.image-title-wrap').html(input.files[0].name);
+                        document.getElementById("rembutton").className = "remove-image";
+                        sessionStorage.setItem("img", reader.result);
+                        };
+            
+                        reader.readAsDataURL(input.files[0]);
+                        saveImage();
+                    } else {
+                        removeUpload();
+                    }
+                    }
+            
+                function removeUpload() {
+                    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                    $('.file-upload-content').hide();
+                    $('.image-upload-wrap').show();
+                    document.getElementById("pic").value = "";
+                    $('.image-title-wrap').html("");
+                    
+                    }
+                    $('.image-upload-wrap').bind('dragover', function () {
+                        $('.image-upload-wrap').addClass('image-dropping');
+                    });
+                    $('.image-upload-wrap').bind('dragleave', function () {
+                        $('.image-upload-wrap').removeClass('image-dropping');
+                    });
+            </script>
             </div>
           </div>
           {{-- Personal Info --}}
           <div class="tab-pane fade" id="personalinfo" role="tabpanel" aria-labelledby="v-pills-personalinfo-tab" tabindex="0">
-            <div class='container'>
+            <div class='container-fluid'>
               <H1>Personal Information</H1>
               <p>Edit your basic personal info to improve recommendations. This information is private and won't show up in your public profile.</p>
               <div class='row'>
@@ -269,47 +302,187 @@
                           </div>
                       </div>
                   </div>
-                </div>
+                  
+              </div>
           </div>
-         <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">Dog History</div>
+          </div>
+          {{-- DogHistory --}}
+         <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">
+          <div class='container'>
+    
+            <H1 class='mb-5'>Dog History</H1>
+            
+            <div class='row'>
+                {{-- Question number 1 --}}
+                <div class='col-md-4'>
+                    <label class=''>Do you currently have pets ? </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+        
+                
+                <div class="col-6 form-check justify-content-center ">
+                    
+                    <label class="">If yes, how many ? &nbsp;</label>
+                    <input class="form-control form-control-sm text-center" type="text" style="height:40px; width:100px;">
+                </div>
+                <br><br><br>
+        
+                {{-- Question number 2 --}}
+                <div class='col-md-4'>
+                    <label class=''>Does any member of your household have any known alergies to animals ? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+        
+                </div>
+                <br><br><br>
+        
+                {{-- Question number 3 --}}
+                <div class='col-md-4'>
+                    <label class=''>If you have children, have they been taught how to behave with animals ? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault3" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+                <br><br><br>
+        
+                {{-- Question number 4 --}}
+                <div class='col-md-4'>
+                    <label class=''>If you have other pets, have they all been vaccinated ? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault4" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+                <br><br><br>
+                
+                {{-- Question number 5 --}}
+                <div class='col-md-4'>
+                    <label class=''>If you have other pets, are they all spayed/neutered ? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault5" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault5" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+                <br><br><br>
+        
+                {{-- Question number 6 --}}
+                <div class='col-md-4'>
+                    <label class=''>Have you ever had a pet euthanized ? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault6" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault6" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+                    
+                </div>
+                <br><br><br>
+        
+                {{-- Question number 6 --}}
+                <div class='col-md-4'>
+                    <label class=''>Have you ever lost pet? </label>
+                </div>
+        
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault7" id="flexRadioDefault111">
+                    <label class="form-check-label" for="flexRadioDefault11">
+                    &nbsp;Yes
+                    </label>
+                </div>
+                
+                <div class="col-md-1 form-check d-flex justify-content-center ">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault7" id="flexRadioDefault1112">
+                    <label class="form-check-label" for="flexRadioDefault111">
+                    &nbsp;No
+                    </label>
+                </div>
+                <div class="col-md-6">
+               
+                </div>
+                <br><br><br>
+                <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+              </form>
+            </div>
+        </div>
+         </div>
       </div>
   </div>
 </div>
-   <!--SCRIPT for drag and drop of images -->
-   <script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            let reader = new FileReader();
-            reader.onload = function(e) {
-            document.getElementById("imgdisplay").className = "file-upload-image";
-            $('.image-upload-wrap').hide();
-            $('.file-upload-image').attr('src', e.target.result);
-            $('.file-upload-content').show();
-            $('.image-title-wrap').html(input.files[0].name);
-            document.getElementById("rembutton").className = "remove-image";
-            sessionStorage.setItem("img", reader.result);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-            saveImage();
-        } else {
-            removeUpload();
-        }
-        }
-
-    function removeUpload() {
-        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-        $('.file-upload-content').hide();
-        $('.image-upload-wrap').show();
-        document.getElementById("pic").value = "";
-        $('.image-title-wrap').html("");
-        
-        }
-        $('.image-upload-wrap').bind('dragover', function () {
-            $('.image-upload-wrap').addClass('image-dropping');
-        });
-        $('.image-upload-wrap').bind('dragleave', function () {
-            $('.image-upload-wrap').removeClass('image-dropping');
-        });
-</script>
 @endsection
