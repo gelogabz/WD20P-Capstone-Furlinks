@@ -37,7 +37,7 @@
       <div class="col-lg-4 col-sm-6" style="margin-top:20px">       
         <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
         <div style="text-align: center;">
-          <a href="/dogprofile/{{$dogs->id}}/edit" class="btn btn-primary2" style="float:center; margin-top:10px;">
+          <a href="/applications/create/{{$dogs->id}}" class="btn btn-primary2" style="float:center; margin-top:10px;">
           <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right: 10px"></i>ADOPT</a>
         </div>
       </div>
@@ -134,7 +134,7 @@
             </div>
           </div>
           <p style="font-size:13px;line-height:1.6; padding-top:10px;padding-bottom:10px">{{$dogs->about }}</p>
-          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name }}</i></p>
+          <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{$dogs->users_name}}</i></p>
           <div class="row" style="margin-bottom:15px">
             @foreach($otherdogs as $otherdog)
             <div class="col col-sm-6 col-xs-4" style="margin-bottom:20px; margin-right: 0px; margin-left: 0px;">
