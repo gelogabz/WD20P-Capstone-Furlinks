@@ -21,10 +21,9 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
-        
-        $gender= $request->input('gender');
-        $color= $request->input('color');
-        $size= $request->input('size');
+        $gender = $request->input('gender');
+        $color = $request->input('color');
+        $size = $request->input('size');
         
         $dogs = Dogs::query()
             ->select(
@@ -39,13 +38,12 @@ class SearchController extends Controller
                 'breed1.name as breed1_name',
                 'dogs.breed_id2',
                 'breed2.name as breed2_name',
-
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
-            ->where('gender', 'LIKE', "%{$gender}%")
-            ->where('gender', 'LIKE', "%{$color}%")
-            ->where('gender', 'LIKE', "%{$size}%")
+            ->where('dogs.gender', '=', $gender)
+            // ->where('gender', 'LIKE', "%{$color}%")
+            // ->where('gender', 'LIKE', "%{$size}%")
             ->get();
         return view('pages.search')->with('dogs', $dogs);
     }

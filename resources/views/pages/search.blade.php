@@ -41,7 +41,8 @@
                    </div>
                  </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">
-           <button href="/search" type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
+           <input type="submit" class="btn btn-primary" value="SEARCH">
+           </form>
          </div>
      </div>  
    </form>
@@ -55,19 +56,18 @@
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
         @foreach($dogs as $dog)
-
-          <div class="card d-inline-flex m-2">
-              <div class="card" style="width:18rem;">
-                  <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
-                  <div class="card-body">
-                      <h3 class="card-title">{{$dog->name}}</h3>
-                      <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
-                      <h6 class="card-subtitle mb-2 text-muted">{{$dog->breed1_name}} , {{$dog->breed2_name}}</h6>
-                  </div>
-              </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="containerimg" style="width:100%">
+            <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+            <div class="middle">
+              <div class="text"><a href="pages/{{$dog->id}}">View More</a></div>
+            </div>
           </div>
-
-        @endforeach
+          <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
+          <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+          <p style="padding-left:5%;font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
+        </div>
+      @endforeach
       </div>
    {{-- <div class="row">
      <!--dog1 fem0-->
