@@ -40,21 +40,25 @@ class DogprofileController extends Controller
                 'dogs.fee',
                 'dogs.feenotes',
                 'dogs.status_id',
-                'status.name as status_name',
-                'users.name as users_name',
-                'userprofiles.profile_pic as profile_pic',
-                'userprofiles.city as city',
-                'userprofiles.province as province',
-                'userprofiles.about as about',
-            )
+                'status.name as status_name')
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
-            ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
-            ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.user_id', '=', $idtofind)
             ->simplePaginate(8);
-        return view('pages.ownprofile')->with('dogs', $dogs);
+
+        $user = DB::table('userprofiles')
+            ->select(
+                'userprofiles.profile_pic',
+                'userprofiles.about',
+                'userprofiles.city',
+                'userprofiles.province',
+                'users.name as user_name')
+            ->join('users', 'users.id', '=', 'userprofiles.user_id')
+            ->where('userprofiles.user_id', '=', $idtofind)
+            ->first();
+
+        return view('pages.ownprofile')->with('dogs', $dogs)->with('user', $user);
 
         // $dogs = Dogs::all();
         // orderBy ascending and descending

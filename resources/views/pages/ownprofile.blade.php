@@ -19,17 +19,17 @@
             <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
                 <div class="row" style="padding-bottom:5px">
                     <div class="col col-auto" style="margin-right:px">
-                        {{-- <img style="width:55px; border-radius:50%; padding: 2px" src="{{'Image/'. $dogs->profile_pic}}"> --}}
+                        <img style="width:55px; border-radius:50%; padding: 2px" src="{{'Image/'. $user->profile_pic}}">
                     </div>
                     <div class="col">
                         <div class="row" style="padding-top:5px; padding-bottom: 5px; font-size:medium;"><a href="profile.html" style="text-decoration:none;">
-                            <span>@</span>{{ Auth::user()->name }}</a></div>
+                            <span>@</span>{{ $user->user_name }}</a></div>
                         <div class="row" style="font-size: small;color:gray;vertical-align: bottom;padding-right: 2px;"> 
                     <span>5.0 <span class="fa fa-star checked"> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span> <span class="fa fa-star checked"></span></span></span>(20 reviews)
                         </div>
                     </div>
                 </div>
-                <p style="font-size:13px;line-height:1.6; padding-top:15px">I am a chef who loves to take care of dogs and cats. During my free time, I go around our town to feed stray dogs. Some of my dogs are retired K9 and some are stray dogs that we rescued and took home.</p>
+                <p style="font-size:13px;line-height:1.6; padding-top:15px">{{ $user->about }}</p>
                 <p style="font-size:15px;color:#581542"><i>More dogs posted by <span>@</span>{{ Auth::user()->name }}</i></p>
                 <div class="row" style="margin-bottom:15px">
                     @foreach($dogs as $dogsitem)
