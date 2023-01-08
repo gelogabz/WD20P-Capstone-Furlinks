@@ -16,12 +16,12 @@ class UserprofileController extends Controller
         $idtofind = Auth::id();
         $userprofiles = Userprofiles::all()
             ->where('user_id', $idtofind);
-        return view('userprofile.showprofile')->with('userprofiles', $userprofiles);
+        return view('userprofiles.showprofile')->with('userprofiles', $userprofiles);
     }
 
     public function create()
     {
-        return view('userprofile.create');
+        return view('userprofiles.create');
     }
 
     public function store(Request $request)
@@ -75,35 +75,35 @@ class UserprofileController extends Controller
         $idtofind = Auth::id();
         $userdata = DB::table('userprofiles')
             ->select(
-                'userprofile.profile_pic',
-                'userprofile.firstname',
-                'userprofile.lastname',
-                'userprofile.mobile_no',
-                'userprofile.about',
-                'userprofile.gender',
-                'userprofile.address1',
-                'userprofile.address2',
-                'userprofile.city',
-                'userprofile.province',
-                'userprofile.hometype',
-                'userprofile.funds',
-                'userprofile.allowed',
-                'userprofile.withpets',
-                'userprofile.allergy',
-                'userprofile.allvaxed',
-                'userprofile.allneut',
-                'userprofile.euthanized',
-                'userprofile.lostpet',
-                'userprofile.cats',
-                'userprofile.dogs',
-                'userprofile.priresp',
-                'userprofile.finresp',
-                'userprofile.lefthome',
-                'userprofile.hours',
+                'userprofiles.profile_pic',
+                'userprofiles.firstname',
+                'userprofiles.lastname',
+                'userprofiles.mobile_no',
+                'userprofiles.about',
+                'userprofiles.gender',
+                'userprofiles.address1',
+                'userprofiles.address2',
+                'userprofiles.city',
+                'userprofiles.province',
+                'userprofiles.hometype',
+                'userprofiles.funds',
+                'userprofiles.allowed',
+                'userprofiles.withpets',
+                'userprofiles.allergy',
+                'userprofiles.allvaxed',
+                'userprofiles.allneut',
+                'userprofiles.euthanized',
+                'userprofiles.lostpet',
+                'userprofiles.cats',
+                'userprofiles.dogs',
+                'userprofiles.priresp',
+                'userprofiles.finresp',
+                'userprofiles.lefthome',
+                'userprofiles.hours',
             )
             ->where('user_id', '=', $idtofind)
             ->first();
-        return view('userprofile.myprofile')->with('userprofiles', $userdata);
+        return view('userprofiles.myprofile')->with('userprofiles', $userdata);
     }
 
     public function edit($userid)
@@ -111,35 +111,35 @@ class UserprofileController extends Controller
         $idtofind = Auth::id();
         $userdata = DB::table('userprofiles')
             ->select(
-                'userprofile.profile_pic',
-                'userprofile.firstname',
-                'userprofile.lastname',
-                'userprofile.mobile_no',
-                'userprofile.about',
-                'userprofile.gender',
-                'userprofile.address1',
-                'userprofile.address2',
-                'userprofile.city',
-                'userprofile.province',
-                'userprofile.hometype',
-                'userprofile.funds',
-                'userprofile.allowed',
-                'userprofile.withpets',
-                'userprofile.allergy',
-                'userprofile.allvaxed',
-                'userprofile.allneut',
-                'userprofile.euthanized',
-                'userprofile.lostpet',
-                'userprofile.cats',
-                'userprofile.dogs',
-                'userprofile.priresp',
-                'userprofile.finresp',
-                'userprofile.lefthome',
-                'userprofile.hours',
+                'userprofiles.profile_pic',
+                'userprofiles.firstname',
+                'userprofiles.lastname',
+                'userprofiles.mobile_no',
+                'userprofiles.about',
+                'userprofiles.gender',
+                'userprofiles.address1',
+                'userprofiles.address2',
+                'userprofiles.city',
+                'userprofiles.province',
+                'userprofiles.hometype',
+                'userprofiles.funds',
+                'userprofiles.allowed',
+                'userprofiles.withpets',
+                'userprofiles.allergy',
+                'userprofiles.allvaxed',
+                'userprofiles.allneut',
+                'userprofiles.euthanized',
+                'userprofiles.lostpet',
+                'userprofiles.cats',
+                'userprofiles.dogs',
+                'userprofiles.priresp',
+                'userprofiles.finresp',
+                'userprofiles.lefthome',
+                'userprofiles.hours',
             )
             ->where('user_id', '=', $idtofind)
             ->first();
-        return view('userprofile.editprofile')->with('userprofiles', $userdata);
+        return view('userprofiles.editprofile')->with('userprofiles', $userdata);
     }
 
     public function update(Request $request, $userid)
