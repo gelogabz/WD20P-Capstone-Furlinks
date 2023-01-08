@@ -39,7 +39,6 @@
                     <option>Black</option>
                     <option>Brown</option>
                     <option>Mixed</option>
-                    <option>Any</option>
                 </select>
             </div>
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
