@@ -54,27 +54,19 @@ class PagesController extends Controller
     {
         return view('userprofile/createprofile');
     }
-    public function personalinfo(){
-        return view('pages/personalinfo');
-    }
-    public function doghistory(){
-        return view('pages/doghistory');
-    }
-    public function accountsetting(){
-        return view('pages/accountsetting');
-    }
-    public function editprofile(){
+
+    public function editprofile()
+    {
         return view('userprofile/editprofile');
     }
 
-    public function applications(){
+    public function applications()
+    {
         return view('dogprofile/apptable');
     }
-    
-    public function home(){
+
+    public function home()
+    {
         return view('/home');
     }
-    
-    
-
 }
