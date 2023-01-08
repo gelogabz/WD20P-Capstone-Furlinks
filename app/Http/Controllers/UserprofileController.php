@@ -18,17 +18,16 @@ class UserprofileController extends Controller
             ->where('user_id', $idtofind);
         return view('userprofile.showprofile')->with('userprofiles', $userprofiles);
     }
-
-    public function create()
-    {
-        return view('userprofile.create');
+    
+    public function create(){
+        return view ('userprofile.create');
     }
 
-    public function store(Request $request)
-    {
-        $this->validate($request, array());
+    public function store(Request $request){
+        $this->validate($request, array(
+        ));1
 
-        $userprofile = new Userprofile;
+        $userprofile = new Userprofiles;
         $userprofile->user_id = Auth::user()->id;
 
         if ($file = $request->file('profile_pic')) {
@@ -65,7 +64,8 @@ class UserprofileController extends Controller
         $userprofile->save();
 
         return redirect()->back()
-            ->with('success', 'User profile successfully created.');
+        ->with('success', 'User profile successfully created.');
+       
     }
 
     // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
@@ -105,7 +105,7 @@ class UserprofileController extends Controller
             ->first();
         return view('userprofile.myprofile')->with('userprofiles', $userdata);
     }
-
+ 
     public function edit($userid)
     {
         $idtofind = Auth::id();
@@ -144,10 +144,12 @@ class UserprofileController extends Controller
 
     public function update(Request $request, $userid)
     {
-        $this->validate($request, array());
+        $this->validate($request, array(
+
+        ));
 
         $userprofiles = Userprofiles::find($userid);
-
+        
         if ($file = $request->file('profile_pic')) {
             $filename = date('YmdHis') . "." . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
@@ -185,4 +187,5 @@ class UserprofileController extends Controller
         return redirect()->back()
             ->with('success', 'Profile successfully updated.');
     }
+
 }
