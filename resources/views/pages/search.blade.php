@@ -10,7 +10,7 @@
              <div class="form-check form-check-inline" style="vertical-align: middle;">
              <label  for="gender" style="padding-right:10px;">Gender: 
                <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
-               <option selected><i>Select</i></option>
+               <option value="" selected><i>Select</i></option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
               </select>
@@ -19,25 +19,28 @@
          </div>
              <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;">
                <div class="form-check form-check-inline" style="vertical-align: middle;">
-               <label for="size" style="padding-right:10px;">Size: 
+               <label for="size" style="padding-right:10px;">Size: </label>
                  <select id="size" style="border:none; background-color: rgb(241, 240, 240);">
                    <option selected><i>Select</i></option>
-                   <option>Small breed</option>
-                   <option>Medium-sized</option>
-                   <option>Large breed</option>
-                 </select></label>
+                   <option value="Small">Small breed</option>
+                   <option value="Medium">Medium-sized</option>
+                   <option value="Large">Large breed</option>
+                 </select>
                  </div>
                </div>
                <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;;">
                  <div class="form-check form-check-inline" style="vertical-align: middle;">
-                 <label for="dogtype" style="padding-right:10px;"> Color:
-                     <select id="dogtype" style="border:none;background-color: rgb(241, 240, 240)" >
-                       <option selected><i>Select</i></option>
-                       <option>White</option>
-                       <option>Black</option>
-                       <option>Brown</option>
-                       <option>Mixed</option>
-                   </select> </label>
+                 <label for="color" style="padding-right:10px;"> Color:</label>
+                     <select id="color" style="border:none;background-color: rgb(241, 240, 240)" >
+                      <option selected>Tap to select</option>
+                      <option value="Black">Black</option>
+                      <option value="Brown">Brown</option>
+                      <option value="White">White</option>
+                      <option value="Gray">Gray</option>
+                      <option value="Mixed">Mixed</option>
+                      <option value="Dotted">Dotted</option>
+                      <option value="Brindled">Brindled</option>
+                    </select>
                    </div>
                  </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">

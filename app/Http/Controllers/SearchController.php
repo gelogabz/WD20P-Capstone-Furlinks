@@ -42,8 +42,8 @@ class SearchController extends Controller
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->where('dogs.gender', '=', $gender)
-            // ->where('gender', 'LIKE', "%{$color}%")
-            // ->where('gender', 'LIKE', "%{$size}%")
+            ->orWhere('dogs.color', '=', $color)
+            ->orWhere('dogs.size', '=', $size)
             ->get();
         return view('pages.search')->with('dogs', $dogs);
     }
