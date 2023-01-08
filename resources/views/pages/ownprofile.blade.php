@@ -1,9 +1,11 @@
 @extends ('components.navbar')
 @section('content')
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+{{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
@@ -48,9 +50,11 @@
         <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
             <div class="container-fluid" style="width:100%;margin-top:0px;padding-top:0px">
                 <div class="d-flex mt-3">
-                    <ul class="nav nav-tabs flex-grow-1 flex-nowrap">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" data-toggle="tab" href="#dogposted">Dog Posted</a></li>
-                        <li><a data-toggle="tab" href="#dogrehomed">Dog Re-Homed</a></li>
+                    <ul class="nav nav-tabs flex-grow-1 flex-nowrap" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Dog Posted</a></li>
+                        <li>
+                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Dog Re-Homed</a></li>
                     </ul>
                         <span class="ml-auto text-nowrap border border-top-0 border-left-0 border-right-0 border-bottom-0" style="padding: bottom 5px;">
                             <a class="btn btn-primary2" href="/dogprofile/create" type="button" style="float:center;vertical-align: bottom;text-align: center;padding-top:5px">
@@ -58,8 +62,8 @@
                 </div>
             </div>
 
-              <div class="tab-content justify-content-center">
-                <div id="dogposted" class="tab-pane fade in active">
+              <div class="tab-content justify-content-center" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success">
                         <p>{{ $message }}</p>
@@ -82,13 +86,11 @@
                    </div>
                    @endforeach
                    {{-- @endforeach --}}
-                   
                     <div class="text-center mt-5">
                     {{$dogs->links()}}
                     </div>
-                 
                 </div>
-                <div id="dogrehomed" class="tab-pane fade">
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                   <h3>Menu 1</h3>
                   <p>Some content in menu 1.</p>
                 </div>
