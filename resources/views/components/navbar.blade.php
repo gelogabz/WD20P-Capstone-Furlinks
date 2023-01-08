@@ -56,8 +56,8 @@
       --}}<ul class="d-flex">
       @guest
           @if (Route::has('login'))
-              <li class="btn btn-success my-2 my-sm-0 login_button me-2" id="myBtn" role="button">
-                <i class="bi bi-box-arrow-in-right" style="font-size:14px;"> </i><a class="login-btn" style="color:#e8eaed;" href="{{ route('login') }}">Login</a>
+              <li class="btn my-2 my-sm-0 login_button me-2" id="myBtn" role="button">
+                <i class="bi bi-box-arrow-in-right" style="font-size:14px; color:#f4f4f4;"> </i><a class="login-btn" style="color:#e8eaed;" href="{{ route('login') }}">Login</a>
               </li>
           @endif
 

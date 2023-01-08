@@ -76,7 +76,8 @@ class DogsController extends Controller
             ->where('dogs.id', $id)
             ->first();
             
-            return view('pages.dogdetailspublic')->with('dogs', $singleDog);
+            return view('pages/dogdetailspublic')->with('dogs', $singleDog);
     }
+    
     
 }
