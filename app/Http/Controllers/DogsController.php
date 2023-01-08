@@ -74,7 +74,8 @@ class DogsController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('pages.dogdetailspublic')->with('dogs', $singleDog);
+            
+            return view('pages.dogdetailspublic')->with('dogs', $singleDog);
     }
     
 }
