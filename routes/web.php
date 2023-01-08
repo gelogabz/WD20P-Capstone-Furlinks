@@ -22,7 +22,7 @@ use App\Http\Controllers\DogsController;
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
-Route::get('/search', 'App\Http\Controllers\PagesController@search');
+Route::get('/search', 'App\Http\Controllers\SearchController@index');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
 Route::get('/dogdeets', 'App\Http\Controllers\PagesController@dogdeets');
@@ -65,3 +65,9 @@ Route::resource('/pages', 'App\Http\Controllers\DogprofileController');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
+
+
+//Search.blade
+
+
+Route::resource('/search', 'App\Http\Controllers\SearchController');

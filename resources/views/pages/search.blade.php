@@ -1,36 +1,22 @@
-@extends('components.navbar')d
+@extends('components.navbar')
 
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid" style="width:92%;text-align:left">
-    <form action="/search" method="POST" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
       {{ csrf_field() }}
        <div class="row justify-content-left" >
            <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
              <div class="form-check form-check-inline" style="vertical-align: middle;">
              <label  for="gender" style="padding-right:10px;">Gender: 
-               <select id="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
+               <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
                <option selected><i>Select</i></option>
-               <option>Male</option>
-               <option>Female</option>
-               <option>Any</option>
-             </select>
-           </label>
+               <option value="Male">Male</option>
+               <option value="Female">Female</option>
+              </select>
+            </label>
            </div>
          </div>
-         <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
-           <div class="form-check form-check-inline" style="vertical-align: middle;">
-             <label for="age" style="padding-right:10px;">Age: 
-               <select id="age" style="border:none; background-color: rgb(241, 240, 240);">
-                 <option selected><i>Select</i></option>
-                 <option>Puppy 3-6 mos</option>
-                 <option>Puppy 6-12 mos</option>
-                 <option>Young 1-2 yrs</option>
-                 <option>Adult 2 yrs & up</option>
-                 <option>Any</option>
-               </select></label>
-               </div>
-             </div>
              <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;">
                <div class="form-check form-check-inline" style="vertical-align: middle;">
                <label for="size" style="padding-right:10px;">Size: 
@@ -39,7 +25,6 @@
                    <option>Small breed</option>
                    <option>Medium-sized</option>
                    <option>Large breed</option>
-                   <option>Any</option>
                  </select></label>
                  </div>
                </div>
@@ -52,24 +37,9 @@
                        <option>Black</option>
                        <option>Brown</option>
                        <option>Mixed</option>
-                       <option>Any</option>
                    </select> </label>
                    </div>
                  </div>
-                 <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top:10px;;">
-                   <div class="form-check form-check-inline" style="vertical-align: middle;">
-                   <label for="loc" style="padding-right:10px;"> Location:
-                       <select id="loc" style="border:none;background-color: rgb(241, 240, 240)" >
-                         <option selected><i>Select</i></option>
-                         <option>Metro Manila</option>
-                         <option>North Luzon</option>
-                         <option>South Luzon</option>
-                         <option>Cebu</option>
-                         <option>Davao</option>
-                     </select> 
-                    </label>
-                     </div>
-                   </div>
              <div class="form-group col-md-1" style="margin:auto;text-align: center">
            <button href="/search" type="button" class="btn btn-primary"><i class="fa-solid fa-magnifying-glass" style="padding-right:5px;"></i>SEARCH</a>
          </div>
@@ -84,11 +54,11 @@
      <h5 style="color:#51133c;font-size:18px">10 search results for 'Female puppy 3-6 mos'</h6>
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
-        {{-- @foreach($search as $dog)
+        @foreach($dogs as $dog)
 
           <div class="card d-inline-flex m-2">
               <div class="card" style="width:18rem;">
-                  <img src="{{ URL::asset($dog->pic) }}" class="card-img-top" alt="dog">
+                  <img src="{{'image/' . $dog->pic}}" class="card-img-top" alt="dog">
                   <div class="card-body">
                       <h3 class="card-title">{{$dog->name}}</h3>
                       <h6 class="card-subtitle mb-2">{{$dog->gender}}, {{$dog->age_yr}} yr/s and {{$dog->age_month}} month/s</h6>
@@ -97,7 +67,7 @@
               </div>
           </div>
 
-        @endforeach --}}
+        @endforeach
       </div>
    {{-- <div class="row">
      <!--dog1 fem0-->
