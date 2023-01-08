@@ -1,6 +1,91 @@
 @extends('components.navbar')
 
 @section('content')
+{{-- Styles --}}
+<style>
+  .file-upload-input {
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      outline: none;
+      opacity: 0;
+      cursor: pointer;
+      }
+
+  .image-upload-wrap {
+      margin-top: 0px;
+      border: 4px dashed #5082B7 !important ;
+      position: relative;
+      text-align: center;
+      display:block;
+      margin: auto;
+      }
+
+  .image-dropping,
+  .image-upload-wrap:hover {
+      background-color:#cfe5fd !important ;
+      }
+
+  .image-title-wrap {
+      padding: 15px 15px 15px 15px;
+      text-align: center;
+      }
+
+  .drag-text {
+      text-align: center;
+      }
+
+  .drag-text h3 {
+      font-weight: 100;
+      color: #5082B7 !important ;
+      padding: 60px 0;
+      }
+
+  .file-upload-image {
+      max-height: 150px;
+      max-width: 150px;
+      margin: 0px;
+      text-align: center;
+      display:block;
+      margin: auto;
+      border: 4px #5082B7 !important ;
+      }
+  .remove-image {
+      height: 40px;
+      width: 150px;
+      border-radius: 12px;
+      background-color: #799FC8 ;
+      border-color:#5082B7 !important ;
+      color:#F9F9F9;
+      text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      margin:5px;
+      vertical-align: middle;
+      }
+
+  .remove-btn,
+  .file-upload-none{
+      display: none;
+  }
+
+  .remove-image:hover {
+      background-color:#6388af !important ;
+      transition: all .5s ease;
+      -webkit-transition: all .5s ease;
+      -moz-transition: all .5s ease;
+      -o-transition: all .5s ease;
+      -ms-transition: all .5s ease;
+      }
+
+  .remove-image:active {
+      border: 0;
+      transition: all .2s ease;
+      }
+
+</style>
+
 <div class='container-fluid p-5'>
   <div class="d-flex align-items-start">
       <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -11,89 +96,7 @@
        <div class="tab-content" id="v-pills-tabContent">
               {{-- My Profile --}}
           <div class="tab-pane fade show active" id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
-            <style>
-              .file-upload-input {
-                  position: absolute;
-                  margin: 0;
-                  padding: 0;
-                  width: 100%;
-                  height: 100%;
-                  outline: none;
-                  opacity: 0;
-                  cursor: pointer;
-                  }
             
-              .image-upload-wrap {
-                  margin-top: 0px;
-                  border: 4px dashed #5082B7 !important ;
-                  position: relative;
-                  text-align: center;
-                  display:block;
-                  margin: auto;
-                  }
-            
-              .image-dropping,
-              .image-upload-wrap:hover {
-                  background-color:#cfe5fd !important ;
-                  }
-            
-              .image-title-wrap {
-                  padding: 15px 15px 15px 15px;
-                  text-align: center;
-                  }
-            
-              .drag-text {
-                  text-align: center;
-                  }
-            
-              .drag-text h3 {
-                  font-weight: 100;
-                  color: #5082B7 !important ;
-                  padding: 60px 0;
-                  }
-            
-              .file-upload-image {
-                  max-height: 150px;
-                  max-width: 150px;
-                  margin: 0px;
-                  text-align: center;
-                  display:block;
-                  margin: auto;
-                  border: 4px #5082B7 !important ;
-                  }
-              .remove-image {
-                  height: 40px;
-                  width: 150px;
-                  border-radius: 12px;
-                  background-color: #799FC8 ;
-                  border-color:#5082B7 !important ;
-                  color:#F9F9F9;
-                  text-decoration: none;
-                  font-family: 'Lato', sans-serif;
-                  margin:5px;
-                  vertical-align: middle;
-                  }
-            
-              .remove-btn,
-              .file-upload-none{
-                  display: none;
-              }
-            
-              .remove-image:hover {
-                  background-color:#6388af !important ;
-                  transition: all .5s ease;
-                  -webkit-transition: all .5s ease;
-                  -moz-transition: all .5s ease;
-                  -o-transition: all .5s ease;
-                  -ms-transition: all .5s ease;
-                  }
-            
-              .remove-image:active {
-                  border: 0;
-                  transition: all .2s ease;
-                  }
-            
-            </style>
             <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
             <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
                 <div class="row" style="width:100%;margin-top:20px">
@@ -167,43 +170,6 @@
                   </div>
                 </div>
             </div>
-            <!--SCRIPT for drag and drop of images -->
-            <script>
-                function readURL(input) {
-                    if (input.files && input.files[0]) {
-                        let reader = new FileReader();
-                        reader.onload = function(e) {
-                        document.getElementById("imgdisplay").className = "file-upload-image";
-                        $('.image-upload-wrap').hide();
-                        $('.file-upload-image').attr('src', e.target.result);
-                        $('.file-upload-content').show();
-                        $('.image-title-wrap').html(input.files[0].name);
-                        document.getElementById("rembutton").className = "remove-image";
-                        sessionStorage.setItem("img", reader.result);
-                        };
-            
-                        reader.readAsDataURL(input.files[0]);
-                        saveImage();
-                    } else {
-                        removeUpload();
-                    }
-                    }
-            
-                function removeUpload() {
-                    $('.file-upload-input').replaceWith($('.file-upload-input').clone());
-                    $('.file-upload-content').hide();
-                    $('.image-upload-wrap').show();
-                    document.getElementById("pic").value = "";
-                    $('.image-title-wrap').html("");
-                    
-                    }
-                    $('.image-upload-wrap').bind('dragover', function () {
-                        $('.image-upload-wrap').addClass('image-dropping');
-                    });
-                    $('.image-upload-wrap').bind('dragleave', function () {
-                        $('.image-upload-wrap').removeClass('image-dropping');
-                    });
-            </script>
             </div>
           </div>
           {{-- Personal Info --}}
@@ -305,9 +271,45 @@
                   </div>
                 </div>
           </div>
-          </div>
          <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">Dog History</div>
       </div>
   </div>
 </div>
+   <!--SCRIPT for drag and drop of images -->
+   <script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+            document.getElementById("imgdisplay").className = "file-upload-image";
+            $('.image-upload-wrap').hide();
+            $('.file-upload-image').attr('src', e.target.result);
+            $('.file-upload-content').show();
+            $('.image-title-wrap').html(input.files[0].name);
+            document.getElementById("rembutton").className = "remove-image";
+            sessionStorage.setItem("img", reader.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+            saveImage();
+        } else {
+            removeUpload();
+        }
+        }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+        document.getElementById("pic").value = "";
+        $('.image-title-wrap').html("");
+        
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+</script>
 @endsection
