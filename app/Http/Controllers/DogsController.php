@@ -21,6 +21,7 @@ class DogsController extends Controller
 
         $dogs = DB::table('dogs')
             ->select(
+                'dogs.id',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
@@ -75,7 +76,8 @@ class DogsController extends Controller
             ->where('dogs.id', $id)
             ->first();
             
-            return view('pages.dogdetailspublic')->with('dogs', $singleDog);
+            return view('pages/dogdetailspublic')->with('dogs', $singleDog);
     }
+    
     
 }
