@@ -10,7 +10,7 @@
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
     <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>    
-    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240); margin-top:3x; border-radius:5px">
       {{ csrf_field() }}
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
           <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
@@ -23,7 +23,7 @@
                   <option value="2-Female">Female</option>
                  </select>
             </div>
-            <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+            <div class="form-group col-sm-4 col-lg-4 col-md-4" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
                 <select class="form-select form-select-sm mb-2" name="breed" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
@@ -45,8 +45,8 @@
                   <option value="Brindled">Brindled</option>
                 </select>
             </div>
-            <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
-              <input type="submit" class="btn btn-primary" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
+            <div class="form-group col-sm-1 col-lg-1 col-md-2">
+              <input type="submit" value="SEARCH" class="btn rounded-2 border-0 py-0 px-2 h-100 w-100" style="letter-spacing:3px; font-family: 'Lato'; color:#FFF; background-color:#5082B7;">
               {{-- <input type="submit" name="search" role=search id="search" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;"/> --}}
                   {{-- <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i> --}}
             </div>
@@ -63,12 +63,12 @@
         <div class="containerimg" style="width:100%">
           <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
           <div class="middle">
-            <div class="text"><a href="pages/{{$dog->id}}">View More</a></div>
+            <a class="text" href="pages/{{$dog->id}}" style="color:#6388AF; background-color:#f4f4f4">View More</a>
           </div>
         </div>
-        <p style="padding-left:5%;font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+        <p style="padding-left:5%; font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
         <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-        <p style="padding-left:5%;font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
+        <p style="padding-left:5%; font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
       </div>
     @endforeach
   </div>
@@ -79,7 +79,7 @@
     <a href="#Search" style="color: #F4F4F4"><p style="padding-top:1%; margin:0px; font-family: 'Lato'; font-size:12pt"> How it works <br>
     <img src="{{asset('build/images/down.png') }}" style="height:10px;"/></p></a>
   </div>
-  <div class="container-fluid" id="Search" style="background-color:#C8A279; height:95vh; opacity:90%">
+  <div class="container-fluid" id="Search" style="background-color:#C8A279; height:100vh; opacity:90%">
     <div class="row">
         <div class="col-lg-6">
           <div class="center">
@@ -97,7 +97,7 @@
         </div> 
     </div>
   </div>
-  <div class="container-fluid" style="background-color:#799FC8; margin:0px; height:85vh; opacity:90%">
+  <div class="container-fluid" style="background-color:#799FC8; margin:0px; height:100vh; opacity:90%">
     <div class="row">
         <div class="col-lg-6" style="text-align:center; margin:auto; color:#2963a1; padding-top:5%">
             <h1 class="header" style="font-family:Quicksand;">Apply for adoption</h1>
@@ -116,10 +116,10 @@
     </div> 
   </div>
 
-  <div class="container-fluid" style="background-color:#B78550; height:100h; opacity:90%">
+  <div class="container-fluid" style="background-color:#B78550; height:100vh; opacity:90%">
     <div class="row">
       <div class="col-lg-6 d-flex">
-        <img src="{{asset('build/images/Search3.jpg') }}" style="width:100%" class="my-5">
+        <img src="{{asset('build/images/Search3.jpg') }}" style="width:90%" class="mt-4 mb-2">
       </div>
       <div class="col-lg-6" style="text-align:center; margin:auto; color:#413F42">
             <h1 class="header" style="margin-top:2%; font-family:Quicksand;">Share and invite</h1>

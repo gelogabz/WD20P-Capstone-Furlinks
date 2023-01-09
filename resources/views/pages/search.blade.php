@@ -55,7 +55,7 @@
    </div>
    
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
-     <h5 style="color:#51133c;font-size:18px">{{$dogs->count()}} search results {{$gender}} {{$size}}</h5>
+     <h5 style="color:#51133c;font-size:18px">{{$dogs->count()}} search results</h5>
      
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
