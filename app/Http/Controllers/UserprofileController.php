@@ -19,10 +19,11 @@ class UserprofileController extends Controller
         return view('userprofiles.showprofile')->with('userprofiles', $userprofiles);
     }
 
-    
-    public function create(){
-        return view ('userprofile.create');
 
+
+    public function create()
+    {
+        return view('userprofiles.create');
     }
     
 
@@ -93,8 +94,7 @@ class UserprofileController extends Controller
         $userprofile->save();
 
         return redirect()->back()
-        ->with('success', 'User profile successfully created.');
-       
+            ->with('success', 'User profile successfully created.');
     }
 
     // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
@@ -134,7 +134,7 @@ class UserprofileController extends Controller
             ->first();
         return view('userprofiles.showprofile')->with('userprofiles', $userdata);
     }
- 
+
     public function edit($userid)
     {
         $idtofind = Auth::id();
@@ -216,5 +216,4 @@ class UserprofileController extends Controller
         return redirect()->back()
             ->with('success', 'Profile successfully updated.');
     }
-
 }
