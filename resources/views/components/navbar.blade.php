@@ -73,7 +73,7 @@
           <span>Welcome !<span> {{ Auth::user()->name }}
           </a>
 
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/ownprofile">
               My Profile
             </a>

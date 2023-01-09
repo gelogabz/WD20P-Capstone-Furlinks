@@ -49,8 +49,8 @@
                             <div class='col-12 col-md-6'>
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>
                                 <input type="text" name="firstname" class="form-control form-control-sm" disabled>
-                            
                             </div>
+
 
                             <div class='col-12 col-md-6 '>
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name</label>
@@ -67,9 +67,51 @@
                     </div>
                      {{-- Personal Info --}}
                      <div class="tab-pane fade show  " id="personalinfo" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
-                        
+                        <div class='row'>
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label class='col-sm-4 col-form-label'>Address: 1</label>
+                                <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
+                            </div>
+                            
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label class='col-sm-4 col-form-label'>Address: 2</label>
+                                <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
+                            </div>
+                        </div>
+
+                        <div class='row'>
+                            <div class='col-sm-4 mt-4'>
+                                <label for="city" class='col-sm-4 col-form-label'>City</label>
+                                <input type="text" name="city" class="form-control" placeholder="City">
+                            </div>
+                            <div class='col-sm-4 mt-4'>
+                              <label for="province" class='col-sm-4 col-form-label'>Province</label>
+                              <input type="text" name="province" class="form-control" placeholder="Province">
+                            </div>
+                            <div class='col-sm-4 mt-4'>
+                                <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
+                                <input type="text" name="mobile_no" class="form-control">
+                            </div>
+                
+                            
+                  
+                            <div class='col-12 col-md-4 mt-4'>
+                                <label for='city' class='mb-2'>City</label>
+                                <input type="text" name='city' class="form-control" placeholder="City" aria-label="City">
+                            </div>
+        
+                            <div class='col-12 col-md-4 mt-4'>
+                                <label for='gender' class='mb-2'>Gender</label>
+                                <select name='gender' class="form-select " aria-label=".form-select-sm example">
+                                    <option selected>Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
                     </div>
-                     {{-- Dog History --}}
+                     {{-- Dog Historys --}}
                      <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
                         3
                     </div>
@@ -140,8 +182,8 @@
                             <div class='col-12 col-lg-4'>
                                 Are pets allowed in your home ? :
                             </div>
-
                         </div>
+
 
                         <div class="row">
                             <div class='col-12 col-md-4'>

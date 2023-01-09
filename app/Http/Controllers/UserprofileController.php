@@ -19,20 +19,43 @@ class UserprofileController extends Controller
         return view('userprofiles.showprofile')->with('userprofiles', $userprofiles);
     }
 
-    
-    public function create(){
-        return view ('userprofile.create');
 
 
     public function create()
     {
         return view('userprofiles.create');
-
     }
+    
 
     public function store(Request $request){
         $this->validate($request, array(
-        ));1
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'about'=>'required',
+            'profile_pic'=>'required',
+            'mobile_no'=>'required',
+            'gender'=>'required',
+            'address1'=>'required',
+            'address2'=>'required',
+            'city'=>'required',
+            'province'=>'required',
+            'hometype'=>'required',
+            'funds'=>'required',
+            'allowed'=>'required',
+            'withpets'=>'required',
+            'allergy'=>'required',
+            'allvaxed'=>'required',
+            'allneut'=>'required',
+            'euthanized'=>'required',
+            'lostpet'=>'required',
+            'cats'=>'required',
+            'dogs'=>'required',
+            'priresp'=>'required',
+            'finresp'=>'required',
+            'lefthome'=>'required',
+            'hours'=>'required',
+        ));
+
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
@@ -71,8 +94,7 @@ class UserprofileController extends Controller
         $userprofile->save();
 
         return redirect()->back()
-        ->with('success', 'User profile successfully created.');
-       
+            ->with('success', 'User profile successfully created.');
     }
 
     // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
@@ -112,7 +134,7 @@ class UserprofileController extends Controller
             ->first();
         return view('userprofiles.showprofile')->with('userprofiles', $userdata);
     }
- 
+
     public function edit($userid)
     {
         $idtofind = Auth::id();
@@ -151,15 +173,11 @@ class UserprofileController extends Controller
 
     public function update(Request $request, $userid)
     {
-        $this->validate($request, array(
+        $this->validate($request, array());
 
-<<<<<<< Updated upstream
-        ));
-=======
         $userprofiles = Userprofile::find($userid);
->>>>>>> Stashed changes
 
-        $userprofiles = Userprofiles::find($userid);
+        // $userprofiles = Userprofiles::find($userid);
         
         if ($file = $request->file('profile_pic')) {
             $filename = date('YmdHis') . "." . $file->getClientOriginalname();
@@ -198,5 +216,4 @@ class UserprofileController extends Controller
         return redirect()->back()
             ->with('success', 'Profile successfully updated.');
     }
-
 }
