@@ -10,7 +10,7 @@
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
     <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>
-    <form>  
+    <form action="{{route('search.index')}}" method="GET" role="search" >  
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
           <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
           
@@ -42,8 +42,8 @@
                 </select>
             </div>
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
-                <a href="/search" type="button" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
-                  <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i>SEARCH</a>
+                <input type="submit" name="search" role=search id="search" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;"/>
+                  {{-- <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i> --}}
             </div>
 
           </div>  
