@@ -303,6 +303,7 @@ select {
     border-radius: 50%;
     padding: 2px;
 }
+/* View BTN */
 .containerimg {
     position: relative;
     width: 50%;
@@ -349,6 +350,54 @@ select {
     padding: 10px 20px !important;
     border-radius: 10px !important;
 }
+.containerimg1 {
+    position: relative;
+    width: 50%;
+}
+
+.image1 {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease;
+    backface-visibility: hidden;
+}
+.middle1 {
+    transition: 0.5s ease !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    text-align: center !important;
+}
+
+.containerimg1:hover .image1 {
+    transition: 0.5s ease-in-out !important;
+    filter: brightness(50%) !important;
+}
+
+.containerimg1:hover .middle1 {
+    opacity: 0.85 !important;
+}
+.text1 {
+    background-color: #c8a279 !important;
+    color: #f4f4f4 !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+    font-size: 8pt !important;
+    text-decoration: none !important;
+}
+.text1:hover {
+    background-color: #f4f4f4 !important;
+    color: #c8a279 !important;
+    font-size: 9pt !important;
+    padding: 10px 20px !important;
+    border-radius: 10px !important;
+}
+/* End View BTN */
 .checked {
     color: rgb(255, 208, 1);
 }
@@ -798,6 +847,27 @@ select.list-dt:focus {
     background-color: #f4f4f4 !important;
     color: #799fc8 !important;
     border-color: #799fc8 !important;
+    height: 30px;
+    /*padding-top:2px !important;*/
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+}
+.adopt_btn {
+    border-radius: 10px;
+    background-color: #b78550 !important;
+    color: #f4f4f4 !important;
+    border-color: #f4f4f4 !important;
+    height: 40px !important;
+    width: 130px;
+}
+.adopt_btn:hover{
+    background-color: #f4f4f4 !important;
+    color: #b78550 !important;
+    font-size: 13pt;
+    border-color: #b78550 !important;
     height: 30px;
     /*padding-top:2px !important;*/
     transition: all 1s ease;
