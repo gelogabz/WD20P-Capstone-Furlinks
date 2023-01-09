@@ -33,6 +33,7 @@ class ApplicationsController extends Controller
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('applications.user_id', '=', $idtofind)
             // ->simplePaginate(8);
+            ->orderBy('applications.id', 'DESC')
             ->get();
         return view('pages.applications')->with('applications', $applications);
     }
@@ -94,7 +95,6 @@ class ApplicationsController extends Controller
     public function show($id)
     {
         $apply = DB::table('applications')
-
             ->select(
                 'applications.id',
                 'applications.user_id',
@@ -122,6 +122,38 @@ class ApplicationsController extends Controller
             ->where('dogs.id', $id)
             ->first();
         return view('applications.index')->with('applications', $apply)->with('dogs', $dogs);
+    }
+
+    public function edit($id)
+    {
+        $apply = DB::table('applications')
+            ->select(
+                'applications.id',
+                'applications.user_id',
+                'users.name as username',
+                'userprofiles.firstname as firstname',
+                'userprofiles.lastname as lastname',
+                'userprofiles.profile_pic as profile_pic',
+                // 'userprofiles.location as location',
+                'userprofiles.mobile_no as mobile_no',
+                'applications.dog_id',
+                'dogs.pic as dog_pic',
+                'applications.created_at',
+                'applications.appstatus',
+                'appstatus.name as appstatus_name',
+            )
+            ->join('users', 'users.id', '=', 'applications.user_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
+            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
+            ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
+            ->where('dog_id', $id)
+            ->get();
+        
+        $dogs = DB::table('dogs')
+            ->select('dogs.pic')
+            ->where('dogs.id', $id)
+            ->first();
+        return view('applications.editapp')->with('applications', $apply)->with('dogs', $dogs);
     }
     
     public function update(Request $request, $id)
