@@ -2,8 +2,8 @@
 
 @section('content')
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
-<div class="container-fluid" style="width:92%;text-align:left">
-    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+<div class="container-fluid mt-5" style="width:92%; text-align:left">
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color:#F4F4F4; border: solid #6388AF; border-radius:5px">
       {{ csrf_field() }}
        <div class="row justify-content-left" >
            <div class="col col-sm-6 col-md-2" style="margin:0px;padding-top: 10px;">
