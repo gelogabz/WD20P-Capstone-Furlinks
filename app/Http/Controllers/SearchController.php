@@ -27,6 +27,7 @@ class SearchController extends Controller
         
         $dogs = Dogs::query()
             ->select(
+                'dogs.id',
                 'dogs.name',
                 'dogs.gender',
                 'dogs.age_yr',
