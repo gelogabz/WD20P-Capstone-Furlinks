@@ -162,8 +162,8 @@
                     <label for="gender" class="col-sm-4 col-form-label">Gender</label>
                     <div class="col-sm-8">
                       <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
-                        <option value="Male" {{($dogs->gender=="Male")? "selected" : "" }}>Male</option>
-                        <option value="Female" {{($dogs->gender=="Female")? "selected" : "" }}>Female</option>
+                        <option value="1-Male" {{($dogs->gender=="1-Male")? "selected" : "" }}>Male</option>
+                        <option value="2-Female" {{($dogs->gender=="2-Female")? "selected" : "" }}>Female</option>
                       </select>
                     </div>
                 </div>

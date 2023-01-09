@@ -42,7 +42,7 @@
       <div class="col-lg-8 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
         <div class="row">
           <div class="col-lg-8 col-sm-12">
-            <h5 style="color:#020467;"> {{$dogs->gender}},  {{$dogs->age_yr}}y and {{$dogs->age_month}}m old</h5>
+            <h5 style="color:#020467;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}}m old</h5>
             <h6 style="color:#070067;">
               <i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
               <span style="font-size: small;color: #5d5d5d">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>

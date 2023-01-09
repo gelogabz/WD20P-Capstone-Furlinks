@@ -88,7 +88,7 @@
           </div>
      </div>    
          <img src="" class="image img-responsive" width="100%" style="padding-bottom:2%" />
-       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}} month/s. old</p>
+       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
        <p style="font-size: small; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
      </div>
       @endforeach
