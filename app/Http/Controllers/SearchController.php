@@ -68,7 +68,14 @@ class SearchController extends Controller
             ->where('dogs.color','LIKE', "%{$color}%")
             ->get();
 
+<<<<<<< HEAD
             return view('pages.search', ['gender' => $gender], ['size' => $size], ['color' => $color] )->with('dogs', $dogs);
+=======
+            return view('pages.search')->with('dogs', $dogs)
+            ->with('search', $gender)
+            ->with('search', $size)
+            ->with('search', $color);
+>>>>>>> 6bee3f250900b6d2b3c37dd66e5ee137be8e811a
     }
     
     /**
