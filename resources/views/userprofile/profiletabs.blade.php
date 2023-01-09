@@ -178,7 +178,7 @@
                             <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
                             </span></label>
                           <div class="col-sm-8">
-                            <textarea class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" name="about" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </div>
                       </div>
@@ -262,16 +262,6 @@
                     <div class='col-sm-4 mt-4'>
                         <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
                         <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
-                    </div>
-        
-                    <div class='col-12 col-md-4 mt-4'>
-                        <label class='mb-2'>Barangay</label>
-                        <input type="text" class="form-control" placeholder="Barangay" aria-label="Barangay">
-                    </div>
-          
-                    <div class='col-12 col-md-4 mt-4'>
-                        <label class='mb-2'>City</label>
-                        <input type="text" class="form-control" placeholder="City" aria-label="City">
                     </div>
 
                     <div class='col-12 col-md-4 mt-4'>
