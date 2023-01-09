@@ -49,11 +49,15 @@
                 </div>
                 <div class="row">
                     <div class='col-12 col-md-4'>
-                        Home type :
+                        Home :
                     </div>
                     
                     <div class='col-12 col-md-4'>
-                        Mobile No :
+                        Type :
+                    </div>
+
+                    <div class='col-12 col-lg-4'>
+                        Are pets allowed in your home ? :
                     </div>
                 </div>
 

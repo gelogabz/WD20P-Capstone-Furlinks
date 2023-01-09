@@ -2,13 +2,15 @@
 
 @section('content')
 <div class='container p-5'>
-  <div class=" p-2 d-flex align-items-start">
-            <div class="nav flex-column me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    
+            <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
                     <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
                     <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
             </div>
-       <div class="tab-content p-5" id="v-pills-tabContent">
+    
+    <br>
+       <div class="tab-content p-3" id="v-pills-tabContent">
               {{-- My Profile --}}
           <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
             <div class='container'>
@@ -114,7 +116,8 @@
                 <div class="row">
                   <H1>Public Profile</H1><br>
                   
-                <h5 class='mb-2'>People visiting your profile will see the following info:</h5>
+                <h5 class='mb-2'>People visiting your profile will see the following info:
+                </h5>
                   
                   <div class="alert alert-warning" role="alert">
                   <p class='mb-0'>Note : Please fill up the form below</p>
@@ -366,7 +369,10 @@
           {{-- DogHistory --}}
         <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">
             <div class='container'>
-                <H1 class='mb-5'>Dog History</H1>
+                <H1 class='mb-3'>Dog History</H1>   
+                <div class="alert alert-warning" role="alert">
+                    <p class='mb-0'>Note : Answer the following question below:</p>
+                </div>
 
                 <div class='row'>
                     {{-- Question number 1 --}}
@@ -389,12 +395,12 @@
                     </div>
                 </div>
 
-                <br><br>
+                <br>
 
                 <div class='row'>
                     <div class="col-12 col-md-6 form-check justify-content-center">
                         <label class="">If yes, how many dogs? </label>
-                        <input class="form-control form-control-sm text-center" type="text" style="height:40px; width:50px;">
+                        <input class="form-control form-control-sm" type="text" style="height:40px; width:50px;">
                     </div>
 
                     <div class="col-12 col-md-6 form-check justify-content-center ">
@@ -602,18 +608,17 @@
                     </div>
 
                 </div>
-
-
-                <div class='text-center'>
-                    <input type="submit" name="submit" class="submit-btn" value="Submit">
+                    <br><br>
+                    <div class='text-center'>
+                        <input type="submit" name="submit" class="submit-btn" value="Submit">
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
+
 
 
 @endsection
