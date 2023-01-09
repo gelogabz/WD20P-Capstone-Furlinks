@@ -3,12 +3,12 @@
     <div class="row mb-4">
       <div class="col-md-3 mb-4 text-md-start text-center">
         <h3 style="font-family: 'Quicksand';">About us</h3>
-        <p class="text-muted" style="font-family: Lato; font-weight:500;">This website serves to be a go-to platform for any volunteer projects related to the
-          environment environmental justice as well as an archive for any resources that caters to the environmental and
-          ecological information.
+        <p class="text-muted" style="font-family: Lato; font-weight:500;">Dog adoption is a wonderful way to bring a new companion 
+          into your life and to make a difference in the life of a dog. When you adopt a dog, you are saving a life and providing a 
+          home for a dog who may have otherwise been left in a shelter or rescue.
         </p>
         <p>
-          <a class="click_footer" style="font-family: Poppins; font-weight:100; font-size:10pt;" href="ServicesPage.html">
+          <a class="click_footer" style="font-family: Poppins; font-weight:100; font-size:10pt;" href="/about">
             <u>Click here to learn more</u>
           </a>
         </p>
@@ -36,10 +36,9 @@
       <div class="col-md-3 mb-4 text-center">
         <h3 style="font-family: 'Quicksand', sans-serif;">Quick Links</h3>
         <ul class="list-unstyled footer-link text-center">
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="index.html">Home</a></li>
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="ServicesPage.html">Services</a></li>
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="MembersLounge.html">Accounts</a></li>
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="help.html">Help</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/">Home</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/how">How it Works</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/search">Find a Dog</a></li>
         </ul>
       </div>
       <div class="col-md-3 text-center">
