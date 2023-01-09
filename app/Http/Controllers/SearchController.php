@@ -62,9 +62,9 @@ class SearchController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
-            ->where('dogs.gender', '=', $gender)
-            ->orWhere('dogs.color', '=', $color)
-            ->orWhere('dogs.size', '=', $size)
+            ->where('dogs.gender', 'LIKE', "%{$gender}%")
+            ->where('dogs.color','LIKE', "%{$color}%")
+            ->where('dogs.size', 'LIKE', "%{$size}%")
             ->get();
 
             return view('pages.search')->with('dogs', $dogs);

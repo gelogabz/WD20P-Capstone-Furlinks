@@ -10,7 +10,7 @@
              <div class="form-check form-check-inline" style="vertical-align: middle;">
              <label  for="gender" style="padding-right:10px;">Gender: 
                <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
-               <option value="" selected><i>Select</i></option>
+               <option value='' selected><i>Select</i></option>
                <option value="Male">Male</option>
                <option value="Female">Female</option>
               </select>
@@ -21,7 +21,7 @@
                <div class="form-check form-check-inline" style="vertical-align: middle;">
                <label for="size" style="padding-right:10px;">Size: </label>
                  <select id="size" name="size" style="border:none; background-color: rgb(241, 240, 240);">
-                   <option selected><i>Select</i></option>
+                   <option value='' selected><i>Select</i></option>
                    <option value="Small">Small breed</option>
                    <option value="Medium">Medium-sized</option>
                    <option value="Large">Large breed</option>
@@ -32,7 +32,7 @@
                  <div class="form-check form-check-inline" style="vertical-align: middle;">
                  <label for="color" style="padding-right:10px;"> Color:</label>
                      <select id="color" name="color" style="border:none;background-color: rgb(241, 240, 240)" >
-                      <option selected>Tap to select</option>
+                      <option value='' selected>Tap to select</option>
                       <option value="Black">Black</option>
                       <option value="Brown">Brown</option>
                       <option value="White">White</option>
