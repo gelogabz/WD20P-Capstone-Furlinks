@@ -175,8 +175,7 @@
               </tr>
           </table>
           <div class="row justify-content-center" >
-            <input type="text" value="{{$dogs->id}}" class="hidden" name="dog_id"/>
-
+            <input type="hidden" value="{{$dogs->id}}" class="hidden" name="dog_id"/>
             <input type="submit" name="submit" class="button btn-primary2" value="Submit">
           </div>
         </form>

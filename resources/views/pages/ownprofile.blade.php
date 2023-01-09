@@ -64,7 +64,7 @@
                 <div class="tab-content justify-content-center" id="myTabContent">
                 <div class="tab-pane fade show active" id="dogposted" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                     @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
+                    <div class="alert alert-success" style="height:50px">
                         <p>{{ $message }}</p>
                     </div>
                     @endif
