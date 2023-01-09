@@ -21,10 +21,11 @@ Route::resource('/pages', 'App\Http\Controllers\DogsController');
 // Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
 // For DOG ADOPTION APPLICATIONS
-Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 Route::put('applications/index', [ApplicationsController::class, 'update']);
+Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
+Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 
 // This is Profiletabs - User
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');

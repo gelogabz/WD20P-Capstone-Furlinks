@@ -15,7 +15,7 @@ class PagesController extends Controller
     {
         return view('components/navbar');
     }
-    public function search()
+    public function searchnew()
     {
         return view('pages/search');
     }
@@ -55,9 +55,9 @@ class PagesController extends Controller
         return view('userprofile/editprofile');
     }
 
-    public function applications()
+    public function ownapplications()
     {
-        return view('dogprofile/apptable');
+        return view('pages/applications');
     }
 
     public function home()
