@@ -22,8 +22,8 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         $gender = $request->input('gender');
-        $color = $request->input('color');
         $size = $request->input('size');
+        $color = $request->input('color');
         
         $dogs = Dogs::query()
             ->select(
@@ -64,22 +64,14 @@ class SearchController extends Controller
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
             ->where('dogs.gender', 'LIKE', "%{$gender}%")
-            ->where('dogs.color','LIKE', "%{$color}%")
             ->where('dogs.size', 'LIKE', "%{$size}%")
+            ->where('dogs.color','LIKE', "%{$color}%")
             ->get();
+            return view('pages.search', ['gender' => $gender], ['size' => $size], ['color' => $color] )->with('dogs', $dogs);
 
-            return view('pages.search')->with('dogs', $dogs)
-            ->with('search', $gender)
-            ->with('search', $size)
-            ->with('search', $color);
     }
     
     /**
      * Show the form for creating a new resource.
      */
-    public function show()
-    {
-        $tables = DB::table('dogs', '>', 100)->get();
-        // return view('pages.search')->with('dogs', $dogs);
-    }
 }
