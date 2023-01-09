@@ -152,8 +152,8 @@
                     <div class="col-sm-8">
                       <select class="form-select form-select-sm" name="gender" aria-label=".form-select-sm example" required>
                         <option selected>Tap to select</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="1-Male">Male</option>
+                        <option value="2-Female">Female</option>
                       </select>
                     </div>
                 </div>

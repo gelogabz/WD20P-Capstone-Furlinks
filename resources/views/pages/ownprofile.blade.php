@@ -73,8 +73,8 @@
                         <div class="card" style="width:15rem;">
                         <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" alt="picture">
                             <div class="card-body">
-                            <h3 class="card-title">{{$dogsitem->name}}</h3>
-                            <h6 class="card-subtitle mb-2">{{$dogsitem->gender}}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
+                            <h5 class="card-title" style="font-style:italic">{{$dogsitem->name}}</h5>
+                            <h6 class="card-subtitle mb-2">{{($dogsitem->gender=="1-Male")? "Male" : "Female" }}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
                             <h6 class="card-subtitle mb-2 text-muted"> {{$dogsitem->status_name}}</h6>
                             <a href="/dogprofile/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
