@@ -23,23 +23,18 @@
                 <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block;border-radius:20px;margin:auto">
                 </div>
 
-                <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-                    <h5 style="color:#811D60;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}}m old<br>
-                    <h6 style="color:#811D60;"><i class="fa-solid fa-paw" style="font-size:medium;color:#811D60"></i><span style="color:#5d5d5d;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
-                    <i class="fa-solid fa-timer" style="font-size:medium;color:#811D60"></i>
-                    <span style="font-size: small;color: #5d5d5d">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
-                      
+                <div class="col-lg-5 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">                  
                     <table style="width:100%;margin-top:10px">
                       <colgroup>
                         <col span="1" style="width:50%">
                         <col span="1" style="width:50%">
                       </colgroup>
                       <tr style="border-bottom:0.3pt solid #e1e1e1;">
-                        <th colspan="4" style="padding-left:0px;font-size:16px"><i>Basic Information</i></th>    
+                        <th colspan="4" style="padding-left:0px;font-size:16px"><i>Applicant Profile</i></th>    
                       </tr>   
                       <tr>
-                        <th>Size</th>
-                        <td>{{$dogs->size}}</td>
+                        <th>Name</th>
+                        <td>{{$applications->firstname}}{{' '.$applications->lastname}}</td>
                       </tr>
 
             </div>

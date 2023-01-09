@@ -126,7 +126,7 @@ class ApplicationsController extends Controller
 
     public function edit($id)
     {
-        $apply = DB::table('applications')
+        $applicant = DB::table('applications')
             ->select(
                 'applications.id',
                 'applications.user_id',
@@ -146,14 +146,14 @@ class ApplicationsController extends Controller
             ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
             ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
             ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
-            ->where('dog_id', $id)
+            ->where('applications_id', $id)
             ->get();
         
         $dogs = DB::table('dogs')
             ->select('dogs.pic')
             ->where('dogs.id', $id)
             ->first();
-        return view('applications.editapp')->with('applications', $apply)->with('dogs', $dogs);
+        return view('applications.editapp')->with('applications', $applicant)->with('dogs', $dogs);
     }
     
     public function update(Request $request, $id)
