@@ -33,6 +33,7 @@ class ApplicationsController extends Controller
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('applications.user_id', '=', $idtofind)
             // ->simplePaginate(8);
+            ->orderBy('applications.id', 'DESC')
             ->get();
         return view('pages.applications')->with('applications', $applications);
     }
@@ -94,7 +95,6 @@ class ApplicationsController extends Controller
     public function show($id)
     {
         $apply = DB::table('applications')
-
             ->select(
                 'applications.id',
                 'applications.user_id',
@@ -122,6 +122,56 @@ class ApplicationsController extends Controller
             ->where('dogs.id', $id)
             ->first();
         return view('applications.index')->with('applications', $apply)->with('dogs', $dogs);
+    }
+
+    public function edit($id)
+    {
+        $applicant = DB::table('applications')
+            ->select(
+                'applications.id',
+                'applications.user_id',
+                'users.name as username',
+                'userprofiles.firstname as firstname',
+                'userprofiles.lastname as lastname',
+                'userprofiles.profile_pic as profile_pic',
+                // 'userprofiles.location as location',
+                'userprofiles.mobile_no as mobile_no',
+                'userprofiles.gender as gender',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.hometype as hometype',
+                'userprofiles.funds as funds',
+                'userprofiles.allowed as allowed',
+                'userprofiles.withpets as withpets',
+                'userprofiles.allergy as allergy',
+                'userprofiles.allvaxed as allvaxed',
+                'userprofiles.allneut as allneut',
+                'userprofiles.euthanized as euthanized',
+                'userprofiles.lostpet as lostpet',
+                'userprofiles.cats as cats',
+                'userprofiles.dogs as dogs',
+                'userprofiles.priresp as priresp',
+                'userprofiles.finresp as finresp',
+                'userprofiles.lefthome as lefthome',
+                'userprofiles.hours as hours',
+                'applications.dog_id',
+                'dogs.pic as dog_pic',
+                'applications.created_at',
+                'applications.appstatus',
+                'appstatus.name as appstatus_name',
+            )
+            ->join('users', 'users.id', '=', 'applications.user_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
+            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
+            ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
+            ->where('applications.id', $id)
+            ->first();
+        
+        $dogs = DB::table('dogs')
+            ->select('dogs.pic')
+            ->where('dogs.id', $id)
+            ->first();
+        return view('applications.editapp')->with('applications', $applicant)->with('dogs', $dogs);
     }
     
     public function update(Request $request, $id)
