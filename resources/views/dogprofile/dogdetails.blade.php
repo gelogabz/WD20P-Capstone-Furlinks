@@ -35,7 +35,7 @@
     
       <!--Dog profile pic and social media actions -->  
       <div class="col-lg-4 col-sm-6" style="margin-top:20px">       
-        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
+        <img src="{{asset('Image/'.$dogs->pic)}}" alt="dog" class="image" style="width:90%; display:block;border-radius:20px;margin:auto">
       </div>
 
       <!--Dog profile information -->

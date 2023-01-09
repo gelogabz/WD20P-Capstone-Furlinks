@@ -40,7 +40,8 @@ class DogprofileController extends Controller
                 'dogs.fee',
                 'dogs.feenotes',
                 'dogs.status_id',
-                'status.name as status_name')
+                'status.name as status_name'
+            )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
@@ -55,7 +56,8 @@ class DogprofileController extends Controller
                 'userprofiles.about',
                 'userprofiles.city',
                 'userprofiles.province',
-                'users.name as user_name')
+                'users.name as user_name'
+            )
             ->join('users', 'users.id', '=', 'userprofiles.user_id')
             ->where('userprofiles.user_id', '=', $idtofind)
             ->first();
@@ -94,10 +96,10 @@ class DogprofileController extends Controller
         if ($file = $request->file('pic')) {
             $filename = date('YmdHis') . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
-            $input['pic'] = "$filename";
+            $input['profile_pic'] = "$filename";
         };
 
-        $dog->pic = $input['pic'];
+        $dog->pic = $input['profile_pic'];
         $dog->size = $request->size;
         $dog->color = $request->color;
         $dog->location = $request->location;
