@@ -82,7 +82,7 @@
                             <h5 class="card-title" style="font-style:italic">{{$dogsitem->name}}</h5>
                             <h6 class="card-subtitle mb-2">{{($dogsitem->gender=="1-Male")? "Male" : "Female" }}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
-                            <h6 class="card-subtitle mb-2 text-muted"> {{$dogsitem->status_name}}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted" style="font-size:smaller"> Date Posted: {{date('M d, Y', strtotime($dogsitem->created_at))}}</h6>
                             <a href="/dogprofile/{{$dogsitem->id}}" class="btn btn-primary text-white">Show Details</a>
                             </div>
                         </div>

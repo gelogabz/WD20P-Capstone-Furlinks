@@ -14,32 +14,36 @@
         @endif
 
         <h3>Applicant Profile</h3><br>
-        {{-- <form action="{{route('applications.update', $applications->id)}}" method="POST" enctype="multipart/form-data"> --}}
+        <div class="row mt-3">
+            <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="image" style="width:120px; display:block;border-radius:50%;"/>                
+        </div>
+        
+        <form action="{{route('applications.update', $applications->id)}}" method="POST" enctype="multipart/form-data">
           {!! csrf_field() !!}
             @method('PATCH')
         
             <div class="row" style="width:100%">
-                <div class="col-md-3" style="margin-top:20px">
-                <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block;border-radius:20px;margin:auto">
-                </div>
-
                 <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">                  
-                    <table style="width:100%;margin-top:10px">
+                     <table class="table table-borderless" style="width:100%;margin-top:10px">
                       <colgroup>
                         <col span="1" style="width:40%">
                         <col span="1" style="width:60%">
                       </colgroup>
+                      <tr>
                       <tr style="border-bottom:0.3pt solid #e1e1e1;">
-                        <th colspan="4" style="padding-left:0px;font-size:16px"><i>Applicant Profile</i></th>    
+                        <th colspan="4" style="padding-left:0px;font-size:16px"><i>Basic Information</i></th>    
                       </tr>   
                       <tr>
-                        <th colspan="2"> <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="image" style="width:120px; display:block;border-radius:50%;"></th>
-                        <td>
+                        <th>Username</th>
+                        <td>{{$applications->username}}</td>
                       </tr>
-
                       <tr>
-                        <th>Name</th>
+                        <th>Full Name</th>
                         <td>{{$applications->firstname}}{{' '.$applications->lastname}}</td>
+                      </tr>
+                      <tr>
+                        <th>Contact No.</th>
+                        <td>{{$applications->mobile_no}}</td>
                       </tr>
                       <tr>
                         <th>Location</th>
@@ -51,9 +55,25 @@
                       </tr>
                       <tr>
                         <th>Source of Funds</th>
-                        <td>{{$applications->hometype}}</td>
+                        <td>{{$applications->funds}}</td>
                       </tr>
-
+                    </table>
+                </div>                
+                
+                <div class="col-lg-4 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">                  
+                      <table class="table table-borderless" style="width:100%;margin-top:10px">
+                      <colgroup>
+                        <col span="1" style="width:40%">
+                        <col span="1" style="width:60%">
+                      </colgroup>
+                      <tr>
+                      <tr style="border-bottom:0.3pt solid #e1e1e1;">
+                        <th colspan="4" style="padding-left:0px;font-size:16px"><i>Dog History</i></th>    
+                      </tr>   
+                      <tr>
+                        <th>Source of Funds</th>
+                        <td>{{$applications->allowed}}</td>
+                      </tr>
                       'userprofiles.allowed as allowed',
                       'userprofiles.withpets as withpets',
                       'userprofiles.allergy as allergy',
@@ -72,6 +92,22 @@
 
                     </table>
                 </div>
+
+                <div class="col-lg-3 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+                    <div class="border" style="border-radius:20px;padding:10px ">
+                        <div class="card"">
+                            <div class="card-title" style="text-align:center"><h5>Dog Posted</h5></div>
+                            <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;border-radius:10px;margin:auto">
+                            <div class="card-body">
+                                <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
+                                <h6 class="card-subtitle mb-2">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{$dogs->breed1_name}} , {{$dogs->breed2_name}}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted" style="font-size:smaller"> Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
             </div>
         </form>
     </div>

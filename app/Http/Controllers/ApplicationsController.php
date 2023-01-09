@@ -155,7 +155,6 @@ class ApplicationsController extends Controller
                 'userprofiles.lefthome as lefthome',
                 'userprofiles.hours as hours',
                 'applications.dog_id',
-                'dogs.pic as dog_pic',
                 'applications.created_at',
                 'applications.appstatus',
                 'appstatus.name as appstatus_name',
@@ -168,8 +167,22 @@ class ApplicationsController extends Controller
             ->first();
         
         $dogs = DB::table('dogs')
-            ->select('dogs.pic')
-            ->where('dogs.id', $id)
+            ->select('dogs.pic',
+                'dogs.id',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.created_at'
+            )
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('applications', 'dogs.id', '=', 'applications.dog_id')
+            ->where('applications.id', $id)
             ->first();
         return view('applications.editapp')->with('applications', $applicant)->with('dogs', $dogs);
     }
