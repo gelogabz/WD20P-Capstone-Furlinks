@@ -136,6 +136,24 @@ class ApplicationsController extends Controller
                 'userprofiles.profile_pic as profile_pic',
                 // 'userprofiles.location as location',
                 'userprofiles.mobile_no as mobile_no',
+                'userprofiles.gender as gender',
+                'userprofiles.city as city',
+                'userprofiles.province as province',
+                'userprofiles.hometype as hometype',
+                'userprofiles.funds as funds',
+                'userprofiles.allowed as allowed',
+                'userprofiles.withpets as withpets',
+                'userprofiles.allergy as allergy',
+                'userprofiles.allvaxed as allvaxed',
+                'userprofiles.allneut as allneut',
+                'userprofiles.euthanized as euthanized',
+                'userprofiles.lostpet as lostpet',
+                'userprofiles.cats as cats',
+                'userprofiles.dogs as dogs',
+                'userprofiles.priresp as priresp',
+                'userprofiles.finresp as finresp',
+                'userprofiles.lefthome as lefthome',
+                'userprofiles.hours as hours',
                 'applications.dog_id',
                 'dogs.pic as dog_pic',
                 'applications.created_at',
@@ -146,8 +164,8 @@ class ApplicationsController extends Controller
             ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
             ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
             ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
-            ->where('applications_id', $id)
-            ->get();
+            ->where('applications.id', $id)
+            ->first();
         
         $dogs = DB::table('dogs')
             ->select('dogs.pic')
