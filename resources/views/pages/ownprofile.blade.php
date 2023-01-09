@@ -1,20 +1,30 @@
 @extends ('components.navbar')
 @section('content')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> --}}
 
 {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --}}
 {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> --}}
-@vite(['resources/sass/app.scss', 'resources/js/app.js'])
+{{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
     <div class="row" style="width:100%;  margin-bottom: 20px;">
-        <!--Foster profile information -->
+        <div class="row" style="width:100%;margin-top:20px">
+            <h3>My Dogs
+            <span class="ml-auto text-nowrap" style="padding: bottom 5px;">   
+            <a class="btn btn-primary" href="/dogprofile/create" type="button" style="float:right;vertical-align: bottom;text-align: center;padding-top:5px">
+                <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right:10px;padding-top:4px"></i>
+                POST DOG
+            </a>
+            </span>
+            </h3>
+
+        {{-- <!--Foster profile information -->
         <div class="col-lg-3 col-md-6 col-sm-12 mx-auto" style="padding-top:10px;margin-top:30px;">
             <div class="border" style="border-radius:20px;padding:20px 20px 10px 20px">
                 <div class="row" style="padding-bottom:5px">
@@ -42,26 +52,22 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!--Dog profile information -->
-        <div class="col-lg-9 col-md-6 col-sm-12" style="padding-left:20px;margin-bottom: 20px;margin-top:30px;">
-            <div class="container-fluid" style="width:100%">
-                <div class="d-flex mt-3">
-                    <ul class="nav nav-tabs flex-grow-1 flex-nowrap" id="myTab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#dogposted" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Dog Posted</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#dog-rehomed" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Dog Re-Homed</a>
-                        </li>
-                    </ul>
-                    <a class="btn btn-primary" href="/dogprofile/create" type="button" style="float:center;vertical-align: bottom;text-align: center;padding-top:5px">
-                        <i class="fa-regular fa-pen-to-square" style="font-size:medium;padding-right:10px;padding-top:4px"></i>
-                        POST DOG
-                    </a>
-                </div>
+    
+        {{-- <div class="container-fluid" style="width:100%">
+            <div class="d-flex mt-3">
+                <ul class="nav nav-tabs flex-grow-1 flex-nowrap" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#dogposted" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Dog Posted</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#dog-rehomed" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Dog Re-Homed</a>
+                    </li>
+                </ul>
             </div>
-                <div class="tab-content justify-content-center" id="myTabContent">
+        </div> --}}
+            <div class="tab-content justify-content-center" id="myTabContent">
                 <div class="tab-pane fade show active" id="dogposted" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success" style="height:50px">
