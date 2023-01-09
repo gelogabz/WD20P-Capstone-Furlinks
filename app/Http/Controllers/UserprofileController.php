@@ -105,7 +105,7 @@ class UserprofileController extends Controller
             )
             ->where('user_id', '=', $idtofind)
             ->first();
-        return view('userprofiles.myprofile')->with('userprofiles', $userdata);
+        return view('userprofiles.showprofile')->with('userprofiles', $userdata);
     }
 
     public function edit($userid)
