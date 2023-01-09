@@ -25,6 +25,7 @@ class SearchController extends Controller
         $size = $request->input('size');
         $color = $request->input('color');
         
+
         $dogs = Dogs::query()
             ->select(
                 'dogs.id',
@@ -67,7 +68,7 @@ class SearchController extends Controller
             ->where('dogs.size', 'LIKE', "%{$size}%")
             ->where('dogs.color','LIKE', "%{$color}%")
             ->get();
-            return view('pages.search', ['gender' => $gender], ['size' => $size], ['color' => $color] )->with('dogs', $dogs);
+            return view('pages.search')->with('dogs', $dogs);
 
     }
     
