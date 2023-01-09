@@ -79,7 +79,7 @@
                             </div>
                         </div>
                     </div>
-                     {{-- Dog History --}}
+                     {{-- Dog Historys --}}
                      <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
                         3
                     </div>
