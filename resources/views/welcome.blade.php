@@ -9,43 +9,47 @@
 
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
-    <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>
-    <form action="{{route('search.index')}}" method="GET" role="search" >  
+    <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>    
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240);margin-top:3x;padding-left:30px;border-radius:5px">
+      {{ csrf_field() }}
         <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
           <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
           
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
-                <select class="form-select form-select-sm mb-2 ms-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                  <option selected>Select</option>
-                  <option>Male</option>
-                  <option>Female</option>
-                </select>
+                <select class="form-select form-select-sm mb-2 ms-2" name="gender" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                  <option value='' selected><i>Select</i></option>
+                  <option value="1-Male">Male</option>
+                  <option value="2-Female">Female</option>
+                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
-                <select class="form-select form-select-sm mb-2" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                  <option selected>Select</option>
-                      <option>Small breed</option>
-                      <option>Medium-sized</option>
-                      <option>Large breed</option>
+                <select class="form-select form-select-sm mb-2" name="breed" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                  <option value='' selected><i>Select</i></option>
+                  <option value="Small">Small breed</option>
+                  <option value="Medium">Medium-sized</option>
+                  <option value="Large">Large breed</option>
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
-                <select class="form-select form-select-sm mb-2" id="dogscolor" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
-                  <option selected>Select</option>
-                    <option>White</option>
-                    <option>Black</option>
-                    <option>Brown</option>
-                    <option>Mixed</option>
+                <select class="form-select form-select-sm mb-2" name="color" id="color" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                  <option value='' selected>Select</option>
+                  <option value="Black">Black</option>
+                  <option value="Brown">Brown</option>
+                  <option value="White">White</option>
+                  <option value="Gray">Gray</option>
+                  <option value="Mixed">Mixed</option>
+                  <option value="Dotted">Dotted</option>
+                  <option value="Brindled">Brindled</option>
                 </select>
             </div>
             <div class="form-group col-sm-1 col-lg-1 col-md-1" style="margin:0%; padding:0%;">
-                <input type="submit" name="search" role=search id="search" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;"/>
+              <input type="submit" class="btn btn-primary" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;">
+              {{-- <input type="submit" name="search" role=search id="search" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;"/> --}}
                   {{-- <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i> --}}
             </div>
-
           </div>  
         </div>
     </form>

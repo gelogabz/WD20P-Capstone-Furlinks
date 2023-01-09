@@ -11,8 +11,8 @@
              <label  for="gender" style="padding-right:10px;">Gender: 
                <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
                <option value='' selected><i>Select</i></option>
-               <option value="Male">Male</option>
-               <option value="Female">Female</option>
+               <option value="1-Male">Male</option>
+               <option value="2-Female">Female</option>
               </select>
             </label>
            </div>
@@ -87,7 +87,7 @@
        </div>
      </div>    
          <img src="" class="image img-responsive" width="100%" style="padding-bottom:2%" />
-       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px">{{$dog->gender}}, {{$dog->age_month}} month/s. old</p>
+       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}} month/s. old</p>
        <p style="font-size: small; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
      </div>
       @endforeach
