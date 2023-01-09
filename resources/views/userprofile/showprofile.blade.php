@@ -67,7 +67,17 @@
                     </div>
                      {{-- Personal Info --}}
                      <div class="tab-pane fade show  " id="personalinfo" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
-                        
+                        <div class='row'>
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label class='col-sm-4 col-form-label'>Address: 1</label>
+                                <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
+                            </div>
+                            
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label class='col-sm-4 col-form-label'>Address: 2</label>
+                                <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
+                            </div>
+                        </div>
                     </div>
                      {{-- Dog History --}}
                      <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    

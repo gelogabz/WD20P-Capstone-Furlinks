@@ -2,6 +2,23 @@
 
 @section('content')
 <div class='container p-5'>
+    @if ($message = Session::get('success'))
+                    <div class="alert alert-success" style="height:50px">
+                        <p>{{ $message }}</p>
+                    </div>
+                    @endif
+
+
+    @if ($errors->any())
+          <div class="alert alert-danger">
+              <strong>Whoops!</strong> There were some problems with your input.<br><br>
+              <ul>
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+          @endif
     
             <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
@@ -111,6 +128,7 @@
                   }
             
             </style>
+                    
                <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
         
                 <div class="row">
@@ -144,16 +162,7 @@
                   </div>
                   <!--Dog profile information -->
                   <div class="col-lg-6 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-                      @if ($errors->any())
-                      <div class="alert alert-danger">
-                          <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                          <ul>
-                              @foreach ($errors->all() as $error)
-                                  <li>{{ $error }}</li>
-                              @endforeach
-                          </ul>
-                      </div>
-                      @endif
+                      
                     <div class="container">
                      
                             {!! csrf_field() !!}
@@ -178,7 +187,7 @@
                             <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
                             </span></label>
                           <div class="col-sm-8">
-                            <textarea class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea name='about' class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </div>
                       </div>
@@ -240,12 +249,12 @@
               </div>
                 <div class='row'>
                     <div class='col-12 col-md-6 mt-4'>
-                        <label class='col-sm-4 col-form-label'>Address: 1</label>
+                        <label  for='address1' class='col-sm-4 col-form-label'>Address: 1</label>
                         <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
                     </div>
                     
                     <div class='col-12 col-md-6 mt-4'>
-                        <label class='col-sm-4 col-form-label'>Address: 2</label>
+                        <label for='address2' class='col-sm-4 col-form-label'>Address: 2</label>
                         <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
                     </div>
                 </div>
@@ -261,22 +270,19 @@
                     </div>
                     <div class='col-sm-4 mt-4'>
                         <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
-                        <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
+                        <input type="text" name="mobile_no" class="form-control">
                     </div>
         
-                    <div class='col-12 col-md-4 mt-4'>
-                        <label class='mb-2'>Barangay</label>
-                        <input type="text" class="form-control" placeholder="Barangay" aria-label="Barangay">
-                    </div>
+                    
           
                     <div class='col-12 col-md-4 mt-4'>
-                        <label class='mb-2'>City</label>
-                        <input type="text" class="form-control" placeholder="City" aria-label="City">
+                        <label for='city' class='mb-2'>City</label>
+                        <input type="text" name='city' class="form-control" placeholder="City" aria-label="City">
                     </div>
 
                     <div class='col-12 col-md-4 mt-4'>
-                        <label class='mb-2'>Gender</label>
-                        <select class="form-select " aria-label=".form-select-sm example">
+                        <label for='gender' class='mb-2'>Gender</label>
+                        <select name='gender' class="form-select " aria-label=".form-select-sm example">
                             <option selected>Select Gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -287,41 +293,30 @@
                 <div class='row'>
                     <div class='col-12 col-md-6 mt-2'>
                         <div class='row'>
-                            <label class='mt-4 mb-2'>Home:</label>
-                            <div class="col-12 col-lg-3 ms-3 form-check ">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault11">
-                                <label class="form-check-label" for="flexRadioDefault11">
-                                &nbsp;House
-                                </label>
-                            </div>
-                            
-                            <div class="col-12 col-lg-3 ms-3 form-check ">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                                <label class="form-check-label" for="flexRadioDefault111">
-                                &nbsp;Condo
-                                </label>
-                            </div>
-            
-                            <div class="col-12 col-lg-3 ms-3 form-check ">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                                <label class="form-check-label" for="flexRadioDefault111">
-                                &nbsp;Apartment
-                                </label>
+                            <div class='col-12 col-lg-6'>
+                                <label for="hometype" class='mt-2'>Type of Home</label>
+                                <select name="hometype" class="form-select " aria-label=".form-select-sm example">
+                                    <option selected>Select Option</option>
+                                    <option value="House">House</option>
+                                    <option value="Condo">Condo</option>
+                                    <option value="Apartment">Apartment</option>
+                                   
+                                </select>
                             </div>
                         </div>
                     </div>
             
                     <div class='col-12 col-md-6 mt-2 d-flex justify-content-center align-items-center'>
                         <div class='row justfiy-content-center'>
-                            <label class='mt-4 mb-2'>Are pets allowed in your home ?</label>
+                            <label for="allowed" class='mt-4 mb-2'>Are pets allowed in your home ?</label>
                             <div class="col-3 form-check d-flex justify-content-center ms-3 ">
-                                <input class="form-check-input" name="yes" type="checkbox" id="gridCheck">
+                                <input value='1' name='allowed' class="form-check-input custom-control" type="radio">
                                 <label class="form-check-label" for="gridCheck">
                                     &nbsp; Yes
                                 </label>
                             </div>
                             <div class="col-3 form-check d-flex justify-content-center ms-3 ">
-                                <input class="form-check-input" name="no" type="checkbox" id="gridCheck">
+                                <input value='0' name='allowed' class="form-check-input custom-control" type="radio">
                                 <label class="form-check-label" for="gridCheck">
                                     &nbsp; No
                                 </label>
@@ -331,34 +326,16 @@
                 </div>
 
                 <div class='row mt-3'>
+                    
                     <div class='col-12 col-lg-6'>
-                        <div class='row justfiy-content-center'>
-                            <label class='mt-2 mb-2'>Type:</label>
-                            <div class="col-12 col-lg-3 form-check ms-3 ">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault111">
-                                <label class="form-check-label" for="flexRadioDefault11">
-                                &nbsp;Own
-                                </label>
-                            </div>
-                            
-                            <div class="col-12 col-lg-3 form-check ms-3 ">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault2" id="flexRadioDefault1112">
-                                <label class="form-check-label" for="flexRadioDefault111">
-                                &nbsp;Rented
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class='col-12 col-lg-6'>
-                        <label class='mt-2'>Source of Funds</label>
-                        <select class="form-select " aria-label=".form-select-sm example">
+                        <label for="funds" class='mt-2'>Source of Funds</label>
+                        <select name="funds" class="form-select " aria-label=".form-select-sm example">
                             <option selected>Select Option</option>
-                            <option value="Male">Employment</option>
-                            <option value="Male">Business</option>
-                            <option value="Male">Freelance</option>
-                            <option value="Male">Family Income</option>
-                            <option value="Male">Others</option>
+                            <option value="Employment">Employment</option>
+                            <option value="Business">Business</option>
+                            <option value="Freelance">Freelance</option>
+                            <option value="Family Income">Family Income</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                 </div>
@@ -376,22 +353,20 @@
 
                 <div class='row'>
                     {{-- Question number 1 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Do you currently have pets ? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="withpets" class='mt-4 mb-2'>Do you currently have pets ?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='withpets' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='withpets' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -399,13 +374,13 @@
 
                 <div class='row'>
                     <div class="col-12 col-md-6 form-check justify-content-center">
-                        <label class="">If yes, how many dogs? </label>
-                        <input class="form-control form-control-sm" type="text" style="height:40px; width:50px;">
+                        <label for="dogs" class="col-form-label">If yes, how many dogs? </label>
+                        <input name="dogs" class="form-control form-control-sm" type="number" style="height:40px; width:50px;">
                     </div>
 
                     <div class="col-12 col-md-6 form-check justify-content-center ">
-                        <label class="">If yes, how many Cats?</label>
-                        <input class="form-control form-control-sm text-center" type="text" style="height:40px; width:50px;">
+                        <label for="cats" class="col-form-label">If yes, how many Cats?</label>
+                        <input name="cats" class="form-control form-control-sm text-center" type="number" style="height:40px; width:50px;">
                     </div>
                 </div>
 
@@ -413,22 +388,20 @@
 
                 <div class='row'>
                     {{-- Question number 2 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Does any member of your household have any known allergies to animals ? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="allergy" class='mt-4 mb-2'>Does any member of your household have any known allergies to animals ?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='allergy' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='allergy' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -437,22 +410,20 @@
 
                 <div class='row'>
                     {{-- Question number 3 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>If you have  pets, have they all been vaccinated ? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="allvaxed" class='mt-4 mb-2'>If you have  pets, have they all been vaccinated ?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='allvaxed' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='allvaxed' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -461,22 +432,20 @@
 
                 <div class='row'>
                     {{-- Question number 4 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>If you have pets, are they all spayed/neutered ? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="allneut" class='mt-4 mb-2'>If you have pets, are they all spayed/neutered ?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='allneut' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='allneut' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -485,22 +454,20 @@
 
                 <div class='row'>
                     {{-- Question number 5 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Have you ever had a pet euthanized ? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="euthanized" class='mt-4 mb-2'>Have you ever had a pet euthanized ?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='euthanized' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='euthanized' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -509,22 +476,20 @@
 
                 <div class='row'>
                     {{-- Question number 6 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Have you ever lost pet? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="lostpet" class='mt-4 mb-2'>Have you ever lost pet?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='lostpet' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='lostpet' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -533,42 +498,33 @@
 
                 <div class='row'>
                     {{-- Question number 7 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Who will have primary responsibility of the dog's care? </label>
-                    </div>
-                        
-                    <div class='col-12 col-md-4 mt-1'>
-                        <select class="form-select " aria-label=".form-select-sm example">
-                            <option selected>Choose..</option>
-                            <option value="myself">Myself</option>
-                            <option value="myspouse/partner">My spouse/partner</option>
-                            <option value="family">Family member</option>
-                            <option value="househelp">Househelp</option>
-                            <option value="others">Others</option>
-                            
+                    <div class='col-12 col-lg-6'>
+                        <label for="priresp" class='mt-2 mb-2'>Who will have primary responsibility of the dog's care?</label>
+                        <select name="priresp" class="form-select " aria-label=".form-select-sm example">
+                            <option selected>Select Option</option>
+                            <option value="Myself">Myself</option>
+                            <option value="My spouse/partner">My spouse/partner</option>
+                            <option value="Another Family member">Another Family member</option>
+                            <option value="Househelp">Househelp</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                         
-                
                 </div>
 
                 <br><br>
 
                 <div class='row'>
                     {{-- Question number 8 --}}
-                    <div class='col-12 col-md-6 text-sm-center'>
-                        <label class=''>Who will have financial responsibility of the dog? </label>
-                    </div>
-                        
-                    <div class='col-12 col-md-4 mt-1'>
-                        <select class="form-select " aria-label=".form-select-sm example">
-                            <option selected>Choose..</option>
-                            <option value="myself">Myself</option>
-                            <option value="myspouse/partner">My spouse/partner</option>
-                            <option value="family">Family member</option>
-                            <option value="househelp">Househelp</option>
-                            <option value="others">Others</option>
-
+                    <div class='col-12 col-lg-6'>
+                        <label for="finresp" class='mt-2 mb-2'>Who will have financial responsibility of the dog?</label>
+                        <select name="finresp" class="form-select " aria-label=".form-select-sm example">
+                            <option selected>Select Option</option>
+                            <option value="Myself">Myself</option>
+                            <option value="My spouse/partner">My spouse/partner</option>
+                            <option value="Another Family member">Another Family member</option>
+                            <option value="Househelp">Househelp</option>
+                            <option value="Others">Others</option>
                         </select>
                     </div>
                         
@@ -579,22 +535,20 @@
 
                 <div class='row'>
                     {{-- Question number 9 --}}
-                    <div class='col-12 col-md-6'>
-                        <label class=''>Will your dog be alone at home? </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault111">
-                        <label class="form-check-label" for="flexRadioDefault11">
-                        &nbsp;Yes
-                        </label>
-                    </div>
-                        
-                    <div class="col-12 col-md-2 form-check d-flex justify-content-center ">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault1112">
-                        <label class="form-check-label" for="flexRadioDefault111">
-                        &nbsp;No
-                        </label>
+                    <div class='row justfiy-content-center'>
+                        <label for="lefthome" class='mt-4 mb-2'>Will your dog be alone at home?</label>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='1' name='lefthome' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; Yes
+                            </label>
+                        </div>
+                        <div class="col-2 form-check d-flex justify-content-center ms-3 ">
+                            <input value='0' name='lefthome' class="form-check-input custom-control" type="radio">
+                            <label class="form-check-label" for="gridCheck">
+                                &nbsp; No
+                            </label>
+                        </div>
                     </div>
                 
                 </div>
@@ -603,8 +557,8 @@
 
                 <div class='row'>
                     <div class="col-12 col-md-6 form-check justify-content-center">
-                        <label class="">If yes, for how long? </label>
-                        <input class="form-control form-control-sm text-center" type="number" style="height:40px; width:50px;">
+                        <label for="hours" class="">If yes, for how long? </label>
+                        <input name="hours" class="form-control form-control-sm text-center" type="number" style="height:40px; width:50px;">
                     </div>
 
                 </div>

@@ -38,7 +38,7 @@ Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetti
 Route::resource('/createprofile', 'App\Http\Controllers\UserprofileController');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('/profiletabs');
 
 Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
 Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
