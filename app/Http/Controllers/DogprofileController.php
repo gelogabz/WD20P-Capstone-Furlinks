@@ -166,6 +166,7 @@ class DogprofileController extends Controller
                 'dogs.id',
                 'dogs.name',
                 'dogs.gender',
+                'dogs.age_yr',
                 'dogs.age_month',
                 'dogs.breed_id1',
                 'breed1.name as breed1_name',
