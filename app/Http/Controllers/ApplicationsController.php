@@ -5,12 +5,38 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Applications;
-
 use App\Models\Dogs;
 use DB;
 
 class ApplicationsController extends Controller
 {
+    public function index()
+    {
+        $idtofind = Auth::id();
+        $applications = DB::table('applications')
+            ->select(
+                'applications.id',
+                'applications.dog_id',
+                'applications.created_at',
+                'applications.appstatus',
+                'appstatus.name as appstatus_name',
+                'dogs.pic as dog_pic',
+                'dogs.name as dog_name',
+                'dogs.gender as gender',
+                'dogs.age_yr as age_yr',
+                'dogs.age_month as age_month',
+                'dogs.location as location',
+                'users.name  as fostername'
+            )
+            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
+            ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->where('applications.user_id', '=', $idtofind)
+            // ->simplePaginate(8);
+            ->get();
+        return view('pages.applications')->with('applications', $applications);
+    }
+
     public function create($id)
     {
         $singleDog = DB::table('dogs')
@@ -59,11 +85,12 @@ class ApplicationsController extends Controller
         $apply->appstatus = 1;
         $apply->save();
 
-        $dogid = $apply->dog_id;
+        $id = $apply->dog_id;
 
-        return redirect()->route('pages', [$dogid])
+        return redirect('/applications')
         ->with('success', 'Application successfully submitted.');
     }
+
     public function show($id)
     {
         $apply = DB::table('applications')
@@ -96,7 +123,7 @@ class ApplicationsController extends Controller
             ->first();
         return view('applications.index')->with('applications', $apply)->with('dogs', $dogs);
     }
-
+    
     public function update(Request $request, $id)
     {
         $applications =  Applications::find($id);

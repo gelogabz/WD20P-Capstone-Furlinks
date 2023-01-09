@@ -91,6 +91,7 @@ class DogsController extends Controller
                 )
                 ->join('users', 'users.id', '=', 'dogs.user_id')
                 ->where('dogs.user_id', "=", $userid)
+                ->take(4)
                 ->get();
 
             return view('pages/dogdetailspublic')->with('dogs', $singleDog)->with('otherdogs', $dogsposted);
