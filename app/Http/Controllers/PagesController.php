@@ -33,9 +33,9 @@ class PagesController extends Controller
     {
         return view('pages/editdog');
     }
-    public function ownprofile()
+    public function dogsposted()
     {
-        return view('pages/ownprofile');
+        return view('privpages/dogsposted');
     }
     public function dogdetails()
     {

@@ -9,12 +9,16 @@ Route::get('/search', 'App\Http\Controllers\SearchController@index');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
 
-// For OWN PROFILE AND DOG DETAILS - create, edit, view applications
+// For OWN DOG DETAILS - create, edit, view applications
 Route::resource('/', 'App\Http\Controllers\DogsController');
-Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
-Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
+Route::get('/dogsposted', 'App\Http\Controllers\PagesController@dogsposted');
+Route::resource('dogsposted', 'App\Http\Controllers\DogprofileController');
+
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
+
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
+Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
+
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
@@ -24,7 +28,7 @@ Route::resource('/pages', 'App\Http\Controllers\DogsController');
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 // Route::put('applications/index', [ApplicationsController::class, 'update']);
-Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
+// Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
@@ -47,10 +51,6 @@ Route::resource('userprofile', 'App\Http\Controllers\UserprofileController');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
-
-// Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
-// Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
-// Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
