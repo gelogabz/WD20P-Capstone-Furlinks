@@ -94,13 +94,8 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
-<<<<<<< Updated upstream
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile)
-        // return redirect()->back()
-             ->with('success', 'User profile successfully created.');
-=======
+
         return view('userprofile.showprofile')->with('userprofiles', $userprofile);
->>>>>>> Stashed changes
     }
 
     // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
@@ -109,31 +104,31 @@ class UserprofileController extends Controller
     {
 
         $this->validate($request, array(
-            'firstname'=>'required',
-            'lastname'=>'required',
-            'about'=>'required',
-            'profile_pic'=>'required',
-            'mobile_no'=>'required',
-            'gender'=>'required',
-            'address1'=>'required',
-            'address2'=>'required',
-            'city'=>'required',
-            'province'=>'required',
-            'hometype'=>'required',
-            'funds'=>'required',
-            'allowed'=>'required',
-            'withpets'=>'required',
-            'allergy'=>'required',
-            'allvaxed'=>'required',
-            'allneut'=>'required',
-            'euthanized'=>'required',
-            'lostpet'=>'required',
-            'cats'=>'required',
-            'dogs'=>'required',
-            'priresp'=>'required',
-            'finresp'=>'required',
-            'lefthome'=>'required',
-            'hours'=>'required',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'about' => 'required',
+            'profile_pic' => 'required',
+            'mobile_no' => 'required',
+            'gender' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'city' => 'required',
+            'province' => 'required',
+            'hometype' => 'required',
+            'funds' => 'required',
+            'allowed' => 'required',
+            'withpets' => 'required',
+            'allergy' => 'required',
+            'allvaxed' => 'required',
+            'allneut' => 'required',
+            'euthanized' => 'required',
+            'lostpet' => 'required',
+            'cats' => 'required',
+            'dogs' => 'required',
+            'priresp' => 'required',
+            'finresp' => 'required',
+            'lefthome' => 'required',
+            'hours' => 'required',
         ));
 
 
@@ -169,8 +164,7 @@ class UserprofileController extends Controller
             ->where('user_id', '=', $idtofind)
             ->first();
         return view('userprofile.showprofile')->with('userprofiles', $userprofile)
-        ->with('success', 'User profile successfully created.');
-       
+            ->with('success', 'User profile successfully created.');
     }
 
     public function edit($userid)
