@@ -93,44 +93,13 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
-
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile);
+        return redirect('/showprofile')
+            ->with('success', 'User profile successfully created.');
     }
 
     public function show($id)
     {
-
-        $this->validate($request, array(
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'about' => 'required',
-            'profile_pic' => 'required',
-            'mobile_no' => 'required',
-            'gender' => 'required',
-            'address1' => 'required',
-            'address2' => 'required',
-            'city' => 'required',
-            'province' => 'required',
-            'hometype' => 'required',
-            'funds' => 'required',
-            'allowed' => 'required',
-            'withpets' => 'required',
-            'allergy' => 'required',
-            'allvaxed' => 'required',
-            'allneut' => 'required',
-            'euthanized' => 'required',
-            'lostpet' => 'required',
-            'cats' => 'required',
-            'dogs' => 'required',
-            'priresp' => 'required',
-            'finresp' => 'required',
-            'lefthome' => 'required',
-            'hours' => 'required',
-        ));
-
-
-        $idtofind = Auth::id();
-        $userprofile = Userprofile::table('userprofiles')
+        $userprofile = DB::table('userprofiles')
             ->select(
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
