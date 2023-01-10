@@ -80,7 +80,7 @@
             <a class="dropdown-item" href="/applications">
               My Applications
             </a>
-            <a class="dropdown-item" href="/home">
+            <a class="dropdown-item" href="/showprofile">
               Settings
             </a>
             <a class="dropdown-item" href="{{ route('logout') }}"

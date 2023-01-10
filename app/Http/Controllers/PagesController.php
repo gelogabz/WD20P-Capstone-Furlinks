@@ -45,15 +45,10 @@ class PagesController extends Controller
     {
         return view('pages/postdog');
     }
-    public function myprofile()
-    {
-        return view('userprofile/createprofile');
-    }
-
-    public function editprofile()
-    {
-        return view('userprofile/editprofile');
-    }
+    // public function myprofile()
+    // {
+    //     return view('userprofile/createprofile');
+    // }
 
     public function ownapplications()
     {
@@ -68,5 +63,13 @@ class PagesController extends Controller
     public function showprofile()
     {
         return view('userprofile/showprofile');
+    }
+    public function editprofile()
+    {
+        return view('userprofile/editprofile');
+    }
+    public function profiletabs()
+    {
+        return view('userprofile/profiletabs');
     }
 }
