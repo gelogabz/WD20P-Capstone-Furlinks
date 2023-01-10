@@ -1,9 +1,9 @@
-@extends('components.profiletabs')
+@extends('components.navbar')
 
-@section('editprofile')
-@foreach($userdata as $item)
-<h1>{{$item->firstname}}</h1>
-@endforeach
+@section('content')
+
+<h1>{{$usersample->firstname}}</h1>
+
 
 
 
