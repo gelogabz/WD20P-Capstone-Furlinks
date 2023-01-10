@@ -27,6 +27,7 @@ Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsContro
 Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
+Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
 // This is Profiletabs - User
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');

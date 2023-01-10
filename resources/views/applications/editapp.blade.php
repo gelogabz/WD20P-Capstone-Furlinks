@@ -2,18 +2,20 @@
 @section('content')
 
 
-<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-    <div class="row" style="width:100%;margin-top:20px">
-        <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
+<hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">    
+<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%;">
+    <div class="row" style="width:100%;margin-top:5px;margin-bottom:10px">
+        <a class="btn btn-outline-primary2" href="/applications/{{$applications->dog_id}}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
         <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Applications</a>
 
         @if ($message = Session::get('success'))
-        <div class="alert alert-success" style="height:50px">
+        <div class="alert alert-success" style="vertical-align:middle;height:50px">
             <p>{{ $message }}</p>
         </div>
         @endif
-        <div class="row mt-3">          
-            <div class="col-md-9" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;"">                              
+
+        <div class="row" style="width:100%">          
+            <div class="col-md-9 col-sm-12" style="padding-left:20px;padding-right:40px;">                              
                 <h3>Applicant Profile
                 <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:220px">   
                     <form action="{{route('applications.update', $applications->id)}}" method="POST" enctype="multipart/form-data">
@@ -33,12 +35,12 @@
                     </div>
                     </form> 
                 </span></h3>
-                <div class="row">
-                    <div class="col col-md-2">
-                        <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="image" style="width:90%; display:block;border-radius:50%;margin-top:20px;">                
+                <div class="row" style="margin-top:20px;">
+                    <div class="col col-md-2 col-sm-3">
+                        <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="image" style="width:95%; display:block;border-radius:50%;margin-top:20px;">                
                     </div>
-                    <div class="col-md-5 col-sm-6" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;">                  
-                        <table class="table table-borderless" style="width:100%;margin-top:10px">
+                    <div class="col col-md-5 col-sm-8" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;">                  
+                        <table class="table table-borderless" style="margin-top:10px;vertical-align:middle">
                             <colgroup>
                                 <col span="1" style="width:55%">
                                 <col span="1" style="width:45%">
@@ -60,15 +62,27 @@
                                 <td>{{$applications->mobile_no}}</td>
                             </tr>
                             <tr>
-                                <th>Location</th>
-                                <td>{{$applications->city}}{{', '.$applications->province}}</td>
+                                <th>Address</th>
+                                <td>{{$applications->address1}}</td>
                             </tr>
+                            <tr>
+                                <th></th>
+                                <td>{{$applications->address2}}</td>
+                            </tr>
+                            <tr>
+                                <th>City</th>
+                                <td>{{$applications->city}}</td>
+                            </tr>
+                            <tr>
+                                <th>Province/Region</th>
+                                <td>{{$applications->province}}</td>
+                            </tr>                            
                             <tr>
                                 <th>Residence Type</th>
                                 <td>{{$applications->hometype}}</td>
                             </tr>
                             <tr>
-                                <th>Pets allowed in residence?</th>
+                                <th>Pets allowed?</th>
                                 <td>{{($applications->allowed==0)? "No" : "Yes" }}</td>
                             </tr>
                             <tr>
@@ -83,7 +97,7 @@
                         </table>
                     </div>                
                     
-                    <div class="col-md-5 col-sm-6" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;">                  
+                    <div class="col col-md-5 col-sm-12" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;">                  
                         <table class="table table-borderless" style="width:100%;margin-top:10px">
                             <colgroup>
                                 <col span="1" style="width:75%">
@@ -142,21 +156,22 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6" style="padding:0px 10px ">
-                <div class="border" style="border-radius:10px;margin:0px 10px;padding:20px 5px">
+            <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
+                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
                     <div class="card">
-                    <div class="card-title" style="text-align:center"><h5>Dog Posted</h5></div>
-                    <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
-                    <div class="card-body">
-                        <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
-                        <h6 class="card-subtitle mb-2">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>
-                        <h6 class="card-subtitle mb-2 text-muted">{{$dogs->breed1_name}} , {{$dogs->breed2_name}}</h6>
-                        <h6 class="card-subtitle mb-2 text-muted" style="font-size:smaller"> Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}}</h6>
+                        <div class="card-title" style="text-align:center"><h5>Dog Posted</h5></div>
+                        <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
+                            <h6 class="card-subtitle mb-2">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{{$dogs->breed1_name}} , {{$dogs->breed2_name}}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted" style="font-size:smaller"> Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}}</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>  
         </div>
+        
     </div>
 </div>
 

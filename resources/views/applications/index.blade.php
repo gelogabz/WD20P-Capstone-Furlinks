@@ -6,7 +6,7 @@
   .btn-primary2,
   .btn-primary2:active,
   .btn-primary2:visited {
-    width:100px;
+    width:140px;
     border-radius: 10px;
     border-color:aqua;
     background-color: #29468a;
@@ -34,63 +34,88 @@
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-  <div class="row" style="width:100%;margin-top:20px;margin-bottom:40px">
+  <div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
     <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
       <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dog Profile</a>
-    <h3>Applications for Adoption</h3><br>
-
     @if ($message = Session::get('success'))
     <div class="alert alert-success" style="height:50px">
         <p>{{ $message }}</p>
     </div>
     @endif
 
-    <div class="col-md-3" style="margin-top:20px">
-      <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block;border-radius:20px;margin:auto">
-    </div>
+    <div class="row" style="width:100%">          
+      <div class="col-md-9 col-sm-12" style="padding-left:20px;padding-right:30px;">                              
+        <div class="row">
+          <h3>Applications for Adoption
+            <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:300px">   
+              <form action="{{route('applications.update2')}}" method="POST" enctype="multipart/form-data">
+                {!! csrf_field() !!}
+                @method('PATCH')
 
-    <div class="col-md-9">
-      <table class="table" style="width:100%;margin-top:10px;vertical-align:middle">
-        <tr style="border-bottom:0.3pt solid #e1e1e1;">
-          <th> </th>          
-          <th class="tableheader">Username</th>
-          <th class="tableheader">First Name</th>
-          <th class="tableheader">Last Name</th>
-          <th class="tableheader">Phone</th>
-          <th class="tableheader">Date Submitted</th>
-          <th class="tableheader">Status</th>
-          <th> </th>          
-        </tr>
-
-        @foreach($applications as $application)    
-        <tr>
-          <td><img src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
-          <td style="vertical-align:middle">{{$application->username}}</td>
-          <td style="vertical-align:middle">{{$application->firstname}}</td>
-          <td style="vertical-align:middle">{{$application->lastname}}</td>
-          <td style="vertical-align:middle">{{$application->mobile_no}}</td>
-          <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
-          <td style="vertical-align:middle">{{$application->mobile_no}}</td>
-          <td style="vertical-align:middle">{{$application->appstatus_name}}</td>
-          <td style="vertical-align:middle"><a href="/applications/{{$application->id}}/edit" ' class="btn btn-outline-primary2" type="button">View Application</td>
-
-          {{-- <td>
-            <form action="{{route('applications.update', $application->id)}}" method="POST" enctype="multipart/form-data">
-              {!! csrf_field() !!}
-            @method('PATCH')
-            <select class="form-select form-select-sm" name="appstatus" aria-label=".form-select-sm example" required>
-              <option value="1" {{($application->appstatus=="1")? "selected" : "" }}>Submitted</option>
-              <option value="2" {{($application->appstatus=="2")? "selected" : "" }}>Screening</option>
-              <option value="3" {{($application->appstatus=="3")? "selected" : "" }}>For Interview</option>
-              <option value="4" {{($application->appstatus=="4")? "selected" : "" }}>Waitlisted</option>
-              <option value="5" {{($application->appstatus=="5")? "selected" : "" }}>Selected</option>
-            </select>
-          </td>
-          <td class="tableheader"><input type="submit" name="submit" class="button btn-primary2" value="Update"></td>
-            </form> --}}
-        </tr>
-        @endforeach
-      </table>
+              <div class="input-group">
+                  <select class="custom-select form-control" id="applicant" name="applicant" >
+                    <option>Select username</option>
+                    @foreach($applications as $application)    
+                      <option value="{{$application->id}}">{{$application->username}}</option>
+                    @endforeach
+                  </select>
+                  <div class="input-group-append">
+                  <input class="btn btn-secondary" type="submit" value="Select for adoption"></button>
+                  </div>
+              </div>
+              </form> 
+          </span>
+          </h3>
+        </div>
+        <div class="row" style="margin-top:20px">
+          <table class="table" style="margin-top:10px;vertical-align:middle">
+            <colgroup>
+              <col span="1" style="width:10%">
+              <col span="1" style="width:20%">
+              <col span="1" style="width:20%">
+              <col span="1" style="width:15%">
+              <col span="1" style="width:15%">
+              <col span="1" style="width:15%">
+            </colgroup>
+            <tr style="border-bottom:0.3pt solid #e1e1e1;">
+              <th colspan="2" style="text-align:center"> Username</th>
+              <th>Name</th>
+              <th>Date Submitted</th>
+              <th>Status</th>
+              <th> </th>          
+            </tr>
+    
+            @foreach($applications as $application)    
+            <tr>
+              <td><img src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
+              <td style="vertical-align:middle">{{$application->username}}</td>
+              <td style="vertical-align:middle">{{$application->firstname}}{{" ".$application->lastname}}</td>
+              <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
+              <td style="vertical-align:middle">{{$application->appstatus_name}}</td>
+              <td style="vertical-align:middle"><a href="/applications/{{$application->id}}/edit" class="btn btn-outline-primary2" type="button" style="width:140px;margin-right:0px">
+                View Application 
+                <i class="fa-solid fa-arrow-right"></i></a>
+              </td>
+            </tr>
+            @endforeach
+          </table>
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
+        <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
+            <div class="card">
+              <div class="card-title" style="text-align:center"><h5>Dog Posted</h5></div>
+              <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
+              <div class="card-body">
+                  <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
+                  <h6 class="card-subtitle mb-2">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$dogs->breed1_name}} , {{$dogs->breed2_name}}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted" style="font-size:smaller"> Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}}</h6>
+              </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
