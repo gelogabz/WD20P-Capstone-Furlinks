@@ -55,12 +55,7 @@
           </tr>
           <tr>
             <th>Rescued?</th>
-            <td> <?php              
-              if ($dogs->rescued == 0) {
-                echo "No";
-              }
-              else {echo "Yes";}
-              ?></td>
+            <td>{{($dogs->rescued==0)? "No" : "Yes" }}</td> 
           </tr>
           <tr>
             <th>Date Rescued:</th>
@@ -68,12 +63,7 @@
           </tr>
           <tr>
             <th>Neutered/Spayed?</th>
-            <td> <?php              
-              if ($dogs->neutered == 0) {
-                echo "No";
-              }
-              else {echo "Yes";}
-              ?></td>
+            <td>{{($dogs->neutered==0)? "No" : "Yes" }}</td> 
           </tr>
           <tr>
             <th>Vaccinated?</th>
