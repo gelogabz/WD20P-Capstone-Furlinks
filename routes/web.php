@@ -28,21 +28,15 @@ Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
-// This is Profiletabs - User
+// FOR USER PROFILE
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 Route::resource('showprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
 Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
+Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 
-// Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
-// Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
-// Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
-// Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
-// Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
-// Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
-// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
-// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+
 
 
 Auth::routes();

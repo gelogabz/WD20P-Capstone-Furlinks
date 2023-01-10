@@ -101,6 +101,7 @@ class UserprofileController extends Controller
     {
         $userprofile = DB::table('userprofiles')
             ->select(
+                'userprofiles.user_id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
                 'userprofiles.lastname',
@@ -129,8 +130,8 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile)
-            ->with('success', 'User profile successfully created.');
+
+        return view('userprofile.showprofile')->with('userprofiles', $userprofile);
     }
 
     public function edit($id)
@@ -165,7 +166,7 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-        return view('userprofile.editprofile')->with('userprofiles', $userdata);
+        return view('userprofile.editprofile')->with('usersample', $userdata);
     }
 
     public function update(Request $request, $userid)
