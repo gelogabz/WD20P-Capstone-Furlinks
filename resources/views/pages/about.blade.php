@@ -1,13 +1,10 @@
 @extends ('components.navbar')
 
 @section('content')
-    <div class="row align-items-center d-flex" style=";">
-        <div class="col-sm-6">
-            <center><img src="" class="rounded-circle my-4" style="width: 75%;"></center>
-        </div>
-        <div class="col-md-6">
-            <h1 class="display-3 text-center" style="color:#413F42;">ABOUT FURLINKS</h1>
-            <p class="text-center mx-5">
+    <div class='row;'>
+        <div class="col-lg-6 col-md col-sm">
+            <h1 class="display-3" style="color:#413F42;">ABOUT FURLINKS</h1>
+            <p>
                Dog adoption is a wonderful way to bring a new companion into your life and 
                to make a difference in the life of a dog. When you adopt a dog, you are saving 
                a life and providing a home for a dog who may have otherwise been left in a shelter 
@@ -30,11 +27,11 @@
                can be a wonderful and rewarding experience for both you and the dog. It is 
                a responsible and selfless decision that can make a huge difference in the 
                life of a dog. If you are ready and able to provide a loving and stable home 
-               for a dog, adoption is a great option to consider.
-
-
+               for a dog, adoption is a great option to consider.  
             </p>
         </div>
+        <div class="col-lg-6 col-md col-sm">
+            <img src="" class="rounded-circle" alt="">
+        </div>
     </div>
-    
 @endsection
