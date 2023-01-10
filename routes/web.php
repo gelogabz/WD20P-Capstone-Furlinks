@@ -43,9 +43,9 @@ Route::resource('/createprofile', 'App\Http\Controllers\UserprofileController');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
 
-Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
-Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
-Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
+// Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
+// Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
+// Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');

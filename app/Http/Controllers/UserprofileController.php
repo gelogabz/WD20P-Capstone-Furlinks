@@ -16,14 +16,14 @@ class UserprofileController extends Controller
         $idtofind = Auth::id();
         $userprofiles = Userprofile::all()
             ->where('user_id', $idtofind);
-        return view('userprofiles.showprofile')->with('userprofiles', $userprofiles);
+        return view('userprofile.showprofile')->with('userprofiles', $userprofiles);
     }
 
 
 
     public function create()
     {
-        return view('userprofiles.create');
+        return view('userprofile.create');
     }
     
 
@@ -132,7 +132,7 @@ class UserprofileController extends Controller
             )
             ->where('user_id', '=', $idtofind)
             ->first();
-        return view('userprofiles.showprofile')->with('userprofiles', $userdata);
+        return view('userprofile.showprofile')->with('userprofiles', $userdata);
     }
 
     public function edit($userid)
@@ -168,7 +168,7 @@ class UserprofileController extends Controller
             )
             ->where('user_id', '=', $idtofind)
             ->first();
-        return view('userprofiles.editprofile')->with('userprofiles', $userdata);
+        return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
 
     public function update(Request $request, $userid)
