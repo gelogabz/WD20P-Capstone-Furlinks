@@ -5,7 +5,6 @@ use App\Http\Controllers\DogsController;
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
-Route::get('/search', 'App\Http\Controllers\PagesConroller@search');
 Route::get('/search', 'App\Http\Controllers\SearchController@index');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
