@@ -4,7 +4,12 @@
 <div class="container p-5">
     <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
         <div class="row" style="width:100%;margin-top:20px">
-          <h3>Your Profile</h3><br>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="height:50px">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+            <h3>Your Profile</h3><br>
     
     <section class='container card bg-light p-4'>
 
@@ -12,12 +17,22 @@
         <div class="row justify-content-center">
             <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow">
                 
-                    <div class='bg-dark mx-auto' style='border-radius:50%; width:200px; height:200px;'>
-                        Profile Picture
+                <style>
+                    .propic{
+                        width: 150px;
+                        border-radius: 50%;
+                        height: 150px ;
+                        object-fit: cover;
+                    }
+                </style>
+                    <div class=' mx-auto'>
+
+                        <img class='propic' src="{{asset('image/'.$userprofiles->profile_pic)}}">
+                        
                     </div>
                 
-                <p>Full Name</p>
-                <p class='lead fst-italic fw-lighter'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint laudantium sequi voluptatibus dolores voluptate fugit natus facere? </p>
+                <p>{{$userprofiles->firstname}} {{$userprofiles->lastname}}</p>
+                <p class='lead fst-italic fw-lighter'>{{$userprofiles->about}}</p>
                 <style>
                     .tab2,
                     .tab3,

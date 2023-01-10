@@ -32,10 +32,11 @@ Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 // This is Profiletabs - User
 
 
-Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
+// Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
-Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
+Route::resource('userprofile', 'App\Http\Controllers\UserprofileController');
+// Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
 // Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 // Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
 // Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
