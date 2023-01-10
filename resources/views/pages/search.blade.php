@@ -55,7 +55,7 @@
    </div>
    
    <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
-     <h5 style="color:#51133c;font-size:18px">{{$dogs->count()}} search results</h5>
+     {{-- <h5 style="color:#51133c;font-size:18px">{{$dogs->count()}} search results</h5> --}}
      
      <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
@@ -76,7 +76,6 @@
                 <div class="text"><a href="pages/{{$dog->id}}">View More</a></div>
               </div>
             </div>    
-              {{-- <img src="" class="image img-responsive" width="100%" style="padding-bottom:2%" /> --}}
               <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
               <p style="font-size: small; margin-bottom: 0px; margin-top:0px"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
             </div>

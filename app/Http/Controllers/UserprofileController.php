@@ -14,12 +14,12 @@ class UserprofileController extends Controller
     public function index()
     {
         $idtofind = Auth::id();
-        $userprofiles = Userprofile::all()
-            ->where('user_id', $idtofind);
-        return view('userprofile.showprofile')->with('userprofiles', $userprofiles);
+        $userprofile = DB::table('userprofiles')
+            ->select('profile_pic')
+            ->where('user_id', '=', $idtofind)
+            ->simplePaginate(1);
+        return view('components.navbar')->with('userpic', $userprofile);
     }
-
-
 
     public function create()
     {
@@ -57,7 +57,6 @@ class UserprofileController extends Controller
             'hours' => 'required',
         ));
 
-
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
 
@@ -94,14 +93,18 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
+<<<<<<< HEAD
 
         return view('userprofile.showprofile')->with('userprofiles', $userprofile);
+=======
+        return redirect('/showprofile')
+             ->with('success', 'User profile successfully created.');
+>>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
     }
 
-    // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
-
-    public function show(Request $request)
+    public function show($id)
     {
+<<<<<<< HEAD
 
         $this->validate($request, array(
             'firstname' => 'required',
@@ -134,6 +137,9 @@ class UserprofileController extends Controller
 
         $idtofind = Auth::id();
         $userprofile = Userprofile::table('userprofiles')
+=======
+        $userprofile = DB::table('userprofiles')
+>>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
             ->select(
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
@@ -161,15 +167,18 @@ class UserprofileController extends Controller
                 'userprofiles.lefthome',
                 'userprofiles.hours',
             )
-            ->where('user_id', '=', $idtofind)
+            ->where('user_id', $id)
             ->first();
         return view('userprofile.showprofile')->with('userprofiles', $userprofile)
+<<<<<<< HEAD
             ->with('success', 'User profile successfully created.');
+=======
+        ->with('success', 'User profile successfully created.');
+>>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
     }
 
-    public function edit($userid)
+    public function edit($id)
     {
-        $idtofind = Auth::id();
         $userdata = DB::table('userprofiles')
             ->select(
                 'userprofiles.profile_pic',
@@ -198,7 +207,7 @@ class UserprofileController extends Controller
                 'userprofiles.lefthome',
                 'userprofiles.hours',
             )
-            ->where('user_id', '=', $idtofind)
+            ->where('user_id', $id)
             ->first();
         return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
@@ -216,7 +225,7 @@ class UserprofileController extends Controller
             $file->move(public_path('Image'), $filename);
             $input['profile_pic'] = "$filename";
         } else {
-            unset($input['pic']);
+            unset($input['profile_pic']);
         };
         $userprofiles->profile_pic = $input['profile_pic'];
         $userprofiles->firstname = $request->input('firstname');

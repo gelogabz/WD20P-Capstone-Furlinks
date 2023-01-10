@@ -48,7 +48,7 @@
         <div class="row">
           <h3>Applications for Adoption
             <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:300px">   
-              {{-- <form action="{{route('applications.update2')}}" method="POST" enctype="multipart/form-data"> --}}
+              <form action="{{route('applications.update, ')}}" method="POST" enctype="multipart/form-data">
                 {!! csrf_field() !!}
                 @method('PATCH')
 
@@ -59,8 +59,9 @@
                       <option value="{{$application->id}}">{{$application->username}}</option>
                     @endforeach
                   </select>
-                  <div class="input-group-append">
-                  <input class="btn btn-secondary" type="submit" value="Select for adoption"></button>
+              <div class="input-group-append">
+              <input type="hidden" value="5" class="hidden" name="appstatus"/>
+              <input class="btn btn-secondary" type="submit" value="Select for adoption"></button>
                   </div>
               </div>
               </form> 
@@ -105,7 +106,7 @@
       <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
         <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
             <div class="card">
-              <div class="card-title" style="text-align:center"><h5>Dog Posted</h5></div>
+              <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
               <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
               <div class="card-body">
                   <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
