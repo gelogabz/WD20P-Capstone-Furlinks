@@ -93,18 +93,12 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
-<<<<<<< HEAD
 
         return view('userprofile.showprofile')->with('userprofiles', $userprofile);
-=======
-        return redirect('/showprofile')
-             ->with('success', 'User profile successfully created.');
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
     }
 
     public function show($id)
     {
-<<<<<<< HEAD
 
         $this->validate($request, array(
             'firstname' => 'required',
@@ -137,9 +131,6 @@ class UserprofileController extends Controller
 
         $idtofind = Auth::id();
         $userprofile = Userprofile::table('userprofiles')
-=======
-        $userprofile = DB::table('userprofiles')
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
             ->select(
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
@@ -170,11 +161,7 @@ class UserprofileController extends Controller
             ->where('user_id', $id)
             ->first();
         return view('userprofile.showprofile')->with('userprofiles', $userprofile)
-<<<<<<< HEAD
             ->with('success', 'User profile successfully created.');
-=======
-        ->with('success', 'User profile successfully created.');
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
     }
 
     public function edit($id)
