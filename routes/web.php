@@ -5,6 +5,7 @@ use App\Http\Controllers\DogsController;
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
+Route::get('/search', 'App\Http\Controllers\PagesConroller@search');
 Route::get('/search', 'App\Http\Controllers\SearchController@index');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
@@ -41,7 +42,7 @@ Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetti
 Route::resource('/createprofile', 'App\Http\Controllers\UserprofileController');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
 
 // Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
 // Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');

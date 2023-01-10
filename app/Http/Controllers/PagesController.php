@@ -15,7 +15,7 @@ class PagesController extends Controller
     {
         return view('components/navbar');
     }
-    public function searchnew()
+    public function search()
     {
         return view('pages/search');
     }
