@@ -25,7 +25,19 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script>
-    
+    <style>
+      .propic1{
+          width: 40px;
+          border-radius: 50%;
+          border-width: 1px;
+          height: 40px ;
+          object-fit: cover;
+          box-shadow: 1px 1px 2px rgba(0, 0 ,0, 0.8);
+      }
+      .firstcol{
+          background-color:#f4efe9 ;
+      }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="padding-left: 5%; padding-right: 5%;padding-bottom:5px">
@@ -69,7 +81,6 @@
       @else
       <ul class='list-unstyled'>
         <li class="nav-item dropdown">
-          <div>
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             {{-- <style>
               .propic1{
@@ -89,7 +100,6 @@
                   {{-- <img class='propic1' src="{{asset('image/'.$userprofiles->profile_pic)}}">  --}}
                
           </a>
-        </div>
           <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/applications">
               My Applications

@@ -1,3 +1,4 @@
+{{-- PREVIOUSLY OWNPROFILE --}}
 @extends ('components.navbar')
 @section('content')
 

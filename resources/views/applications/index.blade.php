@@ -48,7 +48,7 @@
         <div class="row">
           <h3>Applications for Adoption
             <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:300px">   
-              <form action="{{route('applications.update2')}}" method="POST" enctype="multipart/form-data">
+              {{-- <form action="{{route('applications.update2')}}" method="POST" enctype="multipart/form-data"> --}}
                 {!! csrf_field() !!}
                 @method('PATCH')
 

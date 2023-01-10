@@ -11,9 +11,14 @@
             @endif
             <h2 style="font-family: 'Poppins', sans-serif;">Your Profile</h2><br><br>
     
+<<<<<<< Updated upstream
     <section class='container card bg-light p-2'>
 
     
+=======
+    <section class='container card bg-light p-4'>
+       
+>>>>>>> Stashed changes
         <div class="row justify-content-center">
             <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow firstcol">
                 
@@ -76,8 +81,14 @@
                         <h3>My Profile</h3>
                         <div class='row'>
                             <div class='col-12 col-md-6'>
+<<<<<<< Updated upstream
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Firstname</label>
                                 <input type="text" name="firstname" class="form-control form-control-sm" value="{{$userprofiles->firstname}}" disabled>
+=======
+                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>
+                                <h2>{{$userprofiles->firstname}}<h2>
+                                <input type="text" name="firstname" class="form-control form-control-sm" disabled>
+>>>>>>> Stashed changes
                             </div>
 
 
@@ -90,7 +101,11 @@
                         <div class='row mt-2'>
                             <div class='col-12 '>
                                 <label class='fw-bold' style="font-family: 'Lato', sans-serif;">About</label>
+<<<<<<< Updated upstream
                                 <textarea type="text" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled>{{$userprofiles->about}}"</textarea>
+=======
+                                <textarea type="text" value="{{$userprofiles->about}}" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled></textarea>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
