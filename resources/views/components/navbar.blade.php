@@ -69,10 +69,27 @@
       @else
       <ul class='list-unstyled'>
         <li class="nav-item dropdown">
+          <div>
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-          <span>Welcome !<span> {{ Auth::user()->name }}
+            <style>
+              .propic1{
+                  width: 40px;
+                  border-radius: 50%;
+                  border-width: 1px;
+                  height: 40px ;
+                  object-fit: cover;
+                  box-shadow: 1px 1px 2px rgba(0, 0 ,0, 0.8);
+              }
+              .firstcol{
+                  background-color:#f4efe9 ;
+              }
+          </style>
+              
+                 
+                  <img class='propic1' src="{{asset('image/'.$userprofiles->profile_pic)}}"> 
+               
           </a>
-
+        </div>
           <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/ownprofile">
               My Profile
