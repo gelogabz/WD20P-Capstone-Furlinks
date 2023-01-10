@@ -24,7 +24,7 @@
       <!--Dog profile information -->
     
       <div class="col-lg-5 col-sm-6" style="padding-left:20px; padding-top:15px; margin-bottom: 20px;">
-        <h5 style="color:#c8a279; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}}m old<br>
+        <h5 style="color:#c8a279; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}} month/s old<br>
         <h6 style="color:#c8a279; font-family:Poppins;"><i class="fa-solid fa-paw" style="font-size:medium; color:#c8a279"></i><span style="color:#413F42;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}</span></h6>
         <i class="fa-solid fa-timer" style="font-size:medium; color:#413F42"></i>
         <span style="font-size: small; color: #413F42">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
@@ -80,7 +80,7 @@
             <td> Yes</td>
           </tr>
           <tr style="border-bottom:0.3pt solid #e1e1e1;">
-            <th colspan="4" style="padding-left:0px; font-size:16px; padding-top:20px"><i>Adoption Information</i></th>    
+            <th colspan="4" style="padding-left:0px; font-size:16px; padding-top:15px"><i>Adoption Information</i></th>    
           </tr> 
           <tr>
             <th>Location:</th>
@@ -130,6 +130,6 @@
       </div>
   </div>
 </div>
-
+<br><br><br>
 
 @endsection
