@@ -17,24 +17,22 @@
       <!--Dog profile information -->
       <div class="col-lg-8 col-sm-6" style="padding-left:20px; padding-top:15px; margin-bottom: 20px;">
         <div class="row">
-          <div class="col-lg-8 col-sm-12">
+          <div class="col-lg-9 col-sm-12">
             <h5 style="color:#C8A279;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}} month/s old</h5>
             <h6 style="color:#C8A279;">
               <i class="fa-solid fa-paw" style="font-size:medium; color:#C8A279"></i><span style="color:#413f4e;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}  </span></h6>
               <span style="font-size: small;color: #413f4e">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
           </div>
-          <div class="col-lg-2 col-sm-12" >
+          <div class="col-lg-3 col-sm-12" >
               <a class="btn edit_btn" href="/dogprofile/{{$dogs->id}}/edit" type="button" style="font-family:Poppins; white-space:no-wrap;">
                   <i class="fa-regular fa-pen-to-square" style=""></i> EDIT</a>
-          </div>
-          <div class="col-lg-2 col-sm-12">
             <a class="btn viewapp_btn" href="/applications/{{$dogs->id}}" type="button" style="font-family:Poppins; white-space:no-wrap;">
               View Applications
             </a>
           </div>
         </div>
         <div class="row">
-          <table style="width:100%; margin-top:10px; color:#413F42;">
+          <table style="width:70%; margin-top:10px; color:#413F42;">
             <colgroup>
               <col span="1" style="width:50%">
               <col span="1" style="width:50%">

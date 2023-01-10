@@ -31,6 +31,7 @@
                         </select>
                         <div class="input-group-append">
                         <input class="btn btn-secondary" type="submit" value="Update"></button>
+                        <input type="hidden" value="{{$applications->dog_id}}" class="hidden" name="dogid"/>
                         </div>
                     </div>
                     </form> 
@@ -56,6 +57,10 @@
                             <tr>
                                 <th>Full Name</th>
                                 <td>{{$applications->firstname}}{{' '.$applications->lastname}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{$applications->email}}</td>
                             </tr>
                             <tr>
                                 <th>Contact No.</th>
