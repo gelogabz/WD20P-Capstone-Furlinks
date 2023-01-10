@@ -14,18 +14,17 @@ class UserprofileController extends Controller
     public function index()
     {
         $idtofind = Auth::id();
-        $userprofiles = Userprofile::all()
-            ->where('user_id', $idtofind);
-        return view('userprofile.showprofile')->with('userprofiles', $userprofiles);
+        $userprofile = DB::table('userprofiles')
+            ->select('profile_pic')
+            ->where('user_id', '=', $idtofind)
+            ->simplePaginate(1);
+        return view('components.navbar')->with('userpic', $userprofile);
     }
-
-
 
     public function create()
     {
         return view('userprofile.profiletabs');
     }
-    
 
     public function store(Request $request){
         $this->validate($request, array(
@@ -55,7 +54,6 @@ class UserprofileController extends Controller
             'lefthome'=>'required',
             'hours'=>'required',
         ));
-
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
@@ -100,40 +98,37 @@ class UserprofileController extends Controller
 
     // $userid = Auth::id(); //Harvs/Pao - PLS check if this will work, need to pass ID of logged-in user to show profile data from db
 
-    public function show(Request $request)
+    public function show($id)
     {
+        // $this->validate($request, array(
+        //     'firstname'=>'required',
+        //     'lastname'=>'required',
+        //     'about'=>'required',
+        //     'profile_pic'=>'required',
+        //     'mobile_no'=>'required',
+        //     'gender'=>'required',
+        //     'address1'=>'required',
+        //     'address2'=>'required',
+        //     'city'=>'required',
+        //     'province'=>'required',
+        //     'hometype'=>'required',
+        //     'funds'=>'required',
+        //     'allowed'=>'required',
+        //     'withpets'=>'required',
+        //     'allergy'=>'required',
+        //     'allvaxed'=>'required',
+        //     'allneut'=>'required',
+        //     'euthanized'=>'required',
+        //     'lostpet'=>'required',
+        //     'cats'=>'required',
+        //     'dogs'=>'required',
+        //     'priresp'=>'required',
+        //     'finresp'=>'required',
+        //     'lefthome'=>'required',
+        //     'hours'=>'required',
+        // ));
 
-        $this->validate($request, array(
-            'firstname'=>'required',
-            'lastname'=>'required',
-            'about'=>'required',
-            'profile_pic'=>'required',
-            'mobile_no'=>'required',
-            'gender'=>'required',
-            'address1'=>'required',
-            'address2'=>'required',
-            'city'=>'required',
-            'province'=>'required',
-            'hometype'=>'required',
-            'funds'=>'required',
-            'allowed'=>'required',
-            'withpets'=>'required',
-            'allergy'=>'required',
-            'allvaxed'=>'required',
-            'allneut'=>'required',
-            'euthanized'=>'required',
-            'lostpet'=>'required',
-            'cats'=>'required',
-            'dogs'=>'required',
-            'priresp'=>'required',
-            'finresp'=>'required',
-            'lefthome'=>'required',
-            'hours'=>'required',
-        ));
-
-
-        $idtofind = Auth::id();
-        $userprofile = Userprofile::table('userprofiles')
+        $userprofile = DB::table('userprofiles')
             ->select(
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
@@ -161,11 +156,10 @@ class UserprofileController extends Controller
                 'userprofiles.lefthome',
                 'userprofiles.hours',
             )
-            ->where('user_id', '=', $idtofind)
+            ->where('user_id', $id)
             ->first();
         return view('userprofile.showprofile')->with('userprofiles', $userprofile)
         ->with('success', 'User profile successfully created.');
-       
     }
 
     public function edit($userid)
@@ -217,7 +211,7 @@ class UserprofileController extends Controller
             $file->move(public_path('Image'), $filename);
             $input['profile_pic'] = "$filename";
         } else {
-            unset($input['pic']);
+            unset($input['profile_pic']);
         };
         $userprofiles->profile_pic = $input['profile_pic'];
         $userprofiles->firstname = $request->input('firstname');

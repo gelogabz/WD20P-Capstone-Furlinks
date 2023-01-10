@@ -83,7 +83,7 @@
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <span>Welcome !<span> {{ Auth::user()->name }}
-            {{-- <img class='propic1' src="{{asset('image/'.$userprofiles->profile_pic)}}">   --}}
+            {{-- <img class='propic1' src="{{asset('image/'.$userpic->profile_pic)}}">   --}}
           </a>
           <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/applications">
@@ -96,7 +96,7 @@
               Dogs Rehomed
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="/showprofile">
+            <a class="dropdown-item" href="/userprofile/{{Auth::user()->id}}">
               My Profile
             </a>
             <a class="dropdown-item" href="/accountsetting">

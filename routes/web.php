@@ -13,12 +13,9 @@ Route::get('/about', 'App\Http\Controllers\PagesController@about');
 Route::resource('/', 'App\Http\Controllers\DogsController');
 Route::get('/dogsposted', 'App\Http\Controllers\PagesController@dogsposted');
 Route::resource('dogsposted', 'App\Http\Controllers\DogprofileController');
-
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
-
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
-
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
@@ -27,19 +24,18 @@ Route::resource('/pages', 'App\Http\Controllers\DogsController');
 // For DOG ADOPTION APPLICATIONS
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
-// Route::put('applications/index', [ApplicationsController::class, 'update']);
-// Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
 // This is Profiletabs - User
-
+Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
+Route::resource('showprofile', 'App\Http\Controllers\UserprofileController');
+Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
+Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
+Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
 
 // Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
-Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
-Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
-Route::resource('userprofile', 'App\Http\Controllers\UserprofileController');
 // Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
 // Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
 // Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
