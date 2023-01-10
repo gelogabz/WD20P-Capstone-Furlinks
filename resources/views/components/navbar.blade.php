@@ -71,7 +71,7 @@
         <li class="nav-item dropdown">
           <div>
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            <style>
+            {{-- <style>
               .propic1{
                   width: 40px;
                   border-radius: 50%;
@@ -83,10 +83,10 @@
               .firstcol{
                   background-color:#f4efe9 ;
               }
-          </style>
+          </style> --}}
               
-                 
-                  <img class='propic1' src="{{asset('image/'.$userprofiles->profile_pic)}}"> 
+              {{ Auth::user()->name }}
+                  {{-- <img class='propic1' src="{{asset('image/'.$userprofiles->profile_pic)}}">  --}}
                
           </a>
         </div>
