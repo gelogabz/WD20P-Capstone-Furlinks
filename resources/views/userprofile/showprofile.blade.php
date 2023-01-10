@@ -4,20 +4,47 @@
 <div class="container p-5">
     <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
         <div class="row" style="width:100%;margin-top:20px">
-          <h3>Your Profile</h3><br>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="height:50px">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+            <h2 style="font-family: 'Poppins', sans-serif;">Your Profile</h2><br><br>
     
-    <section class='container card bg-light p-4'>
+<<<<<<< Updated upstream
+    <section class='container card bg-light p-2'>
 
     
+=======
+    <section class='container card bg-light p-4'>
+       
+>>>>>>> Stashed changes
         <div class="row justify-content-center">
-            <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow">
+            <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow firstcol">
                 
-                    <div class='bg-dark mx-auto' style='border-radius:50%; width:200px; height:200px;'>
-                        Profile Picture
+                <style>
+                    .propic{
+                        width: 150px;
+                        border-radius: 50%;
+                        
+                        border-width: 1px;
+                        
+                        height: 150px ;
+                        object-fit: cover;
+                        box-shadow: 1px 1px 8px rgba(0, 0 ,0, 0.8);
+                    }
+                    .firstcol{
+                        background-color:#f4efe9 ;
+                    }
+                </style>
+                    <div class=' mx-auto'>
+
+                        <img class='propic' src="{{asset('image/'.$userprofiles->profile_pic)}}">
+                        
                     </div>
                 
-                <p>Full Name</p>
-                <p class='lead fst-italic fw-lighter'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint laudantium sequi voluptatibus dolores voluptate fugit natus facere? </p>
+                <h4 class='mt-3'>{{$userprofiles->firstname}} {{$userprofiles->lastname}}</h4>
+                <h6 class='fst-italic fw-lighter'>"{{$userprofiles->about}}"</h6>
                 <style>
                     .tab2,
                     .tab3,
@@ -33,87 +60,125 @@
                     <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
                 </div>
 
-                <div class="mt-">
+                <div class="mt-3">
                     <a>Edit Profile</a>
                 </div>
+                
             </div>
 
                 <br>
 
-            <div class="  card col-12 col-lg-7 border mx-3 p-3 shadow">
-                <div class="tab-content p-3" id="v-pills-tabContent">
+            <div class="  card col-12 col-lg-7 border mx-3 p-3 shadow firstcol">
+                <div class="tab-content p-3 showcolor" id="v-pills-tabContent">
             
+                    <style>
+                    .showcolor{
+                        background-color: #f4efe9 ;
+                    }
+                    </style>
                     {{-- My Profile --}}
                     <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
+                        <h3>My Profile</h3>
                         <div class='row'>
                             <div class='col-12 col-md-6'>
+<<<<<<< Updated upstream
+                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Firstname</label>
+                                <input type="text" name="firstname" class="form-control form-control-sm" value="{{$userprofiles->firstname}}" disabled>
+=======
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>
+                                <h2>{{$userprofiles->firstname}}<h2>
                                 <input type="text" name="firstname" class="form-control form-control-sm" disabled>
+>>>>>>> Stashed changes
                             </div>
 
 
                             <div class='col-12 col-md-6 '>
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name</label>
-                                <input type="text" name="firstname" class="form-control form-control-sm" disabled>
+                                <input type="text" name="firstname" class="form-control form-control-sm" value="{{$userprofiles->lastname}}" disabled>
                                
                             </div>
                         </div>
                         <div class='row mt-2'>
                             <div class='col-12 '>
                                 <label class='fw-bold' style="font-family: 'Lato', sans-serif;">About</label>
-                                <textarea type="text" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled></textarea>
+<<<<<<< Updated upstream
+                                <textarea type="text" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled>{{$userprofiles->about}}"</textarea>
+=======
+                                <textarea type="text" value="{{$userprofiles->about}}" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled></textarea>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
+
+
                      {{-- Personal Info --}}
                      <div class="tab-pane fade show  " id="personalinfo" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
+                        <h3>Personal Information</h3>
                         <div class='row'>
                             <div class='col-12 col-md-6 mt-4'>
                                 <label class='col-sm-4 col-form-label'>Address: 1</label>
-                                <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
+                                <input type="text" name="address1" class="form-control" value="{{$userprofiles->address1}}" disabled aria-label="Address">
                             </div>
                             
                             <div class='col-12 col-md-6 mt-4'>
                                 <label class='col-sm-4 col-form-label'>Address: 2</label>
-                                <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
+                                <input type="text" name="address2" class="form-control" value="{{$userprofiles->address2}}" disabled aria-label="Address">
                             </div>
                         </div>
 
                         <div class='row'>
-                            <div class='col-sm-4 mt-4'>
+                            <div class='col-12 col-md-6 mt-4'>
                                 <label for="city" class='col-sm-4 col-form-label'>City</label>
-                                <input type="text" name="city" class="form-control" placeholder="City">
+                                <input type="text" name="city" class="form-control" value="{{$userprofiles->city}}" disabled>
                             </div>
-                            <div class='col-sm-4 mt-4'>
+
+                            <div class='col-12 col-md-6 mt-4'>
                               <label for="province" class='col-sm-4 col-form-label'>Province</label>
-                              <input type="text" name="province" class="form-control" placeholder="Province">
+                              <input type="text" name="province" class="form-control" value="{{$userprofiles->province}}" disabled>
                             </div>
-                            <div class='col-sm-4 mt-4'>
-                                <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
-                                <input type="text" name="mobile_no" class="form-control">
-                            </div>
-                
-                            
-                  
-                            <div class='col-12 col-md-4 mt-4'>
-                                <label for='city' class='mb-2'>City</label>
-                                <input type="text" name='city' class="form-control" placeholder="City" aria-label="City">
-                            </div>
+                        </div>
         
-                            <div class='col-12 col-md-4 mt-4'>
-                                <label for='gender' class='mb-2'>Gender</label>
-                                <select name='gender' class="form-select " aria-label=".form-select-sm example">
-                                    <option selected>Select Gender</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
+                        <div class='row'>
+                                <div class='col-12 col-md-6 mt-4'>
+                                    <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
+                                    <input type="text" name="mobile_no" class="form-control" value="{{$userprofiles->mobile_no}}" disabled>
+                                </div>
+
+                                <div class='col-12 col-md-6 mt-4'>
+                                    <label for='gender' class='col-sm-4 col-form-label' >Gender</label>
+                                    <input type="text" name="gender" class="form-control" value="{{$userprofiles->gender}}" disabled>
+                                 </div>
+                        </div>
+
+                        <div class='row mt-2'>
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for="hometype" class='col-12 col-md-6 col-form-label'>Type of home</label>
+                                <input type="text" name="hometype" class="form-control" value="{{$userprofiles->hometype}}" disabled>
+                            </div>
+
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='allowed' class='col-12 col-md-12 col-form-label' >Are pets allowed in your home ?</label>
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->allowed==0)? "No" : "Yes" }}</label>
+                            </div>
+
+                            <div class='col-12 col-md-12 mt-3'>
+                                <label for="funds" class='col-sm-4 col-form-label'>Source of funds</label>
+                                <input type="text" name="funds" class="form-control" value="{{$userprofiles->funds}}" disabled aria-label="funds">
                             </div>
                         </div>
 
                     </div>
                      {{-- Dog Historys --}}
                      <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
-                        3
+                        <h3>Dog History</h3>
+                        <div class="row">
+                        <div class='col-12 col-md-6 mt-4'>
+                            <label for='withpets' class='col-12 col-md-12 col-form-label' >Do you currently have pets?</label>
+                            <input name='withpets'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                            <label class="form-check-label">{{($userprofiles->withpets==0)? "No" : "Yes" }}</label>
+                        </div>
+                       </div>
                     </div>
 
                 </div>

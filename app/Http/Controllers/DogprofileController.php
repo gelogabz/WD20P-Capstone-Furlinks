@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-
 use App\Models\Dogs;
 use App\Models\Users;
 use App\Models\UserProfiles;
@@ -60,7 +58,7 @@ class DogprofileController extends Controller
             ->where('userprofiles.user_id', '=', $idtofind)
             ->first();
 
-        return view('pages.ownprofile')->with('dogs', $dogs)->with('user', $user);
+        return view('privpages.dogsposted')->with('dogs', $dogs)->with('user', $user);
     }
 
     public function create()
@@ -112,7 +110,7 @@ class DogprofileController extends Controller
         $dog->status_id = 1;
         $dog->save();
 
-        return redirect('/ownprofile')
+        return redirect('/dogsposted')
             ->with('success', 'Dog posted successfully.');
     }
 
@@ -235,7 +233,7 @@ class DogprofileController extends Controller
         $dogs->pic = $input['pic'];
         $dogs->save();
 
-        return redirect('/ownprofile')
+        return redirect('/dogsposted')
             ->with('success', 'Dog profile successfully updated.');
     }
 

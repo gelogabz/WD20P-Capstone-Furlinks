@@ -15,7 +15,7 @@ class PagesController extends Controller
     {
         return view('components/navbar');
     }
-    public function searchnew()
+    public function search()
     {
         return view('pages/search');
     }
@@ -33,9 +33,9 @@ class PagesController extends Controller
     {
         return view('pages/editdog');
     }
-    public function ownprofile()
+    public function dogsposted()
     {
-        return view('pages/ownprofile');
+        return view('privpages/dogsposted');
     }
     public function dogdetails()
     {
@@ -45,15 +45,10 @@ class PagesController extends Controller
     {
         return view('pages/postdog');
     }
-    public function myprofile()
-    {
-        return view('userprofile/createprofile');
-    }
-
-    public function editprofile()
-    {
-        return view('userprofile/editprofile');
-    }
+    // public function myprofile()
+    // {
+    //     return view('userprofile/createprofile');
+    // }
 
     public function ownapplications()
     {
@@ -68,5 +63,13 @@ class PagesController extends Controller
     public function showprofile()
     {
         return view('userprofile/showprofile');
+    }
+    public function editprofile()
+    {
+        return view('userprofile/editprofile');
+    }
+    public function profiletabs()
+    {
+        return view('userprofile/profiletabs');
     }
 }

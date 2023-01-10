@@ -2,11 +2,7 @@
 
 @section('content')
 <div class='container p-5'>
-    @if ($message = Session::get('success'))
-                    <div class="alert alert-success" style="height:50px">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
+    
 
 
     @if ($errors->any())
@@ -129,7 +125,7 @@
             
             </style>
                     
-               <form action="{{ route('createprofile.store') }}" method="POST" enctype="multipart/form-data">
+               <form action="{{ route('userprofile.store') }}" method="POST" enctype="multipart/form-data">
         
                 <div class="row">
                   <H1>Public Profile</H1><br>
@@ -186,11 +182,14 @@
                           <label for="about" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">About :
                             <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
                             </span></label>
+                        
                           <div class="col-sm-8">
                             <textarea name='about' class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
                           </div>
                         </div>
-                      </div>
+                    </div>
+
+                    
                       
                   </div>
                 </div>
@@ -271,13 +270,6 @@
                     <div class='col-sm-4 mt-4'>
                         <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
                         <input type="text" name="mobile_no" class="form-control">
-                    </div>
-        
-                    
-          
-                    <div class='col-12 col-md-4 mt-4'>
-                        <label for='city' class='mb-2'>City</label>
-                        <input type="text" name='city' class="form-control" placeholder="City" aria-label="City">
                     </div>
 
                     <div class='col-12 col-md-4 mt-4'>
