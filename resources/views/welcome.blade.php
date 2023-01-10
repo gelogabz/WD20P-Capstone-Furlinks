@@ -63,7 +63,7 @@
         <div class="containerimg" style="width:100%">
           <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
           <div class="middle">
-            <a class="text" href="pages/{{$dog->id}}" style="color:#6388AF; background-color:#f4f4f4">View More</a>
+            <a class="text" href="pages/{{$dog->id}}" style="color:#6388AF; background-color:#f4f4f4; text-decoration:none;">View More</a>
           </div>
         </div>
         <p style="padding-left:5%; font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
