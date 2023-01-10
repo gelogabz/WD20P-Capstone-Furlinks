@@ -74,15 +74,23 @@
           </a>
 
           <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/ownprofile">
-              My Profile
-            </a>
             <a class="dropdown-item" href="/applications">
               My Applications
             </a>
+            <a class="dropdown-item" href="/dogsposted">
+              Dogs Posted
+            </a>
+            <a class="dropdown-item" href="/dogsrehomed">
+              Dogs Rehomed
+            </a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/showprofile">
+              My Profile
+            </a>
+            <a class="dropdown-item" href="/accountsetting">
               Settings
             </a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">

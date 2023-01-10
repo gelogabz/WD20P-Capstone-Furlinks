@@ -35,7 +35,7 @@ class ApplicationsController extends Controller
             // ->simplePaginate(8);
             ->orderBy('applications.id', 'DESC')
             ->get();
-        return view('pages.applications')->with('applications', $applications);
+        return view('privpages.applications')->with('applications', $applications);
     }
 
     public function create($id)
