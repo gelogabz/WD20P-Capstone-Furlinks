@@ -36,8 +36,8 @@
     padding: 60px 0;
     }
 .file-upload-image {
-    max-height: 300px;
-    max-width: 300px;
+    /* max-height: 400px; */
+    max-width: 380px;
     margin: 0px;
     text-align: center;
     display:block;
@@ -133,30 +133,75 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="row mt-3 mb-3" ">
-                    <div class="col-md-6">
-                        //image uploading here
-                    </div>
-                    <div class="col-md-6">
-                        //notes
+                <div class="row">
+                    <div class="card" style="flex-direction:row; height:150px;  align-items:center">                        
+                        <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data">
+                        {!! csrf_field() !!}
+                        <div class="form-group card-img-top mb-2">
+                            <div class="image-upload-wrap justify-content-center" style="height:400px;width:400px">
+                                <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="turnoverpic" name="turnoverpic" required/>
+                                <div class="drag-text" style="padding-top:30%">
+                                    <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
+                                </div>
+                            </div>
+                            <div class="card-body" style="padding-left:40px">
+                                <div class="file-upload-content">
+                                    <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
+                                    <div class="container justify-content-center">
+                                        <div class="image-title-wrap justify-content-center">
+                                        </div>
+                                        <center>
+                                        <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
+                                        <div class="row justify-content-center" >
+                                            <input type="submit" name="submit" class="btn adopt_btn" value="Submit">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-            {{-- <div class="col-md-4 col-sm-12" style="padding:0px 0px ">
-                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 20px">
-                <h5 style="text-align:center">Confirm submission of application</h5>
-                <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data" target="{{ url()->previous() }}">
-                    {!! csrf_field() !!} 
-                    
-                    <div class="row justify-content-center" >
-                    <input type="hidden" value="{{$dogs->id}}" class="hidden" name="dog_id"/>
-                    <input type="submit" name="submit" class="btn adopt_btn" value="Submit">
-                    </div>
-                </form>
-                </div>
-            </div> --}}
     </div>
 </div>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            let reader = new FileReader();
+            reader.onload = function(e) {
+            document.getElementById("imgdisplay").className = "file-upload-image";
+            $('.image-upload-wrap').hide();
+            $('.file-upload-image').attr('src', e.target.result);
+            $('.file-upload-content').show();
+            $('.image-title-wrap').html(input.files[0].name);
+            document.getElementById("rembutton").className = "remove-image";
+            sessionStorage.setItem("img", reader.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+            saveImage();
+        } else {
+            removeUpload();
+        }
+        }
+
+    function removeUpload() {
+        $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+        $('.file-upload-content').hide();
+        $('.image-upload-wrap').show();
+        document.getElementById("pic").value = "";
+        $('.image-title-wrap').html("");
+        
+        }
+        $('.image-upload-wrap').bind('dragover', function () {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function () {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+</script>
 
 @endsection
