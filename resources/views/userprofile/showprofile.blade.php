@@ -11,9 +11,14 @@
             @endif
             <h2 style="font-family: 'Poppins', sans-serif;">Your Profile</h2><br><br>
     
+<<<<<<< Updated upstream
     <section class='container card bg-light p-2'>
 
     
+=======
+    <section class='container card bg-light p-4'>
+       
+>>>>>>> Stashed changes
         <div class="row justify-content-center">
             <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow firstcol">
                 
@@ -76,8 +81,14 @@
                         <h3>My Profile</h3>
                         <div class='row'>
                             <div class='col-12 col-md-6'>
+<<<<<<< Updated upstream
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Firstname</label>
                                 <input type="text" name="firstname" class="form-control form-control-sm" value="{{$userprofiles->firstname}}" disabled>
+=======
+                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>
+                                <h2>{{$userprofiles->firstname}}<h2>
+                                <input type="text" name="firstname" class="form-control form-control-sm" disabled>
+>>>>>>> Stashed changes
                             </div>
 
 
@@ -90,7 +101,11 @@
                         <div class='row mt-2'>
                             <div class='col-12 '>
                                 <label class='fw-bold' style="font-family: 'Lato', sans-serif;">About</label>
+<<<<<<< Updated upstream
                                 <textarea type="text" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled>{{$userprofiles->about}}"</textarea>
+=======
+                                <textarea type="text" value="{{$userprofiles->about}}" name="about" class="form-control form-control-sm" rows='15' cols='15' disabled></textarea>
+>>>>>>> Stashed changes
                             </div>
                         </div>
                     </div>
@@ -155,15 +170,90 @@
 
                     </div>
                      {{-- Dog Historys --}}
-                     <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
+                    <div class="tab-pane fade show  " id="doghistory" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
                         <h3>Dog History</h3>
+
                         <div class="row">
-                        <div class='col-12 col-md-6 mt-4'>
-                            <label for='withpets' class='col-12 col-md-12 col-form-label' >Do you currently have pets?</label>
-                            <input name='withpets'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
-                            <label class="form-check-label">{{($userprofiles->withpets==0)? "No" : "Yes" }}</label>
-                        </div>
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='withpets' class='col-12 col-md-12 col-form-label' >Do you currently have pets?</label>
+                                <input name='withpets'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->withpets==0)? "No" : "Yes" }}</label>
+                            </div>
+
+                            <div class='col-12 col-md-3 mt-4'>
+                                <label for="dogs" class=' col-form-label'>If yes, how many dogs ?</label>
+                                <input type="text" name="dogs" class="form-control" value="{{$userprofiles->dogs}}" style="width:80px;" disabled>
+                            </div>
+
+                            <div class='col-12 col-md-3 mt-4'>
+                                <label for="cats" class=' col-form-label'>If yes, how many cats ?</label>
+                                <input type="text" name="cats" class="form-control" value="{{$userprofiles->cats}}" style="width:80px;" disabled>
+                            </div>
                        </div>
+
+                       <div class="row">
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='allergy' class=' col-form-label' >Does any member of your household have any known allergies to animals ?</label>
+                                <input name='allergy'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->allergy==0)? "No" : "Yes" }}</label>
+                            </div>
+
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='allvaxed' class='col-12 col-form-label' >If you have  pets, have they all been vaccinated ?</label>
+                                <input name='allvaxed'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->allvaxed==0)? "No" : "Yes" }}</label>
+                            </div>
+                
+                        </div>
+
+                        <div class="row">
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='allneut' class='col-12 col-form-label' >If you have pets, are they all spayed/neutered ?</label>
+                                <input name='allneut'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->allneut==0)? "No" : "Yes" }}</label>
+                            </div>
+
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='euthanized' class='col-12 col-form-label' >Have you ever had a pet euthanized ?</label>
+                                <input name='euthanized'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->euthanized==0)? "No" : "Yes" }}</label>
+                            </div>
+                
+                        </div>
+
+                        <div class="row">
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='lostpet' class='col-12 col-form-label' >Have you ever lost pet?</label>
+                                <input name='lostpet'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->lostpet==0)? "No" : "Yes" }}</label>
+                            </div>
+
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for="priresp" class='col-12 col-form-label'>Who will have primary responsibility of the dog's care?</label>
+                                <input type="text" name="priresp" class="form-control" value="{{$userprofiles->priresp}}" disabled>
+                            </div>
+                
+                        </div>
+
+                        <div class="row">
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for="finresp" class='col-12 col-form-label'>Who will have financial responsibility of the dog?</label>
+                                <input type="text" name="finresp" class="form-control" value="{{$userprofiles->finresp}}" disabled>
+                            </div>
+
+                            <div class='col-12 col-md-6 mt-4'>
+                                <label for='lefthome' class='col-12 col-form-label' >Will your dog be alone at home?</label>
+                                <input name='lefthome'class="form-check-input" type="checkbox" value="" id="flexCheckCheckedDisabled" checked disabled>
+                                <label class="form-check-label">{{($userprofiles->lefthome==0)? "No" : "Yes" }}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class='col-12 mt-4'>
+                                <label for="hours" class=' col-form-label'>If yes, for how long ?</label>
+                                <input type="text" name="hours" class="form-control" value="{{$userprofiles->hours}}" style="width:80px;" disabled>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>
