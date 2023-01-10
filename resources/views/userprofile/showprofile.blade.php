@@ -47,7 +47,7 @@
                     <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
                         <div class='row'>
                             <div class='col-12 col-md-6'>
-                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>
+                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Firstname</label>
                                 <input type="text" name="firstname" class="form-control form-control-sm" disabled>
                             </div>
 
