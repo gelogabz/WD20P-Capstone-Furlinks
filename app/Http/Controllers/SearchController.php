@@ -17,8 +17,6 @@ class SearchController extends Controller
      */
 
    
-
-
     public function index(Request $request)
     {
         $gender = $request->input('gender');
@@ -68,7 +66,13 @@ class SearchController extends Controller
             ->where('dogs.size', 'LIKE', "%{$size}%")
             ->where('dogs.color','LIKE', "%{$color}%")
             ->get();
-            return view('pages.search')->with('dogs', $dogs);
+            return view('pages.search')
+            ->with('gender', $gender)
+            ->with('size', $size)
+            ->with('color', $color)
+            ->with('dogs', $dogs);
+            
+            // return view('pages.search')->with('dogs', $dogs);
 
     }
     

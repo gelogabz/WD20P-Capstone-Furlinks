@@ -25,10 +25,10 @@
             </div>
             <div class="form-group col-sm-4 col-lg-4 col-md-4" style="vertical-align:middle; margin:auto; padding:3px;">
               <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
-                <select class="form-select form-select-sm mb-2" name="breed" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                <select class="form-select form-select-sm mb-2" name="size" id="size" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
                   <option value="Small">Small breed</option>
-                  <option value="Medium">Medium-sized</option>
+                  <option value="Medium">Medium-sized breed</option>
                   <option value="Large">Large breed</option>
                 </select>
             </div>
@@ -63,12 +63,12 @@
         <div class="containerimg" style="width:100%">
           <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
           <div class="middle">
-            <a class="text" href="pages/{{$dog->id}}" style="color:#6388AF; background-color:#f4f4f4; text-decoration:none;">View More</a>
+            <a class="text" href="pages/{{$dog->id}}" style="text-decoration:none;">View More</a>
           </div>
         </div>
-        <p style="padding-left:5%; font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins';">{{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
-        <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato';"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-        <p style="padding-left:5%; font-size: small; font-family: 'Lato';">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
+        <p style="padding-left:5%; font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;">{{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+        <p style="padding-left:5%; margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+        <p style="padding-left:5%; font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{date('M d, Y', strtotime($dog->created_at))}}</p>
       </div>
     @endforeach
   </div>
