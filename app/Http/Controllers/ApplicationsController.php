@@ -35,7 +35,7 @@ class ApplicationsController extends Controller
             // ->simplePaginate(8);
             ->orderBy('applications.id', 'DESC')
             ->get();
-        return view('pages.applications')->with('applications', $applications);
+        return view('privpages.applications')->with('applications', $applications);
     }
 
     public function create($id)
@@ -116,11 +116,26 @@ class ApplicationsController extends Controller
             ->join('dogs', 'dogs.id', '=', 'applications.dog_id')
             ->where('dog_id', $id)
             ->get();
-        
+
         $dogs = DB::table('dogs')
-            ->select('dogs.pic')
+            ->select('dogs.pic',
+                'dogs.id',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.created_at'
+            )
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('applications', 'dogs.id', '=', 'applications.dog_id')
             ->where('dogs.id', $id)
             ->first();
+            
         return view('applications.index')->with('applications', $apply)->with('dogs', $dogs);
     }
 
@@ -134,9 +149,10 @@ class ApplicationsController extends Controller
                 'userprofiles.firstname as firstname',
                 'userprofiles.lastname as lastname',
                 'userprofiles.profile_pic as profile_pic',
-                // 'userprofiles.location as location',
                 'userprofiles.mobile_no as mobile_no',
                 'userprofiles.gender as gender',
+                'userprofiles.address1 as address1',
+                'userprofiles.address2 as address2',
                 'userprofiles.city as city',
                 'userprofiles.province as province',
                 'userprofiles.hometype as hometype',
@@ -191,6 +207,18 @@ class ApplicationsController extends Controller
     {
         $applications =  Applications::find($id);
         $applications->appstatus = $request->get('appstatus');
+        $applications->save();
+        return redirect()->back()
+            ->with('success', 'Application status successfully updated.');
+    }
+
+    public function update2(Request $request, $id)
+    {
+        $applications =  Applications::find($id);
+        $applicantselected = $request->get('applicant');
+        
+        
+        $applications->appstatus = 
         $applications->save();
         return redirect()->back()
             ->with('success', 'Application status successfully updated.');

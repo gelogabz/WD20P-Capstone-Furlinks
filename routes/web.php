@@ -9,12 +9,16 @@ Route::get('/search', 'App\Http\Controllers\SearchController@index');
 Route::get('/how', 'App\Http\Controllers\PagesController@how');
 Route::get('/about', 'App\Http\Controllers\PagesController@about');
 
-// For OWN PROFILE AND DOG DETAILS - create, edit, view applications
+// For OWN DOG DETAILS - create, edit, view applications
 Route::resource('/', 'App\Http\Controllers\DogsController');
-Route::get('/ownprofile', 'App\Http\Controllers\PagesController@ownprofile');
-Route::resource('ownprofile', 'App\Http\Controllers\DogprofileController');
+Route::get('/dogsposted', 'App\Http\Controllers\PagesController@dogsposted');
+Route::resource('dogsposted', 'App\Http\Controllers\DogprofileController');
+
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
+
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
+Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
+
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
@@ -24,27 +28,29 @@ Route::resource('/pages', 'App\Http\Controllers\DogsController');
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 // Route::put('applications/index', [ApplicationsController::class, 'update']);
-Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
+// Route::get('/applications', 'App\Http\Controllers\PagesController@ownapplications');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
+Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
 // This is Profiletabs - User
-Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
-Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
+
+
+// Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
+Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
+Route::resource('userprofile', 'App\Http\Controllers\UserprofileController');
+// Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
 // Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
-Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
-Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
-Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
-Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
-Route::resource('/createprofile', 'App\Http\Controllers\UserprofileController');
+// Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
+// Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
+// Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
+// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('profiletabs');
-
-Route::get('/add-image', [ProfilepicController::class, 'create'])->name('image.add');
-Route::post('/store-image', [ProfilepicController::class, 'store'])->name('image.store');
-Route::get('/show-image', [ProfilepicController::class, 'show'])->name('image.show');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
