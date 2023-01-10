@@ -1,5 +1,6 @@
 @extends ('components.navbar')
 @section('content')
+
 <style>
 .file-upload-input {
     position: absolute;
@@ -106,7 +107,10 @@
 
         <div class="row" >          
             <h3 class="" style="font-family: Poppins; color:#413F42">Finalize Adoption</h3><br>
-            <div class="col-md-4">
+        </div>
+
+        <div class="row" style="width:90%;display:block;margin:auto" > 
+            <div class="col-md-5">
                 <div class="row mt-3 mb-3" style="width:100%;margin:20px 20px">
                     <div class="border" style="border-radius:15px;margin-right:0px;padding:20px 20px">
                     <div class="card" style="flex-direction:row; height:150px; align-items:center">
@@ -132,37 +136,34 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="card" style="flex-direction:row; height:150px;  align-items:center">                        
-                        <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data">
-                        {!! csrf_field() !!}
-                        <div class="form-group card-img-top mb-2">
-                            <div class="image-upload-wrap justify-content-center" style="height:400px;width:400px">
-                                <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="turnoverpic" name="turnoverpic" required/>
-                                <div class="drag-text" style="padding-top:30%">
-                                    <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
-                                </div>
-                            </div>
-                            <div class="card-body" style="padding-left:40px">
-                                <div class="file-upload-content">
-                                    <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
-                                    <div class="container justify-content-center">
-                                        <div class="image-title-wrap justify-content-center">
-                                        </div>
-                                        <center>
-                                        <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
-                                        <div class="row justify-content-center" >
-                                            <input type="submit" name="submit" class="btn adopt_btn" value="Submit">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
+            <div class="col-md-7" style="padding:0px; margin:0px">
+                <div class="form-group mb-2">
+                    <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data">
+                        {!! csrf_field() !!}     
+                    <div class="image-upload-wrap justify-content-center" style="height:400px;width:400px">
+                        <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="turnoverpic" name="turnoverpic" required/>
+                        <div class="drag-text" style="padding-top:30%">
+                            <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
                         </div>
-                        </form>
                     </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
+                        <div class="container justify-content-center">
+                            <div class="image-title-wrap justify-content-center">
+                            </div>
+                            <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:250px">Remove selected image</button>
+                            <div class="row justify-content-center" >
+                                <input type="submit" name="submit" class="btn adopt_btn" value="Submit">
+                            </div>
+            
+                        </div>
+                    </div>
+                    </form>
                 </div>
             </div>
+  
         </div>
     </div>
 </div>
