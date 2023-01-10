@@ -238,7 +238,7 @@
 
             <!--DOG ADDITIONAL INFO  --> 
             <div class="row">
-              <table style="width:100%;"">
+              <table style="width:100%;">
                 <tr style="border-bottom:0.3pt solid #e1e1e1;">
                   <th colspan="4" style="padding-left:0px;font-size:16px"><i>Dog History</i></th>    
                 </tr>   
@@ -344,7 +344,7 @@
 
             <!--ADOPTION INFO  -->            
             <div class="row">
-              <table style="width:100%;"">
+              <table style="width:100%;">
                 <tr style="border-bottom:0.3pt solid #e1e1e1;">
                   <th colspan="4" style="padding-left:0px;font-size:16px"><i>Adoption Fees</i></th>    
                 </tr>   
