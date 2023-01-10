@@ -16,10 +16,10 @@
             <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block; border-radius:20px; margin:auto">
             <div style="text-align: center;margin-top:30px">
               @if(Auth::check())
-                  <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="float:center; margin-top:10px;">
+                  <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
                     <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>
                 @else 
-                  <a href="{{ route('login') }}" class="btn adopt_btn" style="float:center; margin-top:10px;">
+                  <a href="{{ route('login') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
                     <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right: 10px"></i>ADOPT</a>
                 @endif 
             </div>

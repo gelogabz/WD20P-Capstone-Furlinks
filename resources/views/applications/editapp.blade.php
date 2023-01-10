@@ -162,7 +162,7 @@
             </div>
 
             <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
-                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
+                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 10px">
                     <div class="card">
                         <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
                         <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
