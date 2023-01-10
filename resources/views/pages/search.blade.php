@@ -11,8 +11,8 @@
              <label  for="gender" style="padding-right:10px;">Gender: 
                <select id="gender" name="gender" style="border:none; background-color: rgb(241, 240, 240);width:80px;margin-top:0px;padding-top:0px">
                <option value='' selected><i>Select</i></option>
-               <option value="1-Male">Male</option>
-               <option value="2-Female">Female</option>
+               <option value="1-Male" {{($gender=="1-Male")? "selected" : "" }}>Male</option>
+               <option value="2-Female" {{($gender=="2-Female")? "selected" : "" }}>Female</option>
               </select>
             </label>
            </div>
@@ -22,9 +22,9 @@
                <label for="size" style="padding-right:10px;">Size: </label>
                  <select id="size" name="size" style="border:none; background-color: rgb(241, 240, 240);">
                    <option value='' selected><i>Select</i></option>
-                   <option value="Small">Small breed</option>
-                   <option value="Medium">Medium breed</option>
-                   <option value="Large">Large breed</option>
+                   <option value="Small"  {{($size=="Small")? "selected" : ""}}>Small breed</option>
+                   <option value="Medium" {{($size=="Medium")? "selected" : ""}}>Medium breed</option>
+                   <option value="Large"  {{($size=="Large")? "selected" : ""}}>Large breed</option>
                  </select>
                  </div>
                </div>
@@ -33,13 +33,13 @@
                  <label for="color" style="padding-right:10px;"> Color:</label>
                      <select id="color" name="color" style="border:none;background-color: rgb(241, 240, 240)" >
                       <option value='' selected>Tap to select</option>
-                      <option value="Black">Black</option>
-                      <option value="Brown">Brown</option>
-                      <option value="White">White</option>
-                      <option value="Gray">Gray</option>
-                      <option value="Mixed">Mixed</option>
-                      <option value="Dotted">Dotted</option>
-                      <option value="Brindled">Brindled</option>
+                      <option value="Black" {{($color=="Black")? "selected" : ""}}>Black</option>
+                      <option value="Brown" {{($color=="Brown")? "selected" : ""}}>Brown</option>
+                      <option value="White" {{($color=="White")? "selected" : ""}}>White</option>
+                      <option value="Gray" {{($color=="Gray")? "selected" : ""}}>Gray</option>
+                      <option value="Mixed" {{($color=="Mixed")? "selected" : ""}}>Mixed</option>
+                      <option value="Dotted" {{($color=="Dotted")? "selected" : ""}}>Dotted</option>
+                      <option value="Brindled" {{($color=="Brindled")? "selected" : ""}}>Brindled</option>
                     </select>
                    </div>
                  </div>
