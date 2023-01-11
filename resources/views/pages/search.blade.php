@@ -60,7 +60,7 @@
       @if(Request::has("gender") == '' && Request::has("size") == '' && Request::has("color") == '')   
        Showing all dogs posted🐶
      @else
-       Displaying {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male - " : ""}} {{($gender=="2-Female") ? "Female - " : ""}}{{($size != "")? $size.' - ' : "any size"}}{{($color!="")? $color : "any color"}}
+       Displaying {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male - " : ""}} {{($gender=="2-Female") ? "Female - " : ""}}{{($size != "")? $size.' - ' : "any size "}}{{($color!="")? $color : "any color"}}
      @endif
      </h5>
      
