@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 
 use Illuminate\Http\Request;
+use App\Models\Applications;
 use App\Models\Dogs;
 use App\Models\Breed;
 use App\Models\Search;
@@ -94,7 +97,28 @@ class DogsController extends Controller
                 ->take(4)
                 ->get();
 
-            return view('pages/dogdetailspublic')->with('dogs', $singleDog)->with('otherdogs', $dogsposted);
+            $idtofind = Auth::id();
+            $applications = DB::table('applications')
+                ->select()
+                ->where('dog_id', '=', $id)
+                ->where('user_id', '=', $idtofind)
+                ->get();
+                
+            
+            if ($applications->isEmpty())
+            {
+                $applicationstatus = '';
+            }
+            else {
+                $applicationstatus = 'existing';
+            }
+
+            return view('pages/dogdetailspublic')
+                // ->with($applicationstatus)
+                ->with('applicationstatus', $applicationstatus)
+                ->with('dogs', $singleDog)
+                ->with('otherdogs', $dogsposted);
+
     }
 
     /**
