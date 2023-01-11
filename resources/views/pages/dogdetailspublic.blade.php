@@ -13,7 +13,7 @@
         <h3 class="" style="font-family: Poppins; color:#413F42">Dog Information</h3><br>
         <div class="row" style="margin-right:30px">
           <div class="col-lg-5 col-sm-12" style="padding: 0px 0px 30px 0px">           
-            <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block; border-radius:20px; margin:auto">
+            <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:85%; display:block; border-radius:20px; margin:auto">
             <div style="justify-content: center; text-align:center; margin-top:30px">
 
               @if(Auth::check())

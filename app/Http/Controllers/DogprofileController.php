@@ -44,6 +44,7 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.user_id', '=', $idtofind)
+            ->where('dogs.status_id', '!=', 3)
             ->simplePaginate(8);
 
         $user = DB::table('userprofiles')
@@ -154,7 +155,14 @@ class DogprofileController extends Controller
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.dogdetails')->with('dogs', $singleDog);
+
+        $applications = DB::table('applications')
+            ->where('dog_id', $id)
+            ->get();
+
+        return view('dogprofile.dogdetails')
+            ->with('dogs', $singleDog)
+            ->with('applications', $applications);
     }
 
 
