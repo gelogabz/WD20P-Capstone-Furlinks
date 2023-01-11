@@ -1,5 +1,12 @@
 @extends ('components.navbar')
 @section('content')
+<style>
+    [rel='prev'], [rel='next'] {
+        background-color: #799FC8  !important;
+        color: #f4f4f4 !important;
+        text-decoration: none !important;
+    }
+</style>
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
@@ -36,11 +43,11 @@
                             </div>
                         </div> 
                     </div>
-                    @endforeach
-                    <div class="text-center mt-5">
-                    {{$dogs->links()}}
-                    </div>
+                    @endforeach 
                 </div>
+            </div>
+            <div class="text-center paginationbtn mt-3 mb-2" aria-current="paginationbtn">
+                {{$dogs->links()}}
             </div>
             </center>
         </div>
