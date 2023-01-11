@@ -967,4 +967,10 @@ select.list-dt:focus {
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
 }
+.paginationbtn{
+    color: #5082B7;
+}
+.paginationbtn:hover{
+    background-color: white;
+}
 /* FOOTER END */

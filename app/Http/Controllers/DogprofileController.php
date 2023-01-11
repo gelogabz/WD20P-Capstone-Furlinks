@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Dogs;
 use App\Models\Users;
 use App\Models\UserProfiles;
+use Illuminate\Pagination\Paginator;
 use DB;
 
 class DogprofileController extends Controller
@@ -240,5 +241,10 @@ class DogprofileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function boot()
+    {
+        Paginator::useBootstrap();
     }
 }

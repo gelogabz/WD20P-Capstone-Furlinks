@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Dogs;
 use App\Models\Search;
+use Illuminate\Pagination\Paginator;
 use DB;
 
 class SearchController extends Controller
@@ -75,4 +76,12 @@ class SearchController extends Controller
             ->with('dogs', $dogs);
     }
     
+    /**
+     * Show the form for creating a new resource.
+     */
+
+    public function boot()
+    {
+        Paginator::useBootstrap();
+    }
 }
