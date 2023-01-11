@@ -9,23 +9,30 @@
     <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dogs Posted</a>
   
     <div class="row" style="width:100%">          
-      <div class="col-md-9 col-sm-12">    
+      <div class="col-md-9 col-sm-12">   
         <h3 class="" style="font-family: Poppins; color:#413F42">Dog Information</h3><br>
         <div class="row" style="margin-right:30px">
-          <div class="col-lg-5 col-sm-12">          
+          <div class="col-lg-5 col-sm-12" style="padding: 0px 0px 30px 0px">           
             <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:80%; display:block; border-radius:20px; margin:auto">
-            <div style="text-align: center;margin-top:30px">
+            <div style="justify-content: center; text-align:center; margin-top:30px">
+
               @if(Auth::check())
-                  <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
-                    <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>
+                @if  ($applicationstatus == "existing")
+                <div class="alert" style="background-color:#f0e8dc; margin:auto; text-align:center; width: 320px; height:100px">
+                  <p style="font-weight:700">You have an ongoing application <br>to adopt this dog.<br> <span style="font-weight:400">Check status in Menu -> My Applications </p>
+                </div>                      
                 @else 
-                  <a href="{{ route('login') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
-                    <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right: 10px"></i>ADOPT</a>
-                @endif 
+                  <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
+                  <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
+                @endif
+              @else 
+                <a href="{{ route('login') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
+                  <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right: 10px"></i>ADOPT</a>
+              @endif  
             </div>
           </div>
 
-          <div class="col-lg-7 col-sm-12" style="padding: 15px 20px 0px 0px;">
+          <div class="col-lg-7 col-sm-12" style="padding: 0px 20px 20px 20px;">
             <h5 style="color:#61482e; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}} month/s old<br>
             <h6 style="color:#c8a279; font-family:Poppins;"><i class="fa-solid fa-paw" style="font-size:medium; color:#c8a279"></i><span style="color:#413F42;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}</span></h6>
             <i class="fa-solid fa-timer" style="font-size:medium; color:#413F42"></i>
