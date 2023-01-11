@@ -95,4 +95,7 @@
    </div>
    
    </div>
+   <div>
+    {{$dogs->links()}}
+   </div>
 @endsection

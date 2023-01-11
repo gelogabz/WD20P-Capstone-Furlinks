@@ -20,7 +20,7 @@ class SearchController extends Controller
    
     public function index(Request $request)
     {
-        $perPage = 12;
+        
         $gender = $request->input('gender');
         $size = $request->input('size');
         $color = $request->input('color');
@@ -67,7 +67,7 @@ class SearchController extends Controller
             ->where('dogs.gender', 'LIKE', "%{$gender}%")
             ->where('dogs.size', 'LIKE', "%{$size}%")
             ->where('dogs.color','LIKE', "%{$color}%")
-            ->paginate($perPage);
+            ->paginate(12);
 
         return view('pages.search')
             ->with('gender', $gender)
