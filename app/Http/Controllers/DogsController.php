@@ -84,23 +84,14 @@ class DogsController extends Controller
             ->where('dogs.id', $id)
             ->first();
             
-        $userid = Dogs::where('dogs.id', '=', $id)
+        $ownerid = Dogs::where('dogs.id', '=', $id)
             ->select('dogs.user_id')
             ->first()->user_id;
-
-        $userprofiles = Userprofile::where('user_id', $userid)
-            ->select()
-            ->get();
-
-        if ($userprofiles->isEmpty())
-        {$withprofile = 'inc';}
-        else {$withprofile = 'complete';};
         
         $dogsposted = DB::table('dogs')
-            ->select('dogs.id', 'dogs.pic',
-            )
+            ->select('dogs.id', 'dogs.pic',)
             ->join('users', 'users.id', '=', 'dogs.user_id')
-            ->where('dogs.user_id', "=", $userid)
+            ->where('dogs.user_id', "=", $ownerid)
             ->take(4)
             ->get();
 
@@ -115,9 +106,14 @@ class DogsController extends Controller
         {$applicationstatus = '';}
         else {$applicationstatus = 'existing';};
 
-        if ($idtofind == $userid)
+        if ($idtofind == $ownerid)
         {$owned = 'yes';}
         else {$owned = 'no';};
+
+        if (Userprofile::where('user_id', '=', $idtofind)->exists()) {
+            $withprofile = 'complete';}
+        else {$withprofile = 'inc';}
+
 
         return view('pages/dogdetailspublic')
             ->with('ownership', $owned)
