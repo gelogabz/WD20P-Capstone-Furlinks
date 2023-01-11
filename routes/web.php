@@ -21,12 +21,17 @@ Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
 // Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
-// For DOG ADOPTION APPLICATIONS
+// For APPLICATIONS
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
+
+// For APPLICATIONS
+Route::get('/adoptions/create/{id}', 'App\Http\Controllers\AdoptionsController@create');
+Route::resource('adoptions', 'App\Http\Controllers\AdoptionsController');
+
 
 // FOR USER PROFILE
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');

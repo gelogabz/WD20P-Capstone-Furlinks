@@ -228,15 +228,15 @@ ignupbtn .btn-primary2-3:visited {
 .btn-outline-primary2:visited {
     border-radius: 5px;
     background-color: #fff;
-    color: #4f0e0e;
+    color: #5082B7;
     height: 35px;
     width: 120px;
     padding: 5px;
     font-size: small !important;
 }
 .btn-outline-primary2:hover {
-    color: #514b4f;
-    background-color: rgb(233, 233, 233);
+    color: #799FC8;
+    background-color: #f4f4f4;
     height: 35px;
     width: 120px;
     padding: 5px;

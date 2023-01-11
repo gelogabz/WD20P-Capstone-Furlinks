@@ -46,27 +46,7 @@
     <div class="row" style="width:100%">          
       <div class="col-md-9 col-sm-12">                              
         <div class="row">
-          <h3>Applications for Adoption
-            {{-- <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:300px">   
-              <form action="{{route('applications.update', $dogs->id)}}" method="POST" enctype="multipart/form-data">
-                {!! csrf_field() !!}
-                @method('PATCH')
-
-              <div class="input-group">
-                  <select class="custom-select form-control" id="applicant" name="applicant" >
-                    <option>Select username</option>
-                    @foreach($applications as $application)    
-                      <option value="{{$application->id}}">{{$application->username}}</option>
-                    @endforeach
-                  </select>
-              <div class="input-group-append">
-              <input type="hidden" value="6" class="hidden" value=5 name="appstatus"/>
-              <input class="btn btn-secondary" type="submit" value="Select for adoption"></button>
-                  </div>
-              </div>
-              </form> 
-          </span> --}}
-          </h3>
+          <h3>Applications for Adoption</h3>
         </div>
         <div class="row" style="margin-top:20px;margin-right:70px">
           <table class="table" style="margin-top:10px;vertical-align:middle;margin-left:30px; padding-right:10px;">
@@ -104,7 +84,7 @@
       </div>
       
       <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
-        <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
+        <div class="border" style="border-radius:10px;margin-right:0px;padding:20px 10px">
             <div class="card">
               <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
               <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
