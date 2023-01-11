@@ -26,7 +26,7 @@
                   <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
                 @endif
               @else 
-                <a href="{{ route('login') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
+                <a href="{{ route('register') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
                   <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right: 10px"></i>ADOPT</a>
               @endif  
             </div>
@@ -125,7 +125,7 @@
           <p style="font-size:15px; color:#413F42;"><i>More dogs posted by <span>@</span>{{$dogs->users_name}}</i></p>
           <div class="row" style="margin-bottom:15px">
             @foreach($otherdogs as $otherdog)
-            <div class="col col-sm-6 col-xs-4" style="margin-right: 0px; margin-left: 0px;">
+            <div class="col col-sm-6 col-xs-4" style="padding:10px;">
               <div class="containerimg1" style="width:100%">
                 <img src="{{asset('Image/'.$otherdog->pic)}}" alt="Avatar" class="image1" style="width:100%">
                 <div class="middle1">

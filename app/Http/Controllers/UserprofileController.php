@@ -99,7 +99,6 @@ class UserprofileController extends Controller
 
         // return redirect('/showprofile')
         return redirect('userprofile/'.$idtofind)
-
             ->with('success', 'User profile successfully created.');
     }
 
@@ -220,7 +219,9 @@ class UserprofileController extends Controller
         $userprofiles->hours = $request->input('hours');
         $userprofiles->save();
 
-        return redirect()->back()
+        $idtofind = Auth::id();
+        
+        return redirect('userprofile/'.$idtofind)
             ->with('success', 'Profile successfully updated.');
     }
 }
