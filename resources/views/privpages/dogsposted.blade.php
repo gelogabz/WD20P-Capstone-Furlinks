@@ -32,7 +32,7 @@
 
                     @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex my-4 mx-4 border">
-                        <div class="card" style="width:12rem;">
+                        <div class="card" style="width:250px;">
                         <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" alt="picture">
                             <div class="card-body">
                             <h5 class="card-title fw-bold text-start" style="font-style:italic; font-family: Quicksand; color:#;">{{$dogsitem->name}}</h5>
