@@ -973,4 +973,27 @@ select.list-dt:focus {
 .paginationbtn:hover{
     background-color: white;
 }
+.login_btn{
+    color: #F4F4F4 !important;
+    background-color: #6388AF !important;
+    width: 20% !important;
+}
+.login_btn:hover{
+    color: #6388AF !important;
+    background-color: #F4F4F4 !important;
+    border: solid 1px #6388AF !important;
+}
+.link_hover:hover{
+    color: #799FC8 !important;
+}
+.reg_btn{
+    color: #6388AF !important;
+    background-color: #F4F4F4 !important;
+    border: solid 1px #6388AF !important;
+    width: 40% !important;
+}
+.reg_btn:hover{
+    color: #F4F4F4 !important;
+    background-color: #6388AF !important;
+}
 /* FOOTER END */

@@ -65,9 +65,11 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary form-control" href="userprofile/profiletabs">
-                                    {{ __('Register') }}
-                                </button>
+                                <center>
+                                    <button type="submit" class="btn form-control reg_btn" href="userprofile/profiletabs">
+                                        {{ __('Register') }}
+                                    </button>
+                                </center>
                             </div>
                         </div>
                     </form>
