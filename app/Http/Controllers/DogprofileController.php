@@ -65,7 +65,11 @@ class DogprofileController extends Controller
 
     public function create()
     {
-        return view('dogprofile.createprofile');
+        $breed = DB::table('breed')
+            ->select('id', 'name')
+            ->get();
+
+        return view('dogprofile.createprofile')->with('breed', $breed);
     }
 
     public function store(Request $request)
@@ -197,7 +201,12 @@ class DogprofileController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.editdog')->with('dogs', $editDog);
+
+            $breed = DB::table('breed')
+            ->select('id', 'name')
+            ->get();
+
+        return view('dogprofile.editdog')->with('dogs', $editDog)->with('breed',$breed);
     }
 
     public function update(Request $request, $id)
