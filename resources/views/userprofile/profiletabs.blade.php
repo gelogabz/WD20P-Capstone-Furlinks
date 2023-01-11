@@ -276,8 +276,8 @@
                         <label for='gender' class='mb-2'>Gender</label>
                         <select name='gender' class="form-select " aria-label=".form-select-sm example">
                             <option selected>Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <option value="1-Male">Male</option>
+                            <option value="1-Male">Female</option>
                         </select>
                     </div>
                 </div>
@@ -514,7 +514,7 @@
                             <option selected>Select Option</option>
                             <option value="Myself">Myself</option>
                             <option value="My spouse/partner">My spouse/partner</option>
-                            <option value="Another Family member">Another Family member</option>
+                            <option value="Another Famil ymember">Another Family member</option>
                             <option value="Househelp">Househelp</option>
                             <option value="Others">Others</option>
                         </select>

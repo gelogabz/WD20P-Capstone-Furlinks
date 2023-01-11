@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="mt-3">
-                    <a href="/userprofile/{{$userprofiles->user_id}}/edit">Edit Profile</a>
+                    <a href="/userprofile/{{$userprofiles->id}}/edit">Edit Profile</a>
                 </div>
                 
             </div>
@@ -82,8 +82,8 @@
 
 
                             <div class='col-12 col-md-6 '>
-                                <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name</label>
-                                <input type="text" name="firstname" class="form-control form-control-sm" value="{{$userprofiles->lastname}}" disabled>
+                                <label for="lastname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name</label>
+                                <input type="text" name="lastname" class="form-control form-control-sm" value="{{$userprofiles->lastname}}" disabled>
                                
                             </div>
                         </div>

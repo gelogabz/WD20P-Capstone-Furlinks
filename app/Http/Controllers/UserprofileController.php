@@ -60,6 +60,8 @@ class UserprofileController extends Controller
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
+        $idtofind = Auth::user()->id;
+
 
         if ($file = $request->file('profile_pic')) {
             $filename = date('YmdHis') . $file->getClientOriginalname();
@@ -95,7 +97,9 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
-        return redirect('/showprofile')
+        // return redirect('/showprofile')
+        return redirect('userprofile/'.$idtofind)
+
             ->with('success', 'User profile successfully created.');
     }
 
@@ -103,6 +107,7 @@ class UserprofileController extends Controller
     {
         $userprofile = DB::table('userprofiles')
             ->select(
+                'userprofiles.id',
                 'userprofiles.user_id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
@@ -140,6 +145,7 @@ class UserprofileController extends Controller
     {
         $userdata = DB::table('userprofiles')
             ->select(
+                'userprofiles.id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
                 'userprofiles.lastname',
@@ -166,16 +172,16 @@ class UserprofileController extends Controller
                 'userprofiles.lefthome',
                 'userprofiles.hours',
             )
-            ->where('user_id', $id)
+            ->where('id', $id)
             ->first();
         return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
 
-    public function update(Request $request, $userid)
+    public function update(Request $request, $id)
     {
         $this->validate($request, array());
 
-        $userprofiles = Userprofile::find($userid);
+        $userprofiles = Userprofile::find($id);
 
         // $userprofiles = Userprofiles::find($userid);
 
