@@ -1,13 +1,13 @@
 @extends ('components.navbar')
 @section('content')
 <div style="background-color: #F4f4f4;">
-    <div class="row align-items-center d-flex my-5 mx-0">
-        <div class="col-sm-6">
-            <img src="{{asset('build/images/about-logo.png') }}" class="rounded-circle my-4 ms-5" style="width: 75%;">
+    <div class="row align-items-center d-flex mx-0">
+        <div class="col-sm-6 my-5">
+            <img src="{{asset('build/images/about-logo.png') }}" class="rounded-circle ms-5" style="width: 90%;">
         </div>
-        <div class="col-md-6">
-            <h1 class="display-3 text-start me-5" style="color:#413F42; font-family:Quicksand; font-weight:400;">ABOUT FURLINKS</h1>
-            <p class="text-start me-5" style="font-family: Lato; font-weight:400;">
+        <div class="col-md-6 my-5">
+            <h1 class="display-4 text-center mx-5" style="color:#413F42; font-family:Quicksand; font-weight:400;">ABOUT FURLINKS</h1>
+            <p class="text-center mx-5" style="font-family: Lato; font-weight:400; color:#413F42;">
                Dog adoption is a wonderful way to bring a new companion into your life and 
                to make a difference in the life of a dog. When you adopt a dog, you are saving 
                a life and providing a home for a dog who may have otherwise been left in a shelter 
