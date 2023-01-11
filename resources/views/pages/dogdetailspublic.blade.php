@@ -15,15 +15,34 @@
           <div class="col-lg-5 col-sm-12" style="padding: 0px 0px 30px 0px">           
             <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:85%; display:block; border-radius:20px; margin:auto">
             <div style="justify-content: center; text-align:center; margin-top:30px">
+              {{$withprofile}}
 
               @if(Auth::check())
-                @if  ($applicationstatus == "existing")
-                <div class="alert" style="background-color:#f0e8dc; margin:auto; text-align:center; width: 320px; height:100px">
-                  <p style="font-weight:700">You have an ongoing application <br>to adopt this dog.<br> <span style="font-weight:400">Check status in Menu -> My Applications </p>
-                </div>                      
-                @else 
-                  <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
-                  <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
+                @if ($ownership == 'yes' )
+                  @if ($dogs->status_id == 1)
+                    <a class="btn edit_btn" href="/dogprofile/{{$dogs->id}}/edit" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                      <i class="fa-regular fa-pen-to-square" style=""></i> 
+                      Edit Dog Profile
+                    </a>
+                  @elseif ($dogs->status_id == 2)
+                    <a class="btn edit_btn" href="/applications/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                      View Applications
+                    </a>
+                  @else
+                    <a class="btn edit_btn" href="/adoptions/create/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                      Finalize Adoption
+                    </a>
+                  @endif
+
+                @else
+                  @if ($applicationstatus == "existing")
+                    <div class="alert" style="background-color:#f0e8dc; margin:auto; text-align:center; width: 320px; height:100px">
+                      <p style="font-weight:700">You have an ongoing application <br>to adopt this dog.<br> <span style="font-weight:400">Check status in Menu -> My Applications </p>
+                    </div>                      
+                  @else 
+                    <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
+                    <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
+                  @endif
                 @endif
               @else 
                 <a href="{{ route('register') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">

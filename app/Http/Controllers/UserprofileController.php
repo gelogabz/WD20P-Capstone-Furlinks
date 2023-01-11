@@ -136,8 +136,13 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile);
+        
+        if (Userprofile::where('user_id', '=', $id)->exists()) {
+            return view('userprofile.showprofile')->with('userprofiles', $userprofile);
+        }
+        else {
+            return view('userprofile.profiletabs');
+        }
     }
 
     public function edit($id)
