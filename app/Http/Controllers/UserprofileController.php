@@ -55,7 +55,8 @@ class UserprofileController extends Controller
             'finresp' => 'required',
             'lefthome' => 'required',
             'hours' => 'required',
-        ));
+        )
+        );
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
@@ -64,7 +65,8 @@ class UserprofileController extends Controller
             $filename = date('YmdHis') . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $userprofile['profile_pic'] = "$filename";
-        };
+        }
+        ;
 
         $userprofile->profile_pic = $userprofile['profile_pic'];
         $userprofile->firstname = $request->firstname;
@@ -166,7 +168,7 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-        return view('userprofile.editprofile')->with('usersample', $userdata);
+        return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
 
     public function update(Request $request, $userid)
@@ -183,7 +185,8 @@ class UserprofileController extends Controller
             $input['profile_pic'] = "$filename";
         } else {
             unset($input['profile_pic']);
-        };
+        }
+        ;
         $userprofiles->profile_pic = $input['profile_pic'];
         $userprofiles->firstname = $request->input('firstname');
         $userprofiles->lastname = $request->input('lastname');
