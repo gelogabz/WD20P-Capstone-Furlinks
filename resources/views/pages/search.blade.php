@@ -57,10 +57,11 @@
     
 
      <h5 style="color:#413F42;font-size:18px">
-      @if(Request::get("gender") == '' && Request::get("size") == '' && Request::get("color") == '')   
+      @if(Request::has("gender") == '' && Request::has("size") == '' && Request::has("color") == '')   
        All Dogs are posted🐶
      @else
-       {{$dogs->count()}} search results for {{($gender=="1-Male")? "Male" : "Female"}}, {{$size}} breed, {{$color}}
+     {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male," : ""}} {{($gender=="2-Female") ? "Female," : ""}} {{($size=="Small") ? "Small breed" : ""}} {{($size=="Medium") ? "Medium Breed" : ""}} {{($size=="Large") ? "Large," : ""}} ,{{$color}}
+       {{-- {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male" : ($gender=="1-Female") ? "Female": "Other"}}, {{$size}} breed, {{$color}} --}}
      @endif
      
      </h5>
