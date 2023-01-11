@@ -67,7 +67,7 @@ class HomeController extends Controller
         ->join('status', 'status.id', '=', 'dogs.status_id')
         ->join('users', 'users.id', '=', 'dogs.user_id')
         ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
-        ->get();
+        ->simplePaginate(12);
 
     return view('pages.search')
         ->with('gender', $gender)
