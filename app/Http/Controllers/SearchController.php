@@ -67,17 +67,12 @@ class SearchController extends Controller
             ->where('dogs.size', 'LIKE', "%{$size}%")
             ->where('dogs.color','LIKE', "%{$color}%")
             ->paginate($perPage);
-            return view('pages.search')
+
+        return view('pages.search')
             ->with('gender', $gender)
             ->with('size', $size)
             ->with('color', $color)
             ->with('dogs', $dogs);
-            
-            // return view('pages.search')->with('dogs', $dogs);
-
     }
     
-    /**
-     * Show the form for creating a new resource.
-     */
 }

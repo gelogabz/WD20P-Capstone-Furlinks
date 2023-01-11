@@ -108,7 +108,9 @@
         <div class="row" >          
             <h3 class="" style="font-family: Poppins; color:#413F42">Finalize Adoption</h3><br>
         </div>
-
+        <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data">
+            {!! csrf_field() !!}     
+            
         <div class="row" style="width:90%;display:block;margin:auto" > 
             <div class="col-md-5">
                 <div class="row mt-3 mb-3" style="width:100%;margin:20px 20px">
@@ -137,11 +139,8 @@
                 </div>
             </div>
 
-
             <div class="col-md-7" style="padding:0px; margin:0px">
                 <div class="form-group mb-2">
-                    <form action="{{ route('adoptions.store') }}" method="POST" enctype="multipart/form-data">
-                        {!! csrf_field() !!}     
                     <div class="image-upload-wrap justify-content-center" style="height:400px;width:400px">
                         <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="turnoverpic" name="turnoverpic" required/>
                         <div class="drag-text" style="padding-top:30%">
@@ -157,14 +156,12 @@
                             <div class="row justify-content-center" >
                                 <input type="submit" name="submit" class="btn adopt_btn" value="Submit">
                             </div>
-            
                         </div>
                     </div>
-                    </form>
                 </div>
             </div>
-  
         </div>
+        </form>
     </div>
 </div>
 

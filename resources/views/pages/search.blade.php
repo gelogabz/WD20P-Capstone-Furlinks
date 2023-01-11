@@ -10,7 +10,7 @@
           <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #F4F4F4; font-size:small">
           
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:40%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
+              <label style="padding-left:40%; padding-right:10%; font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
                 <select class="form-select form-select-sm mb-2 ms-2" name="gender" id="gender" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
                   <option value="1-Male" {{($gender=="1-Male")? "selected" : "" }}>Male</option>
@@ -18,7 +18,7 @@
                  </select>
             </div>
             <div class="form-group col-sm-4 col-lg-4 col-md-4" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:45%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
+              <label style="padding-left:45%; padding-right:10%; font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
                 <select class="form-select form-select-sm mb-2" name="size" id="size" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
                   <option value="Small"  {{($size=="Small")? "selected" : ""}}>Small breed</option>
@@ -27,7 +27,7 @@
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:40%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
+              <label style="padding-left:40%; padding-right:10%; font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
                 <select class="form-select form-select-sm mb-2" name="color" id="color" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected>Select</option>
                   <option value="Black" {{($color=="Black")? "selected" : ""}}>Black</option>
@@ -58,17 +58,14 @@
 
      <h5 style="color:#413F42;font-size:18px">
       @if(Request::has("gender") == '' && Request::has("size") == '' && Request::has("color") == '')   
-       All Dogs are posted🐶
+       Showing all dogs posted🐶
      @else
-     {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male," : ""}} {{($gender=="2-Female") ? "Female," : ""}} {{($size=="Small") ? "Small breed" : ""}} {{($size=="Medium") ? "Medium Breed" : ""}} {{($size=="Large") ? "Large," : ""}} ,{{$color}}
-       {{-- {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male" : ($gender=="1-Female") ? "Female": "Other"}}, {{$size}} breed, {{$color}} --}}
+       Displaying {{$dogs->count()}} search results for {{($gender=="1-Male") ? "Male - " : ""}} {{($gender=="2-Female") ? "Female - " : ""}}{{($size != "")? $size.' - ' : "any size"}}{{($color!="")? $color : "any color"}}
      @endif
-     
      </h5>
      
-     <div class="border" style="border-radius:20px;padding: 20px 30px 15px 30px">
+     <div class="border mt-4" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
-        
         
         @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-6" style="margin-bottom:25px">

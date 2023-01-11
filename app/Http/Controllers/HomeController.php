@@ -26,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+    $gender = '';
+    $size = '';
+    $color = '';
     $dogs = DB::table('dogs')
         ->select(
             'dogs.id',
@@ -66,6 +69,10 @@ class HomeController extends Controller
         ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
         ->get();
 
-        return view('pages.search')->with('dogs', $dogs);
+    return view('pages.search')
+        ->with('gender', $gender)
+        ->with('size', $size)
+        ->with('color', $color)
+        ->with('dogs', $dogs);
     }
 }
