@@ -13,7 +13,7 @@
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px; margin-bottom: 20px">
     <div class="row" style="width:100%;  margin-bottom: 20px;">
         <div class="row" style="width:100%; margin-top:20px;">
-            <h3>My Dogs
+            <h3>My Dogs for Adoption
             <span class="ml-auto text-nowrap" style="padding: bottom 5px;">   
             <a class="btn postdog_btn mb-3" href="/dogprofile/create" type="button" style="float:right; font-family:Poppins; vertical-align:bottom; text-align: center; padding-top:6px">
                 <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:9px; padding-top:5px;"></i>
@@ -21,15 +21,15 @@
             </a>
             </span>
             </h3>
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="height:50px">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+            
             <center>
             <div class="tab-content justify-content-center align-content-center mx-0 px-0" id="myTabContent">
                 <div class="tab-pane fade show active " id="dogposted" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success" style="height:50px">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-
                     @foreach($dogs as $dogsitem)
                     <div class="card d-inline-flex my-4 mx-4 border">
                         <div class="card" style="width:250px;">

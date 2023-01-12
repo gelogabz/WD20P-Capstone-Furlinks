@@ -11,6 +11,43 @@ use DB;
 
 class AdoptionsController extends Controller
 {
+    public function index()
+    {
+        $idtofind = Auth::id();
+        $dogs = DB::table('dogs')
+            ->select(
+                'dogs.id',
+                'dogs.user_id',
+                'dogs.created_at',
+                'dogs.name',
+                'dogs.gender',
+                'dogs.age_yr',
+                'dogs.age_month',
+                'dogs.breed_id1',
+                'breed1.name as breed1_name',
+                'dogs.breed_id2',
+                'breed2.name as breed2_name',
+                'dogs.pic',
+                'dogs.size',
+                'dogs.color',
+                'dogs.location',
+                'dogs.neutered',
+                'dogs.birthdate',
+                'dogs.rescued',
+                'dogs.rescuedate',
+                'dogs.fee',
+                'dogs.feenotes',
+                'dogs.status_id',
+                'status.name as status_name')
+            ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
+            ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->join('status', 'status.id', '=', 'dogs.status_id')
+            ->where('dogs.user_id', '=', $idtofind)
+            ->where('dogs.status_id', '=', 3)
+            ->simplePaginate(8);
+
+        return view('privpages.dogsrehomed')->with('dogs', $dogs);
+    }
     public function create($id)
     {
         $apply = DB::table('applications')
@@ -53,7 +90,14 @@ class AdoptionsController extends Controller
                 'breed1.name as breed1_name',
                 'dogs.breed_id2',
                 'breed2.name as breed2_name',
-                'dogs.created_at'
+                'dogs.created_at',   
+                'dogs.size',
+                'dogs.color',
+                'dogs.location',
+                'dogs.neutered',
+                'dogs.birthdate',
+                'dogs.rescued',
+                'dogs.rescuedate',
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
@@ -63,4 +107,32 @@ class AdoptionsController extends Controller
         return view('adoptions.create')->with('applications', $apply)->with('dogs', $dogs);
     }
 
+    public function store(Request $request)
+    {
+        $this->validate($request, array(
+            'turnover_pic' => 'required',
+        ));
+
+        $turnover = new Adoptions;
+        $turnover->dog_id = $request->dogid;
+        $turnover->user_id = $request->userid;
+
+        if ($file = $request->file('turnover_pic')) {
+            $filename = date('YmdHis') . $file->getClientOriginalname();
+            $file->move(public_path('Image'), $filename);
+            $input['turnover_pic'] = "$filename";
+        };
+
+        $turnover->turnoverpic = $input['turnover_pic'];
+        $turnover->save();
+
+        $id = $turnover->dog_id;
+
+        DB::table('dogs')
+        ->where('dogs.id', $id)
+        ->update(['status_id' => 4]);
+
+        return redirect('/dogsrehomed')
+        ->with('success', 'Adoption successfully finalized.');
+    }
 }

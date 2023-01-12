@@ -47,20 +47,7 @@ class DogprofileController extends Controller
             ->where('dogs.status_id', '!=', 3)
             ->simplePaginate(8);
 
-        $user = DB::table('userprofiles')
-            ->select(
-                'userprofiles.profile_pic',
-                'userprofiles.firstname',
-                'userprofiles.lastname',
-                'userprofiles.about',
-                'userprofiles.city',
-                'userprofiles.province',
-                'users.name as user_name')
-            ->join('users', 'users.id', '=', 'userprofiles.user_id')
-            ->where('userprofiles.user_id', '=', $idtofind)
-            ->first();
-
-        return view('privpages.dogsposted')->with('dogs', $dogs)->with('user', $user);
+        return view('privpages.dogsposted')->with('dogs', $dogs);
     }
 
     public function create()
