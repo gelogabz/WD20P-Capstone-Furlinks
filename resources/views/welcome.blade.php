@@ -10,22 +10,22 @@
 <div class="d-flex align-items-center justify-content-center">
   <div class="container" style="display:block; background-image: url({{asset('build/images/bgimage.jpg')}}); background-size:cover; border-radius: 15px; text-align: center; margin:20px; padding:25px; background-blend-mode:darken;">
     <h1 class="font-effect-outline fw-bold" style="color:#FFF; font-family:Quicksand;">Find you fur-fect match</h1>    
-    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: rgb(241, 240, 240); margin-top:3x; border-radius:5px">
+    <form action="{{route('search.index')}}" method="GET" role="search" style="width:100%; background-color: #F4F4F4; margin-top:3x; border-radius:5px; opacity:89%">
       {{ csrf_field() }}
-        <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
-          <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
+        <div class="d-flex align-items-center justify-content-center">
+          <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #F4F4F4;font-size:small">
           
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
-                <select class="form-select form-select-sm mb-2 ms-2" name="gender" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+              <label style="font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold my-2 ms-5"> Gender: </label>
+                <select class="rounded-2 py-1 pe-5 mx-2" name="gender" id="gender" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
                   <option value="1-Male">Male</option>
                   <option value="2-Female">Female</option>
                  </select>
             </div>
             <div class="form-group col-sm-4 col-lg-4 col-md-4" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
-                <select class="form-select form-select-sm mb-2" name="size" id="size" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+              <label style="font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold my-2 ms-5"> Size: </label>
+                <select class="rounded-2 py-1 pe-3 mx-2" name="size" id="size" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected><i>Select</i></option>
                   <option value="Small">Small breed</option>
                   <option value="Medium">Medium-sized breed</option>
@@ -33,8 +33,8 @@
                 </select>
             </div>
             <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-              <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
-                <select class="form-select form-select-sm mb-2" name="color" id="color" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+              <label style="font-family: 'Poppins'; font-size:18px; color:#413F42;" class="fw-bold my-2"> Color: </label>
+                <select class="rounded-2 py-1 pe-5 mx-2" name="color" id="color" style="border:none; background-color:white; font-family: 'Lato'; font-size:12pt;">
                   <option value='' selected>Select</option>
                   <option value="Black">Black</option>
                   <option value="Brown">Brown</option>

@@ -15,15 +15,30 @@
         <div class="row" style="width:100%; margin-top:20px;">
             <h3>My Dogs for Adoption
             <span class="ml-auto text-nowrap" style="padding: bottom 5px;">   
-            <a class="btn postdog_btn mb-3" href="/dogprofile/create" type="button" style="float:right; font-family:Poppins; vertical-align:bottom; text-align: center; padding-top:6px">
+                <a class="btn postdog_btn mb-3" href="/dogprofile/create" type="button" style="float:right; font-family:Poppins; vertical-align:bottom; text-align: center; padding-top:6px">
                 <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:9px; padding-top:5px;"></i>
-                POST DOG
+                Post a Dog
             </a>
             </span>
             </h3>
+
+            @if ($dogs->isEmpty())
+                <div class="alert alert-warning" style="height:50px;background-color:#f0e8dc">
+                    <p> You have not posted any dog for adoption yet.  Tap Post a Dog if you would like to add a dog for adoption or 
+                    <a href="/search" style="color:#885b2a; text-decoration: none;font-weight:700">click here</a>
+                    <span> to find a dog to adopt.</p>    
+              </div>
+            @endif
+            
             @if ($message = Session::get('success'))
             <div class="alert alert-success" style="height:50px">
                 <p>{{ $message }}</p>
+            </div>
+            @endif
+
+            @if ($message = Session::get('noprofile'))
+            <div class="alert alert-danger" style="height:50px">
+                <p><span style="font-weight:600;padding-right:10px"> Incomplete User Informaiton:</span>{{ $message }} FIll up your profile information <a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">by clicking here </a>.</p>
             </div>
             @endif
             

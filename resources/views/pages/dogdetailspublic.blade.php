@@ -46,7 +46,7 @@
                               <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
                           @else
                               <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
-                                <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
+                                <p style="font-weight:800;font-size:medium"> Want to adopt this dog? <br> 
                                 <p style="font-weight:400;font-size:15px;"> A complete user profile is required. <br><a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">Click here</a> to complete your profile.</span>    
                               </div>
                           @endif
@@ -54,8 +54,8 @@
                   @endif
               @else 
                 <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
-                  <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
-                  <p style="font-weight:400;font-size:15px;"> Please register and complete your profile <br><a href="{{ route('register') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> here</a> to complete your profile.</span>    
+                  <p style="font-weight:800;font-size:medium"> Want to adopt this dog? <br> 
+                  <p style="font-weight:400;font-size:15px;"> Please login by <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> clicking here</a><br> or if you are a new user, <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> register here.</a></span>    
                 </div>
               @endif  
             </div>

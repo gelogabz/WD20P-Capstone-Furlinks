@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+
+use App\Http\Controllers\Userprofile;
+
 use App\Models\Dogs;
 use App\Models\Users;
 use App\Models\UserProfiles;
-use Illuminate\Pagination\Paginator;
+
 use DB;
 
 class DogprofileController extends Controller
@@ -56,7 +60,20 @@ class DogprofileController extends Controller
             ->select('id', 'name')
             ->get();
 
-        return view('dogprofile.createprofile')->with('breed', $breed);
+        $idtofind = Auth::id();
+
+        $userprofiles = DB::table('userprofiles')
+            ->where('user_id', '=', $idtofind)
+            ->get();
+
+        if ($userprofiles->isEmpty())
+            {
+            return redirect('/dogsposted')
+            ->with('noprofile', '  A completed user profile is required for posting a dog for adoption.');
+            }
+        else {
+            return view('dogprofile.createprofile')->with('breed', $breed);
+            }
     }
 
     public function store(Request $request)
