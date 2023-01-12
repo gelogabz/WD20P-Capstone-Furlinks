@@ -15,13 +15,14 @@
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom:30px">
   <div class="row" style="width:100%;margin-top:5px;margin-bottom:15px">
+
     <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:10px">
     <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back</a>
   
     <div class="row" style="width:100%"> 
         
       <!--Foster profile information -->
-      <div class="card col-lg-3 col-sm-12 text-center border m-1 pt-4 firstcol" style="align-items: center">
+      <div class="card col-md-3 col-sm-12 text-center border pt-4 firstcol" style="align-items: center">
         <div class="row" style="padding-bottom:5px">
             <div class="mx-auto">
               <img class="propic" src="{{asset('image/'.$user->profile_pic)}}">
@@ -73,23 +74,23 @@
         </div>
       </div>
 
-      <div class="col co-md-9 col-sm-12">
+      <div class="col col-md-9 col-sm-12" style='padding-right:0px;'>
 
-        <div class="container-fluid" style="width:90%;margin-top:0px;padding-top:0px">
+        <div class="container-fluid" style="width:100%;margin-top:0px;padding-top:0px">
           <div class="d-flex">
             <ul class="nav nav-tabs flex-grow-1 flex-nowrap">
               <li class="nav-item">
-                <a class="nav-link active" href="#posted" data-toggle="tab">Dogs Posted</a>
+                <a class="nav-link active" href="#posted" data-toggle="tab">Posted</a>
               </li>
               <li class="nav-item" >
-                <a class="nav-link" href="#rehomed" data-toggle="tab">Dogs Re-Homed</a>
+                <a class="nav-link" href="#rehomed" data-toggle="tab">Re-Homed</a>
               </li>
             </ul>
           </div>
         </div>
         
 
-        <div class="container-fluid d-flex justify-content-left" style="width:90%;">
+        <div class="container-fluid d-flex justify-content-left" style="width:100%;">
           <div class="tab-content" style="width:100%;padding:10px; border-width:3px; border:#e1e1e1 solid 1px">
 
             <div class="tab-pane active" id="posted">
@@ -101,7 +102,7 @@
                       <div class="containerimg" style="width:100%">
                         <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
                         <div class="middle">
-                          <div><a class="text" href='/pages/{{$dog->id}}' style="text-decoration: none">View More</a></div>
+                          <div><a class="text" href='/pages/{{$dog->id}}' style="text-decoration: none">View</a></div>
                         </div>
                       </div>    
                       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
@@ -115,7 +116,7 @@
               </div>
             </div>
 
-            <div class="tab-pane active" id="rehomed">
+            <div class="tab-pane" id="rehomed">
               <div class="row" style="margin: 15px 20px 0px 15px">
                 <h4 style="font-family: Poppins; color:#413F42">Dogs successfully rehomed</strong></h4>
                 <div class="row mt-3">
@@ -124,7 +125,7 @@
                       <div class="containerimg" style="width:100%">
                         <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
                         <div class="middle">
-                          <div><a class="text" href='/adoptions/{{$dog->id}}' style="text-decoration: none">View More</a></div>
+                          <div><a class="text" href='/adoptions/{{$dog->id}}' style="text-decoration: none">View</a></div>
                         </div>
                       </div>    
                       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>

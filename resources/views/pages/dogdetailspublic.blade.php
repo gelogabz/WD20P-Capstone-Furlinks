@@ -55,7 +55,9 @@
               @else 
                 <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
                   <p style="font-weight:800;font-size:medium"> Want to adopt this dog? <br> 
-                  <p style="font-weight:400;font-size:15px;"> Please login by <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> clicking here</a><br> or if you are a new user, <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> register here.</a></span>    
+                  <p style="font-weight:400;font-size:15px;"> Please login by <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> 
+                  clicking here</a><br> 
+                  or if you are a new user, <a href="{{ route('register') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> register here.</a></span>    
                 </div>
               @endif  
             </div>
@@ -145,7 +147,7 @@
             </div>
             <div class="col">
               <div class="row" style="padding-top: 5px; padding-bottom: 5px; font-size:medium">
-                <a href="/users/{{$dogs->user_id}}" style="color:#B78550;"><span>@</span>{{$dogs->users_name}}</a>
+                <a href="/users/{{$dogs->user_id}}" style="color:#B78550;text-decoration:none"><span>@</span>{{$dogs->users_name}}</a>
                 <p style="font-size:13px; line-height:1.6; color:#413F42;">{{$dogs->city}}, {{$dogs->province}}</p>
               </div>
             </div>
