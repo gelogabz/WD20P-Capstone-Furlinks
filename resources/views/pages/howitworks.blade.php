@@ -109,6 +109,25 @@
               so the specific process may vary from website to website.    
             </p>
         </div>
+
+        <div>
+        <div>
+            <div>
+                <img src={{}} alt="">
+            </div>
+            <p>"Furlinks proved to be an invaluable resource for us in our search for the perfect furry companion. Their platform made it easy to find our new best friend and the adoption process was seamless. We are incredibly grateful to Furlinks for bringing us and our new dog together and making her feel like she is truly a part of our family. Thank you, Furlinks!"</p>
+        </div>
+
+        <div>
+            <p>"We highly recommend Furlinks as a resource for anyone looking to adopt a dog. The platform's features make it an incredibly user-friendly and efficient tool in the search for the perfect pet. Thanks to Furlinks, we were able to find and adopt the perfect companion for our family and we couldn't be happier. We are truly grateful for the support and guidance that Furlinks provided throughout the adoption process."</p>
+        </div>
+
+        <div>
+            <p>
+                "Adopting a dog has been one of the greatest joys of our lives and we have Furlinks to thank for making it possible. Their platform made the entire process of finding and adopting our new furry family member a breeze. We are forever grateful for the role that Furlinks played in bringing our new companion into our home. Thank you, Furlinks, for making this day the best one of our lives."
+            </p>
+        </div>
+    </div>
     </div>
     </center>
 </div>
