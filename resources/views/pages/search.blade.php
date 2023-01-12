@@ -68,27 +68,29 @@
      <div class="border mt-4" style="border-radius:20px;padding: 20px 30px 15px 30px">
       <div class="row">
         
-        @foreach($dogs as $dog)
+      @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-6" style="margin-bottom:25px">
         <div class="row" style="padding-bottom:5px">
-        <div class="col col-auto" style="margin-right:px">
-       <img class="profimg" src="{{'image/' . $dog->profile_pic}}">
-       </div>
-       <div class="col">
-         <div class="row fw-bold" style="padding-top:2px; color:#180A0A; font-family:Poppins;">{{$dog->users_name}}</div>
-         <div class="row" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{date('M d, Y', strtotime($dog->created_at))}}</div>
-       </div>
+          <div class="col col-auto" style="margin-right:px">
+            <img class="profimg" src="{{'image/' . $dog->profile_pic}}">
+          </div>
+          <div class="col-lg-9">
+            <div class="row fw-bold" style="color:#180A0A; text-align:start;font-family:Poppins;">             
+            <a href="/users/{{$dog->user_id}}" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
+            </div>
+            <div class="row" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{date('M d, Y', strtotime($dog->created_at))}}</div>
+          </div>
         </div>
-       <div class="containerimg" style="width:100%">
-       <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%">
-       <div class="middle">
+        <div class="containerimg" style="width:100%">
+          <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%">
+          <div class="middle">
             <a href="pages/{{$dog->id}}" style="text-decoration:none;" class="text">View More</a>
           </div>
-     </div>    
-         <img src="" class="image img-responsive" width="100%" style="padding-bottom:2%" />
-       <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
-       <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-     </div>
+        </div>    
+        <img src="" class="image img-responsive" width="100%" style="padding-bottom:2%" />
+        <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+        <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+      </div>
       @endforeach
       
       

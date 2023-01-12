@@ -48,6 +48,7 @@ class DogsController extends Controller
         $singleDog = DB::table('dogs')
             ->select(
                 'dogs.id',
+                'dogs.user_id',
                 'dogs.created_at',
                 'dogs.name',
                 'dogs.gender',
