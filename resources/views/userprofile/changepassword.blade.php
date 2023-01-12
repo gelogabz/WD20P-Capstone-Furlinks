@@ -12,7 +12,7 @@
     <div class="col-8 card shadow p-4 onlycol">
       <H1>Change password</H1>
         <HR>
-          <form action="" method="POST">
+          <form action="{{route('changepassword.update')}}" method="POST">
             {!! csrf_field() !!}
             @method('PATCH')
             <div class="row mb-3">

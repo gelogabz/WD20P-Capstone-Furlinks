@@ -24,7 +24,9 @@ class UserprofileController extends Controller
 
     public function create()
     {
+       
         return view('userprofile.profiletabs');
+
     }
 
 
