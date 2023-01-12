@@ -53,3 +53,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
+
+// Route to display the change password form
+// Route::get('/changepassword', [App\Http\Controllers\ChangePassword::class, 'userprofile.changepassword'])->name('change-password');
+Route::get('change-password', [App\Http\Controllers\ChangePasswordController::class, '__invoke'])->name('changePassword');
+// Route to handle the form submission and update the password
+// Route::post('/changepassword', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatepassword');
+
+
