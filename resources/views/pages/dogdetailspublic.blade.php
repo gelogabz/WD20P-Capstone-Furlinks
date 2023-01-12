@@ -145,7 +145,7 @@
             </div>
             <div class="col">
               <div class="row" style="padding-top: 5px; padding-bottom: 5px; font-size:medium">
-                <a href="/" style="color:#B78550;"><span>@</span>{{$dogs->users_name}}</a>
+                <a href="/users/{{$dogs->user_id}}" style="color:#B78550;"><span>@</span>{{$dogs->users_name}}</a>
                 <p style="font-size:13px; line-height:1.6; color:#413F42;">{{$dogs->city}}, {{$dogs->province}}</p>
               </div>
             </div>
