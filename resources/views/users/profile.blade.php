@@ -73,10 +73,10 @@
         </div>
       </div>
 
-      <div class="col co-md-9">
+      <div class="col co-md-9 col-sm-12">
 
-        <div class="container-fluid" style="width:95%;margin-top:0px;padding-top:0px">
-          <div class="d-flex mt-3">
+        <div class="container-fluid" style="width:90%;margin-top:0px;padding-top:0px">
+          <div class="d-flex">
             <ul class="nav nav-tabs flex-grow-1 flex-nowrap">
               <li class="nav-item">
                 <a class="nav-link active" href="#posted" data-toggle="tab">Dogs Posted</a>
@@ -89,33 +89,37 @@
         </div>
         
 
-        <div class="container-fluid d-flex justify-content-left" style="width:95%;">
+        <div class="container-fluid d-flex justify-content-left" style="width:90%;">
           <div class="tab-content" style="width:100%;padding:10px; border-width:3px; border:#e1e1e1 solid 1px">
+
             <div class="tab-pane active" id="posted">
-              <div class="row" style="margin:10px 20px 0px 15px">
-                <h4 class="" style="font-family: Poppins; color:#413F42">Dogs posted for adoption</strong></h4>
+              <div class="row" style="margin: 15px 20px 0px 15px">
+                <h4 style="font-family: Poppins; color:#413F42">Dogs posted for adoption</strong></h4>
                 
-                <div class="row">
-
+                <div class="row mt-3">
                   @foreach($dogsposted as $dog)
-                    <div class="containerimg" style="width:100%">
-                      <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%">
-                      <div class="middle">
-                        <a href="pages/{{$dog->id}}" style="text-decoration:none;" class="text">View More</a>
-                      </div>
-                     </div>    
-                    <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
-                    <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
-                  @endforeach
-
-                  
+                    <div class="col col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
+                      <div class="containerimg" style="width:100%">
+                        <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
+                        <div class="middle">
+                          <div><a class="text" href='/pages/{{$dog->id}}' style="text-decoration: none">View More</a></div>
+                        </div>
+                      </div>    
+                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+                      <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+                    </div>
+                  @endforeach                  
                 </div>
+              </div>  
+              <div class="mt-4 ms-2">
+                {{$dogsposted->links()}}
               </div>
             </div>
 
             <div class="tab-pane" id="rehomed">
               <div class="row" style="margin:10px 20px 0px 15px">
                 <h4 class="" style="font-family: Poppins; color:#413F42">Dogs rehomed</strong></h4>
+                
               </div>
             </div>
           </div>

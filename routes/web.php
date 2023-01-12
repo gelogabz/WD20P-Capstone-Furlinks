@@ -22,7 +22,6 @@ Route::resource('dogsrehomed', 'App\Http\Controllers\AdoptionsController');
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
 Route::get('/publicprofile', 'App\Http\Controllers\PagesController@publicprofile');
 Route::resource('/users', 'App\Http\Controllers\PublicprofileController');
-// Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
 // For APPLICATIONS
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
@@ -48,17 +47,10 @@ Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 //FOR USER PASSWORD
 Route::get('change-password', [App\Http\Controllers\ChangePasswordController::class, '__invoke'])->name('changePassword');
 
-
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
-
-// Route to display the change password form
-// Route::get('/changepassword', [App\Http\Controllers\ChangePassword::class, 'userprofile.changepassword'])->name('change-password');
-
-// Route to handle the form submission and update the password
-// Route::post('/changepassword', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatepassword');
 
 
