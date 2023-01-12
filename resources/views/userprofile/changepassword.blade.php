@@ -12,9 +12,27 @@
     <div class="col-8 card shadow p-4 onlycol">
       <H1>Change password</H1>
         <HR>
-          <form action="" method="POST">
+
+          @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+          <form action="{{route('changePassword')}}" method="POST">
             {!! csrf_field() !!}
             @method('PATCH')
+            <input type="hidden" name="_method" value="GET">
             <div class="row mb-3">
               <div class="col-12 mb-3">
                 <label for="formGroupExampleInput" class="form-label">Current Password</label>

@@ -45,12 +45,20 @@ Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
 Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 
-// Route::get('user/password', [changepasswordController::class,'CPassword'])->name('change.password');
-// Route::post('/password/update', [changepasswordController::class,'UpdatePassword'])->name('password.update');
-// Route::resource('/changepassword','App\Http\Controllers\changepasswordController');
+//FOR USER PASSWORD
+Route::get('change-password', [App\Http\Controllers\ChangePasswordController::class, '__invoke'])->name('changePassword');
+
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
+
+// Route to display the change password form
+// Route::get('/changepassword', [App\Http\Controllers\ChangePassword::class, 'userprofile.changepassword'])->name('change-password');
+
+// Route to handle the form submission and update the password
+// Route::post('/changepassword', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatepassword');
+
+

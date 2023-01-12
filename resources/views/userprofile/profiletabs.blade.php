@@ -17,16 +17,17 @@
           @endif
     
             <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
+                   <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
                     <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
                     <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
-            </div>
+            
+               
     
     <br>
        <div class="tab-content p-3" id="v-pills-tabContent">
               {{-- My Profile --}}
           <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
-            <div class='container'>
+            
             {{-- Style --}}
             <style>
                 .tab2,
@@ -126,73 +127,69 @@
             </style>
                     
                <form action="{{ route('userprofile.store') }}" method="POST" enctype="multipart/form-data">
-        
                 <div class="row">
                   <H1>Public Profile</H1><br>
                   
-                <h5 class='mb-2'>People visiting your profile will see the following info:
-                </h5>
+                <h5 class='mb-2'>People visiting your profile will see the following info:</h5>
                   
                   <div class="alert alert-warning" role="alert">
                   <p class='mb-0'>Note : Please fill up the form below</p>
                   </div>
+                  
                   <div class="row" style="width:100%">
                   <!--Dog profile pic and social media actions -->  
-                  <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
-                    <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
-                      <div class="image-upload-wrap justify-content-center" style="height:160px;width:150px">
-                          <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
-                          <div class="drag-text" style="padding-top:30%">
-                          <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
-                          </div>
-                      </div>
-                      <div class="file-upload-content">
-                          <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
-                              <div class="container justify-content-center">
-                                <div class="image-title-wrap justify-content-center"></div>
-                                <center>
-                                  <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:170px">Remove selected image</button>
-                          </div>
-                      </div>
+                    <div class="col-lg-4 col-sm-6" style="margin-bottom:10px">
+                        <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
+                            <div class="image-upload-wrap justify-content-center" style="height:160px;width:150px">
+                                <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
+                                <div class="drag-text" style="padding-top:30%">
+                                <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-none" id="imgdisplay" src="#" alt="your image" />
+                                    <div class="container justify-content-center">
+                                        <div class="image-title-wrap justify-content-center"></div>
+                                        <center>
+                                        <button id="rembutton" type="button" onclick="removeUpload()" class="remove-btn" style="text-align:center;width:170px">Remove selected image</button>
+                                    </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <!--Dog profile information -->
-                  <div class="col-lg-6 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
-                      
-                    <div class="container">
-                     
-                            {!! csrf_field() !!}
-                        {{-- PATCH- specific part PUT - whole resource --}}
-                        {{-- FIRSTNAME --}}
-                        <div class="mb-2 row">
-                          <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name :</label>
-                          <div class="col-lg-8">
-                            <input type="text" name="firstname" class="form-control form-control-sm">
-                          </div>
-                        </div>
-                        {{-- LASTNAME --}}
-                        <div class="mb-2 row">
-                          <label for="lastname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name :</label>
-                          <div class="col-lg-8">
-                            <input type="text" name="lastname" class="form-control form-control-sm">
-                          </div>
-                        </div>
-                        {{-- ABOUT --}}
-                        <div class="mb-2 row">
-                          <label for="about" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">About :
-                            <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
-                            </span></label>
-                        
-                          <div class="col-sm-8">
-                            <textarea name='about' class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
-                          </div>
-                        </div>
-                        
-                    </div>
-
-                    
-                      
-                  </div>
+                  <!--User profile information -->
+                                <div class="col-lg-6 col-sm-6" style="padding-left:20px;padding-top:15px;margin-bottom: 20px;">
+                                    <div class="container">
+                                            {!! csrf_field() !!}
+                                        {{-- PATCH- specific part PUT - whole resource --}}
+                                        {{-- FIRSTNAME --}}
+                                        <div class="mb-2 row">
+                                        <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name :</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" name="firstname" class="form-control form-control-sm">
+                                        </div>
+                                        </div>
+                                        {{-- LASTNAME --}}
+                                        <div class="mb-2 row">
+                                        <label for="lastname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name :</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" name="lastname" class="form-control form-control-sm">
+                                        </div>
+                                        </div>
+                                        {{-- ABOUT --}}
+                                        <div class="mb-2 row">
+                                        <label for="about" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">About :
+                                            <span id="lochelp" class="text-muted" style="font-size:.8rem; font-style:italic">
+                                            </span></label>
+                                        
+                                        <div class="col-sm-8">
+                                            <textarea name='about' class="form-control" style="resize:none;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                        </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                  
+                <div class='d-flex justify-content-end'>
+                    <a class="nav-link tab2"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Next page</a>
                 </div>
             </div>
             <!--SCRIPT for drag and drop of images -->
@@ -234,6 +231,7 @@
             </script>
             </div>
           </div>
+          
           {{-- Personal Info --}}
           
         <style>
@@ -270,7 +268,7 @@
                     </div>
                     <div class='col-sm-4 mt-4'>
                         <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
-                        <input type="text" name="mobile_no" class="form-control">
+                        <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
                     </div>
 
                     <div class='col-12 col-md-4 mt-4'>
@@ -332,10 +330,12 @@
                         </select>
                     </div>
                 </div>
-
             </div>
+                <div class='d-flex justify-content-end'>
+                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Next Page</a>
+                </div>
         </div>
-
+       
           {{-- DogHistory --}}
         <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">
             <div class='container'>
@@ -367,12 +367,12 @@
                 
                     <div class="col-12 col-md-3 mt-4 form-check justify-content-start">
                         <label for="dogs" class="col-form-label">If yes, how many dogs? </label>
-                        <input name="dogs" class="form-control form-control-sm" type="number" style="height:40px; width:50px;">
+                        <input name="dogs" class="form-control form-control-sm" type="number" min="0" max="50" style="height:40px; width:50px;">
                     </div>
 
                     <div class="col-12 col-md-3 mt-4 form-check justify-content-start ">
                         <label for="cats" class="col-form-label">If yes, how many Cats?</label>
-                        <input name="cats" class="form-control form-control-sm text-center" type="number" style="height:40px; width:50px;">
+                        <input name="cats" class="form-control form-control-sm text-center" type="number" min="0" max="50" style="height:40px; width:50px;">
                     </div>
                 </div>
 
@@ -529,7 +529,7 @@
                 <div class='row'>
                     <div class="col-12 col-md-6 form-check justify-content-center">
                         <label for="hours" class="">If yes, for how long? </label>
-                        <input name="hours" class="form-control form-control-sm text-center" type="number" style="height:40px; width:50px;">
+                        <input name="hours" class="form-control form-control-sm text-center" min="0" max="12" type="number" style="height:40px; width:50px;">
                     </div>
 
                 </div>
@@ -538,6 +538,7 @@
                         <input type="submit" name="submit" class="submit-btn" value="Submit">
                     </div>
                 </form>
+            </div>
             </div>
         </div>
     </div>
