@@ -139,15 +139,12 @@ class AdoptionsController extends Controller
 
     public function show($id)
     {
-        $rehomed = DB::table('applications')
+        $rehomed = DB::table('adoptions')
             ->select(
-                'applications.id',
-                'applications.user_id',
-                'applications.dog_id',
-                'applications.created_at',
-                'applications.appstatus',
-                'appstatus.name as appstatus_name',
-
+                'adoptions.id',
+                'adoptions.dog_id as dog_id',
+                'adoptions.user_id as user_id',
+                
                 'users.name as username',
                 'users.email as email',
                 'userprofiles.firstname as firstname',
@@ -159,43 +156,35 @@ class AdoptionsController extends Controller
                 'userprofiles.city as city',
                 'userprofiles.province as province',
 
-                'adoptions.turnoverpic as turnoverpic',
-            )
-            ->join('users', 'users.id', '=', 'applications.user_id')
-            ->join('userprofiles', 'userprofiles.user_id', '=', 'applications.user_id')
-            ->join('appstatus', 'appstatus.id', '=', 'applications.appstatus')
-            ->join('adoptions', 'adoptions.dog_id', '=', 'applications.dog_id')
-            ->where('applications.dog_id', $id)
-            ->where('applications.appstatus', 5)
-            ->first();
-
-            $dogs = DB::table('dogs')
-            ->select('dogs.pic',
-                'dogs.id',
-                'dogs.name',
-                'dogs.gender',
-                'dogs.age_yr',
-                'dogs.age_month',
+                'dogs.name as name',
+                'dogs.pic as pic',
+                'dogs.gender as gender',
+                'dogs.age_yr as age_yr',
+                'dogs.age_month as age_month',
                 'dogs.breed_id1',
                 'breed1.name as breed1_name',
                 'dogs.breed_id2',
                 'breed2.name as breed2_name',
-                'dogs.created_at',   
-                'dogs.size',
-                'dogs.color',
-                'dogs.location',
-                'dogs.neutered',
-                'dogs.birthdate',
-                'dogs.rescued',
-                'dogs.rescuedate',
+                'dogs.created_at as created_at',   
+                'dogs.size as size',
+                'dogs.color as color',
+                'dogs.location as location',
+                'dogs.neutered as neutered',
+                'dogs.birthdate as birthdate',
+                'dogs.rescued as rescued',
+                'dogs.rescuedate as rescuedate',
+
+                'adoptions.turnoverpic as turnoverpic',
             )
+            ->join('users', 'users.id', '=', 'adoptions.user_id')
+            ->join('userprofiles', 'userprofiles.user_id', '=', 'adoptions.user_id')
+            ->join('dogs', 'dogs.id', '=', 'adoptions.dog_id')
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
-            ->where('dogs.id', $id)
+            ->where('adoptions.dog_id', $id)
             ->first();
 
         return view('adoptions.show')
-        ->with('applications', $rehomed)
-        ->with('dogs', $dogs);
+        ->with('adoptions', $rehomed);
     }
 }

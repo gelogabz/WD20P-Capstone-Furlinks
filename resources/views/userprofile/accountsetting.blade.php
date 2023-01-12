@@ -5,12 +5,30 @@
   .onlycol{
         background-color:#f4efe9 ;
     }
+  .changepass{
+    background-color: #799FC8;
+    color: #eee7e1;
+    text-decoration: none;
+    padding:10px 30px 10px 30px;
+    border-radius: 9px;
+    transition: all 0.2s;
+    color: white;
+
+  }
+  .changepass:hover{
+    background-color:#5082B7;
+    border-color:#799FC8;
+    border-style: solid;
+    color: white;
+   
+  }
+
 </style>
 
-<div class='container p-3'>
+<div class='container pt-5 pb-5'>
   <div class="row justify-content-center">
     <div class="col-8 card shadow p-4 onlycol">
-      <H1>Account Settings</H1>
+      <H1><i class="bi bi-person-fill"></i> Account Settings</H1>
       <HR>
         <p class='mb-5 mt-3'>Make changes to your password. This information is private and won't show up in your public profile.</p>
 
@@ -22,7 +40,7 @@
             </div>
 
             <div class="col-12 d-flex justify-content-end mt-4">
-              <a class='btn btn-primary' href="{{ url('/changepassword') }}">Change Password</a>
+              <a class='changepass' href="{{ url('/changepassword') }}">Change Password</a>
             </div>
 
           </div>

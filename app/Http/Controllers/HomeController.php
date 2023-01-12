@@ -76,4 +76,7 @@ class HomeController extends Controller
         ->with('dogs', $dogs);
     }
 
+    
+
+
 }

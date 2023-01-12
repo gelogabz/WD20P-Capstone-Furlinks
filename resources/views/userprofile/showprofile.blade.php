@@ -20,12 +20,9 @@
                     .propic{
                         width: 150px;
                         border-radius: 50%;
-                        
-                        border-width: 1px;
-                        
+                        border-width: 1px;                     
                         height: 150px ;
                         object-fit: cover;
-                        box-shadow: 1px 1px 8px rgba(0, 0 ,0, 0.8);
                     }
                     .firstcol{
                         background-color:#f4efe9 ;
@@ -47,15 +44,25 @@
                     margin:7px 7px 7px 7px;
                     border-radius: 10px;  
                 }
+
+                    .edit-btn{
+                        color:#578fc6;
+                        font-size:15px;
+                        transition: all 0.1s;
+                    }
+                    .edit-btn:hover{
+                        color:#3f79b4;
+                        font-size:17px;
+                    }
                 </style>
                 <div class="nav d-block justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
-                    <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
-                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
+                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
+                    <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
+                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
                 </div>
 
                 <div class="mt-3">
-                    <a href="/userprofile/{{$userprofiles->id}}/edit">Edit Profile</a>
+                    <a class="edit-btn" href="/userprofile/{{$userprofiles->id}}/edit">Edit Profile</a>
                 </div>
                 
             </div>

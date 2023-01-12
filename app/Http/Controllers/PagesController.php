@@ -49,25 +49,14 @@ class PagesController extends Controller
     {
         return view('pages/dogdetails');
     }
-    public function postdog()
+    public function publicprofile()
     {
-        return view('pages/postdog');
+        return view('users/profile');
     }
-    // public function myprofile()
-    // {
-    //     return view('userprofile/createprofile');
-    // }
-
-    public function ownapplications()
-    {
-        return view('pages/applications');
-    }
-
     public function home()
     {
         return view('/home');
     }
-
     public function showprofile()
     {
         return view('userprofile/showprofile');

@@ -20,7 +20,8 @@ Route::resource('dogsrehomed', 'App\Http\Controllers\AdoptionsController');
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
-// Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
+Route::get('/publicprofile', 'App\Http\Controllers\PagesController@publicprofile');
+Route::resource('/users', 'App\Http\Controllers\PublicprofileController');
 
 // For APPLICATIONS
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
@@ -33,7 +34,6 @@ Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 Route::get('/adoptions/create/{id}', 'App\Http\Controllers\AdoptionsController@create');
 Route::resource('adoptions', 'App\Http\Controllers\AdoptionsController');
 
-
 // FOR USER PROFILE
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
@@ -44,12 +44,13 @@ Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
 Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 
-Route::get('user/password', [changepasswordController::class,'CPassword'])->name('change.password');
-Route::post('/password/update', [changepasswordController::class,'UpdatePassword'])->name('password.update');
-// Route::resource('/changepassword','App\Http\Controllers\changepasswordController');
+//FOR USER PASSWORD
+Route::get('change-password', [App\Http\Controllers\ChangePasswordController::class, '__invoke'])->name('changePassword');
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('search');
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
+
+

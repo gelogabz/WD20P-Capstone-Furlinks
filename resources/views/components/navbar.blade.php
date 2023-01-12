@@ -41,9 +41,9 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="padding-left: 5%; padding-right: 5%;padding-bottom:5px">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> --}}
     <a class="navbar-brand" href="/" style="color:#811D60"><img src="{{asset('build/images/logo-color.png') }}" width="80px" style="padding-right:10px;vertical-align:middle"/></a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
@@ -79,7 +79,7 @@
           @endif
         </ul>
       @else
-      <ul class='list-unstyled'>
+      <ul class='list-unstyled mt-2'>
         <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="/" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <span>Welcome !<span> {{ Auth::user()->name }}
@@ -87,26 +87,26 @@
           </a>
           <div style="background-color:#f0e8dc;" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="/applications">
-              My Applications
+              <i class="bi bi-window-stack"></i> My Applications
             </a>
             <a class="dropdown-item" href="/dogsposted">
-              Dogs Posted
+              <i class="bi bi-file-earmark-post"></i> Dogs Posted
             </a>
             <a class="dropdown-item" href="/dogsrehomed">
-              Dogs Rehomed
+              <i class="bi bi-house-add-fill"></i>  Dogs Rehomed
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="/userprofile/{{Auth::user()->id}}">
-              My Profile
+              <i class="bi bi-person-fill"></i> My Profile
             </a>
             <a class="dropdown-item" href="/accountsetting">
-              Settings
+              <i class="bi bi-gear-fill"></i> Settings
             </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
-              {{ __('Logout') }}
+              <i class="bi bi-door-closed-fill"></i> {{ __('Logout') }}
             </a>
           
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
