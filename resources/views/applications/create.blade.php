@@ -95,7 +95,7 @@
       <div class="col-md-4 col-sm-12" style="padding:0px 0px ">
         <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 20px">
           <h5 style="text-align:center">Confirm submission of application</h5>
-          <form action="{{ route('applications.store') }}" method="POST" enctype="multipart/form-data" target="{{ url()->previous() }}">
+          <form action="{{ route('applications.store') }}" method="POST" enctype="multipart/form-data">
             {!! csrf_field() !!} 
             <table style="padding-left: 20px;margin-right:15px;margin-bottom:10px;margin-top:20px;text-align:left;">
               <colgroup>

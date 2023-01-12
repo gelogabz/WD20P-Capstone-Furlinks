@@ -37,6 +37,10 @@ class PagesController extends Controller
     {
         return view('privpages/dogsposted');
     }
+    public function applications()
+    {
+        return view('privpages/applications');
+    }
     public function dogdetails()
     {
         return view('pages/dogdetails');

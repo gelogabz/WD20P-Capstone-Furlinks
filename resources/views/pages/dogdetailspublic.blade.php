@@ -11,7 +11,7 @@
     <div class="row" style="width:100%">          
       <div class="col-md-9 col-sm-12">   
         <h3 class="" style="font-family: Poppins; color:#413F42">Dog Information</h3><br>
-        <div class="row" style="margin-right:30px">
+        <div class="row">
           <div class="col-lg-5 col-sm-12" style="padding: 0px 0px 30px 0px">           
             <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:85%; display:block; border-radius:20px; margin:auto">
             <div style="justify-content: center; text-align:center; margin-top:30px">
@@ -35,8 +35,9 @@
                   @else
                     {{-- if user logged in is not the owner CAN APPLY --}}
                       @if ($applicationstatus == "existing")
-                          <div class="alert" style="background-color:#f0e8dc; margin:auto; text-align:center; width: 320px; height:100px">
-                            <p style="font-weight:700">You have an ongoing application <br>to adopt this dog.<br> <span style="font-weight:400">Check status in Email has already been used, click <a href=/applications>Menu -> My Applications </a></p>
+                          <div class="alert" style="background-color:#f0e8dc; margin:auto; text-align:center; width: 320px; height:130px; vertical-align-align:center">
+                            <p style="font-weight:700;font-size:medium">You have an ongoing application <br>to adopt this dog.<br> 
+                            <p style="font-weight:400;font-size:15px;"> <a href=/applications style="color:#885b2a; text-decoration: none;font-weight:700" >Click here </a> to check the status.</p>
                           </div>                      
                       @else
                        {{-- if user has never applied to adopt this dog --}}
@@ -44,7 +45,10 @@
                             <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
                             <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
                           @else
-                            Your profile information is required to submit an application. Go to <a href="/userprofile/{{Auth::user()->id}}" class="btn adopt_btn">My Profile</a> to complete    
+                          <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
+                            <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
+                            <p style="font-weight:400;font-size:15px;"> A complete user profile is required. <br><a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">Click here</a> to complete your profile.</span>    
+                          </div>
                           @endif
                       @endif
                   @endif
