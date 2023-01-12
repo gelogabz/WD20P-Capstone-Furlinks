@@ -16,6 +16,7 @@ Route::resource('dogsposted', 'App\Http\Controllers\DogprofileController');
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
+Route::resource('dogsrehomed', 'App\Http\Controllers\AdoptionsController');
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
@@ -28,7 +29,7 @@ Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
-// For APPLICATIONS
+// For ADOPTIONS
 Route::get('/adoptions/create/{id}', 'App\Http\Controllers\AdoptionsController@create');
 Route::resource('adoptions', 'App\Http\Controllers\AdoptionsController');
 

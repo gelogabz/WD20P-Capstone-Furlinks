@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+
+use App\Http\Controllers\Userprofile;
+
 use App\Models\Dogs;
 use App\Models\Users;
 use App\Models\UserProfiles;
-use Illuminate\Pagination\Paginator;
+
 use DB;
 
 class DogprofileController extends Controller
@@ -47,20 +51,7 @@ class DogprofileController extends Controller
             ->where('dogs.status_id', '!=', 3)
             ->simplePaginate(8);
 
-        $user = DB::table('userprofiles')
-            ->select(
-                'userprofiles.profile_pic',
-                'userprofiles.firstname',
-                'userprofiles.lastname',
-                'userprofiles.about',
-                'userprofiles.city',
-                'userprofiles.province',
-                'users.name as user_name')
-            ->join('users', 'users.id', '=', 'userprofiles.user_id')
-            ->where('userprofiles.user_id', '=', $idtofind)
-            ->first();
-
-        return view('privpages.dogsposted')->with('dogs', $dogs)->with('user', $user);
+        return view('privpages.dogsposted')->with('dogs', $dogs);
     }
 
     public function create()
@@ -69,7 +60,20 @@ class DogprofileController extends Controller
             ->select('id', 'name')
             ->get();
 
-        return view('dogprofile.createprofile')->with('breed', $breed);
+        $idtofind = Auth::id();
+
+        $userprofiles = DB::table('userprofiles')
+            ->where('user_id', '=', $idtofind)
+            ->get();
+
+        if ($userprofiles->isEmpty())
+            {
+            return redirect('/dogsposted')
+            ->with('noprofile', '  A completed user profile is required for posting a dog for adoption.');
+            }
+        else {
+            return view('dogprofile.createprofile')->with('breed', $breed);
+            }
     }
 
     public function store(Request $request)
