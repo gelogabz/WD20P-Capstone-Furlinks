@@ -89,11 +89,7 @@
         <div class="col-lg-6" style="text-align:center;margin:auto;color:#F4F4F4">
           <h1 class="header" style="font-family:Quicksand;">Search for a dog</h1>
             <p class="par" style="margin-top:2%; margin-bottom:5%; font-family: 'Poppins';">What type of dog would you like to adopt?<br> Think of what would match your<br> personality - like “small breed or toy<br>  
-              dog” - and see what you find.
-              </p>
-            <button class="btn btn-primary2-1 my-sm-0">
-              <p class="py-2">EXPLORE</p>
-            </button>
+            dog” - and see what you find.</p>
         </div> 
     </div>
   </div>
@@ -102,11 +98,7 @@
         <div class="col-lg-6" style="text-align:center; margin:auto; color:#2963a1; padding-top:5%">
             <h1 class="header" style="font-family:Quicksand;">Apply for adoption</h1>
             <p class="par" style="margin-top:2%; font-family: 'Poppins'; margin-bottom:5%">Fill up and submit the adoption form. If you <br>are qualified, the dog rescuer/foster <br>parent will conduct an interview<br> 
-              to finalize the adoption.
-              </p>
-            <button class="btn btn-primary2-2 my-sm-0">
-              <p class="py-2">EXPLORE</p>
-            </button>
+              to finalize the adoption.</p>
         </div>
         <div class="col-lg-6">
           <div class="center">
@@ -123,11 +115,7 @@
       </div>
       <div class="col-lg-6" style="text-align:center; margin:auto; color:#413F42">
             <h1 class="header" style="margin-top:2%; font-family:Quicksand;">Share and invite</h1>
-            <p class="par" style="margin-top:2%; font-family: 'Poppins'; margin-bottom:5%">Support the community by sharing <br> your experience and providing feedback <br> on rescuers and fosters. Encourage <br> family and friends to “adopt, not shop”.
-              </p>
-            <button class="btn btn-primary2-3 my-sm-0">
-              <p class="py-2">EXPLORE</p>
-            </button>
+            <p class="par" style="margin-top:2%; font-family: 'Poppins'; margin-bottom:5%">Support the community by sharing <br> your experience and providing feedback <br> on rescuers and fosters. Encourage <br> family and friends to “adopt, not shop”.</p>
         </div>
       </div>
   </div> 
@@ -173,7 +161,7 @@
                   </a>
                   <br>
                   <p style="font-size:small; font-family:Lato">By continuing, you agree to our <a href="#" style="color:#5082B7" class="fw-bold">Terms of Service</a> and acknowledge that you have read our <a href="#" style="color:#5082B7" class="fw-bold">Privacy Policy</a>
-                    <br><br><b>Already a member?</b> <a href="#" style="text-emphasis-style:bold; color:#5082B7;" class="fw-bold">Log In</p></a>                 
+                    <br><br><b>Already a member?</b> <a href="/login" style="text-emphasis-style:bold; color:#5082B7;" class="fw-bold">Log In</p></a>                 
                 </div>
               </form>
           </div>
