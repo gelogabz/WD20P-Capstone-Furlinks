@@ -42,6 +42,12 @@
     </div>
     @endif
 
+    @if ($message = Session::get('error'))
+    <div class="alert alert-warning" style="height:50px">
+        <p>{{ $message }}</p>
+    </div>
+    @endif
+
       <table class="table table-borderless" style="width:100%;margin-top:10px;vertical-align:middle">
         <tr style="border-bottom:0.3pt solid #e1e1e1;">
           <th></th>

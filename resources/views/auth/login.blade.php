@@ -3,6 +3,20 @@
 <body style="background-color:#f5efea ">
 
 <div class="container" style="margin-top:60px;margin-bottom:60px">
+    {{-- @if ($message = Session::get('success'))
+            <div class="alert alert-success" style="height:50px">
+                <p>{{ $message }}</p>
+            </div>
+     @endif --}}
+
+        {{-- @if(session('success'))
+        <div class="alert alert success alert-dismissible fade show" role="alert">
+            <strong>{{session('success')}}</strong>
+            <button  type="button" class="close" data-dsimiss="alert" aria-label="Close">
+                <span aria-hidden = "true">$times;<span>
+            </button>
+        </div>
+        @endif --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

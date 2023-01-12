@@ -76,26 +76,39 @@ class ApplicationsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, array(
-            'dog_id' => 'required',
-        ));
+        $dogid = $request->dog_id;
 
-        $apply = new Applications;
-        $apply->dog_id = $request->dog_id;
-        $apply->user_id = Auth::user()->id;
-        $apply->appstatus = 1;
-        $apply->save();
+        $checkapplications = DB::table('applications')
+        ->select()
+        ->where('dog_id', '=', $dogid)
+        ->where('user_id',  '=', Auth::user()->id)
+        ->get();
 
-        $id = $apply->dog_id;
+        if ($checkapplications->isEmpty()){   
+            $this->validate($request, array(
+                'dog_id' => 'required',
+            ));
 
-        DB::table('dogs')
-        ->where('dogs.id', $id)
-        ->update(['status_id' => 2]);
+            $apply = new Applications;
+            $apply->dog_id = $request->dog_id;
+            $apply->user_id = Auth::user()->id;
+            $apply->appstatus = 1;
+            $apply->save();
 
-        return redirect('/applications')
-        ->with('success', 'Application successfully submitted.');
+            $id = $apply->dog_id;
+
+            DB::table('dogs')
+            ->where('dogs.id', $id)
+            ->update(['status_id' => 2]);
+
+            return redirect('/applications')
+            ->with('success', 'Application successfully submitted.');
+        }
+        else {
+            return redirect('/applications')
+            ->with('error', 'You already have an existing application for the dog you selected.');
+        }
     }
-
     public function show($id)
     {
         $apply = DB::table('applications')
