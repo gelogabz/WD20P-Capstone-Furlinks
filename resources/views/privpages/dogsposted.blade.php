@@ -26,6 +26,12 @@
                 <p>{{ $message }}</p>
             </div>
             @endif
+
+            @if ($message = Session::get('noprofile'))
+            <div class="alert alert-danger" style="height:50px">
+                <p><span style="font-weight:600;padding-right:10px"> Incomplete User Informaiton:</span>{{ $message }} FIll up your profile information <a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">by clicking here </a>.</p>
+            </div>
+            @endif
             
             <center>
             <div class="tab-content justify-content-center align-content-center mx-0 px-0" id="myTabContent">
