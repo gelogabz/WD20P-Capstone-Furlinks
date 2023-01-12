@@ -95,7 +95,6 @@
             <div class="tab-pane active" id="posted">
               <div class="row" style="margin: 15px 20px 0px 15px">
                 <h4 style="font-family: Poppins; color:#413F42">Dogs posted for adoption</strong></h4>
-                
                 <div class="row mt-3">
                   @foreach($dogsposted as $dog)
                     <div class="col col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
@@ -116,65 +115,36 @@
               </div>
             </div>
 
-            <div class="tab-pane" id="rehomed">
-              <div class="row" style="margin:10px 20px 0px 15px">
-                <h4 class="" style="font-family: Poppins; color:#413F42">Dogs rehomed</strong></h4>
-                
+            <div class="tab-pane active" id="rehomed">
+              <div class="row" style="margin: 15px 20px 0px 15px">
+                <h4 style="font-family: Poppins; color:#413F42">Dogs successfully rehomed</strong></h4>
+                <div class="row mt-3">
+                  @foreach($dogsrehomed as $dog)
+                    <div class="col col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
+                      <div class="containerimg" style="width:100%">
+                        <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
+                        <div class="middle">
+                          <div><a class="text" href='/adoptions/{{$dog->id}}' style="text-decoration: none">View More</a></div>
+                        </div>
+                      </div>    
+                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+                      <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
+                    </div>
+                  @endforeach                  
+                </div>
+              </div>  
+              <div class="mt-4 ms-2">
+                {{$dogsposted->links()}}
               </div>
             </div>
+
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
 </div>
-{{-- 
 
-
-    <div class="col-lg-7 col-sm-12" style="padding: 0px 20px 20px 20px;">
-            <h5 style="color:#61482e; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}} month/s old<br>
-            <h6 style="color:#c8a279; font-family:Poppins;"><i class="fa-solid fa-paw" style="font-size:medium; color:#c8a279"></i><span style="color:#413F42;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}</span></h6>
-            <i class="fa-solid fa-timer" style="font-size:medium; color:#413F42"></i>
-            <span style="font-size: small; color: #413F42">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
-              
-          
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
-        <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 20px">
-          <div class="row" style="padding-bottom:5px;">
-            <div class="col col-auto" style="">
-              <img style="width:55px; border-radius:50%; padding:2px;" src="{{asset('Image/'. $dogs->profile_pic)}}">
-            </div>
-            <div class="col">
-              <div class="row" style="padding-top: 5px; padding-bottom: 5px; font-size:medium">
-                <a href="/" style="color:#B78550;"><span>@</span>{{$dogs->users_name}}</a>
-                <p style="font-size:13px; line-height:1.6; color:#413F42;">{{$dogs->city}}, {{$dogs->province}}</p>
-              </div>
-            </div>
-          </div>
-          <p style="font-size:13px; line-height:1.6; padding-top:10px; padding-bottom:10px; color:#413F42;">{{$dogs->about }}</p>
-          <p style="font-size:15px; color:#413F42;"><i>More dogs posted by <span>@</span>{{$dogs->users_name}}</i></p>
-          <div class="row" style="margin-bottom:15px">
-            @foreach($otherdogs as $otherdog)
-            <div class="col col-sm-6 col-xs-4" style="padding:10px;">
-              <div class="containerimg1" style="width:100%">
-                <img src="{{asset('Image/'.$otherdog->pic)}}" alt="Avatar" class="image1" style="width:100%">
-                <div class="middle1">
-                  <div><a class="text1" href='{{$otherdog->id}}'>View</a></div>
-                </div>
-              </div>
-            </div>
-            @endforeach
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 

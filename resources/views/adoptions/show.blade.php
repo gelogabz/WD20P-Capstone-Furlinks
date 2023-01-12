@@ -4,7 +4,7 @@
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
   <div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
-    <a class="btn btn-outline-primary2" href="/dogsrehomed" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
+    <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
       <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dogs Rehomed</a>
        
     <div class="row" style="width:100%">          
