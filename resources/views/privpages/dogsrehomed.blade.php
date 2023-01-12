@@ -36,7 +36,7 @@
                             <h6 class="card-subtitle mb-2 text-start" style="font-family: Poppins;">{{($dogsitem->gender=="1-Male")? "Male" : "Female" }}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
                             <h6 class="card-subtitle mb-2 text-muted text-start" style="font-family: Lato; font-weight:10px">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
                             <h6 class="card-subtitle mb-2 text-muted text-start" style="font-size:smaller; font-family: Lato; font-weight:10px"> Date Posted: {{date('M d, Y', strtotime($dogsitem->created_at))}}</h6>
-                            <a href="/dogprofile/{{$dogsitem->id}}" class="btn mt-2 showdeets_btn">Show Details</a>
+                            <a href="/adoptions/{{$dogsitem->id}}" class="btn mt-2 showdeets_btn">Show Details</a>
                             </div>
                         </div> 
                     </div>
