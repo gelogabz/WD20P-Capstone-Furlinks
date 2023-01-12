@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use DB;
+
+class changepasswordController extends Controller
+{
+    // public function CPassword(){
+    //     return view ('userprofile.changepassword');
+    // }
+
+    // public function UpdatePassword(Request $request)
+    // {
+    //     $validateData= $request->$request->validate([
+    //         'oldpassword'=> 'required',
+    //         'password' => 'required|confirmed'
+    //     ]);
+
+    //     $hashedPassword = Auth::user()->password;
+    //     if(Hash::check($request->oldpassword,$hashedPassword)){
+
+    //         $user = User::find(Auth::id());
+            
+    //         $user-> password = Hash ::make($request->password);
+    //         $user->save();
+    //         Auth::logout();
+    //         return redirect()->route('login')->with('success','Password is change Successfully');
+    //     }else{
+    //         return redirect()->back()->with('error','Current Password is Invalid');
+    //     }
+    // }
+    // public function edit($id){
+    //     $changepassword = User::find($id);
+
+    //     return view('userprofile.changepassword')->with('changepassword', $changepassword);
+    // }
+
+
+    
+    // public function update(Request $request, $id)
+    // {
+
+    //     $changepassword = User::find($id);
+    //     $input = $request->all();
+    //     $changepassword->update($input);
+        
+    //     return redirect('/');
+    // }
+}

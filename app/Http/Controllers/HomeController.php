@@ -75,4 +75,5 @@ class HomeController extends Controller
         ->with('color', $color)
         ->with('dogs', $dogs);
     }
+
 }

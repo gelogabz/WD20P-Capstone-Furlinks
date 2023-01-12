@@ -80,4 +80,12 @@ class PagesController extends Controller
     {
         return view('userprofile/profiletabs');
     }
+    public function accountsetting()
+    {
+        return view('userprofile/accountsetting');
+    }
+    public function changepassword()
+    {
+        return view('userprofile/changepassword');
+    }
 }

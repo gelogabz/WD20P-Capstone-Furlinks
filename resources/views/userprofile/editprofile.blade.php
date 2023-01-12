@@ -37,8 +37,8 @@
         padding: 60px 0;
         }
     .file-upload-image {
-        max-height: 300px;
-        max-width: 300px;
+        max-height: 200px;
+        max-width: 200px;
         margin: 0px;
         text-align: center;
         display:block;
@@ -139,15 +139,15 @@
                     </div> --}}
 
                     <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
-                        <div class="image-upload-wrap justify-content-center" style="height:300px;width:300px">
-                            <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
+                        <div class="image-upload-wrap justify-content-center" style="height:200px;width:200px">
+                            <input class="file-upload-input propic" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
                             <div class="drag-text" style="padding-top:30%">
                             <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
                             </div>
                         </div>
             
                         <div class="file-upload-content">
-                            <img class="file-upload-image" id="imgdisplay" src="{{asset('image/'.$userprofiles->profile_pic)}}" alt="your image" />
+                            <img class="propic" id="imgdisplay" src="{{asset('image/'.$userprofiles->profile_pic)}}" alt="your image" />
                             <div class="container justify-content-center">
                               <div class="image-title-wrap justify-content-center"></div>
                               <center>
