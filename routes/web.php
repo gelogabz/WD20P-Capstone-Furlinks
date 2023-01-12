@@ -44,8 +44,8 @@ Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
 Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 
-// Route::get('user/password', [changepasswordController::class,'CPassword'])->name('change.password');
-// Route::post('/password/update', [changepasswordController::class,'UpdatePassword'])->name('password.update');
+Route::get('user/password', [changepasswordController::class,'CPassword'])->name('change.password');
+Route::post('/password/update', [changepasswordController::class,'UpdatePassword'])->name('password.update');
 // Route::resource('/changepassword','App\Http\Controllers\changepasswordController');
 
 Auth::routes();
