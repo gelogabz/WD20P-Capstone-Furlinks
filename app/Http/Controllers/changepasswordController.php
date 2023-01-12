@@ -10,55 +10,8 @@ use DB;
 
 class ChangePasswordController extends Controller
 {
-    public function CPassword(){
-        return view ('userprofile.changepassword');
-    }
-
-    public function UpdatePassword(Request $request)
-    {
-        $validateData= $request->$request->validate([
-            'oldpassword'=> 'required',
-            'password' => 'required|confirmed'
-        ]);
-
-        $hashedPassword = Auth::user()->password;
-        if(Hash::check($request->oldpassword,$hashedPassword)){
-
-            $user = User::find(Auth::id());
-            $user-> password = Hash ::make($request->password);
-            $user->save();
-            Auth::logout();
-            return redirect()->route('login')->with('success','Password is change Successfully');
-        }else
-        {
-            return redirect()->back()->with('error','Current Password is Invalid');
-        }
-    }
-
-//     public function update(Request $request)
-// {
-//     $validatedData = $request->validate([
-//         'oldpassword' => 'required',
-//         'password' => 'required|confirmed',
-//     ]);
-
-//     $user = Auth::user();
-//     if (Hash::check($validatedData['oldpassword'], $user->password)) {
-//         $user->password = Hash::make($validatedData['password']);
-//         $user->save();
-
     
-    // public function update(Request $request, $id)
-    // {
 
-    //     $changepassword = User::find($id);
-    //     $input = $request->all();
-    //     $changepassword->update($input);
-        
-    //     return redirect('/');
-    // }
-
-    
 
 public function __invoke(Request $request)
 {
