@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Collection;
 
 use Illuminate\Http\Request;
+use App\Models\Applications;
 use App\Models\Dogs;
 use App\Models\Breed;
 use App\Models\Search;
+use App\Models\Userprofile;
 use DB;
 
 class DogsController extends Controller
@@ -80,21 +84,43 @@ class DogsController extends Controller
             ->where('dogs.id', $id)
             ->first();
             
-            $userid = Dogs::where('dogs.id', '=', $id)
-                ->select('dogs.user_id')
-                ->first()->user_id;
+        $ownerid = Dogs::where('dogs.id', '=', $id)
+            ->select('dogs.user_id')
+            ->first()->user_id;
+        
+        $dogsposted = DB::table('dogs')
+            ->select('dogs.id', 'dogs.pic',)
+            ->join('users', 'users.id', '=', 'dogs.user_id')
+            ->where('dogs.user_id', "=", $ownerid)
+            ->take(4)
+            ->get();
 
-            $dogsposted = DB::table('dogs')
-                ->select(
-                    'dogs.id',
-                    'dogs.pic',
-                )
-                ->join('users', 'users.id', '=', 'dogs.user_id')
-                ->where('dogs.user_id', "=", $userid)
-                ->take(4)
-                ->get();
+        $idtofind = Auth::id();
+        $applications = DB::table('applications')
+            ->select()
+            ->where('dog_id', '=', $id)
+            ->where('user_id', '=', $idtofind)
+            ->get();
 
-            return view('pages/dogdetailspublic')->with('dogs', $singleDog)->with('otherdogs', $dogsposted);
+        if ($applications->isEmpty())
+        {$applicationstatus = '';}
+        else {$applicationstatus = 'existing';};
+
+        if ($idtofind == $ownerid)
+        {$owned = 'yes';}
+        else {$owned = 'no';};
+
+        if (Userprofile::where('user_id', '=', $idtofind)->exists()) {
+            $withprofile = 'complete';}
+        else {$withprofile = 'inc';}
+
+
+        return view('pages/dogdetailspublic')
+            ->with('ownership', $owned)
+            ->with('applicationstatus', $applicationstatus)
+            ->with('withprofile', $withprofile)
+            ->with('dogs', $singleDog)
+            ->with('otherdogs', $dogsposted);
     }
 
     /**

@@ -31,6 +31,7 @@
                         </select>
                         <div class="input-group-append">
                         <input class="btn btn-secondary" type="submit" value="Update"></button>
+                        <input type="hidden" value="{{$applications->dog_id}}" class="hidden" name="dogid"/>
                         </div>
                     </div>
                     </form> 
@@ -56,6 +57,10 @@
                             <tr>
                                 <th>Full Name</th>
                                 <td>{{$applications->firstname}}{{' '.$applications->lastname}}</td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <td>{{$applications->email}}</td>
                             </tr>
                             <tr>
                                 <th>Contact No.</th>
@@ -157,7 +162,7 @@
             </div>
 
             <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
-                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
+                <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 10px">
                     <div class="card">
                         <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
                         <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">

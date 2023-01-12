@@ -35,7 +35,7 @@
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
   <div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
-    <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
+    <a class="btn btn-outline-primary2" href="/dogprofile/{{$dogs->id}}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
       <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dog Profile</a>
     @if ($message = Session::get('success'))
     <div class="alert alert-success" style="height:50px">
@@ -44,37 +44,17 @@
     @endif
 
     <div class="row" style="width:100%">          
-      <div class="col-md-9 col-sm-12" style="padding-left:20px;padding-right:30px;">                              
+      <div class="col-md-9 col-sm-12">                              
         <div class="row">
-          <h3>Applications for Adoption
-            <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:300px">   
-              <form action="{{route('applications.update, ')}}" method="POST" enctype="multipart/form-data">
-                {!! csrf_field() !!}
-                @method('PATCH')
-
-              <div class="input-group">
-                  <select class="custom-select form-control" id="applicant" name="applicant" >
-                    <option>Select username</option>
-                    @foreach($applications as $application)    
-                      <option value="{{$application->id}}">{{$application->username}}</option>
-                    @endforeach
-                  </select>
-              <div class="input-group-append">
-              <input type="hidden" value="5" class="hidden" name="appstatus"/>
-              <input class="btn btn-secondary" type="submit" value="Select for adoption"></button>
-                  </div>
-              </div>
-              </form> 
-          </span>
-          </h3>
+          <h3>Applications for Adoption</h3>
         </div>
-        <div class="row" style="margin-top:20px">
-          <table class="table" style="margin-top:10px;vertical-align:middle">
+        <div class="row" style="margin-top:20px;margin-right:70px">
+          <table class="table" style="margin-top:10px;vertical-align:middle;margin-left:30px; padding-right:10px;">
             <colgroup>
-              <col span="1" style="width:10%">
+              <col span="1" style="width:12%">
+              <col span="1" style="width:18%">
               <col span="1" style="width:20%">
               <col span="1" style="width:20%">
-              <col span="1" style="width:15%">
               <col span="1" style="width:15%">
               <col span="1" style="width:15%">
             </colgroup>
@@ -89,7 +69,7 @@
             @foreach($applications as $application)    
             <tr>
               <td><img src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
-              <td style="vertical-align:middle">{{$application->username}}</td>
+              <td style="vertical-align:middle">{{$application->id}}{{" ".$application->username}}</td>
               <td style="vertical-align:middle">{{$application->firstname}}{{" ".$application->lastname}}</td>
               <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
               <td style="vertical-align:middle">{{$application->appstatus_name}}</td>
@@ -104,7 +84,7 @@
       </div>
       
       <div class="col-md-3 col-sm-12" style="padding:0px 0px ">
-        <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 5px">
+        <div class="border" style="border-radius:10px;margin-right:0px;padding:20px 10px">
             <div class="card">
               <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
               <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">

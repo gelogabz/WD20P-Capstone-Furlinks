@@ -88,6 +88,10 @@ class ApplicationsController extends Controller
 
         $id = $apply->dog_id;
 
+        DB::table('dogs')
+        ->where('dogs.id', $id)
+        ->update(['status_id' => 2]);
+
         return redirect('/applications')
         ->with('success', 'Application successfully submitted.');
     }
@@ -98,7 +102,9 @@ class ApplicationsController extends Controller
             ->select(
                 'applications.id',
                 'applications.user_id',
+                'applications.dog_id',
                 'users.name as username',
+                'users.email as email',
                 'userprofiles.firstname as firstname',
                 'userprofiles.lastname as lastname',
                 'userprofiles.profile_pic as profile_pic',
@@ -145,7 +151,9 @@ class ApplicationsController extends Controller
             ->select(
                 'applications.id',
                 'applications.user_id',
+                'applications.dog_id',
                 'users.name as username',
+                'users.email as email',
                 'userprofiles.firstname as firstname',
                 'userprofiles.lastname as lastname',
                 'userprofiles.profile_pic as profile_pic',
@@ -205,22 +213,33 @@ class ApplicationsController extends Controller
     
     public function update(Request $request, $id)
     {
-        $applications =  Applications::find($id);
-        $applications->appstatus = $request->get('appstatus');
-        $applications->save();
-        return redirect()->back()
+        $newstatus = $request->input('appstatus');
+        $dogid = $request->input('dogid');
+        
+        if ($newstatus!=='5') {
+            $statusupdate = Applications::find($id);
+            $statusupdate->appstatus = $newstatus;
+            $statusupdate->save();
+            
+            return redirect('applications/'.$dogid)
             ->with('success', 'Application status successfully updated.');
-    }
+            }
+        else {
+            DB::table('applications')
+                ->where('applications.dog_id', $dogid)
+                ->where('applications.id', '!=', $id)
+                ->update(['appstatus' => 6]);
+            
+            DB::table('applications')
+                ->where('applications.id', '=', $id )
+                ->update(['appstatus' => 5]);
+            
+            DB::table('dogs')
+                ->where('dogs.id', $dogid)
+                ->update(['status_id' => 3]);
 
-    public function update2(Request $request, $id)
-    {
-        $applications =  Applications::find($id);
-        $applicantselected = $request->get('applicant');
-        
-        
-        $applications->appstatus = 
-        $applications->save();
-        return redirect()->back()
-            ->with('success', 'Application status successfully updated.');
+            return redirect('applications/'.$dogid)
+            ->with('success', 'Application status successfully updated. Status of dog has been changed to ADOPTED and all other applications updated to CLOSED');
+            }
     }
 }

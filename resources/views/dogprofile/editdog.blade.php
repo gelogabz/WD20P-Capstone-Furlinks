@@ -106,12 +106,13 @@
   }
 </style>
 
+<hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
-  <div class="row" style="width:100%;"">
+  <div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
     <a class="btn btn-outline-primary2" href="{{ url()->previous() }}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
       <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dog Profile</a>
 
-    <h3>Edit dog details</h3><br>
+      <h3 style="font-family: Poppins; color:#413F42;">Edit Dog Information</h3><br>
       <form action="{{route('dogprofile.update', $dogs->id)}}" method="POST" enctype="multipart/form-data">
         {!! csrf_field() !!}
       @method('PATCH')
@@ -183,29 +184,13 @@
               <div class="col-md-1 col-sm-1"></div>
               
               <div class="col-md-5 col-sm-12" style="padding-left:20px;padding-top:15px;">
-                <?php    
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "furlinks_db";
-                ?>
                 <div class="mb-2 row">
                   <label for="breed_id1" class="col-sm-4 col-form-label">Primary Breed</label>
                   <div class="col-sm-8">
                     <select class="form-select form-select-sm" name="breed_id1" aria-label=".form-select-sm example" required>
-                      <option value="{{$dogs->breed_id1}}"selected>{{$dogs->breed1_name}}</option>
-                      <?php
-                      $conn = mysqli_connect($servername, $username, $password, $dbname);
-                      $breed = "SELECT * FROM `breed`";
-                      $resulta = mysqli_query($conn, $breed);
-                          if (mysqli_num_rows($resulta)>0){
-                              while ($row = mysqli_fetch_assoc($resulta)){
-                                  echo "<option value=".$row["id"].">".$row["name"]. "</option>";
-                          }
-                          }else {
-                              echo "no breed found";
-                          }
-                      ?>
+                      @foreach($breed as $breeditem)  
+                      <option value={{$breeditem->id}} {{($dogs->breed_id1==$breeditem->id)? "selected" : "" }}>{{$breeditem->name}}</option>  
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -214,19 +199,9 @@
                   <label for="breed_id2" class="col-sm-4 col-form-label">Secondary Breed</label>
                   <div class="col-sm-8">
                     <select class="form-select form-select-sm" name="breed_id2" aria-label=".form-select-sm example" required>
-                      <option value="{{$dogs->breed_id2}}" selected>{{$dogs->breed2_name}}</option>
-                      <?php
-                      $conn = mysqli_connect($servername, $username, $password, $dbname);
-                      $breed = "SELECT * FROM `breed`";
-                      $resulta = mysqli_query($conn, $breed);
-                          if (mysqli_num_rows($resulta)>0){
-                              while ($row = mysqli_fetch_assoc($resulta)){
-                                  echo "<option value=".$row["id"].">"    .$row["name"]. "</option>";
-                          }
-                          }else {
-                              echo "no breed found";
-                          }
-                      ?>
+                      @foreach($breed as $breeditem)  
+                      <option value={{$breeditem->id}} {{($dogs->breed_id2==$breeditem->id)? "selected" : "" }}>{{$breeditem->name}}</option>  
+                      @endforeach
                     </select>
                   </div>
                 </div>
@@ -237,7 +212,7 @@
 
             <!--DOG ADDITIONAL INFO  --> 
             <div class="row">
-              <table style="width:100%;"">
+              <table style="width:100%;">
                 <tr style="border-bottom:0.3pt solid #e1e1e1;">
                   <th colspan="4" style="padding-left:0px;font-size:16px"><i>Dog History</i></th>    
                 </tr>   
@@ -343,7 +318,7 @@
 
             <!--ADOPTION INFO  -->            
             <div class="row">
-              <table style="width:100%;"">
+              <table style="width:100%;">
                 <tr style="border-bottom:0.3pt solid #e1e1e1;">
                   <th colspan="4" style="padding-left:0px;font-size:16px"><i>Adoption Fees</i></th>    
                 </tr>   

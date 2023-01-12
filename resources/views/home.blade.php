@@ -26,16 +26,16 @@
                             <div class="d-flex align-items-center justify-content-center" style="opacity:90%">
                               <div class="d-flex form-row justify-content-left rounded-2 w-100"  style="background-color: #FFF;font-size:small">
                               
-                                <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
-                                  <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </label>
-                                    <select class="form-select form-select-sm mb-2 ms-2" id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
+                                <div class="form-group col-md-4 col-sm-12" style="vertical-align:middle; margin:auto; padding:3px;">
+                                  <span style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Gender: </span>
+                                    <select  id="gender" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                                       <option selected>Select</option>
                                       <option>Male</option>
                                       <option>Female</option>
                                       <option>Any</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+                                <div class="form-group col-md-4 col-sm-12" style="vertical-align:middle; margin:auto; padding:3px;">
                                   <label style="padding-left:15%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Size: </label>
                                     <select class="form-select form-select-sm mb-2" id="breed" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                                       <option selected>Select</option>
@@ -45,7 +45,7 @@
                                           <option>Any</option>
                                     </select>
                                 </div>
-                                <div class="form-group col-sm-3 col-lg-3 col-md-3" style="vertical-align:middle; margin:auto; padding:3px;">
+                                <div class="form-group col-md-4 col-sm-12" style="vertical-align:middle; margin:auto; padding:3px;">
                                   <label style="padding-left:10%; padding-right:10%; font-family: 'Poppins'; font-size:21px; color:#413F42;" class="fw-bold mt-2"> Color: </label>
                                     <select class="form-select form-select-sm mb-2" id="dogscolor" style="border:none; background-color:#FFF; font-family: 'Lato'; font-size:12pt;">
                                       <option selected>Select</option>

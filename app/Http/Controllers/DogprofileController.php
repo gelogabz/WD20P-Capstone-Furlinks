@@ -4,9 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Pagination\Paginator;
+
+use App\Http\Controllers\Userprofile;
+
 use App\Models\Dogs;
 use App\Models\Users;
 use App\Models\UserProfiles;
+
 use DB;
 
 class DogprofileController extends Controller
@@ -43,27 +48,32 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.user_id', '=', $idtofind)
+            ->where('dogs.status_id', '!=', 3)
             ->simplePaginate(8);
 
-        $user = DB::table('userprofiles')
-            ->select(
-                'userprofiles.profile_pic',
-                'userprofiles.firstname',
-                'userprofiles.lastname',
-                'userprofiles.about',
-                'userprofiles.city',
-                'userprofiles.province',
-                'users.name as user_name')
-            ->join('users', 'users.id', '=', 'userprofiles.user_id')
-            ->where('userprofiles.user_id', '=', $idtofind)
-            ->first();
-
-        return view('privpages.dogsposted')->with('dogs', $dogs)->with('user', $user);
+        return view('privpages.dogsposted')->with('dogs', $dogs);
     }
 
     public function create()
     {
-        return view('dogprofile.createprofile');
+        $breed = DB::table('breed')
+            ->select('id', 'name')
+            ->get();
+
+        $idtofind = Auth::id();
+
+        $userprofiles = DB::table('userprofiles')
+            ->where('user_id', '=', $idtofind)
+            ->get();
+
+        if ($userprofiles->isEmpty())
+            {
+            return redirect('/dogsposted')
+            ->with('noprofile', '  A completed user profile is required for posting a dog for adoption.');
+            }
+        else {
+            return view('dogprofile.createprofile')->with('breed', $breed);
+            }
     }
 
     public function store(Request $request)
@@ -153,7 +163,14 @@ class DogprofileController extends Controller
             ->join('users', 'users.id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.dogdetails')->with('dogs', $singleDog);
+
+        $applications = DB::table('applications')
+            ->where('dog_id', $id)
+            ->get();
+
+        return view('dogprofile.dogdetails')
+            ->with('dogs', $singleDog)
+            ->with('applications', $applications);
     }
 
 
@@ -188,7 +205,12 @@ class DogprofileController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.id', $id)
             ->first();
-        return view('dogprofile.editdog')->with('dogs', $editDog);
+
+            $breed = DB::table('breed')
+            ->select('id', 'name')
+            ->get();
+
+        return view('dogprofile.editdog')->with('dogs', $editDog)->with('breed',$breed);
     }
 
     public function update(Request $request, $id)
@@ -240,5 +262,10 @@ class DogprofileController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function boot()
+    {
+        Paginator::useBootstrap();
     }
 }

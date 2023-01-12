@@ -55,16 +55,20 @@ class UserprofileController extends Controller
             'finresp' => 'required',
             'lefthome' => 'required',
             'hours' => 'required',
-        ));
+        )
+        );
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
+        $idtofind = Auth::user()->id;
+
 
         if ($file = $request->file('profile_pic')) {
             $filename = date('YmdHis') . $file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $userprofile['profile_pic'] = "$filename";
-        };
+        }
+        ;
 
         $userprofile->profile_pic = $userprofile['profile_pic'];
         $userprofile->firstname = $request->firstname;
@@ -93,54 +97,17 @@ class UserprofileController extends Controller
         $userprofile->hours = $request->hours;
         $userprofile->save();
 
-<<<<<<< HEAD
-
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile);
-=======
-        return redirect('/showprofile')
-             ->with('success', 'User profile successfully created.');
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
+        // return redirect('/showprofile')
+        return redirect('userprofile/'.$idtofind)
+            ->with('success', 'User profile successfully created.');
     }
 
     public function show($id)
     {
-<<<<<<< HEAD
-
-        $this->validate($request, array(
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'about' => 'required',
-            'profile_pic' => 'required',
-            'mobile_no' => 'required',
-            'gender' => 'required',
-            'address1' => 'required',
-            'address2' => 'required',
-            'city' => 'required',
-            'province' => 'required',
-            'hometype' => 'required',
-            'funds' => 'required',
-            'allowed' => 'required',
-            'withpets' => 'required',
-            'allergy' => 'required',
-            'allvaxed' => 'required',
-            'allneut' => 'required',
-            'euthanized' => 'required',
-            'lostpet' => 'required',
-            'cats' => 'required',
-            'dogs' => 'required',
-            'priresp' => 'required',
-            'finresp' => 'required',
-            'lefthome' => 'required',
-            'hours' => 'required',
-        ));
-
-
-        $idtofind = Auth::id();
-        $userprofile = Userprofile::table('userprofiles')
-=======
         $userprofile = DB::table('userprofiles')
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
             ->select(
+                'userprofiles.id',
+                'userprofiles.user_id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
                 'userprofiles.lastname',
@@ -169,18 +136,20 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-        return view('userprofile.showprofile')->with('userprofiles', $userprofile)
-<<<<<<< HEAD
-            ->with('success', 'User profile successfully created.');
-=======
-        ->with('success', 'User profile successfully created.');
->>>>>>> 94b3a939958a040b7c72ff833246033c6490952e
+        
+        if (Userprofile::where('user_id', '=', $id)->exists()) {
+            return view('userprofile.showprofile')->with('userprofiles', $userprofile);
+        }
+        else {
+            return view('userprofile.profiletabs');
+        }
     }
 
     public function edit($id)
     {
         $userdata = DB::table('userprofiles')
             ->select(
+                'userprofiles.id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
                 'userprofiles.lastname',
@@ -207,16 +176,16 @@ class UserprofileController extends Controller
                 'userprofiles.lefthome',
                 'userprofiles.hours',
             )
-            ->where('user_id', $id)
+            ->where('id', $id)
             ->first();
         return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
 
-    public function update(Request $request, $userid)
+    public function update(Request $request, $id)
     {
         $this->validate($request, array());
 
-        $userprofiles = Userprofile::find($userid);
+        $userprofiles = Userprofile::find($id);
 
         // $userprofiles = Userprofiles::find($userid);
 
@@ -226,7 +195,8 @@ class UserprofileController extends Controller
             $input['profile_pic'] = "$filename";
         } else {
             unset($input['profile_pic']);
-        };
+        }
+        ;
         $userprofiles->profile_pic = $input['profile_pic'];
         $userprofiles->firstname = $request->input('firstname');
         $userprofiles->lastname = $request->input('lastname');
@@ -254,7 +224,9 @@ class UserprofileController extends Controller
         $userprofiles->hours = $request->input('hours');
         $userprofiles->save();
 
-        return redirect()->back()
+        $idtofind = Auth::id();
+        
+        return redirect('userprofile/'.$idtofind)
             ->with('success', 'Profile successfully updated.');
     }
 }

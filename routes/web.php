@@ -16,33 +16,33 @@ Route::resource('dogsposted', 'App\Http\Controllers\DogprofileController');
 Route::resource('/dogprofile', 'App\Http\Controllers\DogprofileController');
 Route::put('dogprofile/{id}/edit', [DogprofileController::class, 'update']);
 Route::get('/dogsrehomed', 'App\Http\Controllers\PagesController@dogsrehomed');
+Route::resource('dogsrehomed', 'App\Http\Controllers\AdoptionsController');
 
 // For PUBLIC PAGES
 Route::resource('/pages', 'App\Http\Controllers\DogsController');
 // Route::get('/dogdetails', 'App\Http\Controllers\PagesController@dogdetails');
 
-// For DOG ADOPTION APPLICATIONS
+// For APPLICATIONS
 Route::get('/applications', 'App\Http\Controllers\ApplicationsController@applications');
 Route::get('/applications/create/{id}', 'App\Http\Controllers\ApplicationsController@create');
 Route::resource('applications', 'App\Http\Controllers\ApplicationsController');
 Route::put('applications/{id}/edit', [ApplicationsController::class, 'update']);
 Route::put('applications/{id}', [ApplicationsController::class, 'update2']);
 
-// This is Profiletabs - User
+// For ADOPTIONS
+Route::get('/adoptions/create/{id}', 'App\Http\Controllers\AdoptionsController@create');
+Route::resource('adoptions', 'App\Http\Controllers\AdoptionsController');
+
+
+// FOR USER PROFILE
 Route::get('/showprofile', 'App\Http\Controllers\PagesController@showprofile');
 Route::resource('showprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/profiletabs', 'App\Http\Controllers\PagesController@profiletabs');
 Route::resource('/userprofile', 'App\Http\Controllers\UserprofileController');
 Route::get('/navbar', 'App\Http\Controllers\UserprofileController@index');
+Route::put('userprofile/{id}/edit', [UserprofileController::class, 'update']);
 
-// Route::get('/editprofile', 'App\Http\Controllers\PagesController@editprofile');
-// Route::resource('/profiletabs', 'App\Http\Controllers\UserprofileController');
-// Route::resource('/showprofile', 'App\Http\Controllers\Userprofile2Controller');
-// Route::get('/myprofile', 'App\Http\Controllers\PagesController@myprofile');
-// Route::get('/personalinfo', 'App\Http\Controllers\PagesController@personalinfo');
-// Route::get('/doghistory', 'App\Http\Controllers\PagesController@doghistory');
-// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
-// Route::get('/accountsetting', 'App\Http\Controllers\PagesController@accountsetting');
+
 
 
 Auth::routes();

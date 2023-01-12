@@ -42,7 +42,7 @@
     </div>
     @endif
 
-      <table class="table" style="width:100%;margin-top:10px;vertical-align:middle">
+      <table class="table table-borderless" style="width:100%;margin-top:10px;vertical-align:middle">
         <tr style="border-bottom:0.3pt solid #e1e1e1;">
           <th></th>
           <th>Name</th>          
