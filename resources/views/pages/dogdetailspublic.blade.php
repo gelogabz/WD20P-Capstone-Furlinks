@@ -14,21 +14,21 @@
         <div class="row">
           <div class="col-lg-5 col-sm-12" style="padding: 0px 0px 30px 0px">           
             <img src="{{asset('Image/'. $dogs->pic)}}" alt="dog" class="image" style="width:85%; display:block; border-radius:20px; margin:auto">
-            <div style="justify-content: center; text-align:center; margin-top:30px">
+            <div style="justify-content: center; text-align:center; margin-top:20px">
               @if(Auth::check())
                   @if ($ownership == 'yes' )
                       {{-- if user logged in is the owner of the dog --}}
                       @if ($dogs->status_id == 1)
-                        <a class="btn edit_btn" href="/dogprofile/{{$dogs->id}}/edit" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                        <a class="btn adopt_btn" href="/dogprofile/{{$dogs->id}}/edit" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap; margin-top:10px;">
                           <i class="fa-regular fa-pen-to-square" style=""></i> 
                           Edit Dog Profile
                         </a>
                       @elseif ($dogs->status_id == 2)
-                        <a class="btn edit_btn" href="/applications/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                        <a class="btn adopt_btn" href="/applications/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap; margin-top:10px;">
                           View Applications
                         </a>
                       @else
-                        <a class="btn edit_btn" href="/adoptions/create/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap;">
+                        <a class="btn adopt_btn" href="/adoptions/create/{{$dogs->id}}" type="button" style="width:200px; font-family:Poppins; white-space:no-wrap; margin-top:10px;">
                           Finalize Adoption
                         </a>
                       @endif
@@ -42,19 +42,21 @@
                       @else
                        {{-- if user has never applied to adopt this dog --}}
                           @if ($withprofile == "complete")
-                            <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
-                            <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
+                              <a href="/applications/create/{{$dogs->id}}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
+                              <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:10px;"></i>ADOPT</a>      
                           @else
-                          <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
-                            <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
-                            <p style="font-weight:400;font-size:15px;"> A complete user profile is required. <br><a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">Click here</a> to complete your profile.</span>    
-                          </div>
+                              <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
+                                <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
+                                <p style="font-weight:400;font-size:15px;"> A complete user profile is required. <br><a href="/userprofile/{{Auth::user()->id}}" style="color:#885b2a; text-decoration: none;font-weight:700">Click here</a> to complete your profile.</span>    
+                              </div>
                           @endif
                       @endif
                   @endif
               @else 
-                <a href="{{ route('register') }}" class="btn adopt_btn" style="width:170px;float:center; margin-top:10px;">
-                  <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right: 10px"></i>ADOPT</a>
+                <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
+                  <p style="font-weight:800;font-size:medium"> Want to adopt this dogs? <br> 
+                  <p style="font-weight:400;font-size:15px;"> Please register and complete your profile <br><a href="{{ route('register') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> here</a> to complete your profile.</span>    
+                </div>
               @endif  
             </div>
           </div>
