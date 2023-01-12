@@ -5,9 +5,22 @@
   .onlycol{
         background-color:#f4efe9 ;
     }
+    .goback{
+      color:#b78550;
+      text-decoration: none;
+      font-size:16px;
+      transition: all 0.2s;
+    }
+    .goback:hover{
+      color:#5082B7;
+      font-size:17px;
+    }
 </style>
 
-<div class='container p-3'>
+<div class='container pt-5 pb-5'>
+  <div class='mb-4 ms-3'>
+    <a class="goback" href="{{ url('/accountsetting') }}"><i class="bi bi-arrow-left"> Go back</i></a>
+  </div>
   <div class="row justify-content-center">
     <div class="col-8 card shadow p-4 onlycol">
       <H1>Change password</H1>

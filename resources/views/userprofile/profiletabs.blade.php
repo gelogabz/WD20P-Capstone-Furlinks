@@ -17,9 +17,9 @@
           @endif
     
             <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                   <a class="nav-link active tab1" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
-                    <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
-                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
+                <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
+                <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
+                <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
             
                
     
@@ -275,8 +275,8 @@
                         <label for='gender' class='mb-2'>Gender</label>
                         <select name='gender' class="form-select " aria-label=".form-select-sm example">
                             <option selected>Select Gender</option>
-                            <option value="1-Male">Male</option>
-                            <option value="1-Male">Female</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
                         </select>
                     </div>
                 </div>

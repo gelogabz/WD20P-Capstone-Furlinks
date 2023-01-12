@@ -104,7 +104,7 @@
         
         height: 150px ;
         object-fit: cover;
-        box-shadow: 1px 1px 8px rgba(0, 0 ,0, 0.8);
+        
     }
     .firstcol{
         background-color:#f4efe9 ;
@@ -167,17 +167,35 @@
                     margin:7px 7px 7px 7px;
                     border-radius: 10px;  
                 }
+                .confirmchanges{
+                    background-color:#799FC8;
+                    border-radius:10px;
+                    border:none;
+                    padding:7px 10px 7px 10px;
+                    font-family: 'Lato', sans-serif;
+                    transition: all 0.2s;
+                }
+                .confirmchanges:hover{
+                    background-color:#edf1f6;
+                    border-color:#799FC8;
+                    border-style: solid;
+                    border-width: 1px;
+                    padding:7px 15px 7px 15px;
+                    color:#4d82bb;
+                    font-weight: bold;
+                    font-size:15px;
+                }
                 </style>
                 <div class=" mt-4 nav d-block justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">My Profile</a>
-                    <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Personal Info</a>
-                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Dog History</a>
+                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
+                    <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
+                    <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
                 </div>
 
                 <div class="mt-3">
                     {{-- <a href="/userprofile/{{$userprofiles->user_id}}/edit">Edit Profile</a> --}}
                     
-                <input type="submit" class="btn btn-success" value="Confirm Changes">
+                <input type="submit" class="confirmchanges" value="Confirm Changes">
                 </div>
                 
             </div>
