@@ -78,7 +78,7 @@
 </div>
 
   <div class="container-fluid px-0" style="padding-top:5px; padding-bottom:20px; background-color:#f0e8dc; text-align: center; vertical-align: middle; opacity:90%">
-    <a href="#learn" style="font-family: 'Lato'; font-size:12pt; color: #040404; text-decoration:none"> Learn more
+    <a href="#learn" style="font-family: 'Lato'; font-size:12pt; color: #040404; text-decoration:none; font-weight:700"> Learn more
     <img src="{{asset('build/images/down.gif')}}" style="padding-left:10px;height:15px;"/></a>
   </div>
 
@@ -145,7 +145,7 @@
                 In that way, we can all encourage  <br> 
                 our family and friends to “adopt, not shop”<br>
                 </p>
-                <a href="#welcomepart" class="btn viewapp_btn" style="border-radius:20px;width:230px">JOIN THE COMMUNITY</a>
+                <a href="#testimonials" class="btn viewapp_btn" style="border-radius:20px">VIEW MORE</a>
             </div>
             <div class="col-lg-6">
               <img src="{{asset('build/images/Search3.jpg') }}" style="width:100%">
@@ -157,22 +157,57 @@
   </div>
 </div>
 
-<div class="container-fluid" id="welcomepart" style="height:115vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
+<div class="container-fluid" style="padding-left:5%; padding-right:5%; padding-top:30px" id="testimonials" style="height:100vh; text-align:center">
+  <center>
+  <h3 class="header" style="font-family:Quicksand;color:#885b2a;">Our Community of Adopters</h3>
+  <h5> Over a thousand and growing...</h5>
+  <div class="row justify-content-center mt-4 mb-4">
+    <div class="col-lg-4 col-sm-4 col-md-4">
+      <img src="{{asset('build/images/rehomed/dog1r.jpg') }}" class="my-3 mx-0" style="height:350px;"/>
+      <p class="mx-4 mb-2">
+          "Furlinks proved to be an invaluable resource for us in our search for the perfect furry companion. Their platform made it easy 
+          to find our new best friend and the adoption process was seamless. We are incredibly grateful to Furlinks for bringing us and 
+          our new dog together and making her feel like she is truly a part of our family. Thank you, Furlinks!"
+      </p>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4 px-0 mx-0">
+      <img src="{{asset('build/images/rehomed/dog2r.jpg') }}" class="my-3 mx-0" style="height:350px;">
+      <p class="mx-4 mb-2">
+          "We highly recommend Furlinks as a resource for anyone looking to adopt a dog. The platform's features make it an incredibly 
+          user-friendly and efficient tool in the search for the perfect pet. Thanks to Furlinks, we were able to find and adopt the 
+          perfect companion for our family and we couldn't be happier. We are truly grateful for this website!"
+      </p>
+    </div>
+    <div class="col-lg-4 col-sm-4 col-md-4 px-0 mx-0">
+      <img src="{{asset('build/images/rehomed/dog3r.jpg') }}" class="my-3 mx-0" style="height:350px;">
+      <p class="mx-4 mb-2">
+          "Adopting a dog has been one of the greatest joys of our lives and we have Furlinks to thank for making it possible. Their 
+          platform made the entire process of finding and adopting our new furry family member a breeze. We are forever grateful for the 
+          role that Furlinks played in bringing our new companion into our home. Thank you, Furlinks, for making this day the best one of 
+          our lives."
+      </p>
+    </div>
+  </div>
+  <div>
+    <a href="#welcomepart" class="btn viewapp_btn" style="border-radius:20px;width:230px;margin-bottom:20px">JOIN THE COMMUNITY</a>
+
+  </div>
+</div>
+
+<div class="container-fluid" id="welcomepart" style="height:100vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
   <div class="row">
-    <div class="col col-lg-6 d-none d-lg-block">
+    <div class="col-lg-6 d-none d-lg-block">
       <div class="container" style="margin-top:50%; padding-left:20%; text-align:left; color:#F4F4F4; opacity:80%">
-        <h1 class="header" style=" font-family:Quicksand; font-size:50px">Sign up <br> to join <br> the community</h1>
+        <h3 style=" font-family:Quicksand; font-size:50px">Join our community <br>of rescuers, fosters <br>and adopters. </h1>
       </div>
     </div>
-
-    <div class="col col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12">
       <div class="container d-flex justify-content-center">
         <div class="logincont">
           <form class="rounder p-10 p-sm-2 pb-0" method="POST" action="{{ route('register') }}">
           @csrf
             <img src="{{asset('build/images/logo-color.png') }}" width="120px" style="display: block; margin:auto"/>
             <h5 style="text-align:center; margin-top:5%; margin-bottom:5%; font-family: 'Poppins';">Welcome to Furlinks</h5>
-
             <div class="mt-4 mb-3">
               <label for="name" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Name') }}</label>
               <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">                  
@@ -182,7 +217,6 @@
                   </span>
                 @enderror
             </div>
-
             <div class="mb-3">
               <label for="email" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Email Address') }}</label>
               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="background-color:white">
@@ -192,7 +226,6 @@
                   </span>
                 @enderror
             </div>
-      
             <div class="mb-3">
               <label for="password" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Password') }}</label>
               <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -202,19 +235,16 @@
                   </span>
                 @enderror
             </div>
-
             <div class="mb-4">
               <label for="password-confirm" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Confirm Password') }}</label>
               <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
             </div>
             <center>
             <div class="mt-4 mb-4">
-
-                  <button type="submit" class="btn form-control reg_btn" style="width:200px; border-radius:20px" href="userprofile/profiletabs">
-                    <i class="bi bi-person-add" style="font-size:14px; padding-right:10px;"></i> {{ __('Register') }}
-                  </button>
+              <button type="submit" class="btn form-control reg_btn" style="width:200px; border-radius:20px" href="userprofile/profiletabs">
+                <i class="bi bi-person-add" style="font-size:14px; padding-right:10px;"></i> {{ __('Register') }}
+              </button>
             </div>
-      
             <p style="font-size:small; font-family:Lato">By continuing, you agree to our 
               <span style="color:#885b2a" class="fw-bold">Terms of Service</span> and acknowledge that you have read our 
               <span style="color:#885b2a" class="fw-bold">Privacy Policy</span>

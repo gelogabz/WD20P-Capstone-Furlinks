@@ -76,7 +76,7 @@
           </div>
           <div class="col-lg-9">
             <div class="row fw-bold" style="color:#180A0A; text-align:start;font-family:Poppins;">             
-            <a href="/users/{{$dog->user_id}}" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
+            <a href="/users/{{$dog->users_id}}" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
             </div>
             <div class="row" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{date('M d, Y', strtotime($dog->created_at))}}</div>
           </div>
