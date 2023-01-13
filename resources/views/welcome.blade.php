@@ -61,7 +61,7 @@
     @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-6 px-4">
         <div class="containerimg" style="width:100%">
-          <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
+          <img src="{{asset('Image/'.$dog->pic)}}" class="image img-responsive" width="100%" style="padding:5%; padding-bottom:2%" />
           <div class="middle">
             <a class="text" href="pages/{{$dog->id}}" style="text-decoration:none;">View More</a>
           </div>

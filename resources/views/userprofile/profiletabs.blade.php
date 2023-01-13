@@ -240,8 +240,8 @@
                             <label for='gender' class='col-sm-4 col-form-label''>Gender</label>
                             <select name='gender' class="form-select " aria-label=".form-select-sm example">
                                 <option selected>Select Gender</option>
-                                <option value="1-Male">Male</option>
-                                <option value="2-Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class='col-sm-4 mt-3'>   

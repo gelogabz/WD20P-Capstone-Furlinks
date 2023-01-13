@@ -1021,10 +1021,10 @@ select.list-dt:focus {
     -ms-transition: all 1s ease;
 }
 .propic2{
-    width: 50px !important;
+    width: 60px !important;
     border-radius: 50% !important;
     border-width: 1px !important;
-    height: 50px !important;
+    height: 60px !important;
     object-fit: cover !important;
 }
 .username{
