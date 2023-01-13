@@ -112,7 +112,6 @@
           </div>
         </div>
       </div>
-
       <div class="carousel-item" data-bs-interval="2000">
         <div class="container-fluid" style="background-color:#799FC8; margin:0px; height:100vh; opacity:90%">
           <div class="row">
@@ -158,100 +157,73 @@
   </div>
 </div>
 
-{{-- 
-  <div class="container-fluid" id="Search" style="background-color:#C8A279; height:100vh; opacity:90%">
-    <div class="row">
-        <div class="col-lg-6">
-          <div class="center">
-          <img src="{{asset('build/images/Search1.png') }}" style="display: block; width:80%" class="mt-5">
-        </div>
-        </div>
-        <div class="col-lg-6" style="text-align:center;margin:auto;color:#F4F4F4">
-          <h1 class="header" style="font-family:Quicksand;">Search for a dog</h1>
-            <p class="par" style="margin-top:2%; margin-bottom:5%; font-family: 'Poppins';">What type of dog would you like to adopt?<br> Think of what would match your<br> personality - like “small breed or toy<br>  
-            dog” - and see what you find.</p>
-        </div> 
+<div class="container-fluid" id="welcomepart" style="height:115vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
+  <div class="row">
+    <div class="col col-lg-6 d-none d-lg-block">
+      <div class="container" style="margin-top:50%; padding-left:20%; text-align:left; color:#F4F4F4; opacity:80%">
+        <h1 class="header" style=" font-family:Quicksand; font-size:50px">Sign up <br> to join <br> the community</h1>
+      </div>
     </div>
-  </div>
-  <div class="container-fluid" style="background-color:#799FC8; margin:0px; height:100vh; opacity:90%">
-    <div class="row">
-        <div class="col-lg-6" style="text-align:center; margin:auto; color:#103965; padding-top:5%">
-            <h1 class="header" style="font-family:Quicksand;">Apply for adoption</h1>
-            <p class="par" style="margin-top:2%; font-family: 'Poppins'; margin-bottom:5%">Fill up and submit the adoption form. If you <br>are qualified, the dog rescuer/foster <br>parent will conduct an interview<br> 
-              to finalize the adoption.</p>
-        </div>
-        <div class="col-lg-6">
-          <div class="center">
-          <img src="{{asset('build/images/Search2.png') }}" style="display:block; width:80%" class="mt-5">
-        </div>
-        </div>
-    </div> 
-  </div>
 
-  <div class="container-fluid" style="background-color:#B78550; height:100vh; opacity:90%">
-    <div class="row">
-      <div class="col-lg-6 d-flex">
-        <img src="{{asset('build/images/Search3.jpg') }}" style="width:90%" class="mt-4 mb-2">
-      </div>
-      <div class="col-lg-6" style="text-align:center; margin:auto; color:#F4F4F4">
-            <h1 class="header" style="margin-top:2%; font-family:Quicksand;">Share and invite</h1>
-            <p class="par" style="margin-top:2%; font-family: 'Poppins'; margin-bottom:5%">Support the community by sharing <br> your experience and providing feedback <br> on rescuers and fosters. Encourage <br> family and friends to “adopt, not shop”.</p>
-        </div>
-      </div>
-  </div>  --}}
+    <div class="col col-lg-4 col-sm-12">
+      <div class="container d-flex justify-content-center">
+        <div class="logincont">
+          <form class="rounder p-10 p-sm-2 pb-0" method="POST" action="{{ route('register') }}">
+          @csrf
+            <img src="{{asset('build/images/logo-color.png') }}" width="120px" style="display: block; margin:auto"/>
+            <h5 style="text-align:center; margin-top:5%; margin-bottom:5%; font-family: 'Poppins';">Welcome to Furlinks</h5>
 
-</div>
-<div>
-  <div class="container-fluid" id="welcomepart" style="height:115vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
-    <div class="row">
-        <div class="col col-lg-6 d-none d-lg-block">
-          <div class="container" style="margin-top:50%; padding-left:20%; text-align:left; color:#F4F4F4; opacity:80%">
-            <h1 class="header" style=" font-family:Quicksand; font-size:50px">Sign up <br> to join <br> the community</h1>
-          </div>
+            <div class="mt-4 mb-3">
+              <label for="name" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Name') }}</label>
+              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">                  
+                @error('name')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+            </div>
+
+            <div class="mb-3">
+              <label for="email" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Email Address') }}</label>
+              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="background-color:white">
+                @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+            </div>
+      
+            <div class="mb-3">
+              <label for="password" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Password') }}</label>
+              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                @error('password')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+            </div>
+
+            <div class="mb-4">
+              <label for="password-confirm" style="font-family: 'Lato'; letter-spacing:1px;">{{ __('Confirm Password') }}</label>
+              <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            </div>
+            <center>
+            <div class="mt-4 mb-4">
+
+                  <button type="submit" class="btn form-control reg_btn" style="width:200px; border-radius:20px" href="userprofile/profiletabs">
+                    <i class="bi bi-person-add" style="font-size:14px; padding-right:10px;"></i> {{ __('Register') }}
+                  </button>
+            </div>
+      
+            <p style="font-size:small; font-family:Lato">By continuing, you agree to our 
+              <span style="color:#885b2a" class="fw-bold">Terms of Service</span> and acknowledge that you have read our 
+              <span style="color:#885b2a" class="fw-bold">Privacy Policy</span>
+              <br><br>
+              <span style="font-size:14px;padding-right:10px"><b>Already a member? </b></span> 
+              <a href="/login" style="color:#885b2a; text-decoration: none;font-weight:700" class="fw-bold">Login here.</p></a>                 
+          </form>
         </div>
-      <div class="col col-lg-4 col-sm-12">
-        <div class="container d-flex justify-content-center">
-          <div class="logincont">
-              <form class="rounder p-10 p-sm-2 pb-0"  target="_blank" action="https://formsubmit.co/07e3875514446ae967847acb0afca671" method="POST">
-                <img src="{{asset('build/images/logo-color.png') }}" width="120px" style="display: block; margin:auto"/>
-                <h5 style="text-align:center; margin-top:5%; margin-bottom:5%; font-family: 'Poppins';">Welcome to Furlinks</h5>
-                <div class="mb-3">
-                  <label for="email" style="font-family: 'Lato'; letter-spacing:1px;"><b>Email:</b></label>
-                  <input type="text" name="email" class="form-control" placeholder="Enter email" required>
-                </div>
-                <div class="mb-3">
-                  <label for="psw" style="font-family: 'Lato'; letter-spacing:1px;"><b>Password:</b></label>
-                  <input type="password" class="form-control" placeholder="Enter Password" name="psw" required>
-                </div>
-                <div class="mb-3">
-                  <label for="psw-repeat" style="font-family: 'Lato'; letter-spacing:1px;"><b>Repeat Password:</b></label>
-                  <input type="password" class="form-control" placeholder="Repeat Password" name="psw-repeat" required>
-                </div>
-                <!--<div class="form-check">
-                      <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                      </label>
-                    </div>-->   
-                <div class="clearfix" style="margin-bottom:0; padding-bottom:0;">
-                  <button class="btn signupbtn" type="submit" style="width:100%; font-family: 'Poppins'; letter-spacing:1px;">Continue</button>
-                  <p style="text-align:center; padding-top:6px" class="fw-bold">or</p>
-                  <a class="btn btn-primary4 btn-md btn-block w-100" style="background-color:#3b5998; text-align:center; font-family: Lato;" href="#!" role="button">
-                    <i class="fab fa-facebook-f me-2"></i>Connect with Facebook
-                  </a> 
-                  <a class="btn btn-primary4 btn-md btn-block w-100 mt-2 mb-4" style="background-color: #dd4b39; text-align:center; font-family: Lato;" href="#!" role="button">
-                    <i class="fab fa-google me-2"></i>Continue with Google
-                  </a>
-                  <br>
-                  <p style="font-size:small; font-family:Lato">By continuing, you agree to our 
-                    <a href="#" style="color:#885b2a" class="fw-bold">Terms of Service</a> and acknowledge that you have read our 
-                    <a href="#" style="color:#885b2a" class="fw-bold">Privacy Policy</a>
-                    <br><br><b>Already a member?</b> 
-                    <a href="/login" style="color:#885b2a; text-decoration: none;font-weight:700" class="fw-bold">Login here.</p></a>                 
-                </div>
-              </form>
-          </div>
-        </div>  
-     </div>
+      </div>  
     </div>
   </div>
 </div>
