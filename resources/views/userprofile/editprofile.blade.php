@@ -114,7 +114,7 @@
 <div class="container p-2">
     <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
         <div class="row" style="width:100%;margin-top:20px">
-            <a class="btn btn-outline-primary2" href="{{route('userprofile.update', $userprofiles->id)}}" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
+            <a class="btn btn-outline-primary2" href="{{route('userprofile.update', $userprofiles->user_id)}}" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
                 <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Go back</a>
             @if ($message = Session::get('success'))
             <div class="alert alert-success" style="height:50px">

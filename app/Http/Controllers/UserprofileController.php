@@ -153,6 +153,7 @@ class UserprofileController extends Controller
         $userdata = DB::table('userprofiles')
             ->select(
                 'userprofiles.id',
+                'userprofiles.user_id',
                 'userprofiles.profile_pic',
                 'userprofiles.firstname',
                 'userprofiles.lastname',
