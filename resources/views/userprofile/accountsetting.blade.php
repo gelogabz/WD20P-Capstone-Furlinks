@@ -28,7 +28,7 @@
 <div class='container pt-5 pb-5'>
   <div class="row justify-content-center">
     <div class="col-8 card shadow p-4 onlycol">
-      <H1><i class="bi bi-person-fill"></i> Account Settings</H1>
+      <h2 class="" style="font-family: Poppins; color:#413F42"><i class="bi bi-person-fill"></i> Account Settings</h2>
       <HR>
         <p class='mb-5 mt-3'>Make changes to your password. This information is private and won't show up in your public profile.</p>
 
