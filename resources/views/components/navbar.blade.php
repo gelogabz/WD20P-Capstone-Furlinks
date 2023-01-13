@@ -75,7 +75,7 @@
                 font-family: 'Lato', sans-serif;
                 padding-left: 15px;
                 padding-right: 15px;
-                transition: background-color 0.2s ;"
+                transition: background-color 0.4s ;"
                 
                 role="button" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
           </div>
@@ -88,7 +88,7 @@
                  border-radius: 14px;
                  border:none;
                  font-family: 'Lato', sans-serif;
-                 transition: background-color 0.1s;"
+                 transition: background-color 0.4s;"
                  
                  role="button" href="{{ route('register') }}"><i class="bi bi-person-add"></i> Register</a>
           </div>
