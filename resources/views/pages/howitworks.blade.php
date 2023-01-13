@@ -102,12 +102,12 @@
             <img src={{asset('build/images/how-8.png') }} class=" ms-5" style="height:300px">
         </div>
     </div>
-    <p class="linesafooter mb- mx-5"></p>
+    <p class="linesafooter mx-4"></p>
     <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-12 my-5">
-            <p class="text-center mx-4" style="font-family: Quicksand; font-weight:900; color:#413F42; font-size:15pt">
-              It's important to note that different organizations have different policies and procedures for dog adoptions, 
-              so the specific process may vary from website to website.    
+        <div class="col-md-12">
+            <p class="text-center mx-4" style="font-family: Quicksand; font-weight:500; color:#413F42; font-size:14pt">
+              It's important to note that different rescuers and fosters have different policies and procedures for dog adoptions, 
+              so the specific process may vary from case to case.    
             </p>
         </div>
     </div>

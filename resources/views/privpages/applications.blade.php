@@ -63,7 +63,7 @@
         @foreach($applications as $application)    
         <tr>
           <td><img src="{{asset('image/'.$application->dog_pic)}}" style="width:100px;border-radius:10px;display:block;margin:auto;"></td>
-          <td style="vertical-align:middle"><a href="pages/{{$application->dog_id}}">{{$application->dog_name}}</a></td>
+          <td style="vertical-align:middle"><a class="username" href="pages/{{$application->dog_id}}">{{$application->dog_name}}</a></td>
           <td style="vertical-align:middle">{{($application->gender=="1-Male")? "Male" : "Female" }}</td>
           <td style="vertical-align:middle">{{$application->age_yr}}y {{" ".$application->age_month}}m old</td>
           <td style="vertical-align:middle">{{$application->location}}</td>

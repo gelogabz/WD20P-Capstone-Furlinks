@@ -8,8 +8,8 @@
           home for a dog who may have otherwise been left in a shelter or rescue.
         </p>
         <p>
-          <a class="click_footer" style="font-family: Poppins; font-weight:100; font-size:10pt;" href="/about">
-            <u>Click here to learn more</u>
+          <a class="click_footer" style="font-family: Poppins; font-weight:100; font-size:10pt;text-decoration:none" href="/about">
+            Click here to learn more
           </a>
         </p>
       </div>
@@ -36,9 +36,9 @@
       <div class="col-md-3 mb-4 text-center">
         <h5 style="font-family: 'Quicksand', sans-serif;">Quick Links</h5>
         <ul class="list-unstyled footer-link text-center">
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/">Home</a></li>
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/how">How it Works</a></li>
-          <li class="mb-2"><a class="footer_links" style="color:#5082B7;" href="/search">Find a Dog</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;text-decoration:none" href="/">Home</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;text-decoration:none" href="/how">How it Works</a></li>
+          <li class="mb-2"><a class="footer_links" style="color:#5082B7;text-decoration:none" href="/search">Find a Dog</a></li>
         </ul>
       </div>
       <div class="col-md-3 text-center">

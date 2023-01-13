@@ -46,7 +46,7 @@
     <div class="row" style="width:100%">          
       <div class="col-md-9 col-sm-12">                              
         <div class="row">
-          <h3>Applications for Adoption</h3>
+          <h3 class="" style="font-family: Poppins; color:#413F42">Applications for Adoption</h3>
         </div>
         <div class="row" style="margin-top:20px;margin-right:70px">
           <table class="table" style="margin-top:10px;vertical-align:middle;margin-left:30px; padding-right:10px;">
@@ -68,8 +68,8 @@
     
             @foreach($applications as $application)    
             <tr>
-              <td><img src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
-              <td style="vertical-align:middle">{{$application->id}}{{" ".$application->username}}</td>
+              <td><img class="propic2" src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
+              <td style="vertical-align:middle">{{" ".$application->username}}</td>
               <td style="vertical-align:middle">{{$application->firstname}}{{" ".$application->lastname}}</td>
               <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
               <td style="vertical-align:middle">{{$application->appstatus_name}}</td>
