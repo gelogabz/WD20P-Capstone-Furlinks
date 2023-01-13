@@ -216,15 +216,15 @@
                         <div class='col-sm-3 mt-3'>
                             <div class='row justfiy-content-center'>
                                 <label for="allowed" class='col-form-label mb-2'>Are pets allowed in your home ?</label>
-                                <div class="col-3 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='1' name='allowed' class="form-check-input custom-control" type="radio">
-                                    <label class="form-check-label" for="gridCheck">
+                                <div class="col-3 form-check d-flex justify-content-center ms-3">
+                                    <input value='1' name='allowed' class="form-check-input" type="radio">
+                                    <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-3 form-check d-flex justify-content-center ms-3 ">
                                     <input value='0' name='allowed' class="form-check-input custom-control" type="radio">
-                                    <label class="form-check-label" for="gridCheck">
+                                    <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
                                 </div>
@@ -273,39 +273,50 @@
                     </div>
                     
                         {{-- Question number 1 --}}    
-                        <div class="col-12 col-md-6 mt-4">
-                            <label for="withpets" class='mb-2'>Do you currently have pets ?</label>
-                            <div class="row">
-                                <div class="col-12 col-md-6 form-check d-flex justify-content-start ms-3 ">
-                                    <input value='1' name='withpets' class="form-check-input custom-control" type="radio">
-                                    <label class="form-check-label" for="gridCheck">
-                                        &nbsp; Yes
-                                    </label>
-                                </div>
-
-                                <div class="col-12 col-md-6 form-check d-flex justify-content-start ms-3 ">
-                                    <input value='0' name='withpets' class="form-check-input custom-control" type="radio">
-                                    <label class="form-check-label" for="gridCheck">
-                                        &nbsp; No
-                                    </label>
+                    <div class="row">
+                        <div class='col-md-6 mt-3'>
+                            <div class='row justfiy-content-center' style='vertical-align:text-bottom'>
+                                <label class="col-sm-5 col-form-label">Do you currently have pets?</label>
+                                <div class="col-sm-7" style='vertical-align:bottom'>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="withpets" id="withpets" value="1">
+                                        <label class="form-check-label" for="withpets" style="font-size:14px">Yes</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="withpets" id="withpets" value="0">
+                                        <label class="form-check-label" for="withpets" style="font-size:14px">No</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>   
+                        </div>
                     
-                        <div class="col-12 col-md-3 mt-4 form-check justify-content-start">
+                        <div class="col-md-3 mt-3 form-check justify-content-start">
                             <label for="dogs" class="col-form-label">If yes, how many dogs? </label>
-                            <input name="dogs" class="form-control form-control-sm" type="number" min="0" max="50" style="height:40px; width:50px;">
+                            <input name="dogs" class="form-control form-control-sm" type="number" min="0" max="50" style='width:60px' >
                         </div>
 
-                        <div class="col-12 col-md-3 mt-4 form-check justify-content-start ">
+                        <div class="col-12 col-md-3 mt-3 form-check justify-content-start ">
                             <label for="cats" class="col-form-label">If yes, how many Cats?</label>
-                            <input name="cats" class="form-control form-control-sm text-center" type="number" min="0" max="50" style="height:40px; width:50px;">
+                            <input name="cats" class="form-control form-control-sm text-center" type="number" min="0" max="50" style='width:60px'>
                         </div>
                     </div>
 
-                    
+                    <div class='row mt-4'>
+                        <label for="allergy" class="col-sm-6 col-form-label">Does any member of your household have any known allergies to animals?</label>
+                        <div class="col-sm-6">
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="allergy" id="inlineRadio1" value="1">
+                            <label class="form-check-label" for="inlineRadio1" style="font-size:14px">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="allergy" id="inlineRadio2" value="0">
+                            <label class="form-check-label" for="inlineRadio1" style="font-size:14px">No</label>
+                            </div>
+                        </div>
+                    </div>
 
-                    <div class='row'>
+
+
                         {{-- Question number 2 --}}
                             <div class="col-12 col-md-6 mt-4">
                                 <label for="allergy" class=' mb-2'>Does any member of your household have any known allergies to animals ?</label>
