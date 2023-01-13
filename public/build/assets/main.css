@@ -298,11 +298,11 @@ select {
     padding-top: 3%;
     padding-bottom: 2%;
 }
-.profimg {
-    width: 45px;
+/* .profimg {
+    width: 45px ;
     border-radius: 50%;
     padding: 2px;
-}
+} */
 /* View BTN */
 .containerimg {
     position: relative;
@@ -1019,5 +1019,18 @@ select.list-dt:focus {
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
     -ms-transition: all 1s ease;
+}
+.propic2{
+    width: 50px !important;
+    border-radius: 50% !important;
+    border-width: 1px !important;
+    height: 50px !important;
+    object-fit: cover !important;
+}
+.username{
+    color:#180A0A !important;
+}
+.username:hover{
+    color: #B78550 !important;
 }
 /* FOOTER END */
