@@ -18,7 +18,6 @@
         border-radius: 10px;
         padding: 18px 18px 18px 18px; 
     }
-
     .file-upload-input {
         position: absolute;
         margin: 0;
@@ -29,7 +28,6 @@
         opacity: 0;
         cursor: pointer;
         }
-
     .image-upload-wrap {
         margin-top: 0px;
         border: 4px dashed #5082B7 !important ;
@@ -38,27 +36,22 @@
         display:block;
         margin: auto;
         }
-
     .image-dropping,
     .image-upload-wrap:hover {
         background-color:#cfe5fd !important ;
         }
-
     .image-title-wrap {
         padding: 15px 15px 15px 15px;
         text-align: center;
         }
-
     .drag-text {
         text-align: center;
         }
-
     .drag-text h3 {
         font-weight: 100;
         color: #5082B7 !important ;
         padding: 60px 0;
         }
-
     .file-upload-image {
         max-height: 150px;
         max-width: 150px;
@@ -80,12 +73,10 @@
         margin:5px;
         vertical-align: middle;
         }
-
     .remove-btn,
     .file-upload-none{
         display: none;
     }
-
     .remove-image:hover {
         background-color:#6388af !important ;
         transition: all .5s ease;
@@ -94,7 +85,6 @@
         -o-transition: all .5s ease;
         -ms-transition: all .5s ease;
         }
-
     .remove-image:active {
         border: 0;
         transition: all .2s ease;
@@ -118,21 +108,20 @@
         <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
         <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
         <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
-        <br>
 
-        <div class="tab-content p-3" id="v-pills-tabContent">
+        <form action="{{ route('userprofile.store') }}" method="POST" enctype="multipart/form-data">
+            {!! csrf_field() !!}
+
+        <div class="tab-content mt-4 p-3" id="v-pills-tabContent">
             {{-- My Profile --}}
             <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">    
-                <form action="{{ route('userprofile.store') }}" method="POST" enctype="multipart/form-data">
-                {!! csrf_field() !!}
-                <div class="row">
-                    <h1>Public Profile</h1><br>
-                    <h5 class='mb-2'>People visiting your profile will see the following info:</h5>
+                <div class="container row">
+                    <h3 class="" style="font-family: Poppins; color:#413F42">Profile Information</h3><br>
                     <div class="alert alert-warning" role="alert">
-                    <p class='mb-0'>Note : Please fill up the form below</p>
+                        <p class='mt-0 mb-0'>Note : This is your public profile.  People visiting your profile will see the following info.</p>
                     </div>
                     
-                    <div class="row" style="width:100%">
+                    <div class="row mt-2" style="width:100%">
                         <div class="col-lg-4 col-sm-12" style="margin-bottom:10px">
                             <!--Dog profile pic -->  
                             <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
@@ -181,74 +170,52 @@
                             </div>
                         </div>                
                         <div class='d-flex justify-content-end'>
-                            <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Next page</a>
+                            <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center">Next page</a>
                         </div>
                     </div>  
                 </div>
             </div>
             
             {{-- Personal Info --}}
-            <div class="tab-pane fade" id="personalinfo" role="tabpanel" aria-labelledby="v-pills-personalinfo-tab" tabindex="0">
-                <div class='container'>
-                <H1>Personal Information</H1>
-                <div class="alert alert-warning" role="alert">
-                <p class='mb-0'>Edit your basic personal info to improve recommendations. This information is private and won't show up in your public profile.</p>
-                </div>
-                    <div class='row'>
-                        <div class='col-12 col-md-6 mt-4'>
+            <div class="tab-pane fade" id="personalinfo" role="tabpanel" aria-labelledby="v-pills-personalinfo-tab" tabindex="0" style="width:100%">
+                <div class='container row'>
+                    <h3 style="font-family: Poppins; color:#413F42">Contact Information</h3>
+                    <div class="alert alert-warning" role="alert">
+                        <p class='mt-0 mb-0'> When you submit an application to adopt, this information will be accessible to rescuers and fosters who posted the dog you are applying for to adopt.</p>
+                    </div>
+                    
+                    <div class='row mt-0'>
+                        <div class='col-12 col-md-6 mt-3'>
                             <label  for='address1' class='col-sm-4 col-form-label'>Address: 1</label>
                             <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
                         </div>
-                        
-                        <div class='col-12 col-md-6 mt-4'>
+                        <div class='col-12 col-md-6 mt-3'>
                             <label for='address2' class='col-sm-4 col-form-label'>Address: 2</label>
                             <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
                         </div>
                     </div>
 
                     <div class='row'>
-                        <div class='col-sm-4 mt-4'>
+                        <div class='col-sm-3 mt-3'>
                             <label for="city" class='col-sm-4 col-form-label'>City</label>
                             <input type="text" name="city" class="form-control" placeholder="City">
                         </div>
-                        <div class='col-sm-4 mt-4'>
-                        <label for="province" class='col-sm-4 col-form-label'>Province</label>
-                        <input type="text" name="province" class="form-control" placeholder="Province">
+                        <div class='col-sm-3 mt-3'>
+                            <label for="province" class='col-sm-4 col-form-label'>Province</label>
+                            <input type="text" name="province" class="form-control" placeholder="Province">
                         </div>
-                        <div class='col-sm-4 mt-4'>
-                            <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
-                            <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
-                        </div>
-
-                        <div class='col-12 col-md-4 mt-4'>
-                            <label for='gender' class='mb-2'>Gender</label>
-                            <select name='gender' class="form-select " aria-label=".form-select-sm example">
-                                <option selected>Select Gender</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                        <div class='col-sm-3 mt-3'>
+                            <label for="hometype" class='col-sm-6 col-form-label'>Type of Home</label>
+                            <select name="hometype" class="form-select " aria-label=".form-select-sm example">
+                                <option selected>Select Option</option>
+                                <option value="House">House</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Apartment">Apartment</option>
                             </select>
                         </div>
-                    </div>
-
-                    <div class='row'>
-                        <div class='col-12 col-md-6 mt-2'>
-                            <div class='row'>
-                                <div class='col-12 col-lg-6'>
-                                    <label for="hometype" class='mt-2'>Type of Home</label>
-                                    <select name="hometype" class="form-select " aria-label=".form-select-sm example">
-                                        <option selected>Select Option</option>
-                                        <option value="House">House</option>
-                                        <option value="Condo">Condo</option>
-                                        <option value="Apartment">Apartment</option>
-                                    
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class='col-12 col-md-6 mt-2 d-flex justify-content-center align-items-center'>
+                        <div class='col-sm-3 mt-3'>
                             <div class='row justfiy-content-center'>
-                                <label for="allowed" class='mt-4 mb-2'>Are pets allowed in your home ?</label>
+                                <label for="allowed" class='col-form-label mb-2'>Are pets allowed in your home ?</label>
                                 <div class="col-3 form-check d-flex justify-content-center ms-3 ">
                                     <input value='1' name='allowed' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck">
@@ -265,10 +232,21 @@
                         </div>
                     </div>
 
-                    <div class='row mt-3'>
-                        
-                        <div class='col-12 col-lg-6'>
-                            <label for="funds" class='mt-2'>Source of Funds</label>
+                    <div class='row mb-3'>
+                        <div class='col-sm-4 mt-3'>
+                            <label for="mobile_no" class='col-sm-4 col-form-label'>Mobile No</label>
+                            <input type="text" name="mobile_no" class="form-control" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div class='col-sm-4 mt-3'>                     
+                            <label for='gender' class='col-sm-4 col-form-label''>Gender</label>
+                            <select name='gender' class="form-select " aria-label=".form-select-sm example">
+                                <option selected>Select Gender</option>
+                                <option value="1-Male">Male</option>
+                                <option value="2-Female">Female</option>
+                            </select>
+                        </div>
+                        <div class='col-sm-4 mt-3'>   
+                            <label for="funds" class='col-sm-4 col-form-label'>Source of Funds</label>
                             <select name="funds" class="form-select " aria-label=".form-select-sm example">
                                 <option selected>Select Option</option>
                                 <option value="Employment">Employment</option>
@@ -280,20 +258,20 @@
                         </div>
                     </div>
                 </div>
-                    <div class='d-flex justify-content-end'>
-                        <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Next Page</a>
-                    </div>
+                <div class='d-flex justify-content-end'>
+                    <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center;margin-right:20px">Back</a>
+                    <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center">Next</a>
+                </div>
             </div>
         
             {{-- DogHistory --}}
             <div class="tab-pane fade" id="doghistory" role="tabpanel" aria-labelledby="v-pills-doghistory-tab" tabindex="0">
-                <div class='container'>
-                    <H1 class='mb-3'>Dog History</H1>   
+                <div class='container row'>
+                    <h3 style="font-family: Poppins; color:#413F42">Dog History</h3>
                     <div class="alert alert-warning" role="alert">
-                        <p class='mb-0'>Note : Answer the following question below:</p>
+                        <p class='mt-0 mb-0'>Kindly provide information about your current situation and experience with pets. This information will help faciliate the screening process of rescuers and fosters.</p>
                     </div>
-
-                    <div class='row'>
+                    
                         {{-- Question number 1 --}}    
                         <div class="col-12 col-md-6 mt-4">
                             <label for="withpets" class='mb-2'>Do you currently have pets ?</label>
@@ -491,6 +469,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 
