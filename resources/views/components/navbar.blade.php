@@ -30,21 +30,20 @@
       
       .btn-primary:hover{
         /* background-color: #366495 !important; */
-        background-color: #cfdeef !important;
+        background-color: #366495 !important;
         border-style: solid !important;
         border-color: #366495 !important;
         border-width: 1px !important;
-        color:#366495;
+        color:#ffffff;
+        border-radius: 10px !important;
        
         
       }
       .btn-dark:hover{
         /* background-color: #a77035 !important; */
-        background-color: #eee7df !important;
-        border-style: solid !important;
-        border-color: #a77035 !important;
-        border-width: 1px !important;
-        color:#a77035;
+        background-color: #b78550 !important;
+        color: white !important;
+        border-radius: 10px !important;
         
       }
       
@@ -78,9 +77,11 @@
           @if (Route::has('login'))
           <div>
                 <a class="btn btn-primary mx-1" 
-                style="background-color: #5082B7;
+                style="background-color: #5c8dc1;
                 border-radius: 14px;
-                border:none;
+                border-style: solid !important;
+                border-color: #366495 !important;
+                border-width: 1px !important;
                 font-family: 'Lato', sans-serif;
                 padding-left: 15px;
                 padding-right: 15px;
@@ -93,9 +94,13 @@
           @if (Route::has('register'))
           <div>
                  <a class="btn btn-dark mx-1" 
-                 style="background-color: #b78550;
-                 border-radius: 14px;
-                 border:none;
+                 style="
+                  background-color: #eee7df;
+                  border-style: solid;
+                  border-color: #a77035;
+                  border-width: 1px;
+                  color:#a77035;
+                  border-radius: 14px;
                  font-family: 'Lato', sans-serif;
                  transition: all 0.4s;"
                  
