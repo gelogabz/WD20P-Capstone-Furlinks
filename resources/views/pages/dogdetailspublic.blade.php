@@ -143,11 +143,11 @@
         <div class="border" style="border-radius:10px;margin:0px 0px;padding:20px 20px">
           <div class="row" style="padding-bottom:5px;">
             <div class="col col-auto" style="">
-              <img style="width:55px; border-radius:50%; padding:2px;" src="{{asset('Image/'. $dogs->profile_pic)}}">
+              <img class="propic2" style="width:55px; border-radius:50%; padding:2px;" src="{{asset('Image/'. $dogs->profile_pic)}}">
             </div>
             <div class="col">
               <div class="row" style="padding-top: 5px; padding-bottom: 5px; font-size:medium">
-                <a href="/users/{{$dogs->user_id}}" style="color:#B78550;text-decoration:none"><span>@</span>{{$dogs->users_name}}</a>
+                <a href="/users/{{$dogs->user_id}}" class="username" style="color:#B78550;text-decoration:none"><span>@</span>{{$dogs->users_name}}</a>
                 <p style="font-size:13px; line-height:1.6; color:#413F42;">{{$dogs->city}}, {{$dogs->province}}</p>
               </div>
             </div>

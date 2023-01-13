@@ -13,7 +13,7 @@
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px; margin-bottom: 20px">
     <div class="row" style="width:100%;  margin-bottom: 20px;">
         <div class="row" style="width:100%; margin-top:20px;">
-            <h3>My Dogs for Adoption
+            <h3 class="" style="font-family: Poppins; color:#413F42">My Dogs for Adoption
             <span class="ml-auto text-nowrap" style="padding: bottom 5px;">   
                 <a class="btn postdog_btn mb-3" href="/dogprofile/create" type="button" style="float:right; font-family:Poppins; vertical-align:bottom; text-align: center; padding-top:6px">
                 <i class="fa-regular fa-pen-to-square" style="font-size:medium; padding-right:9px; padding-top:5px;"></i>

@@ -63,15 +63,33 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end"></label>
+
+                            <div class="col-12 col-md-6 d-flex justify-content-center">
+                            <button type="submit" class="btn btn-dark form-control" href="userprofile/profiletabs" style="
+                            background-color: #eee7df;
+                            border-style: solid;
+                            border-color: #a77035;
+                            border-width: 1px;
+                            color:#a77035;
+                            border-radius: 10px;
+                           font-family: 'Lato', sans-serif;
+                           transition: all 0.4s;">
+                                        {{ __('Register') }}
+                                    </button>
+                                </div>
+                        </div>
+
+                        {{-- <div class="row mb-0">
+                            <div class="col-md-6 d-block m-auto">
                                 <center>
                                     <button type="submit" class="btn form-control reg_btn" href="userprofile/profiletabs">
                                         {{ __('Register') }}
                                     </button>
                                 </center>
                             </div>
-                        </div>
+                        </div> --}}
                     </form>
                 </div>
             </div>

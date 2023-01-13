@@ -61,13 +61,13 @@
         <div>
           <table class="table table-borderless" style="vertical-align: bottom;text-align:bo">
             <tr>
-              <td><h6 style="color:#491036;padding-left:5px">
-                <i class="fa-solid fa-dog" style="color:#811D60;font-size:22px;padding-right:20px"></i></td>
+              <td><h6 style="color:#002f7b;padding-left:5px">
+                <i class="fa-solid fa-dog" style="color:#002f7b;font-size:22px;padding-right:20px"></i></td>
               <td style="text-align: start"><strong>{{$dogsposted->count()}}</strong> Dogs Posted</h6></td>
             </tr>
             <tr>
-              <td><h6 style="color:#491036;"">
-                <i class="fa-solid fa-people-roof" style="color:#811D60;font-size:24px;padding-right:20px"></i></td>
+              <td><h6 style="color:#002f7b;">
+                <i class="fa-solid fa-people-roof" style="color:#002f7b;font-size:24px;padding-right:20px"></i></td>
               <td style="text-align: start"><strong>{{$dogsrehomed->count()}}</strong> Dogs Re-Homed</h6></td>
             </tr>
           </table>

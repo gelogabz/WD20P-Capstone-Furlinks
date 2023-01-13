@@ -111,9 +111,11 @@
     }
   </style>
 
-<div class="container p-5">
+<div class="container p-2">
     <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
         <div class="row" style="width:100%;margin-top:20px">
+            <a class="btn btn-outline-primary2" href="{{route('userprofile.update', $userprofiles->id)}}" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
+                <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Go back</a>
             @if ($message = Session::get('success'))
             <div class="alert alert-success" style="height:50px">
                 <p>{{ $message }}</p>
@@ -187,7 +189,7 @@
                 }
                 </style>
                 <div class=" mt-4 nav d-block justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
+                    <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; User Profile</a>
                     <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
                     <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
                 </div>
@@ -212,7 +214,7 @@
                     </style>
                     {{-- My Profile --}}
                     <div class="tab-pane fade show active " id="myProfile" role="tabpanel" aria-labelledby="v-pills-myprofile-tab" tabindex="0">
-                        <h3>My Profile</h3>
+                        <h3>Profile Information</h3>
                         <div class='row'>
                             <div class='col-12 col-md-6'>
                                 <label for="firstname" class="col-sm-4 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name</label>

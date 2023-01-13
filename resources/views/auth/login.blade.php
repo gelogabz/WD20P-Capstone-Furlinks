@@ -3,18 +3,12 @@
 <body style="background-color:#f5efea ">
 
 <div class="container" style="margin-top:60px;margin-bottom:60px">
-    {{-- @if ($message = Session::get('success'))
-            <div class="alert alert-success" style="height:50px">
-                <p>{{ $message }}</p>
-            </div>
-     @endif --}}
+    
 
         @if(session('success'))
-        <div class="alert alert success alert-dismissible fade show" role="alert">
+        <div class="alert alert-success">
             <strong>{{session('success')}}</strong>
-            <button  type="button" class="close" data-dsimiss="alert" aria-label="Close">
-                <span aria-hidden = "true">$times;<span>
-            </button>
+           
         </div>
         @endif
     <div class="row justify-content-center">
@@ -67,19 +61,25 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn login_btn" href="/login">
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end"></label>
+                            <div class="col-md-6">
+                                <button type="submit" class="btn-primary form-control" href="/login"
+                                style="background-color: #5c8dc1;
+                                border-radius: 10px;
+                                border-style: solid !important;
+                                border-color: #366495 !important;
+                                border-width: 1px !important;
+                                font-family: 'Lato', sans-serif;
+                                padding-left: 15px;
+                                padding-right: 15px;
+                                color:white;
+                                transition: all 0.4s ;">
                                     {{ __('Login') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link link_hover" style="color:#413F42" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
+                        
                     </form>
                 </div>
             </div>

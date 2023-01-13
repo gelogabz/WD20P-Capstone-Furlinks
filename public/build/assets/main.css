@@ -3,21 +3,22 @@
 }
 .nav-link {
     color: #180a0a;
-    transition: font-size 0.2s;
+    font-size:16px;
+    transition: font-size 18px;
     font-family: "Lato", sans-serif;
+    transition:all 0.2s;
 }
 .nav-link:hover {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
 }
-.login-btn {
+/* .login-btn {
     color: #f9f9f9;
     text-decoration: none;
     font-family: "Lato", sans-serif;
 }
 .register-btn {
     color: #799fc8 !important;
-    /* background-color: #F4F4F4 !important; */
     text-decoration: none;
     font-family: "Lato", sans-serif;
     padding-top: 3% !important;
@@ -33,7 +34,6 @@
     transition: all 0.2s;
 }
 .register_button:hover {
-    /* border-radius: 12px; */
     font-size: 13pt;
     background-color: #f4f4f4 !important;
     border-color: #5082b7 !important ;
@@ -45,7 +45,7 @@
     font-size: 13pt;
     padding-top: 3% !important;
     padding-bottom: 2% !important;
-}
+} */
 .submit-btn {
     background-color: #799fc8;
     border: none;
@@ -298,11 +298,11 @@ select {
     padding-top: 3%;
     padding-bottom: 2%;
 }
-.profimg {
-    width: 45px;
+/* .profimg {
+    width: 45px ;
     border-radius: 50%;
     padding: 2px;
-}
+} */
 /* View BTN */
 .containerimg {
     position: relative;
@@ -995,5 +995,44 @@ select.list-dt:focus {
 .reg_btn:hover{
     color: #F4F4F4 !important;
     background-color: #6388AF !important;
+}
+
+.explore_btn{
+    background-color: #F4F4F4 !important;
+    color: #6388AF !important;
+    font-size: 11pt;
+    border-color: #6388AF !important;
+    height: 40px !important;
+    padding-top: 8px !important;
+    width: 170px;
+    font-size: 11pt;
+    border-radius: 10px;
+}
+.explore_btn:hover{
+    font-size: 12pt;
+    background-color: #6388AF !important;
+    color: #f4f4f4 !important;
+    border-color: #f4f4f4 !important;
+    /*padding-top:2px !important;*/
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+}
+.propic2{
+    width: 60px !important;
+    border-radius: 50% !important;
+    border-width: 1px !important;
+    height: 60px !important;
+    object-fit: cover !important;
+}
+.username{
+    font-weight: 600;
+    text-decoration: none !important;
+    color:#180A0A !important;
+}
+.username:hover{
+    color: #B78550 !important;
 }
 /* FOOTER END */

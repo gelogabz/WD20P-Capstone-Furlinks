@@ -16,14 +16,16 @@
       font-size:17px;
     }
 </style>
+<hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
+<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
 
-<div class='container pt-5 pb-5'>
-  <div class='mb-4 ms-3'>
-    <a class="goback" href="{{ url('/accountsetting') }}"><i class="bi bi-arrow-left"> Go back</i></a>
-  </div>
+<div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
+  <a class="btn btn-outline-primary2" href="/accountsetting" type="button" style="vertical-align: bottom; text-align: left; padding-left:10px; width:180px; margin-bottom:20px">
+    <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Go back</a>
+  
   <div class="row justify-content-center">
     <div class="col-8 card shadow p-4 onlycol">
-      <H1>Change password</H1>
+      <h2 class="" style="font-family: Poppins; color:#413F42"> Change password</H1>
         <HR>
 
           @if (session('success'))
@@ -36,7 +38,7 @@
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
+              <strong>  <li>{{ $error }}</li></strong>
             @endforeach
         </ul>
     </div>
@@ -64,6 +66,7 @@
               <input type="submit" name="submit" value="Save" class='submit-btn'>
             </div>
           </form>
+        </div>
     </div>
   </div>
 </div>
