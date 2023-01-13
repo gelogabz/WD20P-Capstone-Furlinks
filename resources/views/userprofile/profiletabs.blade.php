@@ -104,7 +104,7 @@
     @endif
     
     <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; My Profile</a>
+        <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; User Profile</a>
         <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
         <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
 
@@ -178,7 +178,7 @@
             {{-- Personal Info --}}
             <div class="tab-pane fade" id="personalinfo" role="tabpanel" aria-labelledby="v-pills-personalinfo-tab" tabindex="0" style="width:100%">
                 <div class='container row'>
-                    <h3 style="font-family: Poppins; color:#413F42">Contact Information</h3>
+                    <h3 style="font-family: Poppins; color:#413F42">Personal Information</h3>
                     <div class="alert alert-warning" role="alert">
                         <p class='mt-0 mb-0'> When you submit an application to adopt, this information will be accessible to rescuers and fosters who posted the dog you are applying for to adopt.</p>
                     </div>
@@ -256,10 +256,10 @@
                             </select>
                         </div>
                     </div>
-                </div>
-                <div class='d-flex justify-content-end'>
-                    {{-- <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center;margin-right:20px">Back</a> --}}
-                    <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center">Next</a>
+                    <div class='d-flex justify-content-end'>
+                        {{-- <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center;margin-right:20px">Back</a> --}}
+                        <a class="nav-link edit_btn"  id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="text-align:center">Next Page</a>
+                    </div>
                 </div>
             </div>
         
@@ -451,7 +451,7 @@
                         </div>
                     </div>
                     <div class='d-flex justify-content-end'>
-                        <input type="submit" name="submit" class="submit-btn" value="Submit" style="width:100px">                        
+                        <input type="submit" name="submit" class="btn edit_btn" value="Save Profile" style="width:150px">                        
                     </div>
                 </div>
             </div>
