@@ -50,14 +50,14 @@
   </form>
 </div>
 
-   <hr style="margin:5px 0px 0px 0px;padding:0px;border-color:#eceaea">
+   <hr style="margin:5px 0px 0px 0px; padding:0px; border-color:#eceaea">
    </div>
    
    
-   <div class="container-fluid" style="padding-left: 5%; padding-right: 5%;padding-top:20px; padding-bottom: 20px;">
+   <div class="container-fluid" style="padding-left: 5%; padding-right: 5%; padding-top:20px; padding-bottom: 20px;">
     
 
-     <h5 style="color:#413F42;font-size:18px">
+     <h5 style="color:#413F42; font-size:18px">
       @if(Request::has("gender") == '' && Request::has("size") == '' && Request::has("color") == '')   
        Showing all dogs posted🐶
      @else
@@ -65,20 +65,20 @@
      @endif
      </h5>
      
-     <div class="border mt-4" style="border-radius:20px;padding: 20px 30px 15px 30px">
+     <div class="border mt-4" style="border-radius:20px; padding: 20px 30px 15px 30px;">
       <div class="row">
         
       @foreach($dogs as $dog)
-      <div class="col-lg-3 col-md-6" style="margin-bottom:25px">
-        <div class="row" style="padding-bottom:5px">
-          <div class="col col-auto" style="margin-right:px">
-            <img class="profimg" src="{{'image/' . $dog->profile_pic}}">
+      <div class="col-lg-3 col-md-3" style="margin-bottom:25px;">
+        <div class="row" style="padding-bottom:5px;">
+          <div class="col ps-4">
+            <img class="propic2" src="{{'image/' . $dog->profile_pic}}">
           </div>
-          <div class="col-lg-9">
-            <div class="row fw-bold" style="color:#180A0A; text-align:start;font-family:Poppins;">             
-            <a href="/users/{{$dog->users_id}}" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
+          <div class="col-lg-8 col-md-8">
+            <div class="row fw-bold" style="color:#180A0A; font-family:Poppins;">             
+            <a href="/users/{{$dog->users_id}}" class="text-start pe-0 ps-0" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
             </div>
-            <div class="row" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{date('M d, Y', strtotime($dog->created_at))}}</div>
+            <div class="row text-start pe-0 ps-0" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{Carbon\Carbon::parse($dog->created_at)->diffForHumans()}}</div>
           </div>
         </div>
         <div class="containerimg" style="width:100%">
