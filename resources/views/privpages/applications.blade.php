@@ -34,7 +34,7 @@
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
   <div class="row" style="width:100%;margin-top:20px;margin-bottom:40px">
-    <h3>My Applications</h3><br>
+    <h3 class="" style="font-family: Poppins; color:#413F42">My Applications</h3><br>
 
     @if ($message = Session::get('success'))
     <div class="alert alert-success" style="height:50px">
