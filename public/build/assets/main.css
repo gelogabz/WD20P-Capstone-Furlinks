@@ -6,19 +6,19 @@
     font-size:16px;
     transition: font-size 18px;
     font-family: "Lato", sans-serif;
+    transition:all 0.2s;
 }
 .nav-link:hover {
     font-size: 18px;
     font-weight: bold;
 }
-.login-btn {
+/* .login-btn {
     color: #f9f9f9;
     text-decoration: none;
     font-family: "Lato", sans-serif;
 }
 .register-btn {
     color: #799fc8 !important;
-    /* background-color: #F4F4F4 !important; */
     text-decoration: none;
     font-family: "Lato", sans-serif;
     padding-top: 3% !important;
@@ -34,7 +34,6 @@
     transition: all 0.2s;
 }
 .register_button:hover {
-    /* border-radius: 12px; */
     font-size: 13pt;
     background-color: #f4f4f4 !important;
     border-color: #5082b7 !important ;
@@ -46,7 +45,7 @@
     font-size: 13pt;
     padding-top: 3% !important;
     padding-bottom: 2% !important;
-}
+} */
 .submit-btn {
     background-color: #799fc8;
     border: none;
