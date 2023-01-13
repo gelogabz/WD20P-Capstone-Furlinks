@@ -1027,6 +1027,14 @@ select.list-dt:focus {
     height: 60px !important;
     object-fit: cover !important;
 }
+.propic3{
+    width: 140px !important;
+    border-radius: 50% !important;
+    border-width: 1px !important;
+    height: 140px !important;
+    object-fit: cover !important;
+}
+
 .username{
     font-weight: 600;
     text-decoration: none !important;

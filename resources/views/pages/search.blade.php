@@ -65,13 +65,14 @@
           <div class="col-md-3 ps-3">
             <img class="propic2" src="{{asset('Image/'. $dog->profile_pic)}}">
           </div>
-          <div class="col-lg-8 col-md-8" style="padding-left:20px">
+          <div class="col-lg-7 col-md-7" style="padding-left:20px">
             <div class="row fw-bold pt-2" style="font-family:Poppins;">             
               <a href="/users/{{$dog->users_id}}" class="text-start pe-0 ps-0 username" style="color:#180A0A;text-decoration:none">
                 @<span>{{$dog->users_name}}</span></a>
             </div>
             <div class="row text-start pe-0 ps-0" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;"
-            >Posted {{Carbon\Carbon::parse($dog->created_at)->diffForHumans()}}</div>
+            >Posted {{Carbon\Carbon::parse($dog->created_at)->diffForHumans()}}
+            </div>
           </div>
         </div>
         <div class="containerimg" style="width:100%">

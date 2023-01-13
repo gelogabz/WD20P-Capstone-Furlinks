@@ -16,7 +16,7 @@
 
         <div class="row" style="width:100%">          
             <div class="col-md-9 col-sm-12" style="padding-left:20px;padding-right:40px;">                              
-                <h3>Applicant Profile
+                <h3 class="" style="font-family: Poppins; color:#413F42">Applicant Profile
                 <span class="ml-auto text-nowrap" style="float:right;padding: bottom 5px;width:220px">   
                     <form action="{{route('applications.update', $applications->id)}}" method="POST" enctype="multipart/form-data">
                         {!! csrf_field() !!}
@@ -38,7 +38,7 @@
                 </span></h3>
                 <div class="row" style="margin-top:20px;">
                     <div class="col col-md-2 col-sm-3">
-                        <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="image" style="width:95%; display:block;border-radius:50%;margin-top:20px;">                
+                        <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="propic3" style=" display:block;border-radius:50%;margin-top:20px;">                
                     </div>
                     <div class="col col-md-5 col-sm-8" style="padding-left:20px;padding-right:20px;margin-bottom: 20px;">                  
                         <table class="table table-borderless" style="margin-top:10px;vertical-align:middle">
