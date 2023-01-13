@@ -64,7 +64,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-6 d-block m-auto">
                                 <center>
                                     <button type="submit" class="btn form-control reg_btn" href="userprofile/profiletabs">
                                         {{ __('Register') }}

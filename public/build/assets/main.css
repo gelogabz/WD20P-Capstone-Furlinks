@@ -3,11 +3,12 @@
 }
 .nav-link {
     color: #180a0a;
-    transition: font-size 0.2s;
+    font-size:16px;
+    transition: font-size 18px;
     font-family: "Lato", sans-serif;
 }
 .nav-link:hover {
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
 }
 .login-btn {
@@ -995,5 +996,29 @@ select.list-dt:focus {
 .reg_btn:hover{
     color: #F4F4F4 !important;
     background-color: #6388AF !important;
+}
+
+.explore_btn{
+    background-color: #F4F4F4 !important;
+    color: #6388AF !important;
+    font-size: 11pt;
+    border-color: #6388AF !important;
+    height: 40px !important;
+    padding-top: 8px !important;
+    width: 170px;
+    font-size: 11pt;
+    border-radius: 10px;
+}
+.explore_btn:hover{
+    font-size: 12pt;
+    background-color: #6388AF !important;
+    color: #f4f4f4 !important;
+    border-color: #f4f4f4 !important;
+    /*padding-top:2px !important;*/
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
 }
 /* FOOTER END */
