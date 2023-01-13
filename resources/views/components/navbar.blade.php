@@ -26,17 +26,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/b63f0cdae2.js" crossorigin="anonymous"></script>
     <style>
-      .propic1{
-          width: 40px;
-          border-radius: 50%;
-          border-width: 1px;
-          height: 40px ;
-          object-fit: cover;
-          box-shadow: 1px 1px 2px rgba(0, 0 ,0, 0.8);
+
+      
+      .btn-primary:hover{
+        background-color: #366495 !important;
+       
+        
       }
-      .firstcol{
-          background-color:#f4efe9 ;
+      .btn-dark:hover{
+        background-color: #a77035 !important;
+        
+        
       }
+      
+      
+      
   </style>
 </head>
 <body>
@@ -60,24 +64,36 @@
       </ul>
     </div>
     <div>
-      {{-- <span style="padding:5px"></span>
-      <a class="btn btn-primary my-2 my-sm-0" id="myBtn" role="button" href="/login">Log In</a>
-      <span style="padding:5px"></span>
-      <a class="btn btn btn-outline-primary my-2 my-sm-0 login-btn" id="myBtn3" type="button" href="/register">Sign Up</a>
-      --}}<ul class="d-flex">
       @guest
+      <div class='d-flex'>
           @if (Route::has('login'))
-              <li class="btn my-2 my-sm-0 login_button me-2" id="myBtn" role="button">
-                <i class="bi bi-box-arrow-in-right" style="font-size:14px; color:#f4f4f4;"> </i><a class="login-btn" style="color:#e8eaed;" href="{{ route('login') }}">Login</a>
-              </li>
+          <div>
+                <a class="btn btn-primary mx-1" 
+                style="background-color: #5082B7;
+                border-radius: 14px;
+                border:none;
+                font-family: 'Lato', sans-serif;
+                padding-left: 15px;
+                padding-right: 15px;
+                transition: background-color 0.2s ;"
+                
+                role="button" href="{{ route('login') }}"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          </div>
           @endif
 
           @if (Route::has('register'))
-              <li class="btn my-2 my-sm-0 register_button" style="background-color: #F4F4F4; border-color:#5082B7; border-radius:12px;" id="myBtn3" type="button">
-                <i class="bi bi-person-add" style="font-size:14px; color:#6d93bc;"></i> <a class="register-btn" href="{{ route('register') }}">Register</a>
-              </li>
+          <div>
+                 <a class="btn btn-dark mx-1" 
+                 style="background-color: #b78550;
+                 border-radius: 14px;
+                 border:none;
+                 font-family: 'Lato', sans-serif;
+                 transition: background-color 0.1s;"
+                 
+                 role="button" href="{{ route('register') }}"><i class="bi bi-person-add"></i> Register</a>
+          </div>
           @endif
-        </ul>
+      </div>
       @else
       <ul class='list-unstyled mt-2'>
         <li class="nav-item dropdown">
