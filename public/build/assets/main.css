@@ -1043,4 +1043,11 @@ select.list-dt:focus {
 .username:hover{
     color: #B78550 !important;
 }
+.square img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
 /* FOOTER END */

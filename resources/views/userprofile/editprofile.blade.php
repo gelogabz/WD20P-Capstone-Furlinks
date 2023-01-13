@@ -129,20 +129,11 @@
             @method('PATCH')
 
         <div class="row justify-content-center">
-            <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow firstcol">
-               
-                    {{-- <div class=' mx-auto'>
-
-                        <img class='propic' src="{{asset('image/'.$userprofiles->profile_pic)}}">
-
-                        <div class="input-group mt-4">
-                            <input type="file" class="form-control form-sm-control" id="profile_pic" name="profile_pic" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                          </div>
-                    </div> --}}
+            <div class=" card col-12 col-lg-4 text-center border mx-3 p-3 shadow firstcol">             
 
                     <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
                         <div class="image-upload-wrap justify-content-center" style="height:200px;width:200px">
-                            <input class="file-upload-input propic" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
+                            <input class="file-upload-input propic" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" value="{{$userprofiles->profile_pic}}" required />
                             <div class="drag-text" style="padding-top:30%">
                             <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
                             </div>
@@ -197,7 +188,7 @@
                 <div class="mt-3">
                     {{-- <a href="/userprofile/{{$userprofiles->user_id}}/edit">Edit Profile</a> --}}
                     
-                <input type="submit" class="confirmchanges" value="Confirm Changes">
+                <input type="submit" class="confirmchanges" value="Confirm Changes" >
                 </div>
                 
             </div>
@@ -527,7 +518,7 @@
             $('.file-upload-content').show();
             $('.image-title-wrap').html(input.files[0].name);
             document.getElementById("rembutton").className = "remove-image";
-            sessionStorage.setItem("img", reader.result);
+            sessionStorage.setItem("profile_pic", reader.result);
             };
 
             reader.readAsDataURL(input.files[0]);
