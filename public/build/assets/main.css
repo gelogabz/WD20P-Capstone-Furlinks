@@ -1027,4 +1027,10 @@ select.list-dt:focus {
     height: 50px !important;
     object-fit: cover !important;
 }
+.username{
+    color:#180A0A !important;
+}
+.username:hover{
+    color: #B78550 !important;
+}
 /* FOOTER END */

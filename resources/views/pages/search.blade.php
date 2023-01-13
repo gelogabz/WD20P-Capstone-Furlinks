@@ -75,8 +75,8 @@
             <img class="propic2" src="{{'image/' . $dog->profile_pic}}">
           </div>
           <div class="col-lg-8 col-md-8">
-            <div class="row fw-bold" style="color:#180A0A; font-family:Poppins;">             
-            <a href="/users/{{$dog->users_id}}" class="text-start pe-0 ps-0" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
+            <div class="row fw-bold" style="font-family:Poppins;">             
+            <a href="/users/{{$dog->users_id}}" class="text-start pe-0 ps-0 username" style="color:#180A0A;text-decoration:none">@ {{$dog->users_name}}</a>
             </div>
             <div class="row text-start pe-0 ps-0" style="font-size: small; font-family: 'Lato'; color:#413F42; font-weight:300;">Posted {{Carbon\Carbon::parse($dog->created_at)->diffForHumans()}}</div>
           </div>
