@@ -77,7 +77,7 @@
   </div>
 </div>
 
-  <div class="container-fluid px-0" style="padding-top:5px; padding-bottom:20px; background-color:#C8A279; text-align: center; vertical-align: middle; opacity:90%">
+  <div class="container-fluid px-0" style="padding-top:5px; padding-bottom:20px; background-color:#f0e8dc; text-align: center; vertical-align: middle; opacity:90%">
     <a href="#learn" style="font-family: 'Lato'; font-size:12pt; color: #040404; text-decoration:none; font-weight:700"> Learn more
     <img src="{{asset('build/images/down.gif')}}" style="padding-left:10px;height:15px;"/></a>
   </div>
@@ -196,12 +196,12 @@
 
 <div class="container-fluid" id="welcomepart" style="height:100vh; background-image:url({{asset('build/images/bgimage.png')}}); background-size:cover; background-color:#FFF">
   <div class="row">
-    <div class="col col-lg-6 d-none d-lg-block">
+    <div class="col-lg-6 d-none d-lg-block">
       <div class="container" style="margin-top:50%; padding-left:20%; text-align:left; color:#F4F4F4; opacity:80%">
         <h3 style=" font-family:Quicksand; font-size:50px">Join our community <br>of rescuers, fosters <br>and adopters. </h1>
       </div>
     </div>
-    <div class="col col-lg-4 col-sm-12">
+    <div class="col-lg-4 col-sm-12">
       <div class="container d-flex justify-content-center">
         <div class="logincont">
           <form class="rounder p-10 p-sm-2 pb-0" method="POST" action="{{ route('register') }}">
