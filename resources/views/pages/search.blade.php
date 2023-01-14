@@ -1,7 +1,16 @@
 @extends('components.navbar')
 
 @section('content')
+<style>
+ .card-img-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: cover;
+    object-position: center;
 
+}
+
+</style>
 <hr style="margin:0px 0px 5px 0px; padding:0px 0px 0px 0px; border-color:#ececec">
 
 <div class="container-fluid mt-4" style="padding-left: 5%; padding-right: 5%; text-align:left">
@@ -58,7 +67,7 @@
   </h5>
      
   <div class="border mt-4" style="border-radius:20px; padding: 10px 30px 15px 30px;">
-    <div class="row">
+    <div class="row" >
       @foreach($dogs as $dog)
       <div class="col-lg-3 col-md-3" style="margin-bottom:25px;">
         <div class="row py-3">
@@ -76,7 +85,7 @@
           </div>
         </div>
         <div class="containerimg" style="width:100%">
-          <img src="{{'image/' . $dog->pic}}" class="image img-responsive" width="100%">
+          <img src="{{'image/' . $dog->pic}}" class="card-img-top" width="100%">
           <div class="middle">
             <a href="pages/{{$dog->id}}" style="text-decoration:none;" class="text">View More</a>
           </div>

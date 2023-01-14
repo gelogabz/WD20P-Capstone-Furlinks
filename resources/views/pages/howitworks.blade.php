@@ -18,17 +18,18 @@
             </p>
         </div>
     </div>
-    <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-6 my-2">
+    <div class="row align-items-center flex-row-reverse d-flex mx-0">
+        <div class="col-sm-6 my-2">
+            <img src="{{asset('build/images/how-2.png') }}" class=" ms-5" style="height:300px">
+        </div>
+        <div class="col-md-6 order-1 my-2">
             <h4 class="text-end" style="color: #B78550; font-family:Poppins; font-weight:900; font-size:20pt;">2. Create an Account</h4>
             <p class="text-end mx-4" style="font-family: Lato; font-weight:600; color:#413F42;">
               Once they find a dog they're interested in, they can create an account by clicking on the "Sign up" button. 
               This will require them to provide some basic information such as their name, email address, and a password.
             </p>
         </div>
-        <div class="col-sm-6 my-2">
-            <img src="{{asset('build/images/how-2.png') }}" class=" ms-5" style="height:300px">
-        </div>
+       
     </div>
     <div class="row align-items-center d-flex mx-0">
         <div class="col-sm-6 my-5">

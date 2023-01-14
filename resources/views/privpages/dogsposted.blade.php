@@ -6,6 +6,13 @@
         color: #f4f4f4 !important;
         text-decoration: none !important;
     }
+    .card-img-top {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center;
+    }
+
 </style>
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
@@ -43,8 +50,9 @@
             @endif
             
             <center>
-            <div class="tab-content justify-content-center align-content-center mx-0 px-0" id="myTabContent">
+            <div class="tab-content justify-content-center mx-0 px-0" id="myTabContent">
                 <div class="tab-pane fade show active " id="dogposted" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+<<<<<<< Updated upstream
                     {{-- <div class="card-columns"> --}}
                     <div class="container" style="display: flex; flex-direction: row; flex-wrap: nowrap; overflow-x: auto;">
                         @foreach($dogs as $dogsitem)
@@ -59,6 +67,18 @@
                                         <h6 class="card-subtitle mb-2 text-muted text-start" style="font-size:smaller; font-family: Lato; font-weight:10px"> Date Posted: {{date('M d, Y', strtotime($dogsitem->created_at))}}</h6>
                                         <a href="/dogprofile/{{$dogsitem->id}}" class="btn mt-2 showdeets_btn">Show Details</a>
                                     </div>
+=======
+                    @foreach($dogs as $dogsitem)
+                    <div class="card d-inline-flex my-4 mx-2 border">
+                        <div class="card" style="width:280px;">
+                        <img src="{{'image/' . $dogsitem->pic}}" class="card-img-top" alt="picture" style="width:100%;">
+                            <div class="card-body">
+                            <h5 class="card-title fw-bold text-start" style="font-style:italic; font-family: Quicksand; color:#;">{{$dogsitem->name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-start" style="font-family: Poppins;">{{($dogsitem->gender=="1-Male")? "Male" : "Female" }}, {{$dogsitem->age_yr}}y and {{$dogsitem->age_month}}m</h6>
+                            <h6 class="card-subtitle mb-2 text-muted text-start" style="font-family: Lato; font-weight:10px">{{$dogsitem->breed1_name}} , {{$dogsitem->breed2_name}}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted text-start" style="font-size:smaller; font-family: Lato; font-weight:10px"> Date Posted: {{date('M d, Y', strtotime($dogsitem->created_at))}}</h6>
+                            <a href="/dogprofile/{{$dogsitem->id}}" class="btn mt-2 showdeets_btn">Show Details</a>
+>>>>>>> Stashed changes
                             </div>
                         </div> 
                         {{-- </div> --}}
