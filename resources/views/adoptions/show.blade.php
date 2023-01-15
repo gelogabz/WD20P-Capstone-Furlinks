@@ -22,7 +22,7 @@
                   <div class="border" style="border-radius:15px;margin-right:0px;padding:20px 30px 0px 30px">
                       <div style="text-align:center;margin-bottom:20px"><h6>DOG REHOMED</h5></div>
                       <div class="card" style="flex-direction:row; height:auto; align-items:center;margin: 0px 10px">
-                      <img src="{{asset('image/'.$adoptions->pic)}}" class="card-img-top" alt="picture" style="width:120px">
+                      <img src="{{asset('Image/'.$adoptions->pic)}}" class="card-img-top" alt="picture" style="width:120px">
                       <div class="card-body" style="padding-left:20px">
                           <h5 class="card-title fw-bold" style="font-style:italic; font-family: Quicksand; color:#;">{{$adoptions->name}}</h5>
                           <h6 class="card-subtitle mb-2" style="font-family: Poppins;">{{($adoptions->gender=="1-Male")? "Male" : "Female" }}, {{$adoptions->age_yr}}y and {{$adoptions->age_month}}m</h6>
@@ -86,7 +86,7 @@
                   <div class="border" style="border-radius:15px;margin-right:0px;padding:20px 30px 0px 30px">
                       <div style="text-align:center;margin-bottom:20px"><h6>ADOPTER</h5></div>
                       <div class="card" style="flex-direction:row; height:auto; align-items:center;margin: 0px 10px">
-                      <img src="{{asset('image/'.$adoptions->profile_pic)}}" alt="profilepic" class="card-img-top" style="width:120px; display:block;border-radius:50%;margin:auto"/>
+                      <img src="{{asset('Image/'.$adoptions->profile_pic)}}" alt="profilepic" class="card-img-top" style="width:120px;height:120px; object-fit:cover; display:block;border-radius:50%;margin:auto"/>
                       <div class="card-body" style="padding-left:40px">
                           <h5 class="card-title fw-bold" style="font-style:italic; font-family: Quicksand; color:#;">{{$adoptions->username}}</h5>
                           <h6 class="card-subtitle mb-2" style="font-family: Poppins;">{{$adoptions->firstname}}{{' '.$adoptions->lastname}}</h6>

@@ -18,17 +18,18 @@
             </p>
         </div>
     </div>
-    <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-6 my-2">
+    <div class="row align-items-center flex-row-reverse d-flex mx-0">
+        <div class="col-sm-6 my-2">
+            <img src="{{asset('build/images/how-2.png') }}" class=" ms-5" style="height:300px">
+        </div>
+        <div class="col-md-6 order-1 my-2">
             <h4 class="text-end" style="color: #B78550; font-family:Poppins; font-weight:900; font-size:20pt;">2. Create an Account</h4>
             <p class="text-end mx-4" style="font-family: Lato; font-weight:600; color:#413F42;">
               Once they find a dog they're interested in, they can create an account by clicking on the "Sign up" button. 
               This will require them to provide some basic information such as their name, email address, and a password.
             </p>
         </div>
-        <div class="col-sm-6 my-2">
-            <img src="{{asset('build/images/how-2.png') }}" class=" ms-5" style="height:300px">
-        </div>
+       
     </div>
     <div class="row align-items-center d-flex mx-0">
         <div class="col-sm-6 my-5">
@@ -42,16 +43,17 @@
             </p>
         </div>
     </div>
-     <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-6 my-5">
+     <div class="row align-items-center flex-row-reverse d-flex mx-0">
+          <div class="col-sm-6 my-5">
+            <img src={{asset('build/images/how-4.png') }} class=" ms-5" style="height:300px;">
+        </div>
+        <div class="col-md-6 order-1 my-5">
             <h4 class="text-end" style="color: #B78550; font-family:Poppins; font-weight:900; font-size:20pt;">4. Create a Profile</h4>
             <p class="text-end mx-4" style="font-family: Lato; font-weight:600; color:#413F42;">
                Users can create a profile that includes information about themselves, their lifestyle, and what kind of 
                dog they're looking for. This can help match them with a dog that is a good fit for their home.
         </div>
-        <div class="col-sm-6 my-5">
-            <img src={{asset('build/images/how-4.png') }} class=" ms-5" style="height:300px;">
-        </div>
+       
     </div>
     <div class="row align-items-center d-flex mx-0">
         <div class="col-sm-6 my-5">
@@ -65,17 +67,18 @@
             </p>
         </div>
     </div>
-    <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-6 my-5">
+    <div class="row align-items-center flex-row-reverse d-flex mx-0">
+          <div class="col-sm-6 my-5">
+            <img src="{{asset('build/images/how-6.png') }}" class=" ms-5" style="height:300px">
+        </div>
+        <div class="col-md-6 order-1 my-5">
             <h4 class="text-end" style="color: #B78550; font-family:Poppins; font-weight:900; font-size:20pt;">6. Submit the Adoption Application</h4>
             <p class="text-end mx-4" style="font-family: Lato; font-weight:600; color:#413F42;">
                 Once a user finds a dog they want to adopt, they can submit an adoption application. This will typically 
                 include information such as their address, contact information, and information about their home and lifestyle.
             </p>
         </div>
-        <div class="col-sm-6 my-5">
-            <img src="{{asset('build/images/how-6.png') }}" class=" ms-5" style="height:300px">
-        </div>
+      
     </div>
     <div class="row align-items-center d-flex mx-0">
         <div class="col-sm-6 my-5">
@@ -90,17 +93,18 @@
             </p>
         </div>
     </div>
-    <div class="row align-items-center d-flex mx-0">
-        <div class="col-md-6 my-5">
+    <div class="row align-items-center flex-row-reverse d-flex mx-0">
+         <div class="col-sm-6 my-5">
+            <img src={{asset('build/images/how-8.png') }} class=" ms-5" style="height:300px">
+        </div>
+        <div class="col-md-6 order-1 my-5">
             <h4 class="text-end" style="color: #B78550; font-family:Poppins; font-weight:900; font-size:20pt;">8. Post Adoption</h4>
             <p class="text-end mx-4" style="font-family: Lato; font-weight:600; color:#413F42;">
               Post Adoption, new owner and organization or individual responsible for the dog, stay in touch and provide 
               updates of the dog.
             </p>
         </div>
-        <div class="col-sm-6 my-5">
-            <img src={{asset('build/images/how-8.png') }} class=" ms-5" style="height:300px">
-        </div>
+       
     </div>
     <p class="linesafooter mx-4"></p>
     <div class="row align-items-center d-flex mx-0">

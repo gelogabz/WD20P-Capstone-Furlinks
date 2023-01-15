@@ -1,6 +1,14 @@
 @extends ('components.navbar')
 @section('content')
+<style>
+    #cards {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+    object-position: center;
 
+}
+</style>
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
 
 <div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom:30px">
@@ -55,8 +63,8 @@
               @else 
                 <div class="alert alert-warning" style="margin:auto; text-align:center; width: 320px;height:120px">
                   <p style="font-weight:800;font-size:medium"> Want to adopt this dog? <br> 
-                  <p style="font-weight:400;font-size:15px;"> Please login by <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> 
-                  clicking here</a><br> 
+                  <p style="font-weight:400;font-size:15px;">  <a href="{{ route('login') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> 
+                  Click here</a> to login <br> 
                   or if you are a new user, <a href="{{ route('register') }}"  style="color:#885b2a; text-decoration: none;font-weight:700"> register here.</a></span>    
                 </div>
               @endif  
@@ -64,7 +72,7 @@
           </div>
 
           <div class="col-lg-7 col-sm-12" style="padding: 0px 20px 20px 20px;">
-            <h5 style="color:#61482e; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{$dogs->age_yr}}y and {{$dogs->age_month}} month/s old<br>
+            <h5 style="color:#61482e; font-family:Poppins;"> {{($dogs->gender=="1-Male")? "Male" : "Female" }},  {{($dogs->age_yr>0)? $dogs->age_yr."yr" : "" }} {{($dogs->age_month>0)? $dogs->age_month."mo" : ""}} old<br>
             <h6 style="color:#c8a279; font-family:Poppins;"><i class="fa-solid fa-paw" style="font-size:medium; color:#c8a279"></i><span style="color:#413F42;" class="m-2">{{$dogs->breed1_name}} - {{$dogs->breed2_name}}</span></h6>
             <i class="fa-solid fa-timer" style="font-size:medium; color:#413F42"></i>
             <span style="font-size: small; color: #413F42">Date Posted: {{date('M d, Y', strtotime($dogs->created_at))}} </span><br></h4>
@@ -158,7 +166,7 @@
             @foreach($otherdogs as $otherdog)
             <div class="col col-sm-6 col-xs-4" style="padding:10px;">
               <div class="containerimg1" style="width:100%">
-                <img src="{{asset('Image/'.$otherdog->pic)}}" alt="Avatar" class="image1" style="width:100%">
+                <img src="{{asset('Image/'.$otherdog->pic)}}" alt="Avatar" class="image1" id="cards" style="width:100%">
                 <div class="middle1">
                   <div><a class="text1" href='{{$otherdog->id}}'>View</a></div>
                 </div>

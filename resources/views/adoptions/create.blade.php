@@ -130,7 +130,7 @@
                     <div class="border" style="border-radius:15px;margin-right:0px;padding:20px 30px 0px 30px">
                         <div style="text-align:center;margin-bottom:20px"><h6>DOG REHOMED</h5></div>
                         <div class="card" style="flex-direction:row; height:auto; align-items:center;margin: 0px 20px">
-                        <img src="{{asset('image/'.$dogs->pic)}}" class="card-img-top" alt="picture" style="width:120px">
+                        <img src="{{asset('Image/'.$dogs->pic)}}" class="card-img-top" alt="picture" style="width:120px">
                         <div class="card-body" style="padding-left:20px">
                             <h5 class="card-title fw-bold" style="font-style:italic; font-family: Quicksand; color:#;">{{$dogs->name}}</h5>
                             <h6 class="card-subtitle mb-2" style="font-family: Poppins;">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>
@@ -194,7 +194,7 @@
                     <div class="border" style="border-radius:15px;margin-right:0px;padding:20px 30px 0px 30px">
                         <div style="text-align:center;margin-bottom:20px"><h6>ADOPTER</h5></div>
                         <div class="card" style="flex-direction:row; height:auto; align-items:center;margin: 0px 20px">
-                        <img src="{{asset('image/'.$applications->profile_pic)}}" alt="profilepic" class="card-img-top" style="width:120px; display:block;border-radius:50%;margin:auto"/>
+                        <img src="{{asset('Image/'.$applications->profile_pic)}}" alt="profilepic" class="profilepic3" style="width:120px; height:120px; display:block; object-fit: cover; border-radius:50%;margin:auto"/>
                         <div class="card-body" style="padding-left:40px">
                             <h5 class="card-title fw-bold" style="font-style:italic; font-family: Quicksand; color:#;">{{$applications->username}}</h5>
                             <h6 class="card-subtitle mb-2" style="font-family: Poppins;">{{$applications->firstname}}{{' '.$applications->lastname}}</h6>

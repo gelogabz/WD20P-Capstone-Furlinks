@@ -9,6 +9,13 @@
   height: 150px ;
   object-fit: cover;
 }
+ .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+
+}
 </style>
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
@@ -22,10 +29,10 @@
     <div class="row" style="width:100%"> 
         
       <!--Foster profile information -->
-      <div class="card col-md-3 col-sm-12 text-center border pt-4 firstcol" style="align-items: center">
+      <div class="card col-md-3 col-sm-12 col-11 text-center border pt-4 firstcol" style="align-items: center">
         <div class="row" style="padding-bottom:5px">
             <div class="mx-auto">
-              <img class="propic" src="{{asset('image/'.$user->profile_pic)}}">
+              <img class="propic" src="{{asset('Image/'.$user->profile_pic)}}">
             </div>
             <center>
             <div class="row" style="padding-top:5px;">
@@ -98,14 +105,14 @@
                 <h4 style="font-family: Poppins; color:#413F42">Dogs posted for adoption</strong></h4>
                 <div class="row mt-3">
                   @foreach($dogsposted as $dog)
-                    <div class="col col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
+                    <div class="col-10 col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
                       <div class="containerimg" style="width:100%">
-                        <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
+                        <img src="{{asset('Image/'. $dog->pic)}}" class="card-img-top" width="100%">
                         <div class="middle">
                           <div><a class="text" href='/pages/{{$dog->id}}' style="text-decoration: none">View</a></div>
                         </div>
                       </div>    
-                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:10px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{($dog->age_yr>0)? $dog->age_yr."yr" : "" }} {{($dog->age_month>0)? $dog->age_month."mo" : ""}} old</p>
                       <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
                     </div>
                   @endforeach                  
@@ -123,12 +130,12 @@
                   @foreach($dogsrehomed as $dog)
                     <div class="col col-lg-3 col-md-4 mt-3" style="margin-bottom:25px">
                       <div class="containerimg" style="width:100%">
-                        <img src="{{asset('Image/'. $dog->pic)}}" class="image img-responsive" width="100%">
+                        <img src="{{asset('Image/'. $dog->pic)}}" class="card-img-top" id=""width="100%">
                         <div class="middle">
                           <div><a class="text" href='/adoptions/{{$dog->id}}' style="text-decoration: none">View</a></div>
                         </div>
                       </div>    
-                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:0px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{$dog->age_month}}mo. old</p>
+                      <p style="font-weight: 700; margin-bottom: 0px; margin-top:10px; font-family: 'Poppins'; color:#413F42;"> {{($dog->gender=="1-Male")? "Male" : "Female" }}, {{($dog->age_yr>0)? $dog->age_yr."yr" : "" }} {{($dog->age_month>0)? $dog->age_month."mo" : ""}} old</p>
                       <p style="margin-bottom: 0px; margin-top:0px; font-family: 'Lato'; color:#413F42;; font-weight:500;"><i>{{$dog->breed1_name}} , {{$dog->breed2_name}}</i></p>
                     </div>
                   @endforeach                  

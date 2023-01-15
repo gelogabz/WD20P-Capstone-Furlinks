@@ -39,6 +39,8 @@ class DogsController extends Controller
             )
             ->join('breed as breed1', 'breed1.id', '=', 'dogs.breed_id1')
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
+            ->where('dogs.status_id', '!=', 4)
+            ->where('dogs.status_id', '!=', 5)
             ->orderBy('id', 'DESC')
             ->take(4)->get();
             return view('welcome')->with('dogs', $dogs);
