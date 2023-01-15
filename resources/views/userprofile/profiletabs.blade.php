@@ -103,7 +103,7 @@
         </div>
     @endif
     
-    <div class="nav me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link tab1 active" id="v-pills-myprofile-tab" data-bs-toggle="pill" data-bs-target="#myProfile" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="bi bi-people-fill"></i>&nbsp; User Profile</a>
         <a class="nav-link tab2" id="v-pills-personalinfo-tab" data-bs-toggle="pill" data-bs-target="#personalinfo" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-file-earmark-person-fill"></i>&nbsp;Personal Info</a>
         <a class="nav-link tab3" id="v-pills-doghistory-tab" data-bs-toggle="pill" data-bs-target="#doghistory" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="bi bi-hourglass-bottom"></i>&nbsp; Dog History</a>
@@ -125,7 +125,7 @@
                             <!--Dog profile pic -->  
                             <div class="form-group mb-2" style="padding-top:30px;padding-bottom:3px">
                                 <div class="image-upload-wrap justify-content-center" style="height:200px;width:200px">
-                                    <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required/>
+                                    <input class="file-upload-input" type='file' onchange = "readURL(this);" accept="image/*" id="profile_pic" name="profile_pic" required>
                                     <div class="drag-text" style="padding-top:30%">
                                     <i class="fa-solid fa-photo-film" style="font-size:50px;color:#5082B7;;"></i><br><br><h6>Drag and drop a file <br>or click to browse</h5>
                                     </div>
@@ -147,14 +147,14 @@
                                 <div class="mb-2 row">
                                 <label for="firstname" class="col-lg-2 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">First Name :</label>
                                     <div class="col-lg-10">
-                                        <input type="text" name="firstname" class="form-control form-control-sm">
+                                        <input type="text" name="firstname" class="form-control form-control-sm" required>
                                     </div>
                                 </div>
                                 {{-- LASTNAME --}}
                                 <div class="mb-2 row">
                                     <label for="lastname" class="col-lg-2 col-form-label fw-bold" style="font-family: 'Lato', sans-serif;">Last Name :</label>
                                     <div class="col-lg-10">
-                                        <input type="text" name="lastname" class="form-control form-control-sm">
+                                        <input required type="text" name="lastname" class="form-control form-control-sm">
                                     </div>
                                 </div>
                                 {{-- ABOUT --}}
@@ -186,18 +186,18 @@
                     <div class='row mt-0'>
                         <div class='col-12 col-md-6 mt-3'>
                             <label  for='address1' class='col-sm-4 col-form-label'>Address: 1</label>
-                            <input type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
+                            <input required type="text" name="address1" class="form-control" placeholder="Address" aria-label="Address">
                         </div>
                         <div class='col-12 col-md-6 mt-3'>
                             <label for='address2' class='col-sm-4 col-form-label'>Address: 2</label>
-                            <input type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
+                            <input required type="text" name="address2" class="form-control" placeholder="Address" aria-label="Address">
                         </div>
                     </div>
 
                     <div class='row'>
                         <div class='col-sm-3 mt-3'>
                             <label for="city" class='col-sm-4 col-form-label'>City</label>
-                            <input type="text" name="city" class="form-control" placeholder="City">
+                            <input required type="text" name="city" class="form-control" placeholder="City">
                         </div>
                         <div class='col-sm-3 mt-3'>
                             <label for="province" class='col-sm-4 col-form-label'>Province</label>
@@ -205,7 +205,7 @@
                         </div>
                         <div class='col-sm-3 mt-3'>
                             <label for="hometype" class='col-sm-6 col-form-label'>Type of Home</label>
-                            <select name="hometype" class="form-select " aria-label=".form-select-sm example">
+                            <select required name="hometype" class="form-select " aria-label=".form-select-sm example">
                                 <option selected>Select Option</option>
                                 <option value="House">House</option>
                                 <option value="Condo">Condo</option>
@@ -216,13 +216,13 @@
                             <div class='row justfiy-content-center'>
                                 <label for="allowed" class='col-form-label mb-2'>Are pets allowed in your home ?</label>
                                 <div class="col-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='allowed' class="form-check-input" type="radio">
+                                    <input required value='1' name='allowed' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-3 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='0' name='allowed' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='allowed' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -238,15 +238,15 @@
                         </div>
                         <div class='col-sm-4 mt-3'>                     
                             <label for='gender' class='col-sm-4 col-form-label''>Gender</label>
-                            <select name='gender' class="form-select " aria-label=".form-select-sm example">
+                            <select required name='gender' class="form-select " aria-label=".form-select-sm example">
                                 <option selected>Select Gender</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
                         </div>
                         <div class='col-sm-4 mt-3'>   
-                            <label for="funds" class='col-sm-4 col-form-label'>Source of Funds</label>
-                            <select name="funds" class="form-select " aria-label=".form-select-sm example">
+                            <label for="funds" class='col-sm-6 col-form-label'>Source of Funds</label>
+                            <select required name="funds" class="form-select " aria-label=".form-select-sm example">
                                 <option selected>Select Option</option>
                                 <option value="Employment">Employment</option>
                                 <option value="Business">Business</option>
@@ -276,13 +276,13 @@
                             <div class='row justfiy-content-center'>
                                 <label for="withpets" class='col-form-label mb-2'>Do you currently have pets ?</label>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='withpets' class="form-check-input" type="radio">
+                                    <input required value='1' name='withpets' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='0' name='withpets' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='withpets' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -307,13 +307,13 @@
                             <label for="allergy" class="col-form-label">Do you have a member in your household who is allergic to animals?</label>
                             <div class="row">
                                 <div class="col-sm-2 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='allergy' class="form-check-input" type="radio">
+                                    <input required value='1' name='allergy' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-2 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='0' name='allergy' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='allergy' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -324,13 +324,13 @@
                             <label for="lefthome" class='col-form-label'>Will your dog be alone at home?</label>
                             <div class="row">
                                 <div class="col-sm-5 form-check d-flex justify-content-center">
-                                    <input value='1' name='lefthome' class="form-check-input" type="radio">
+                                    <input required value='1' name='lefthome' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-5 form-check d-flex justify-content-center">
-                                    <input value='0' name='lefthome' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='lefthome' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -349,13 +349,13 @@
                             <div class='row justfiy-content-center'>
                             <label for="allvaxed" class=' mb-2'>If you have pets, have they all been vaccinated?</label>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='allvaxed' class="form-check-input" type="radio">
+                                    <input required value='1' name='allvaxed' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='0' name='allvaxed' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='allvaxed' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -368,13 +368,13 @@
                             <div class='row justfiy-content-center'>
                             <label for="allneut" class=' mb-2'>If you have pets, are they all spayed/neutered?</label>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='allneut' class="form-check-input" type="radio">
+                                    <input required value='1' name='allneut' class="form-check-input" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3 ">
-                                    <input value='0' name='allneut' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='allneut' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -387,32 +387,34 @@
                             <div class='row justfiy-content-center'>
                                 <label for="euthanized" class=' mb-2'>Have you ever had a pet euthanized ?</label>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='euthanized' class="form-check-input custom-control" type="radio">
+                                    <input required value='1' name='euthanized' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='0' name='euthanized' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='euthanized' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
                                 </div> 
                             </div>
                         </div>
+                        
                         <div class='col-sm-2'>
                         </div>
+                        
                         <div class='col-sm-4'>
                             <div class='row justfiy-content-center'>
                                 <label for="lostpet" class=' mb-2'>Have you ever lost pet?</label>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='1' name='lostpet' class="form-check-input custom-control" type="radio">
+                                    <input required value='1' name='lostpet' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; Yes
                                     </label>
                                 </div>
                                 <div class="col-sm-3 form-check d-flex justify-content-center ms-3">
-                                    <input value='0' name='lostpet' class="form-check-input custom-control" type="radio">
+                                    <input required value='0' name='lostpet' class="form-check-input custom-control" type="radio">
                                     <label class="form-check-label" for="gridCheck" style="font-weight:400">
                                         &nbsp; No
                                     </label>
@@ -420,11 +422,12 @@
                             </div> 
                         </div>
                     </div>
+                    
                     <div class="row mt-3">
                         <div class='col-sm-5'>
                             <div class='row justfiy-content-center'>
                                 <label for="priresp" class='col-sm-12 col-form-label'>Who will have primary responsibility of the dog's care?</label>
-                                <select name="priresp" class="col-sm-6 form-select" aria-label=".form-select-sm example" style="margin-left:10px; width:250px">
+                                <select required name="priresp" class="col-sm-6 form-select" aria-label=".form-select-sm example" style="margin-left:10px; width:250px">
                                     <option selected>Select Option</option>
                                     <option value="Myself">Myself</option>
                                     <option value="My spouse/partner">My spouse/partner</option>
@@ -436,10 +439,11 @@
                         </div>
                         <div class='col-sm-1'>
                         </div>
+                        
                         <div class='col-sm-5'>
                             <div class='row justfiy-content-center'>
                                 <label for="finresp" class='col-sm-12 col-form-label'>Who will have financial responsibility of the dog?</label>
-                                <select name="finresp" class="form-select " aria-label=".form-select-sm example" style="margin-left:10px; width:250px">
+                                <select required name="finresp" class="form-select " aria-label=".form-select-sm example" style="margin-left:10px; width:250px">
                                     <option selected>Select Option</option>
                                     <option value="Myself">Myself</option>
                                     <option value="My spouse/partner">My spouse/partner</option>
@@ -450,7 +454,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class='d-flex justify-content-end'>
+                    
+                    <div class='d-flex justify-content-center justify-content-md-end mt-2'>
                         <input type="submit" name="submit" class="btn edit_btn" value="Save Profile" style="width:150px">                        
                     </div>
                 </div>

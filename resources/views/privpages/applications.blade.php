@@ -47,7 +47,7 @@
         <p>{{ $message }}</p>
     </div>
     @endif
-
+    <div class=" table-responsive text-nowrap overflow-y:auto">
       <table class="table table-borderless" style="width:100%;margin-top:10px;vertical-align:middle">
         <tr style="border-bottom:0.3pt solid #e1e1e1;">
           <th></th>
@@ -62,7 +62,7 @@
 
         @foreach($applications as $application)    
         <tr>
-          <td><img src="{{asset('image/'.$application->dog_pic)}}" style="width:100px;border-radius:10px;display:block;margin:auto;"></td>
+          <td><img src="{{asset('Image/'.$application->dog_pic)}}" style="width:100px;border-radius:10px;display:block;margin:auto;"></td>
           <td style="vertical-align:middle"><a class="username" href="pages/{{$application->dog_id}}">{{$application->dog_name}}</a></td>
           <td style="vertical-align:middle">{{($application->gender=="1-Male")? "Male" : "Female" }}</td>
           <td style="vertical-align:middle">{{$application->age_yr}}y {{" ".$application->age_month}}m old</td>
@@ -73,6 +73,7 @@
         </tr>
         @endforeach
       </table>
+    </div>
   </div>
 </div>
 @endsection('content')

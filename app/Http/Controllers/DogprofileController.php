@@ -48,7 +48,9 @@ class DogprofileController extends Controller
             ->join('breed as breed2', 'breed2.id', '=', 'dogs.breed_id2')
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.user_id', '=', $idtofind)
-            ->where('dogs.status_id', '!=', 3)
+            ->where('dogs.status_id', '!=', 4)
+            ->where('dogs.status_id', '!=', 5)
+            ->orderBy('id', 'DESC')
             ->simplePaginate(8);
 
         return view('privpages.dogsposted')->with('dogs', $dogs);

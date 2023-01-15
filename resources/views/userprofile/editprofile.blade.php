@@ -133,7 +133,7 @@
                
                     {{-- <div class=' mx-auto'>
 
-                        <img class='propic' src="{{asset('image/'.$userprofiles->profile_pic)}}">
+                        <img class='propic' src="{{Image/'.$userprofiles->profile_pic}}">
 
                         <div class="input-group mt-4">
                             <input type="file" class="form-control form-sm-control" id="profile_pic" name="profile_pic" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
@@ -149,7 +149,7 @@
                         </div>
             
                         <div class="file-upload-content">
-                            <img class="propic" id="imgdisplay" src="{{asset('image/'.$userprofiles->profile_pic)}}" alt="your image" />
+                            <img class="propic" id="imgdisplay" src="{{asset('Image/'.$userprofiles->profile_pic)}}" alt="your image" />
                             <div class="container justify-content-center">
                               <div class="image-title-wrap justify-content-center"></div>
                               <center>

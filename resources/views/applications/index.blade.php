@@ -33,7 +33,7 @@
 </style>
 
 <hr style="margin:0px 0px 5px 0px;padding:0px 0px 0px 0px;border-color:#ececec">
-<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 5%; padding-top:0px;margin-bottom: 20px">
+<div class="container-fluid d-flex justify-content-center" style="padding-left: 5%; padding-right: 2%; padding-top:0px;margin-bottom: 20px">
   <div class="row" style="width:100%;margin-top:5px;margin-bottom:20px">
     <a class="btn btn-outline-primary2" href="/dogprofile/{{$dogs->id}}" type="button" style="vertical-align: bottom;text-align: left;padding-left:10px;width:180px;margin-bottom:20px">
       <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Back to Dog Profile</a>
@@ -44,12 +44,12 @@
     @endif
 
     <div class="row" style="width:100%">          
-      <div class="col-md-9 col-sm-12">                              
+      <div class="col-12 col-md-9 col-sm-12">                              
         <div class="row">
           <h3 class="" style="font-family: Poppins; color:#413F42">Applications for Adoption</h3>
         </div>
-        <div class="row" style="margin-top:20px;margin-right:70px">
-          <table class="table" style="margin-top:10px;vertical-align:middle;margin-left:30px; padding-right:10px;">
+        <div class="row table-responsive text-nowrap overflow-y:auto" style="margin:10px;">
+          <table class="table" style="width:100%; margin-top:10px;vertical-align:middle;padding-right:10px;">
             <colgroup>
               <col span="1" style="width:12%">
               <col span="1" style="width:18%">
@@ -68,7 +68,7 @@
     
             @foreach($applications as $application)    
             <tr>
-              <td><img class="propic2" src="{{asset('image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
+              <td><img class="propic2" src="{{asset('Image/'.$application->profile_pic)}}" style="width:60px;border-radius:50%;display:block;margin:auto;"></td>
               <td style="vertical-align:middle">{{" ".$application->username}}</td>
               <td style="vertical-align:middle">{{$application->firstname}}{{" ".$application->lastname}}</td>
               <td style="vertical-align:middle">{{date('M d, Y', strtotime($application->created_at))}}</td>
@@ -87,7 +87,7 @@
         <div class="border" style="border-radius:10px;margin-right:0px;padding:20px 10px">
             <div class="card">
               <div class="card-title" style="text-align:center"><h5>Dog for Adoption</h5></div>
-              <img src="{{asset('image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
+              <img src="{{asset('Image/'.$dogs->pic)}}" alt="dog" class="card-img-top" style="width:90%;display:block;margin:auto">
               <div class="card-body">
                   <h5 class="card-title" style="font-style:italic">{{$dogs->name}}</h5>
                   <h6 class="card-subtitle mb-2">{{($dogs->gender=="1-Male")? "Male" : "Female" }}, {{$dogs->age_yr}}y and {{$dogs->age_month}}m</h6>

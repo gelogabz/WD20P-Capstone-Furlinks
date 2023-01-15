@@ -24,7 +24,7 @@
     <i class="fa fa-arrow-left" aria-hidden="true" style="font-size:medium;padding-right:10px;padding-top:4px"></i>Go back</a>
   
   <div class="row justify-content-center">
-    <div class="col-8 card shadow p-4 onlycol">
+    <div class="col-12 col-md-6 card shadow p-4 onlycol">
       <h2 class="" style="font-family: Poppins; color:#413F42"> Change password</H1>
         <HR>
 
@@ -51,15 +51,15 @@
             <div class="row mb-3">
               <div class="col-12 mb-3">
                 <label for="formGroupExampleInput" class="form-label">Current Password</label>
-                <input type="password" name="oldpassword" class="form-control" id="oldpassword" placeholder="Input Current Password">
+                <input type="password" name="oldpassword" class="form-control" id="oldpassword">
               </div>
               <div class="col-12 mb-3">
                 <label for="formGroupExampleInput" class="form-label">New Password</label>
-                <input type="password" name="password" class="form-control" id="password" placeholder="Input New Password">
+                <input type="password" name="password" class="form-control" id="password" >
               </div>
               <div class="col-12 mb-3">
                 <label for="formGroupExampleInput" class="form-label">Confirm Password</label>
-                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" placeholder="Input Confirm Password">
+                <input type="password" name="password_confirmation" class="form-control" id="password_confirmation" >
               </div>
             </div>
             <div class="col-12 d-flex justify-content-center mt-2 mb-3">

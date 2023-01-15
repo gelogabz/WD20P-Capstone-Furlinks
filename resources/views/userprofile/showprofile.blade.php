@@ -30,7 +30,7 @@
                 </style>
                     <div class=' mx-auto'>
 
-                        <img class='propic' src="{{asset('image/'.$userprofiles->profile_pic)}}">
+                        <img class='propic' src="{{asset('Image/'.$userprofiles->profile_pic)}}">
                         
                     </div>
                 

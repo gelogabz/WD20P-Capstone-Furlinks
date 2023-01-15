@@ -128,7 +128,7 @@
             </div>
 
             <div class="file-upload-content">
-                <img class="file-upload-image" id="imgdisplay" src="{{asset('image/'.$dogs->pic)}}" alt="your image" />
+                <img class="file-upload-image" id="imgdisplay" src="{{asset('Image/'.$dogs->pic)}}" alt="your image" />
                 <div class="container justify-content-center">
                   <div class="image-title-wrap justify-content-center"></div>
                   <center>

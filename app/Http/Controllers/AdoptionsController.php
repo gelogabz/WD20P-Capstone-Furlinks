@@ -44,6 +44,7 @@ class AdoptionsController extends Controller
             ->join('status', 'status.id', '=', 'dogs.status_id')
             ->where('dogs.user_id', '=', $idtofind)
             ->where('dogs.status_id', '=', 4)
+            ->orderBy('id', 'DESC')
             ->simplePaginate(8);
 
         return view('privpages.dogsrehomed')->with('dogs', $dogs);

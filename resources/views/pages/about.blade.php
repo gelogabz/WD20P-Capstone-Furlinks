@@ -2,8 +2,11 @@
 @section('content')
 <div style="background-color: #F4f4f4;">
     <div class="row align-items-center d-flex mx-0">
-        <div class="col-sm-5 my-5">
-            <img src="{{asset('build/images/about-logo.png') }}" class="rounded-circle ms-5" style="width: 90%;">
+        <div class="col-sm-5 my-5 mx-auto">
+                <div>
+                <img src="{{asset('build/images/about-logo.png') }}" class="rounded-circle ms-3" style="width: 90%;">
+                </div>
+           
         </div>
         <div class="col-md-7 my-5">
             <h3 class="display-5 text-center mx-5" style="color:#413F42; font-family:Quicksand; font-weight:700;">ABOUT FURLINKS</h3>
