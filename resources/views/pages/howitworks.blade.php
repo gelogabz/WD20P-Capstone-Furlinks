@@ -19,7 +19,7 @@
         </div>
     </div>
     <div class="row align-items-center flex-row-reverse d-flex mx-0">
-          <div class="col-sm-6 my-2">
+        <div class="col-sm-6 my-2">
             <img src="{{asset('build/images/how-2.png') }}" class=" ms-5" style="height:300px">
         </div>
         <div class="col-md-6 order-1 my-2">
@@ -29,7 +29,7 @@
               This will require them to provide some basic information such as their name, email address, and a password.
             </p>
         </div>
-      
+       
     </div>
     <div class="row align-items-center d-flex mx-0">
         <div class="col-sm-6 my-5">

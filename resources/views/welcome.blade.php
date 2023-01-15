@@ -54,10 +54,10 @@
                   <option value="Brindled">Brindled</option>
                 </select>
             </div>
-            <div class="form-group col-12 col-md-2 d-flex justify-content-center justify-content-md-end align-item-center p-0">
-                <div class='d-flex align-items-center'>
-                  <input type="submit" value="SEARCH" class="btn rounded-2 border-0 py-3 px-4 " style="letter-spacing:3px; font-family: 'Lato'; color:#FFF; background-color:#5082B7;">
-                </div>
+            <div class="form-group col col-md-1 col-sm-12 col-xs-12">
+              <input type="submit" value="SEARCH" class="btn rounded-2 border-0 h-100 w-100 " style="float:end; letter-spacing:3px; font-family: 'Lato'; color:#FFF; background-color:#5082B7;">
+              {{-- <input type="submit" name="search" role=search id="search" value="SEARCH" class="btn btn-primary rounded-2 h-100" style="border-radius:0; letter-spacing:3px; font-family: 'Lato'; padding-top:7px; color:#FFF; background-color:#5082B7;"/> --}}
+                  {{-- <i class="fa-solid fa-magnifying-glass" style="padding-top:15px;"></i> --}}
             </div>
             <!--<div class="form-group col-12 col-md-1 col-sm-12 col-xs-12">-->
             <!--  <input type="submit" value="SEARCH" class="btn rounded-2 border-0 h-100 mb-xs-2" style="float:end; letter-spacing:3px; font-family: 'Lato'; color:#FFF; background-color:#5082B7;">-->
