@@ -2,30 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Dogs;
-use App\Models\Search;
+use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
 
-use DB;
-
 class SearchController extends Controller
-
 {
-     /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-   
     public function index(Request $request)
     {
-        
+
         $gender = $request->input('gender');
         $size = $request->input('size');
         $color = $request->input('color');
-        
 
         $dogs = Dogs::query()
             ->select(
@@ -70,7 +63,7 @@ class SearchController extends Controller
             ->where('dogs.status_id', '!=', 5)
             ->where('dogs.gender', 'LIKE', "%{$gender}%")
             ->where('dogs.size', 'LIKE', "%{$size}%")
-            ->where('dogs.color','LIKE', "%{$color}%")
+            ->where('dogs.color', 'LIKE', "%{$color}%")
             ->paginate(12);
 
         return view('pages.search')
@@ -79,14 +72,12 @@ class SearchController extends Controller
             ->with('color', $color)
             ->with('dogs', $dogs);
     }
-    
+
     /**
      * Show the form for creating a new resource.
      */
-    
     public function boot()
     {
         Paginator::useBootstrap();
     }
-    
 }

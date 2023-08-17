@@ -2,14 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Collection;
-
-use App\Models\Applications;
-use App\Models\Dogs;
-use App\Models\Breed;
-use App\Models\Userprofile;
 use DB;
 
 class PublicprofileController extends Controller
@@ -29,10 +21,10 @@ class PublicprofileController extends Controller
                 'userprofiles.province',
                 'users.name as user_name'
             )
-            ->join ('users', 'users.id', '=', 'userprofiles.user_id')
+            ->join('users', 'users.id', '=', 'userprofiles.user_id')
             ->where('userprofiles.user_id', '=', $id)
             ->first();
-        
+
         $dogsposted = DB::table('dogs')
             ->select(
                 'dogs.id',
@@ -75,8 +67,8 @@ class PublicprofileController extends Controller
             ->simplePaginate(8);
 
         return view('users.profile')
-        ->with('user', $userprofile)
-        ->with('dogsposted', $dogsposted)
-        ->with('dogsrehomed', $dogsrehomed);
+            ->with('user', $userprofile)
+            ->with('dogsposted', $dogsposted)
+            ->with('dogsrehomed', $dogsrehomed);
     }
 }

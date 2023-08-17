@@ -1,16 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Collection;
 
-use Illuminate\Http\Request;
-use App\Models\Applications;
-use App\Models\Dogs;
 use App\Models\Breed;
+use App\Models\Dogs;
 use App\Models\Search;
 use App\Models\Userprofile;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class DogsController extends Controller
 {
@@ -43,9 +40,10 @@ class DogsController extends Controller
             ->where('dogs.status_id', '!=', 5)
             ->orderBy('id', 'DESC')
             ->take(4)->get();
-            return view('welcome')->with('dogs', $dogs);
+
+        return view('welcome')->with('dogs', $dogs);
     }
-    
+
     public function show($id)
     {
         $singleDog = DB::table('dogs')
@@ -87,15 +85,15 @@ class DogsController extends Controller
             ->join('userprofiles', 'userprofiles.user_id', '=', 'dogs.user_id')
             ->where('dogs.id', $id)
             ->first();
-            
+
         $ownerid = Dogs::where('dogs.id', '=', $id)
             ->select('dogs.user_id')
             ->first()->user_id;
-        
+
         $dogsposted = DB::table('dogs')
-            ->select('dogs.id', 'dogs.pic',)
+            ->select('dogs.id', 'dogs.pic')
             ->join('users', 'users.id', '=', 'dogs.user_id')
-            ->where('dogs.user_id', "=", $ownerid)
+            ->where('dogs.user_id', '=', $ownerid)
             ->take(4)
             ->get();
 
@@ -106,18 +104,23 @@ class DogsController extends Controller
             ->where('user_id', '=', $idtofind)
             ->get();
 
-        if ($applications->isEmpty())
-        {$applicationstatus = '';}
-        else {$applicationstatus = 'existing';};
+        if ($applications->isEmpty()) {
+            $applicationstatus = '';
+        } else {
+            $applicationstatus = 'existing';
+        }
 
-        if ($idtofind == $ownerid)
-        {$owned = 'yes';}
-        else {$owned = 'no';};
+        if ($idtofind == $ownerid) {
+            $owned = 'yes';
+        } else {
+            $owned = 'no';
+        }
 
         if (Userprofile::where('user_id', '=', $idtofind)->exists()) {
-            $withprofile = 'complete';}
-        else {$withprofile = 'inc';}
-
+            $withprofile = 'complete';
+        } else {
+            $withprofile = 'inc';
+        }
 
         return view('pages/dogdetailspublic')
             ->with('ownership', $owned)
@@ -137,7 +140,7 @@ class DogsController extends Controller
     //     $gender = $request->input('gender');
     //     $color = $request->input('color');
     //     $size = $request->input('size');
-        
+
     //     $dogs = Dogs::query()
     //         ->select(
     //             'dogs.name',

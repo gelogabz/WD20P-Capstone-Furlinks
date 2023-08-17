@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DogsController;
 
 Route::get('/', 'App\Http\Controllers\PagesController@welcome');
 Route::get('/navbar', 'App\Http\Controllers\PagesController@navbar');
@@ -52,5 +51,3 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Search.Blade
 Route::resource('/search', 'App\Http\Controllers\SearchController');
-
-

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Adoptions;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Applications;
-use App\Models\Adoptions;
-use App\Models\Dogs;
-use DB;
 
 class AdoptionsController extends Controller
 {
@@ -81,7 +79,7 @@ class AdoptionsController extends Controller
             ->where('applications.appstatus', 5)
             ->first();
 
-            $dogs = DB::table('dogs')
+        $dogs = DB::table('dogs')
             ->select('dogs.pic',
                 'dogs.id',
                 'dogs.name',
@@ -92,7 +90,7 @@ class AdoptionsController extends Controller
                 'breed1.name as breed1_name',
                 'dogs.breed_id2',
                 'breed2.name as breed2_name',
-                'dogs.created_at',   
+                'dogs.created_at',
                 'dogs.size',
                 'dogs.color',
                 'dogs.location',
@@ -111,19 +109,19 @@ class AdoptionsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, array(
+        $this->validate($request, [
             'turnover_pic' => 'required',
-        ));
+        ]);
 
         $turnover = new Adoptions;
         $turnover->dog_id = $request->dogid;
         $turnover->user_id = $request->userid;
 
         if ($file = $request->file('turnover_pic')) {
-            $filename = date('YmdHis') . $file->getClientOriginalname();
+            $filename = date('YmdHis').$file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['turnover_pic'] = "$filename";
-        };
+        }
 
         $turnover->turnoverpic = $input['turnover_pic'];
         $turnover->save();
@@ -131,11 +129,11 @@ class AdoptionsController extends Controller
         $id = $turnover->dog_id;
 
         DB::table('dogs')
-        ->where('dogs.id', $id)
-        ->update(['status_id' => 4]);
+            ->where('dogs.id', $id)
+            ->update(['status_id' => 4]);
 
         return redirect('/dogsrehomed')
-        ->with('success', 'Adoption successfully finalized.');
+            ->with('success', 'Adoption successfully finalized.');
     }
 
     public function show($id)
@@ -145,7 +143,7 @@ class AdoptionsController extends Controller
                 'adoptions.id',
                 'adoptions.dog_id as dog_id',
                 'adoptions.user_id as user_id',
-                
+
                 'users.name as username',
                 'users.email as email',
                 'userprofiles.firstname as firstname',
@@ -166,7 +164,7 @@ class AdoptionsController extends Controller
                 'breed1.name as breed1_name',
                 'dogs.breed_id2',
                 'breed2.name as breed2_name',
-                'dogs.created_at as created_at',   
+                'dogs.created_at as created_at',
                 'dogs.size as size',
                 'dogs.color as color',
                 'dogs.location as location',
@@ -186,6 +184,6 @@ class AdoptionsController extends Controller
             ->first();
 
         return view('adoptions.show')
-        ->with('adoptions', $rehomed);
+            ->with('adoptions', $rehomed);
     }
 }

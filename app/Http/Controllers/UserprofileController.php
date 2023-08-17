@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Userprofile;
+use DB;
+// use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-// use App\Models\User;
-use App\Models\Userprofile;
-
-use DB;
 
 class UserprofileController extends Controller
 {
-
     public function index()
     {
         $idtofind = Auth::id();
@@ -19,20 +17,20 @@ class UserprofileController extends Controller
             ->select('profile_pic')
             ->where('user_id', '=', $idtofind)
             ->simplePaginate(1);
+
         return view('components.navbar')->with('userpic', $userprofile);
     }
 
     public function create()
     {
-       
+
         return view('userprofile.profiletabs');
 
     }
 
-
     public function store(Request $request)
     {
-        $this->validate($request, array(
+        $this->validate($request, [
             'firstname' => 'required',
             'lastname' => 'required',
             'about' => 'required',
@@ -58,20 +56,18 @@ class UserprofileController extends Controller
             'finresp' => 'required',
             'lefthome' => 'required',
             'hours' => 'required',
-        )
+        ]
         );
 
         $userprofile = new Userprofile;
         $userprofile->user_id = Auth::user()->id;
         $idtofind = Auth::user()->id;
 
-
         if ($file = $request->file('profile_pic')) {
-            $filename = date('YmdHis') . $file->getClientOriginalname();
+            $filename = date('YmdHis').$file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $userprofile['profile_pic'] = "$filename";
         }
-        ;
 
         $userprofile->profile_pic = $userprofile['profile_pic'];
         $userprofile->firstname = $request->firstname;
@@ -139,11 +135,10 @@ class UserprofileController extends Controller
             )
             ->where('user_id', $id)
             ->first();
-        
+
         if (Userprofile::where('user_id', '=', $id)->exists()) {
             return view('userprofile.showprofile')->with('userprofiles', $userprofile);
-        }
-        else {
+        } else {
             return view('userprofile.profiletabs');
         }
     }
@@ -182,25 +177,26 @@ class UserprofileController extends Controller
             )
             ->where('id', $id)
             ->first();
+
         return view('userprofile.editprofile')->with('userprofiles', $userdata);
     }
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, array());
+        $this->validate($request, []);
 
         $userprofiles = Userprofile::find($id);
 
         // $userprofiles = Userprofiles::find($userid);
 
         if ($file = $request->file('profile_pic')) {
-            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
+            $filename = date('YmdHis').'.'.$file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['profile_pic'] = "$filename";
         } else {
             unset($input['profile_pic']);
         }
-        ;
+
         $userprofiles->profile_pic = $input['profile_pic'];
         $userprofiles->firstname = $request->input('firstname');
         $userprofiles->lastname = $request->input('lastname');
@@ -229,10 +225,8 @@ class UserprofileController extends Controller
         $userprofiles->save();
 
         $idtofind = Auth::id();
-        
+
         return redirect('userprofile/'.$idtofind)
             ->with('success', 'Profile successfully updated.');
     }
-
- 
 }

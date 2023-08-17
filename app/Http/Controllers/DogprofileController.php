@@ -2,17 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Pagination\Paginator;
-
-use App\Http\Controllers\Userprofile;
-
 use App\Models\Dogs;
-use App\Models\Users;
-use App\Models\UserProfiles;
-
 use DB;
+use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Auth;
 
 class DogprofileController extends Controller
 {
@@ -68,19 +62,17 @@ class DogprofileController extends Controller
             ->where('user_id', '=', $idtofind)
             ->get();
 
-        if ($userprofiles->isEmpty())
-            {
+        if ($userprofiles->isEmpty()) {
             return redirect('/dogsposted')
-            ->with('noprofile', '  A completed user profile is required for posting a dog for adoption.');
-            }
-        else {
+                ->with('noprofile', '  A completed user profile is required for posting a dog for adoption.');
+        } else {
             return view('dogprofile.createprofile')->with('breed', $breed);
-            }
+        }
     }
 
     public function store(Request $request)
     {
-        $this->validate($request, array(
+        $this->validate($request, [
             'gender' => 'required',
             'breed_id1' => 'required',
             'pic' => 'required',
@@ -91,7 +83,7 @@ class DogprofileController extends Controller
             'rescued' => 'required',
             'fee' => 'required',
             'feenotes' => 'required',
-        ));
+        ]);
 
         $dog = new Dogs;
         $dog->name = $request->name;
@@ -102,10 +94,10 @@ class DogprofileController extends Controller
         $dog->breed_id2 = $request->breed_id2;
 
         if ($file = $request->file('pic')) {
-            $filename = date('YmdHis') . $file->getClientOriginalname();
+            $filename = date('YmdHis').$file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
-        };
+        }
 
         $dog->pic = $input['pic'];
         $dog->size = $request->size;
@@ -175,7 +167,6 @@ class DogprofileController extends Controller
             ->with('applications', $applications);
     }
 
-
     public function edit($id)
     {
         $editDog = DB::table('dogs')
@@ -208,16 +199,16 @@ class DogprofileController extends Controller
             ->where('dogs.id', $id)
             ->first();
 
-            $breed = DB::table('breed')
+        $breed = DB::table('breed')
             ->select('id', 'name')
             ->get();
 
-        return view('dogprofile.editdog')->with('dogs', $editDog)->with('breed',$breed);
+        return view('dogprofile.editdog')->with('dogs', $editDog)->with('breed', $breed);
     }
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, array(
+        $this->validate($request, [
             'gender' => 'required',
             'breed_id1' => 'required',
             'pic' => 'required',
@@ -228,7 +219,7 @@ class DogprofileController extends Controller
             'rescued' => 'required',
             'fee' => 'required',
             'feenotes' => 'required',
-        ));
+        ]);
 
         $dogs = Dogs::find($id);
 
@@ -248,12 +239,12 @@ class DogprofileController extends Controller
         $dogs->fee = $request->input('fee');
         $dogs->feenotes = $request->input('feenotes');
         if ($file = $request->file('pic')) {
-            $filename = date('YmdHis') . "." . $file->getClientOriginalname();
+            $filename = date('YmdHis').'.'.$file->getClientOriginalname();
             $file->move(public_path('Image'), $filename);
             $input['pic'] = "$filename";
         } else {
             unset($input['pic']);
-        };
+        }
         $dogs->pic = $input['pic'];
         $dogs->save();
 
